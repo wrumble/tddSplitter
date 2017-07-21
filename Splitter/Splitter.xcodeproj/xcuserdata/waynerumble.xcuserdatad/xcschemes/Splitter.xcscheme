@@ -52,7 +52,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC1451F22066900846851"
+               BlueprintIdentifier = "874AC1691F2212A000846851"
                BuildableName = "UserTests.xctest"
                BlueprintName = "UserTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
@@ -65,6 +65,16 @@
                BlueprintIdentifier = "874AC15B1F2210FE00846851"
                BuildableName = "BillSplitterTests.xctest"
                BlueprintName = "BillSplitterTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "874AC17C1F22457000846851"
+               BuildableName = "BillTests.xctest"
+               BlueprintName = "BillTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
