@@ -9,7 +9,6 @@
 import XCTest
 import Firebase
 @testable import Splitter
-// swiftlint:disable trailing_whitespace
 // swiftlint:disable unused_closure_parameter
 
 class BillTests: XCTestCase {
@@ -65,36 +64,28 @@ class BillTests: XCTestCase {
     }
     
     func testCanRequestBillWithId() {
-        let bill = Bill(name: "Bob Ross",
-                        date: Date().currentDateTimeAsString(),
-                        location: "MacDonalds",
-                        imageURL: "https://testurl.com")
-        addBillToFirebase(bill)
-        
         var resultID = String()
+        let id = addBillToFirebase()//FIXME naming
         let requestExpectation = expectation(description: "Request a bill")
-        firebaseData.findBill(withID: bill.id, completion: { bill in
+        
+        firebaseData.findBill(withID: id, completion: { bill in
             if let bill = bill {
                 resultID = bill.id
             }
             requestExpectation.fulfill()
         })
         waitForExpectations(timeout: 5) { (error) in
-            XCTAssertEqual(resultID, bill.id)
+            XCTAssertEqual(resultID, id)
         }
-        removeTestBill(withID: bill.id)
+        removeTestBill(withID: id)
     }
     
     func testCanRemoveBillFromFirebase() {
-        let bill = Bill(name: "Bob Ross",
-                        date: Date().currentDateTimeAsString(),
-                        location: "MacDonalds",
-                        imageURL: "https://testurl.com")
-        addBillToFirebase(bill)
-        
         var testSuccess = false
+        let id = addBillToFirebase()//FIXME naming
         let requestExpectation = expectation(description: "Remove a bill")
-        firebaseData.removeBill(withID: bill.id, completion: { (error, result) in
+        
+        firebaseData.removeBill(withID: id, completion: { (error, result) in
             if let result = result {
                 print(result)
                 testSuccess = true
@@ -108,17 +99,24 @@ class BillTests: XCTestCase {
         }
     }
     
-    func addBillToFirebase(_ bill: Bill) {
-        let requestExpectation = expectation(description: "Creates a bill")
+    func addBillToFirebase() -> String { //FIXME naming
+        let bill = Bill(name: "Bob Ross",
+                        date: Date().currentDateTimeAsString(),
+                        location: "MacDonalds",
+                        imageURL: "https://testurl.com")
+        
+        weak var requestExpectation = expectation(description: "Creates a bill")
         firebaseData.createBill(bill, completion: { (error, result) in
             if let result = result {
                 print(result)
             } else {
                 print(error!)
             }
-            requestExpectation.fulfill()
+            requestExpectation?.fulfill()
         })
         waitForExpectations(timeout: 5)
+        
+        return bill.id
     }
     
     func removeTestBill(withID id: String) {
