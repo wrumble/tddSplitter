@@ -49,10 +49,9 @@ struct FirebaseData {
     }
     
     func findBill(withID id: String, completion: @escaping (_ bill: Bill?) -> Void) {
-        print("\nretrieving bill with id: \(id)")
         let billReference = databaseReference.child("Bills").child(id)
         var bill: Bill?
-        billReference.observe(.value, with: { snapshot in
+        billReference.observeSingleEvent(of: .value, with: { snapshot in
             let id = snapshot.childSnapshot(forPath: "id").value!
             let name = snapshot.childSnapshot(forPath: "name").value!
             let date = snapshot.childSnapshot(forPath: "date").value!
