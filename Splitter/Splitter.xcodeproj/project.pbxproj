@@ -17,6 +17,9 @@
 		874AC1801F22457000846851 /* BillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC17F1F22457000846851 /* BillTests.swift */; };
 		874AC1881F224F8900846851 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1741F222FD100846851 /* Bill.swift */; };
 		874AC1891F224F8B00846851 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1741F222FD100846851 /* Bill.swift */; };
+		877D5A0A1F2660B0006B53DE /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
+		87A218E81F25E8A200B4BE74 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
+		87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
 		87FB5B771F22609E00C87EDC /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FB5B761F22609E00C87EDC /* AdSupport.framework */; };
 		87FB5B791F22613500C87EDC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FB5B781F22613500C87EDC /* iAd.framework */; };
 /* End PBXBuildFile section */
@@ -44,10 +47,12 @@
 		874AC1201F22045700846851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		874AC1741F222FD100846851 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
-		874AC1761F223D8300846851 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		874AC1761F223D8300846851 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		874AC17D1F22457000846851 /* BillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AC17F1F22457000846851 /* BillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTests.swift; sourceTree = "<group>"; };
 		874AC1811F22457000846851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		87A218EB1F25EEAA00B4BE74 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		87FB5B761F22609E00C87EDC /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		87FB5B781F22613500C87EDC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		9EDF435E2C4E5A97D3A7C129 /* libPods-Splitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Splitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,13 +106,10 @@
 		874AC1131F22045700846851 /* Splitter */ = {
 			isa = PBXGroup;
 			children = (
+				87A218EA1F25E8F900B4BE74 /* Controllers */,
 				874AC1781F223EEF00846851 /* DataModels */,
-				874AC1141F22045700846851 /* AppDelegate.swift */,
-				874AC11B1F22045700846851 /* Assets.xcassets */,
-				874AC11D1F22045700846851 /* LaunchScreen.storyboard */,
-				874AC1201F22045700846851 /* Info.plist */,
-				874AC1761F223D8300846851 /* GoogleService-Info.plist */,
-				874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */,
+				87A218E61F25E88E00B4BE74 /* Helpers */,
+				87A218E91F25E8E000B4BE74 /* SupportingFiles */,
 			);
 			path = Splitter;
 			sourceTree = "<group>";
@@ -149,6 +151,35 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		87A218E61F25E88E00B4BE74 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				87A218E71F25E8A200B4BE74 /* Extensions.swift */,
+				87A218EB1F25EEAA00B4BE74 /* Firebase.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		87A218E91F25E8E000B4BE74 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				874AC1141F22045700846851 /* AppDelegate.swift */,
+				874AC11B1F22045700846851 /* Assets.xcassets */,
+				874AC11D1F22045700846851 /* LaunchScreen.storyboard */,
+				874AC1201F22045700846851 /* Info.plist */,
+				874AC1761F223D8300846851 /* GoogleService-Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		87A218EA1F25E8F900B4BE74 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D07E32677B514116B304E368 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +206,7 @@
 				874AC10F1F22045700846851 /* Resources */,
 				9DE7A54A4B9794E50ED58AF1 /* [CP] Embed Pods Frameworks */,
 				D05B5EB4347A2C30A6D1307D /* [CP] Copy Pods Resources */,
+				877D5A0B1F2745CC006B53DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,6 +327,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		877D5A0B1F2745CC006B53DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		9DE7A54A4B9794E50ED58AF1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,6 +423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				874AC1151F22045700846851 /* AppDelegate.swift in Sources */,
+				87A218E81F25E8A200B4BE74 /* Extensions.swift in Sources */,
+				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */,
 			);
@@ -387,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877D5A0A1F2660B0006B53DE /* Firebase.swift in Sources */,
 				874AC1891F224F8B00846851 /* Bill.swift in Sources */,
 				874AC1801F22457000846851 /* BillTests.swift in Sources */,
 			);
@@ -409,6 +457,7 @@
 				874AC11E1F22045700846851 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -530,7 +579,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
-				INFOPLIST_FILE = Splitter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Splitter/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
@@ -550,7 +599,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
-				INFOPLIST_FILE = Splitter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Splitter/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
