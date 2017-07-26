@@ -37,7 +37,7 @@ struct FirebaseData {
         }
     }
     
-    func removeBill(withID id: String, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
+    func removeBill(with id: String, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
         let billReference = databaseReference.child("Bills").child(id)
         billReference.removeValue { (error, result) in
             if let error = error {
@@ -48,7 +48,7 @@ struct FirebaseData {
         }
     }
     
-    func findBill(withID id: String, completion: @escaping (_ bill: Bill?) -> Void) {
+    func findBill(with id: String, completion: @escaping (_ bill: Bill?) -> Void) {
         let billReference = databaseReference.child("Bills").child(id)
         var bill: Bill?
         billReference.observeSingleEvent(of: .value, with: { snapshot in

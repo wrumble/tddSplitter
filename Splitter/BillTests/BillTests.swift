@@ -68,7 +68,7 @@ class BillTests: XCTestCase {
         let id = addBillToFirebase()//FIXME naming
         let requestExpectation = expectation(description: "Request a bill")
         
-        firebaseData.findBill(withID: id, completion: { bill in
+        firebaseData.findBill(with: id, completion: { bill in
             if let bill = bill {
                 resultID = bill.id
             }
@@ -85,7 +85,7 @@ class BillTests: XCTestCase {
         let id = addBillToFirebase()//FIXME naming
         let requestExpectation = expectation(description: "Remove a bill")
         
-        firebaseData.removeBill(withID: id, completion: { (error, result) in
+        firebaseData.removeBill(with: id, completion: { (error, result) in
             if let result = result {
                 print(result)
                 testSuccess = true
