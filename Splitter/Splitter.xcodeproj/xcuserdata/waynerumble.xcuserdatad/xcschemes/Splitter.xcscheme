@@ -78,6 +78,16 @@
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "87C039C91F28A20100F07C07"
+               BuildableName = "ItemTests.xctest"
+               BlueprintName = "ItemTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
