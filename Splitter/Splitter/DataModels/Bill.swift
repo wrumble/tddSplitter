@@ -13,15 +13,17 @@ struct Bill {
     var id: String
     var name: String
     var date: String
-    var location: String
+    var location: String?
     var imageURL: String
+    var items: [Item]?
     
-    init(name: String, date: String, location: String, imageURL: String) {
+    init(name: String, date: String, location: String?, imageURL: String, items: [Item]?) {
         self.id = UUID().uuidString
         self.name = name
         self.date = date
         self.location = location
         self.imageURL = imageURL
+        self.items = items
     }
     
     func entitiesAsAny() -> Any {

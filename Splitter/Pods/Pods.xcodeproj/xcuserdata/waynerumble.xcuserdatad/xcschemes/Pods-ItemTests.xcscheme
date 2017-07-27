@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE868725B18AE240E550C5515AE66BC4"
-               BuildableName = "libGTMSessionFetcher.a"
-               BlueprintName = "GTMSessionFetcher"
+               BlueprintIdentifier = "663D090F9B3561012CDE9E2EF9170D0F"
+               BuildableName = "libPods-ItemTests.a"
+               BlueprintName = "Pods-ItemTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE868725B18AE240E550C5515AE66BC4"
-            BuildableName = "libGTMSessionFetcher.a"
-            BlueprintName = "GTMSessionFetcher"
+            BlueprintIdentifier = "663D090F9B3561012CDE9E2EF9170D0F"
+            BuildableName = "libPods-ItemTests.a"
+            BlueprintName = "Pods-ItemTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

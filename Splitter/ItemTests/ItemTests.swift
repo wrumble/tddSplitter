@@ -2,7 +2,7 @@
 //  ItemTests.swift
 //  ItemTests
 //
-//  Created by Wayne Rumble on 26/07/2017.
+//  Created by Wayne Rumble on 27/07/2017.
 //  Copyright © 2017 Wayne Rumble. All rights reserved.
 //
 
@@ -28,14 +28,13 @@ class ItemTests: XCTestCase {
     
     func testCanCreateNewItem() {
         var testSuccess = false
+        let billID = addBillToFirebase()
         let requestExpectation = expectation(description: "Creates an Item")
         let item = Item(name: "Baked Beans",
                         price: 3.50,
-                        creationDate: Date().currentDateTimeAsString(),
-                        quantity: 1,
-                        billID: "testBillID")
+                        billID: billID)
         
-        firebaseData.createBill(bill, completion: { (error, result) in
+        firebaseData.createItem(item, completion: { (error, result) in
             if let result = result {
                 print(result)
                 testSuccess = true
@@ -47,6 +46,32 @@ class ItemTests: XCTestCase {
         waitForExpectations(timeout: 10) { (error) in
             XCTAssertTrue(testSuccess)
         }
-        removeTestBill(withID: bill.id)
+        removeTestBill(withID: billID)
+    }
+    
+    func addBillToFirebase() -> String { //FIXME naming
+        let bill = Bill(name: "Bob Ross",
+                        date: Date().currentDateTimeAsString(),
+                        location: "MacDonalds",
+                        imageURL: "https://testurl.com",
+                        items: nil)
+        
+        weak var requestExpectation = expectation(description: "Creates a bill")
+        firebaseData.createBill(bill, completion: { (error, result) in
+            if let result = result {
+                print(result)
+            } else {
+                print(error!)
+            }
+            requestExpectation?.fulfill()
+        })
+        waitForExpectations(timeout: 5)
+        
+        return bill.id
+    }
+    
+    func removeTestBill(withID id: String) {
+        databaseReference.child("Bills").child(id).removeValue()
     }
 }
+
