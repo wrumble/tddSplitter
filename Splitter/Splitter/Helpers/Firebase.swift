@@ -12,7 +12,9 @@ import Firebase
 struct FirebaseStorage {
     
     func uploadImage(billId: String, imageData: Data, completion: @escaping (_ imageURL: URL?) -> Void) {
-        let storageReference = Storage.storage().reference().child("BillImages").child(billId)
+        let storageReference = Storage.storage().reference()
+                                                .child("BillImages")
+                                                .child(billId)
         storageReference.putData(imageData, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
                 print(error!)
@@ -27,26 +29,6 @@ struct FirebaseData {
     
     let databaseReference = Database.database().reference()
     
-    func createBill(_ bill: Bill, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
-        databaseReference.child("Bills").child(bill.id).setValue(bill.entitiesAsAny()) { (error, result) in
-            if let error = error {
-                completion(error, result)
-            } else {
-                completion(error, result)
-            }
-        }
-    }
-    
-    func createItem(_ item: Item, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
-        databaseReference.child("Bills").child(item.billID).child("Items").child(item.id).setValue(item.entitiesAsAny()) { (error, result) in
-            if let error = error {
-                completion(error, result)
-            } else {
-                completion(error, result)
-            }
-        }
-    }
-    
     func createUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
@@ -57,8 +39,55 @@ struct FirebaseData {
         })
     }
     
+    func signInUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+            if let error = error {
+                completion(error, user)
+            } else {
+                completion(error, user)
+            }
+        })
+    }
+    
+    func signOutUser(completion: @escaping (_ signedOut: Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        } catch let error {
+            print("Error logging out: \(error)")
+            completion(false)
+        }
+    }
+    
+    func createBill(_ bill: Bill, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
+        databaseReference.child("Bills")
+                         .child(bill.id)
+                         .setValue(bill.entitiesAsAny()) { (error, result) in
+            if let error = error {
+                completion(error, result)
+            } else {
+                completion(error, result)
+            }
+        }
+    }
+    
+    func createItem(_ item: Item, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
+        databaseReference.child("Bills")
+                         .child(item.billID)
+                         .child("Items")
+                         .child(item.id)
+                         .setValue(item.entitiesAsAny()) { (error, result) in
+            if let error = error {
+                completion(error, result)
+            } else {
+                completion(error, result)
+            }
+        }
+    }
+    
     func removeBill(with id: String, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
-        let billReference = databaseReference.child("Bills").child(id)
+        let billReference = databaseReference.child("Bills")
+                                             .child(id)
         billReference.removeValue { (error, result) in
             if let error = error {
                 completion(error, result)
@@ -69,7 +98,10 @@ struct FirebaseData {
     }
     
     func removeItem(_ item: Item, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
-        let itemReference = databaseReference.child("Bills").child(item.billID).child("Items").child(item.id)
+        let itemReference = databaseReference.child("Bills")
+                                             .child(item.billID)
+                                             .child("Items")
+                                             .child(item.id)
         itemReference.removeValue { (error, result) in
             if let error = error {
                 completion(error, result)
@@ -80,7 +112,8 @@ struct FirebaseData {
     }
     
     func findBill(with id: String, completion: @escaping (_ bill: Bill?) -> Void) {
-        let billReference = databaseReference.child("Bills").child(id)
+        let billReference = databaseReference.child("Bills")
+                                             .child(id)
         var bill: Bill?
         billReference.observeSingleEvent(of: .value, with: { snapshot in
             let id = snapshot.childSnapshot(forPath: "id").value!
@@ -106,7 +139,10 @@ struct FirebaseData {
     }
     
     func findItem(_ item: Item, completion: @escaping (_ Item: Item?) -> Void) {
-        let itemReference = databaseReference.child("Bills").child(item.billID).child("Items").child(item.id)
+        let itemReference = databaseReference.child("Bills")
+                                             .child(item.billID)
+                                             .child("Items")
+                                             .child(item.id)
         var item: Item?
         itemReference.observeSingleEvent(of: .value, with: { snapshot in
             let id = snapshot.childSnapshot(forPath: "id").value!

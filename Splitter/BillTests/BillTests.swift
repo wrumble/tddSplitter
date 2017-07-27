@@ -25,7 +25,7 @@ class BillTests: XCTestCase {
         storageRefererence.child("BillImages").child("testBillID.jpg").delete()
     }
     func testCanUploadBillImage() {
-        var testSuccess = true
+        var testSuccess = false
         let requestExpectation = expectation(description: "Uploads receipt image")
         let imageData = UIImageJPEGRepresentation(UIImage(named: "receipt1")!, 0.8)!
         firebaseStorage.uploadImage(billId: "testBillID.jpg", imageData: imageData, completion: { imageURL in
