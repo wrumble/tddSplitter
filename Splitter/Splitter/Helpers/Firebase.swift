@@ -47,6 +47,16 @@ struct FirebaseData {
         }
     }
     
+    func createUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+            if let error = error {
+                completion(error, user)
+            } else {
+                completion(error, user)
+            }
+        })
+    }
+    
     func removeBill(with id: String, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
         let billReference = databaseReference.child("Bills").child(id)
         billReference.removeValue { (error, result) in
