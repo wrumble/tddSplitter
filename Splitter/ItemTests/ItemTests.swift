@@ -49,6 +49,45 @@ class ItemTests: XCTestCase {
         removeTestBill(withID: billID)
     }
     
+    func testCanRequestItem() {
+        var resultID = String()
+        let billID = addBillToFirebase()//FIXME naming
+        let item = addItemToBill(withID: billID)
+        let requestExpectation = expectation(description: "Request a bill")
+        
+        firebaseData.findItem(item, completion: { item in
+            if let item = item {
+                resultID = item.id
+            }
+            requestExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 5) { (error) in
+            XCTAssertEqual(resultID, item.id)
+        }
+        removeTestBill(withID: billID)
+    }
+    
+    func testCanRemoveItemFromBill() {
+        var testSuccess = false
+        let billID = addBillToFirebase()//FIXME naming
+        let item = addItemToBill(withID: billID)
+        let requestExpectation = expectation(description: "Remove a bill")
+        
+        firebaseData.removeItem(item, completion: { (error, result) in
+            if let result = result {
+                print(result)
+                testSuccess = true
+            } else {
+                XCTFail(String(describing: error!))
+            }
+            requestExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 10) { (error) in
+            XCTAssertTrue(testSuccess)
+        }
+        removeTestBill(withID: billID)
+    }
+    
     func addBillToFirebase() -> String { //FIXME naming
         let bill = Bill(name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
@@ -68,6 +107,23 @@ class ItemTests: XCTestCase {
         waitForExpectations(timeout: 5)
         
         return bill.id
+    }
+    
+    func addItemToBill(withID billID: String) -> Item {
+        let item = Item(name: "Baked Beans",
+                        price: 3.50,
+                        billID: billID)
+        
+        weak var requestExpectation = expectation(description: "Creates an item")
+        firebaseData.createItem(item, completion: { (error, result) in
+            if let result = result {
+                print(result)
+            } else {
+                XCTFail(String(describing: error!))
+            }
+            requestExpectation?.fulfill()
+        })
+        return item
     }
     
     func removeTestBill(withID id: String) {

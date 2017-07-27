@@ -13,22 +13,23 @@ struct Item {
     var id: String
     var name: String
     var price: Double
-    var createionDate: String
+    var creationDate: String
     var billID: String
     
     init(name: String, price: Double, billID: String) {
         self.id = UUID().uuidString
         self.name = name
         self.price = price
-        self.createionDate = Date().currentDateTimeAsString()
+        self.creationDate = Date().currentDateTimeAsString()
         self.billID = billID
     }
     
     func entitiesAsAny() -> Any {
         return [
+            "id": id,
             "name": name,
             "price": price,
-            "createionDate": createionDate,
+            "creationDate": creationDate,
             "billID": billID
         ]
     }
