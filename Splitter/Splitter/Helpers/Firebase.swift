@@ -58,6 +58,17 @@ struct FirebaseData {
         }
     }
     
+    func removeItem(_ item: Item, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
+        let itemReference = databaseReference.child("Bills").child(item.billID).child("Items").child(item.id)
+        itemReference.removeValue { (error, result) in
+            if let error = error {
+                completion(error, result)
+            } else {
+                completion(error, result)
+            }
+        }
+    }
+    
     func findBill(with id: String, completion: @escaping (_ bill: Bill?) -> Void) {
         let billReference = databaseReference.child("Bills").child(id)
         var bill: Bill?
@@ -84,6 +95,26 @@ struct FirebaseData {
         })
     }
     
+    func findItem(_ item: Item, completion: @escaping (_ Item: Item?) -> Void) {
+        let itemReference = databaseReference.child("Bills").child(item.billID).child("Items").child(item.id)
+        var item: Item?
+        itemReference.observeSingleEvent(of: .value, with: { snapshot in
+            let id = snapshot.childSnapshot(forPath: "id").value!
+            let name = snapshot.childSnapshot(forPath: "name").value!
+            let price = snapshot.childSnapshot(forPath: "price").value!
+            let creationDate = snapshot.childSnapshot(forPath: "creationDate").value!
+            let billID = snapshot.childSnapshot(forPath: "billID").value!
+            
+            item = Item(name: name as! String,
+                        price: price as! Double,
+                        billID: billID as! String)
+            item?.id = id as! String
+            item?.creationDate = creationDate as! String
+            
+            completion(item)
+        })
+    }
+    
     func createItemsArray(_ snapshot: DataSnapshot?) -> [Item]? {
         var items = [Item]()
         (snapshot?.children.allObjects as! [DataSnapshot]).forEach { snapshot in
@@ -97,7 +128,7 @@ struct FirebaseData {
                             price: price as! Double,
                             billID: billID as! String)
             item.id = id as! String
-            item.createionDate = creationDate as! String
+            item.creationDate = creationDate as! String
             
             items.append(item)
         }
