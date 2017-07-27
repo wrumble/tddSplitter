@@ -46,7 +46,8 @@ class BillTests: XCTestCase {
         let bill = Bill(name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",
-                        imageURL: "https://testurl.com")
+                        imageURL: "https://testurl.com",
+                        items: nil)
         
         firebaseData.createBill(bill, completion: { (error, result) in
             if let result = result {
@@ -103,7 +104,8 @@ class BillTests: XCTestCase {
         let bill = Bill(name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",
-                        imageURL: "https://testurl.com")
+                        imageURL: "https://testurl.com",
+                        items: nil)
         
         weak var requestExpectation = expectation(description: "Creates a bill")
         firebaseData.createBill(bill, completion: { (error, result) in

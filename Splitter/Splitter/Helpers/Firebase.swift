@@ -37,6 +37,16 @@ struct FirebaseData {
         }
     }
     
+    func createItem(_ item: Item, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
+        databaseReference.child("Bills").child(item.billID).child("Items").child(item.id).setValue(item.entitiesAsAny()) { (error, result) in
+            if let error = error {
+                completion(error, result)
+            } else {
+                completion(error, result)
+            }
+        }
+    }
+    
     func removeBill(with id: String, completion: @escaping (_ error: Error?, _ result: DatabaseReference?) -> Void) {
         let billReference = databaseReference.child("Bills").child(id)
         billReference.removeValue { (error, result) in
@@ -57,14 +67,41 @@ struct FirebaseData {
             let date = snapshot.childSnapshot(forPath: "date").value!
             let location = snapshot.childSnapshot(forPath: "location").value!
             let imageURL = snapshot.childSnapshot(forPath: "imageURL").value!
+            let itemsSnapshot = snapshot.childSnapshot(forPath: "Items")
+            var items = [Item]()
+            if let createdItems = self.createItemsArray(itemsSnapshot) {
+                items = createdItems
+            }
             
             bill = Bill(name: name as! String,
                         date: date as! String,
-                        location: location as! String,
-                        imageURL: imageURL as! String)
+                        location: location as? String,
+                        imageURL: imageURL as! String,
+                        items: items)
             bill?.id = id as! String
             
             completion(bill)
         })
+    }
+    
+    func createItemsArray(_ snapshot: DataSnapshot?) -> [Item]? {
+        var items = [Item]()
+        (snapshot?.children.allObjects as! [DataSnapshot]).forEach { snapshot in
+            let id = snapshot.childSnapshot(forPath: "id").value!
+            let name = snapshot.childSnapshot(forPath: "name").value!
+            let price = snapshot.childSnapshot(forPath: "price").value!
+            let creationDate = snapshot.childSnapshot(forPath: "creationDate").value!
+            let billID = snapshot.childSnapshot(forPath: "billID").value!
+            
+            var item = Item(name: name as! String,
+                            price: price as! Double,
+                            billID: billID as! String)
+            item.id = id as! String
+            item.createionDate = creationDate as! String
+            
+            items.append(item)
+        }
+        
+        return items
     }
 }
