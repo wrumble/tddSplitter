@@ -13,6 +13,7 @@ class WelcomeScreenViewController: UIViewController {
     
     let emailTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.emailTextField)
     let passwordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.passwordTextField)
+    let confirmPasswordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.confirmPasswordTextField)
     let loginButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.loginButton)
     let registerButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.registerButton)
     
@@ -27,6 +28,7 @@ class WelcomeScreenViewController: UIViewController {
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
+        view.addSubview(confirmPasswordTextField)
         view.addSubview(loginButton)
         view.addSubview(registerButton)
         
@@ -41,6 +43,14 @@ class WelcomeScreenViewController: UIViewController {
                                  relatedBy: .equal)
         passwordTextField.addHeightConstraint(with: Layout.textFieldHeight)
         
+        confirmPasswordTextField.pinToSuperview(edges: [.left, .right])
+        confirmPasswordTextField.pinTop(to: passwordTextField,
+                                 constant: Layout.textFieldHeight + Layout.spacer,
+                                 priority: .required,
+                                 relatedBy: .equal)
+        confirmPasswordTextField.addHeightConstraint(with: Layout.textFieldHeight)
+        confirmPasswordTextField.isHidden = true
+        
         loginButton.pinToSuperview(edges: [.left, .right])
         loginButton.pinTop(to: passwordTextField,
                            constant: Layout.textFieldHeight + Layout.spacer,
@@ -54,11 +64,18 @@ class WelcomeScreenViewController: UIViewController {
                               priority: .required,
                               relatedBy: .equal)
         registerButton.addHeightConstraint(with: Layout.buttonHeight)
+        registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         
+    }
+    
+    @objc private func registerButtonTapped() {
+        loginButton.isHidden = true
+        confirmPasswordTextField.isHidden = false
     }
 }

@@ -17,6 +17,7 @@ enum Layout {
 enum AccesID {
     static let emailTextField = "Email"
     static let passwordTextField = "Password"
+    static let confirmPasswordTextField = "ConfirmPassword"
     static let loginButton = "Login"
     static let registerButton = "Register"
 }

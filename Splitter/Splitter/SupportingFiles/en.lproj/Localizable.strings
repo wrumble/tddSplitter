@@ -8,5 +8,6 @@
 
 "EmailPlaceHolder" = "Email";
 "PasswordPlaceHolder" = "Password";
+"ConfirmPasswordPlaceHolder" = "Confirm Password";
 "LoginButtonTitle" = "Login";
 "RegisterButtonTitle" = "Register";
