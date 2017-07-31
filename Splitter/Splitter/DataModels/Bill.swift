@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Bill {
+typealias JSON = [String: Any?]
+
+struct Bill: JSONable {
     
     var id: String
     var name: String
@@ -26,7 +28,7 @@ struct Bill {
         self.items = items
     }
     
-    func entitiesAsAny() -> Any {
+    func toJSON() -> JSON {
         return [
             "name": name,
             "location": location,
@@ -35,4 +37,9 @@ struct Bill {
             "id": id
         ]
     }
+}
+
+protocol JSONable {
+    var id: String { get }
+    func toJSON() -> JSON
 }
