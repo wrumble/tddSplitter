@@ -46,4 +46,26 @@ class LoginRegisterUITests: XCTestCase {
         
         XCTAssertTrue(registerButton.isHittable)
     }
+    
+    func testTappingRegisterButtonHidesLoginButton() {
+        let loginButton = app.buttons["Login"]
+        let registerButton = app.buttons["Register"]
+        
+        XCTAssertTrue(loginButton.exists)
+        
+        registerButton.tap()
+
+        XCTAssertFalse(loginButton.exists)
+    }
+    
+    func testTappingRegisterButtonShowsConfirmPasswordTextField() {
+        let registerButton = app.buttons["Register"]
+        let confirmPasswordTextField = app.textFields["ConfirmPassword"]
+        
+        XCTAssertFalse(confirmPasswordTextField.exists)
+        
+        registerButton.tap()
+        
+        XCTAssertTrue(confirmPasswordTextField.exists)
+    }
 }
