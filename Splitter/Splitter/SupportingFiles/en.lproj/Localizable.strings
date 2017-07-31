@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Splitter
+
+  Created by Wayne Rumble on 31/07/2017.
+  Copyright © 2017 Wayne Rumble. All rights reserved.
+*/
+
+"EmailPlaceHolder" = "Email";
+"PasswordPlaceHolder" = "Password";
+

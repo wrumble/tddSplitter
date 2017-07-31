@@ -30,6 +30,7 @@ enum Edge {
 }
 
 // MARK: Pin superview
+// swiftlint:disable line_length
 extension UIView {
     func pinToSuperview(edges: [Edge], constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority.required) {
         for edge in edges {
