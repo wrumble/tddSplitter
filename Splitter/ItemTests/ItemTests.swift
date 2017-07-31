@@ -34,12 +34,11 @@ class ItemTests: XCTestCase {
                         price: 3.50,
                         billID: billID)
         
-        firebaseData.createItem(item, completion: { (error, result) in
-            if let result = result {
-                print(result)
-                testSuccess = true
+        firebaseData.createItem(item, completion: { (error) in
+            if let error = error {
+                XCTFail(String(describing: error))
             } else {
-                XCTFail(String(describing: error!))
+                testSuccess = true
             }
             requestExpectation.fulfill()
         })
@@ -73,12 +72,11 @@ class ItemTests: XCTestCase {
         let item = addItemToBill(withID: billID)
         let requestExpectation = expectation(description: "Remove a bill")
         
-        firebaseData.removeItem(item, completion: { (error, result) in
-            if let result = result {
-                print(result)
-                testSuccess = true
+        firebaseData.removeItem(item, completion: { (error) in
+            if let error = error {
+                XCTFail(String(describing: error))
             } else {
-                XCTFail(String(describing: error!))
+                testSuccess = true
             }
             requestExpectation.fulfill()
         })
@@ -96,11 +94,9 @@ class ItemTests: XCTestCase {
                         items: nil)
         
         weak var requestExpectation = expectation(description: "Creates a bill")
-        firebaseData.createBill(bill, completion: { (error, result) in
-            if let result = result {
-                print(result)
-            } else {
-                print(error!)
+        firebaseData.createBill(bill, completion: { (error) in
+            if let error = error {
+                print(error)
             }
             requestExpectation?.fulfill()
         })
@@ -115,11 +111,9 @@ class ItemTests: XCTestCase {
                         billID: billID)
         
         weak var requestExpectation = expectation(description: "Creates an item")
-        firebaseData.createItem(item, completion: { (error, result) in
-            if let result = result {
-                print(result)
-            } else {
-                XCTFail(String(describing: error!))
+        firebaseData.createItem(item, completion: { (error) in
+            if let error = error {
+                XCTFail(String(describing: error))
             }
             requestExpectation?.fulfill()
         })
@@ -130,4 +124,3 @@ class ItemTests: XCTestCase {
         databaseReference.child("Bills").child(id).removeValue()
     }
 }
-

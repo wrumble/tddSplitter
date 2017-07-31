@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Item {
+struct Item: JSONable {
     
     var id: String
     var name: String
@@ -24,7 +24,7 @@ struct Item {
         self.billID = billID
     }
     
-    func entitiesAsAny() -> Any {
+    func toJSON() -> JSON {
         return [
             "id": id,
             "name": name,

@@ -49,12 +49,11 @@ class BillTests: XCTestCase {
                         imageURL: "https://testurl.com",
                         items: nil)
         
-        firebaseData.createBill(bill, completion: { (error, result) in
-            if let result = result {
-                print(result)
-                testSuccess = true
+        firebaseData.createBill(bill, completion: { (error) in
+            if let error = error {
+                XCTFail(String(describing: error))
             } else {
-                XCTFail(String(describing: error!))
+                testSuccess = true
             }
             requestExpectation.fulfill()
         })
@@ -86,12 +85,11 @@ class BillTests: XCTestCase {
         let id = addBillToFirebase()//FIXME naming
         let requestExpectation = expectation(description: "Remove a bill")
         
-        firebaseData.removeBill(with: id, completion: { (error, result) in
-            if let result = result {
-                print(result)
-                testSuccess = true
+        firebaseData.removeBill(with: id, completion: { (error) in
+            if let error = error {
+                XCTFail(String(describing: error))
             } else {
-                XCTFail(String(describing: error!))
+                testSuccess = true
             }
             requestExpectation.fulfill()
         })
@@ -108,11 +106,9 @@ class BillTests: XCTestCase {
                         items: nil)
         
         weak var requestExpectation = expectation(description: "Creates a bill")
-        firebaseData.createBill(bill, completion: { (error, result) in
-            if let result = result {
-                print(result)
-            } else {
-                print(error!)
+        firebaseData.createBill(bill, completion: { (error) in
+            if let error = error {
+                print(error)
             }
             requestExpectation?.fulfill()
         })
