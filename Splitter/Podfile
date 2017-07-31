@@ -16,19 +16,23 @@ target 'Splitter' do
 
     allPods
 
-  target 'BillTests' do
+  target ‘BillTests’ do
     inherit! :search_paths
     allPods
   end
 
-  target ‘ItemTests' do
+  target ‘ItemTests’ do
     inherit! :search_paths
     allPods
   end
 
-  target ‘UserTests' do
+  target ‘UserTests’ do
     inherit! :search_paths
     allPods
   end
 
+  target ‘LoginRegisterUITests’ do
+    inherit! :search_paths
+    allPods
+  end
 end
