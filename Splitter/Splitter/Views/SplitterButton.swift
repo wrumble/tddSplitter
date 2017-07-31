@@ -1,5 +1,5 @@
 //
-//  EmailTextField.swift
+//  SplitterButton.swift
 //  Splitter
 //
 //  Created by Wayne Rumble on 31/07/2017.
@@ -8,12 +8,13 @@
 
 import UIKit
 
-class SplitterTextField: UITextField {
+class SplitterButton: UIButton {
     
     var accessID: String!
     
     required init(frame: CGRect, accessID: String) {
         super.init(frame: frame)
+        
         self.accessID = accessID
         setup()
     }
@@ -23,9 +24,12 @@ class SplitterTextField: UITextField {
     }
     
     private func setup() {
-        backgroundColor = Color.textFieldBackground
+        let titleText = NSLocalizedString("\(accessID!)ButtonTitle", comment: "")
+        
         accessibilityIdentifier = accessID
-        textAlignment = .center
-        placeholder = NSLocalizedString("\(accessID!)PlaceHolder", comment: "")
+        backgroundColor = Color.buttonBackground
+        setTitle(titleText, for: .normal)
+        titleLabel?.textAlignment = .center
+        titleLabel?.textColor = Color.buttonText
     }
 }

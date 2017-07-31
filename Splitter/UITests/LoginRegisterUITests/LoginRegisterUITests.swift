@@ -34,4 +34,16 @@ class LoginRegisterUITests: XCTestCase {
         
         XCTAssertTrue(emailTextField.isHittable)
     }
+    
+    func testHasLoginButton() {
+        let loginButton = app.buttons["Login"]
+        
+        XCTAssertTrue(loginButton.isHittable)
+    }
+    
+    func testHasRegisterButton() {
+        let registerButton = app.buttons["Register"]
+        
+        XCTAssertTrue(registerButton.isHittable)
+    }
 }
