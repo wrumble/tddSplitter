@@ -26,6 +26,7 @@
 		871B37C21F2A23D6001FE485 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1741F222FD100846851 /* Bill.swift */; };
 		871B37C31F2A23DA001FE485 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37A51F29F6A0001FE485 /* Item.swift */; };
 		871B37C41F2A23E5001FE485 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
+		871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */; };
 		874AC1151F22045700846851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1141F22045700846851 /* AppDelegate.swift */; };
 		874AC11C1F22045700846851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874AC11B1F22045700846851 /* Assets.xcassets */; };
 		874AC11F1F22045700846851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874AC11D1F22045700846851 /* LaunchScreen.storyboard */; };
@@ -83,6 +84,7 @@
 		871B37B61F2A1BFF001FE485 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		871B37B81F2A1BFF001FE485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871B37BE1F2A1EF9001FE485 /* SplitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterUser.swift; sourceTree = "<group>"; };
+		871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		874AC1111F22045700846851 /* Splitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AC1141F22045700846851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874AC11B1F22045700846851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				87A218E71F25E8A200B4BE74 /* Extensions.swift */,
 				87A218EB1F25EEAA00B4BE74 /* Firebase.swift */,
+				871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
+				871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */,
 				874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */,
 				871B37BF1F2A1EF9001FE485 /* SplitterUser.swift in Sources */,
 			);
@@ -926,7 +930,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
 				INFOPLIST_FILE = "$(SRCROOT)/Splitter/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -946,7 +950,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
 				INFOPLIST_FILE = "$(SRCROOT)/Splitter/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

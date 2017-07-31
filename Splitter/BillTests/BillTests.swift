@@ -16,14 +16,7 @@ class BillTests: XCTestCase {
     let storageRefererence = Storage.storage().reference()
     let firebaseData = FirebaseData()
     let firebaseStorage = FirebaseStorage()
-    
-    override func setUp() {
-        super.setUp()
-    }
-    override func tearDown() {
-        super.tearDown()
-        storageRefererence.child("BillImages").child("testBillID.jpg").delete()
-    }
+
     func testCanUploadBillImage() {
         var testSuccess = false
         let requestExpectation = expectation(description: "Uploads receipt image")
@@ -38,6 +31,7 @@ class BillTests: XCTestCase {
         waitForExpectations(timeout: 10) { (error) in
             XCTAssertTrue(testSuccess)
         }
+        storageRefererence.child("BillImages").child("testBillID.jpg").delete()
     }
     
     func testCanCreateNewBill() {
