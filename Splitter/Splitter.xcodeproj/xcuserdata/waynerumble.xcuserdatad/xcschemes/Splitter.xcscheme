@@ -104,8 +104,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "871B37DA1F2F3A78001FE485"
-               BuildableName = "LoginRegisterUITests.xctest"
-               BlueprintName = "LoginRegisterUITests"
+               BuildableName = "WelcomeScreenTests.xctest"
+               BlueprintName = "WelcomeScreenTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>

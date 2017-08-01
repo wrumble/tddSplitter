@@ -31,7 +31,7 @@ target 'Splitter' do
     allPods
   end
 
-  target ‘LoginRegisterUITests’ do
+  target ‘WelcomeScreenTests’ do
     inherit! :search_paths
     allPods
   end
