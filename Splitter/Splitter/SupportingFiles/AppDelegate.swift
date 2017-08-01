@@ -20,12 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        let welcomeViewController: UIViewController = WelcomeScreenViewController()
-        navigationController = UINavigationController()
-        navigationController!.pushViewController(welcomeViewController, animated: false)
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = navigationController
-        window!.backgroundColor = .white
+        window!.rootViewController = WelcomeScreenViewController()
         window!.makeKeyAndVisible()
         
         return true

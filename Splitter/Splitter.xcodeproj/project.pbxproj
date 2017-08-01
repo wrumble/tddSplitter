@@ -26,11 +26,15 @@
 		871B37C31F2A23DA001FE485 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37A51F29F6A0001FE485 /* Item.swift */; };
 		871B37C41F2A23E5001FE485 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */; };
-		871B37DE1F2F3A78001FE485 /* LoginRegisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37DD1F2F3A78001FE485 /* LoginRegisterUITests.swift */; };
+		871B37DE1F2F3A78001FE485 /* WelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37DD1F2F3A78001FE485 /* WelcomeScreenTests.swift */; };
 		871B37E91F2F430C001FE485 /* SplitterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37E81F2F430C001FE485 /* SplitterTextField.swift */; };
 		871B37EC1F2F4573001FE485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		871B37F01F2F6322001FE485 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37EF1F2F6322001FE485 /* Constants.swift */; };
 		871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37F11F2F7C49001FE485 /* SplitterButton.swift */; };
+		871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871B37F41F308CE6001FE485 /* WalkwayBold.ttf */; };
+		872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */; };
+		872D3B171F30CA2C00F2FEC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37EF1F2F6322001FE485 /* Constants.swift */; };
+		872D3B191F30CFB400F2FEC2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		874AC1151F22045700846851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1141F22045700846851 /* AppDelegate.swift */; };
 		874AC11C1F22045700846851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874AC11B1F22045700846851 /* Assets.xcassets */; };
 		874AC11F1F22045700846851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874AC11D1F22045700846851 /* LaunchScreen.storyboard */; };
@@ -93,14 +97,17 @@
 		871B37B81F2A1BFF001FE485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871B37BE1F2A1EF9001FE485 /* SplitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterUser.swift; sourceTree = "<group>"; };
 		871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
-		871B37DB1F2F3A78001FE485 /* LoginRegisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginRegisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		871B37DD1F2F3A78001FE485 /* LoginRegisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterUITests.swift; sourceTree = "<group>"; };
+		871B37DB1F2F3A78001FE485 /* WelcomeScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelcomeScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		871B37DD1F2F3A78001FE485 /* WelcomeScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenTests.swift; sourceTree = "<group>"; };
 		871B37DF1F2F3A78001FE485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871B37E81F2F430C001FE485 /* SplitterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterTextField.swift; sourceTree = "<group>"; };
 		871B37ED1F2F4573001FE485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		871B37EF1F2F6322001FE485 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		871B37F11F2F7C49001FE485 /* SplitterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterButton.swift; sourceTree = "<group>"; };
 		871B37F31F2F86FD001FE485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		871B37F41F308CE6001FE485 /* WalkwayBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WalkwayBold.ttf; sourceTree = "<group>"; };
+		872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLogoLabel.swift; sourceTree = "<group>"; };
+		872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splitter.entitlements; sourceTree = "<group>"; };
 		874AC1111F22045700846851 /* Splitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AC1141F22045700846851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874AC11B1F22045700846851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,7 +221,7 @@
 		871B37DC1F2F3A78001FE485 /* LoginRegisterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				871B37DD1F2F3A78001FE485 /* LoginRegisterUITests.swift */,
+				871B37DD1F2F3A78001FE485 /* WelcomeScreenTests.swift */,
 				871B37DF1F2F3A78001FE485 /* Info.plist */,
 			);
 			path = LoginRegisterUITests;
@@ -225,8 +232,17 @@
 			children = (
 				871B37E81F2F430C001FE485 /* SplitterTextField.swift */,
 				871B37F11F2F7C49001FE485 /* SplitterButton.swift */,
+				872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		871B37F51F308CEE001FE485 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				871B37F41F308CE6001FE485 /* WalkwayBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		874AC1081F22045700846851 = {
@@ -247,7 +263,7 @@
 				874AC17D1F22457000846851 /* BillTests.xctest */,
 				871B379B1F29F613001FE485 /* ItemTests.xctest */,
 				871B37B41F2A1BFF001FE485 /* UserTests.xctest */,
-				871B37DB1F2F3A78001FE485 /* LoginRegisterUITests.xctest */,
+				871B37DB1F2F3A78001FE485 /* WelcomeScreenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +271,7 @@
 		874AC1131F22045700846851 /* Splitter */ = {
 			isa = PBXGroup;
 			children = (
+				872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */,
 				871B37E61F2F42EE001FE485 /* Views */,
 				87A218EA1F25E8F900B4BE74 /* Controllers */,
 				874AC1781F223EEF00846851 /* DataModels */,
@@ -323,6 +340,7 @@
 				874AC1141F22045700846851 /* AppDelegate.swift */,
 				874AC11B1F22045700846851 /* Assets.xcassets */,
 				874AC11D1F22045700846851 /* LaunchScreen.storyboard */,
+				871B37F51F308CEE001FE485 /* Fonts */,
 				874AC1201F22045700846851 /* Info.plist */,
 				874AC1761F223D8300846851 /* GoogleService-Info.plist */,
 				871B37EE1F2F4573001FE485 /* Localizable.strings */,
@@ -400,9 +418,9 @@
 			productReference = 871B37B41F2A1BFF001FE485 /* UserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		871B37DA1F2F3A78001FE485 /* LoginRegisterUITests */ = {
+		871B37DA1F2F3A78001FE485 /* WelcomeScreenTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 871B37E21F2F3A78001FE485 /* Build configuration list for PBXNativeTarget "LoginRegisterUITests" */;
+			buildConfigurationList = 871B37E21F2F3A78001FE485 /* Build configuration list for PBXNativeTarget "WelcomeScreenTests" */;
 			buildPhases = (
 				DC59CA293E30B5A0B5FD1AA8 /* [CP] Check Pods Manifest.lock */,
 				871B37D71F2F3A78001FE485 /* Sources */,
@@ -416,9 +434,9 @@
 			dependencies = (
 				871B37E11F2F3A78001FE485 /* PBXTargetDependency */,
 			);
-			name = LoginRegisterUITests;
+			name = WelcomeScreenTests;
 			productName = LoginRegisterUITests;
-			productReference = 871B37DB1F2F3A78001FE485 /* LoginRegisterUITests.xctest */;
+			productReference = 871B37DB1F2F3A78001FE485 /* WelcomeScreenTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		874AC1101F22045700846851 /* Splitter */ = {
@@ -526,7 +544,7 @@
 				874AC17C1F22457000846851 /* BillTests */,
 				871B379A1F29F613001FE485 /* ItemTests */,
 				871B37B31F2A1BFF001FE485 /* UserTests */,
-				871B37DA1F2F3A78001FE485 /* LoginRegisterUITests */,
+				871B37DA1F2F3A78001FE485 /* WelcomeScreenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -550,6 +568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872D3B191F30CFB400F2FEC2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +580,7 @@
 				871B37EC1F2F4573001FE485 /* Localizable.strings in Resources */,
 				874AC11C1F22045700846851 /* Assets.xcassets in Resources */,
 				874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */,
+				871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,7 +864,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				871B37DE1F2F3A78001FE485 /* LoginRegisterUITests.swift in Sources */,
+				871B37DE1F2F3A78001FE485 /* WelcomeScreenTests.swift in Sources */,
+				872D3B171F30CA2C00F2FEC2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +875,7 @@
 			files = (
 				874AC1151F22045700846851 /* AppDelegate.swift in Sources */,
 				87A218E81F25E8A200B4BE74 /* Extensions.swift in Sources */,
+				872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */,
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
@@ -1131,7 +1153,7 @@
 			baseConfigurationReference = BA618C57B0234AD3B7B09EF9 /* Pods-Splitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Splitter/Splitter.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1151,7 +1173,7 @@
 			baseConfigurationReference = 1D9C0846CB835EF67EA4D9C3 /* Pods-Splitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Splitter/Splitter.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1219,7 +1241,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		871B37E21F2F3A78001FE485 /* Build configuration list for PBXNativeTarget "LoginRegisterUITests" */ = {
+		871B37E21F2F3A78001FE485 /* Build configuration list for PBXNativeTarget "WelcomeScreenTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				871B37E31F2F3A78001FE485 /* Debug */,

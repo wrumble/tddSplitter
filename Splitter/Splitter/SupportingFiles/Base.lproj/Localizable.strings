@@ -6,7 +6,9 @@
   Copyright © 2017 Wayne Rumble. All rights reserved.
 */
 
+"SplitterTitleLogoText" = "Splitter";
 "EmailPlaceHolder" = "Email";
 "PasswordPlaceHolder" = "Password";
+"ConfirmPasswordPlaceHolder" = "Confirm Password";
 "LoginButtonTitle" = "Login";
 "RegisterButtonTitle" = "Register";
