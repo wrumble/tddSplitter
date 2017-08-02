@@ -9,7 +9,6 @@
 import XCTest
 import Firebase
 @testable import Splitter
-// swiftlint:disable unused_closure_parameter
 
 class BillTests: XCTestCase {
     let databaseReference = Database.database().reference()
@@ -21,14 +20,17 @@ class BillTests: XCTestCase {
         var testSuccess = false
         let requestExpectation = expectation(description: "Uploads receipt image")
         let imageData = UIImageJPEGRepresentation(UIImage(named: "receipt1")!, 0.8)!
-        firebaseStorage.uploadImage(billId: "testBillID.jpg", imageData: imageData, completion: { imageURL in
+        
+        firebaseStorage.uploadImage(billId: "testBillID.jpg",
+                                    imageData: imageData,
+                                    completion: { imageURL in
             if let imageURL = imageURL {
                 print(imageURL)
                 testSuccess = true
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 10) { (error) in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssertTrue(testSuccess)
         }
         storageRefererence.child("BillImages").child("testBillID.jpg").delete()
@@ -43,7 +45,8 @@ class BillTests: XCTestCase {
                         imageURL: "https://testurl.com",
                         items: nil)
         
-        firebaseData.createBill(bill, completion: { (error) in
+        firebaseData.createBill(bill,
+                                completion: { (error) in
             if let error = error {
                 XCTFail(String(describing: error))
             } else {
@@ -51,7 +54,7 @@ class BillTests: XCTestCase {
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 10) { (error) in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssertTrue(testSuccess)
         }
         removeTestBill(withID: bill.id)
@@ -59,7 +62,7 @@ class BillTests: XCTestCase {
     
     func testCanRequestBillWithId() {
         var resultID = String()
-        let id = addBillToFirebase()//FIXME naming
+        let id = addBillToFirebase()
         let requestExpectation = expectation(description: "Request a bill")
         
         firebaseData.findBill(with: id, completion: { bill in
@@ -68,7 +71,7 @@ class BillTests: XCTestCase {
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 5) { (error) in
+        waitForExpectations(timeout: 5) { _ in
             XCTAssertEqual(resultID, id)
         }
         removeTestBill(withID: id)
@@ -76,7 +79,7 @@ class BillTests: XCTestCase {
     
     func testCanRemoveBillFromFirebase() {
         var testSuccess = false
-        let id = addBillToFirebase()//FIXME naming
+        let id = addBillToFirebase()
         let requestExpectation = expectation(description: "Remove a bill")
         
         firebaseData.removeBill(with: id, completion: { (error) in
@@ -87,12 +90,12 @@ class BillTests: XCTestCase {
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 10) { (error) in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssertTrue(testSuccess)
         }
     }
     
-    func addBillToFirebase() -> String { //FIXME naming
+    func addBillToFirebase() -> String {
         let bill = Bill(name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",

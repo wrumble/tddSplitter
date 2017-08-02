@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A39FBFD15685039FEA0583FD9246C2B"
-               BuildableName = "libPods-LoginRegisterUITests.a"
-               BlueprintName = "Pods-LoginRegisterUITests"
+               BlueprintIdentifier = "FFF31B12CF04B6C45C52B8EE28B11595"
+               BuildableName = "libPods-WelcomeScreenTests.a"
+               BlueprintName = "Pods-WelcomeScreenTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A39FBFD15685039FEA0583FD9246C2B"
-            BuildableName = "libPods-LoginRegisterUITests.a"
-            BlueprintName = "Pods-LoginRegisterUITests"
+            BlueprintIdentifier = "FFF31B12CF04B6C45C52B8EE28B11595"
+            BuildableName = "libPods-WelcomeScreenTests.a"
+            BlueprintName = "Pods-WelcomeScreenTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

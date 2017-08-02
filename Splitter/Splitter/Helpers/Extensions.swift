@@ -6,10 +6,9 @@
 //  Copyright © 2017 Wayne Rumble. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension Date {
-    
     func currentDateTimeAsString() -> String {
         let date = Date()
         let formatter = DateFormatter()

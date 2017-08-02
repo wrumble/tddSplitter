@@ -11,14 +11,23 @@ import Firebase
 
 class WelcomeScreenViewController: UIViewController {
     
-    let firebaseData = FirebaseData()
+    private var currentUser: SplitterUser? {
+        didSet {
+            let nextViewController = MyBillsViewController()
+            nextViewController.currentUser = self.currentUser
+            present(nextViewController, animated: true)
+        }
+    }
     
-    let titleLogoLabel = TitleLabelLogo(frame: CGRect.zero, accessID: AccesID.titleLogoLabel)
-    let emailTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.emailTextField)
-    let passwordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.passwordTextField)
-    let confirmPasswordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.confirmPasswordTextField)
-    let loginButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.loginButton)
-    let registerButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.registerButton)
+    // swiftlint:disable line_length
+    private let firebaseData = FirebaseData()
+    private let titleLogoLabel = TitleLabelLogo(frame: CGRect.zero, accessID: AccesID.titleLogoLabel)
+    private let emailTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.emailTextField)
+    private let passwordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.passwordTextField)
+    private let confirmPasswordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.confirmPasswordTextField)
+    private let loginButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.loginButton)
+    private let registerButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.registerButton)
+    // swiftlint:enable line_length
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +51,7 @@ class WelcomeScreenViewController: UIViewController {
         placePasswordConfirmationTextField()
         placeLoginButton()
         placeRegisterButton()
+        setupKeyboard()
     }
     
     private func applyCommonLayoutFeaturesToAllViews() {
@@ -97,24 +107,17 @@ class WelcomeScreenViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
     }
     
-    @objc private func registerButtonTapped() {
-        if confirmPasswordTextField.isHidden {
-            animateLoginButton()
-        } else {
-            
-        }
-    }
-    
     private func registerNewUser() {
         let email = emailTextField.text
         let password = passwordTextField.text
         let confirmationPassword = confirmPasswordTextField.text
         if let password = password, password == confirmationPassword {
-            firebaseData.createUser(email: email!, password: password, completion: { (error, firebaseUser) in
+            firebaseData.createUser(email: email!, password: password, completion: { (error, splitterUser) in
                 if let error = error {
                     //raise error
+                    print(error)
                 } else {
-                    firebaseUser?.uid
+                    self.currentUser = splitterUser
                 }
             })
         } else {
@@ -122,11 +125,20 @@ class WelcomeScreenViewController: UIViewController {
         }
     }
     
+    @objc private func registerButtonTapped() {
+        if confirmPasswordTextField.isHidden {
+            animateLoginButton()
+        } else {
+            registerNewUser()
+        }
+    }
+    
     @objc private func loginButtonTapped() {
         if !confirmPasswordTextField.isHidden {
             animateLoginButton()
+            self.view.layoutSubviews()
         } else {
-            //segue to sign up to stripe onboarding screens
+            //segue to next vc
         }
     }
     
@@ -143,17 +155,37 @@ class WelcomeScreenViewController: UIViewController {
         UIView.animate(withDuration: 0.3, animations: {
             self.loginButton.frame.origin.y += Layout.loginButtonYMovement
             self.confirmPasswordTextField.isHidden = false
+            self.view.layoutSubviews()
         })
     }
     
     private func moveLoginButtonUp() {
-        //Move the loginButton up, when login button has finished moving hide the confirmationPasswordTextView
+        //Move the loginButton up, when it has finished moving hide the confirmationPasswordTextView
         UIView.animate(withDuration: 0.3, animations: {
             self.loginButton.frame.origin.y -= Layout.loginButtonYMovement
-        }, completion: { isComplete in
-            if isComplete {
-                self.confirmPasswordTextField.isHidden = true
-            }
+        }, completion: { _ in
+            self.confirmPasswordTextField.isHidden = true
         })
+    }
+}
+
+extension UIViewController {
+    func setupKeyboard() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(sender:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(sender:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    @objc private func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y = Layout.welcomeScreenKeyboardMovement
+    }
+    
+    @objc private func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
     }
 }
