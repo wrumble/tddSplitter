@@ -19,10 +19,10 @@ struct SplitterUser {
     var isPayingBill: [String: Bool]
     var bills: [Bill]
     
-    init(name: String, email: String) {
+    init(id: String, email: String) {
         self.id = ""
         self.stripeID = ""
-        self.name = name
+        self.name = ""
         self.email = email
         self.hasPaid = [:]
         self.isPayingBill = [:]

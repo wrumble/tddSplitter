@@ -7,6 +7,7 @@
 //
 
 import XCTest
+//import Firebase
 @testable import Splitter
 
 class WelcomeScreenTests: XCTestCase {
@@ -72,17 +73,48 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testSuccesfullyRegisteringNewUserSeguesToMyBillsViewController() {
+        register(email: "test@email.com", password: "password", confirmationPassword: "password")
+        
+        let titleText = NSLocalizedString("MyBillsViewControllerTitle",
+                                          bundle: Bundle(for: WelcomeScreenTests.self),
+                                          comment: "")
+        let newControllerTitle = app.staticTexts[titleText]
+        let exists = NSPredicate(format: "exists == 1")
+        
+        expectation(for: exists, evaluatedWith: newControllerTitle, handler: nil)
+        waitForExpectations(timeout: 5, handler: { error in
+            if let error = error {
+                XCTFail(String(describing: error))
+            } else {
+                XCTAssertTrue(true)
+            }
+        })
+        //removeUser()
+    }
+    
+    func register(email: String, password: String, confirmationPassword: String) {
         let emailTextField = app.textFields[AccesID.emailTextField]
         let passwordTextField = app.textFields[AccesID.passwordTextField]
         let confirmPasswordTextField = app.textFields[AccesID.confirmPasswordTextField]
         let registerButton = app.buttons[AccesID.registerButton]
         
-        emailTextField.typeText("test@email.com")
-        passwordTextField.typeText("password")
-        confirmPasswordTextField.typeText("password")
-        
+        emailTextField.tap()
+        emailTextField.typeText(email)
+        passwordTextField.tap()
+        passwordTextField.typeText(password)
         registerButton.tap()
-        
-        XCTAssert(app.staticTexts["My Bills"].exists)
+        confirmPasswordTextField.tap()
+        confirmPasswordTextField.typeText(confirmationPassword)
+        registerButton.tap()
     }
+    
+//    func removeUser() {
+//        if let user = Auth.auth().currentUser {
+//            user.delete(completion: { error in
+//                if let error = error {
+//                    print(error)
+//                }
+//            })
+//        }
+//    }
 }

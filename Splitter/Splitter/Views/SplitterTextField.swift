@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplitterTextField: UITextField {
+class SplitterTextField: UITextField, UITextFieldDelegate {
     
     var accessID: String!
     
@@ -23,9 +23,16 @@ class SplitterTextField: UITextField {
     }
     
     private func setup() {
+        delegate = self
         backgroundColor = Color.textFieldBackground
         accessibilityIdentifier = accessID
         textAlignment = .center
+        returnKeyType = .done
         placeholder = NSLocalizedString("\(accessID!)PlaceHolder", comment: "")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
+        return true
     }
 }

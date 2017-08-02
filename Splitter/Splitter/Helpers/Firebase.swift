@@ -11,7 +11,9 @@ import Firebase
 
 struct FirebaseStorage {
     
-    func uploadImage(billId: String, imageData: Data, completion: @escaping (_ imageURL: URL?) -> Void) {
+    func uploadImage(billId: String,
+                     imageData: Data,
+                     completion: @escaping (_ imageURL: URL?) -> Void) {
         let storageReference = Storage.storage().reference()
                                                 .child("BillImages")
                                                 .child(billId)
@@ -29,17 +31,17 @@ struct FirebaseData {
     
     let databaseReference = Database.database().reference().child("Bills")
     
-    func createUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
+    func createUser(email: String,
+                    password: String,
+                    completion: @escaping (_ error: Error?, _ splitterUser: SplitterUser?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-            if let error = error {
-                completion(error, user)
-            } else {
-                completion(error, user)
-            }
+            completion(error, self.createSplitterUser(from: user))
         })
     }
     
-    func signInUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
+    func signInUser(email: String,
+                    password: String,
+                    completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 completion(error, user)
@@ -59,14 +61,16 @@ struct FirebaseData {
         }
     }
     
-    func createBill(_ bill: Bill, completion: @escaping (_ error: Error?) -> Void) {
+    func createBill(_ bill: Bill,
+                    completion: @escaping (_ error: Error?) -> Void) {
         databaseReference.child(bill.id)
                          .setValue(bill.toJSON()) { (error, _) in
             completion(error)
         }
     }
     
-    func createItem(_ item: Item, completion: @escaping (_ error: Error?) -> Void) {
+    func createItem(_ item: Item,
+                    completion: @escaping (_ error: Error?) -> Void) {
         databaseReference.child(item.billID)
                          .child("Items")
                          .child(item.id)
@@ -75,14 +79,16 @@ struct FirebaseData {
         }
     }
     
-    func removeBill(with id: String, completion: @escaping (_ error: Error?) -> Void) {
+    func removeBill(with id: String,
+                    completion: @escaping (_ error: Error?) -> Void) {
         let billReference = databaseReference.child(id)
         billReference.removeValue { (error, _) in
             completion(error)
         }
     }
     
-    func removeItem(_ item: Item, completion: @escaping (_ error: Error?) -> Void) {
+    func removeItem(_ item: Item,
+                    completion: @escaping (_ error: Error?) -> Void) {
         let itemReference = databaseReference.child(item.billID)
                                              .child("Items")
                                              .child(item.id)
@@ -91,7 +97,8 @@ struct FirebaseData {
         }
     }
     
-    func findBill(with id: String, completion: @escaping (_ bill: Bill?) -> Void) {
+    func findBill(with id: String,
+                  completion: @escaping (_ bill: Bill?) -> Void) {
         let billReference = databaseReference.child(id)
         billReference.observeSingleEvent(of: .value, with: { snapshot in
             let bill = self.createBill(from: snapshot)
@@ -99,14 +106,27 @@ struct FirebaseData {
         })
     }
     
-    func findItem(_ item: Item, completion: @escaping (_ Item: Item?) -> Void) {
+    func findItem(_ item: Item,
+                  completion: @escaping (_ Item: Item?) -> Void) {
         let itemReference = databaseReference.child(item.billID)
                                              .child("Items")
                                              .child(item.id)
-        itemReference.observeSingleEvent(of: .value, with: { snapshot in
+        itemReference.observeSingleEvent(of: .value,
+                                         with: { snapshot in
             let item = self.createItem(from: snapshot)
             completion(item)
         })
+    }
+    
+    private func createSplitterUser(from firebaseUser: User?) -> SplitterUser? {
+        if let firebaseUser = firebaseUser {
+            let id = firebaseUser.uid
+            let email = firebaseUser.email
+            
+            return SplitterUser(id: id, email: email!)
+        } else {
+            return nil
+        }
     }
     
     private func createItem(from snapshot: DataSnapshot) -> Item {

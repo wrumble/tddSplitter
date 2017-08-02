@@ -9,7 +9,6 @@
 import XCTest
 import Firebase
 @testable import Splitter
-// swiftlint:disable unused_closure_parameter
 
 class ItemTests: XCTestCase {
     
@@ -34,7 +33,8 @@ class ItemTests: XCTestCase {
                         price: 3.50,
                         billID: billID)
         
-        firebaseData.createItem(item, completion: { (error) in
+        firebaseData.createItem(item,
+                                completion: { (error) in
             if let error = error {
                 XCTFail(String(describing: error))
             } else {
@@ -42,7 +42,7 @@ class ItemTests: XCTestCase {
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 10) { (error) in
+        waitForExpectations(timeout: 10) { (_) in
             XCTAssertTrue(testSuccess)
         }
         removeTestBill(withID: billID)
@@ -50,7 +50,7 @@ class ItemTests: XCTestCase {
     
     func testCanRequestItem() {
         var resultID = String()
-        let billID = addBillToFirebase()//FIXME naming
+        let billID = addBillToFirebase()
         let item = addItemToBill(withID: billID)
         let requestExpectation = expectation(description: "Request a bill")
         
@@ -60,7 +60,7 @@ class ItemTests: XCTestCase {
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 5) { (error) in
+        waitForExpectations(timeout: 5) { _ in
             XCTAssertEqual(resultID, item.id)
         }
         removeTestBill(withID: billID)
@@ -68,11 +68,12 @@ class ItemTests: XCTestCase {
     
     func testCanRemoveItemFromBill() {
         var testSuccess = false
-        let billID = addBillToFirebase()//FIXME naming
+        let billID = addBillToFirebase()
         let item = addItemToBill(withID: billID)
         let requestExpectation = expectation(description: "Remove a bill")
         
-        firebaseData.removeItem(item, completion: { (error) in
+        firebaseData.removeItem(item,
+                                completion: { (error) in
             if let error = error {
                 XCTFail(String(describing: error))
             } else {
@@ -80,13 +81,13 @@ class ItemTests: XCTestCase {
             }
             requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 10) { (error) in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssertTrue(testSuccess)
         }
         removeTestBill(withID: billID)
     }
     
-    func addBillToFirebase() -> String { //FIXME naming
+    func addBillToFirebase() -> String {
         let bill = Bill(name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",
