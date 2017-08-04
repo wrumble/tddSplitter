@@ -78,6 +78,7 @@ class WelcomeScreenViewController: UIViewController {
                                  priority: .required,
                                  relatedBy: .equal)
         passwordTextField.addHeightConstraint(with: Layout.textFieldHeight)
+        passwordTextField.isSecureTextEntry = true
     }
     
     private func placePasswordConfirmationTextField() {
@@ -86,6 +87,7 @@ class WelcomeScreenViewController: UIViewController {
                                         priority: .required,
                                         relatedBy: .equal)
         confirmPasswordTextField.addHeightConstraint(with: Layout.textFieldHeight)
+        confirmPasswordTextField.isSecureTextEntry = true
         confirmPasswordTextField.isHidden = true
     }
     
@@ -112,17 +114,32 @@ class WelcomeScreenViewController: UIViewController {
         let password = passwordTextField.text
         let confirmationPassword = confirmPasswordTextField.text
         if let password = password, password == confirmationPassword {
-            firebaseData.createUser(email: email!, password: password, completion: { (error, splitterUser) in
+            firebaseData.createUser(email: email!, password: password, completion: { (error, _ ) in
                 if let error = error {
                     //raise error
                     print(error)
                 } else {
-                    self.currentUser = splitterUser
+                    self.signInUser()
                 }
             })
         } else {
             //raise password mismatch error
+            print("password mismatch error")
         }
+    }
+    
+    private func signInUser() {
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        
+        firebaseData.signInUser(email: email!, password: password!, completion: { (error, splitterUser) in
+            if let error = error {
+                //raise error
+                print(error)
+            } else {
+                self.currentUser = splitterUser
+            }
+        })
     }
     
     @objc private func registerButtonTapped() {
@@ -166,26 +183,5 @@ class WelcomeScreenViewController: UIViewController {
         }, completion: { _ in
             self.confirmPasswordTextField.isHidden = true
         })
-    }
-}
-
-extension UIViewController {
-    func setupKeyboard() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow(sender:)),
-                                               name: NSNotification.Name.UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide(sender:)),
-                                               name: NSNotification.Name.UIKeyboardWillHide,
-                                               object: nil)
-    }
-    
-    @objc private func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y = Layout.welcomeScreenKeyboardMovement
-    }
-    
-    @objc private func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y = 0
     }
 }

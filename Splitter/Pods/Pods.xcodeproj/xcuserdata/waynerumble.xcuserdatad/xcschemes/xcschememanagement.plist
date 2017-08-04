@@ -24,17 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Splitter-WelcomeScreenTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Splitter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-UserTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-WelcomeScreenTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

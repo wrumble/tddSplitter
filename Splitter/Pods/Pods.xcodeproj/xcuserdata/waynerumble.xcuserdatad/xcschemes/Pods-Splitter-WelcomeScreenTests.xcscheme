@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FFF31B12CF04B6C45C52B8EE28B11595"
-               BuildableName = "libPods-WelcomeScreenTests.a"
-               BlueprintName = "Pods-WelcomeScreenTests"
+               BlueprintIdentifier = "CB8683A4A7E671E0F9EDBE76323FE124"
+               BuildableName = "libPods-Splitter-WelcomeScreenTests.a"
+               BlueprintName = "Pods-Splitter-WelcomeScreenTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FFF31B12CF04B6C45C52B8EE28B11595"
-            BuildableName = "libPods-WelcomeScreenTests.a"
-            BlueprintName = "Pods-WelcomeScreenTests"
+            BlueprintIdentifier = "CB8683A4A7E671E0F9EDBE76323FE124"
+            BuildableName = "libPods-Splitter-WelcomeScreenTests.a"
+            BlueprintName = "Pods-Splitter-WelcomeScreenTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

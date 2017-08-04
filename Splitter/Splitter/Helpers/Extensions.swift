@@ -17,3 +17,24 @@ extension Date {
         return formatter.string(from: date)
     }
 }
+
+extension UIViewController {
+    func setupKeyboard() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(sender:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(sender:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    @objc private func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y = Layout.welcomeScreenKeyboardMovement
+    }
+    
+    @objc private func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+}

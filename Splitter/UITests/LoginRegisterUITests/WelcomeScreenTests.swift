@@ -7,8 +7,7 @@
 //
 
 import XCTest
-//import Firebase
-@testable import Splitter
+import Firebase
 
 class WelcomeScreenTests: XCTestCase {
     
@@ -60,7 +59,7 @@ class WelcomeScreenTests: XCTestCase {
         XCTAssertTrue(confirmPasswordTextField.exists)
     }
     
-    func testTappingLoginButtonAfterRegistrButtonHidesConfirmationTextFieldAgain() {
+    func testTappingLoginButtonAfterRegisterButtonHidesConfirmationTextFieldAgain() {
         let loginButton = app.buttons[AccesID.loginButton]
         let registerButton = app.buttons[AccesID.registerButton]
         let confirmPasswordTextField = app.textFields[AccesID.confirmPasswordTextField]
@@ -73,7 +72,9 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testSuccesfullyRegisteringNewUserSeguesToMyBillsViewController() {
-        register(email: "test@email.com", password: "password", confirmationPassword: "password")
+        register(email: "WelcomeScreenRegister@email.com",
+                 password: "password",
+                 confirmationPassword: "password")
         
         let titleText = NSLocalizedString("MyBillsViewControllerTitle",
                                           bundle: Bundle(for: WelcomeScreenTests.self),
@@ -82,14 +83,14 @@ class WelcomeScreenTests: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: newControllerTitle, handler: nil)
-        waitForExpectations(timeout: 5, handler: { error in
+        waitForExpectations(timeout: 10, handler: { error in
             if let error = error {
                 XCTFail(String(describing: error))
             } else {
+                self.removeUser()
                 XCTAssertTrue(true)
             }
         })
-        //removeUser()
     }
     
     func register(email: String, password: String, confirmationPassword: String) {
@@ -108,13 +109,17 @@ class WelcomeScreenTests: XCTestCase {
         registerButton.tap()
     }
     
-//    func removeUser() {
-//        if let user = Auth.auth().currentUser {
-//            user.delete(completion: { error in
-//                if let error = error {
-//                    print(error)
-//                }
-//            })
-//        }
-//    }
+    //This isnt working
+    func removeUser() {
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+        if let user = Auth.auth().currentUser {
+            user.delete(completion: { error in
+                if let error = error {
+                    print(error)
+                }
+            })
+        }
+    }
 }
