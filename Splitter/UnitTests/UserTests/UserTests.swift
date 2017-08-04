@@ -27,7 +27,7 @@ class UserTests: XCTestCase {
         var testSuccess = false
         let requestExpectation = expectation(description: "Creates a user")
         
-        firebaseData.createUser(email: "test@email.com",
+        firebaseData.createUser(email: "CreateUser@email.com",
                                 password: "password",
                                 completion: { (error, splitterUser) in
             if splitterUser != nil {
@@ -48,10 +48,10 @@ class UserTests: XCTestCase {
         var testSuccess = false
         let requestExpectation = expectation(description: "Creates a user")
         
-        firebaseData.signInUser(email: "test@email.com",
+        firebaseData.signInUser(email: "CreateUser@email.com",
                                 password: "password",
-                                completion: { (error, firebaseUser) in
-            if firebaseUser != nil {
+                                completion: { (error, splitterUser) in
+            if splitterUser != nil {
                 testSuccess = true
                 self.removeUser()
             } else {
@@ -83,7 +83,7 @@ class UserTests: XCTestCase {
     func createUser() {
         weak var requestExpectation = expectation(description: "Creates a user")
         
-        firebaseData.createUser(email: "test@email.com",
+        firebaseData.createUser(email: "CreateUser@email.com",
                                 password: "password",
                                 completion: { (error, _ ) in
             if let error = error {

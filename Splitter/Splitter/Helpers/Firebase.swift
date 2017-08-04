@@ -41,13 +41,9 @@ struct FirebaseData {
     
     func signInUser(email: String,
                     password: String,
-                    completion: @escaping (_ error: Error?, _ user: User?) -> Void) {
+                    completion: @escaping (_ error: Error?, _ user: SplitterUser?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-            if let error = error {
-                completion(error, user)
-            } else {
-                completion(error, user)
-            }
+            completion(error, self.createSplitterUser(from: user))
         })
     }
     
