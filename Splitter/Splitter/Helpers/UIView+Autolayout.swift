@@ -130,11 +130,28 @@ extension UIView {
         return pin(edge: .top, to:.top, of: view, constant: constant, priority: priority, relatedBy: relation)
     }
     
+    @discardableResult func pinTop(to view: UIView,
+                                   anchor: Edge,
+                                   constant: CGFloat = 0,
+                                   priority: UILayoutPriority = UILayoutPriority.required,
+                                   relatedBy relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
+        return pin(edge: .top, to: anchor, of: view, constant: constant, priority: priority, relatedBy: relation)
+    }
+    
+    
     @discardableResult func pinBottom(to view: UIView,
                                       constant: CGFloat = 0,
                                       priority: UILayoutPriority = UILayoutPriority.required,
                                       relatedBy relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
         return pin(edge: .bottom, to:.bottom, of: view, constant: constant, priority: priority, relatedBy: relation)
+    }
+    
+    @discardableResult func pinBottom(to view: UIView,
+                                      anchor: Edge,
+                                      constant: CGFloat = 0,
+                                      priority: UILayoutPriority = UILayoutPriority.required,
+                                      relatedBy relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
+        return pin(edge: .bottom, to: anchor, of: view, constant: constant, priority: priority, relatedBy: relation)
     }
     
     @discardableResult func pinLeft(to view: UIView,

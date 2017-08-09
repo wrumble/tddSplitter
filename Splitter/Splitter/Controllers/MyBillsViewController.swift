@@ -16,9 +16,7 @@ class MyBillsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(Auth.auth().currentUser?.email! as! String)
-        
+                
         titleLabel.text = "My Bills"
         titleLabel.frame = view.frame
         titleLabel.textAlignment = .center

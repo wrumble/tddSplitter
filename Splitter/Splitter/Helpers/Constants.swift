@@ -28,13 +28,34 @@ enum AccesID {
 }
 
 enum Color {
-    static let titleLogoText = UIColor(red: 254/255, green: 254/255, blue: 254/255, alpha: 1.00)
-    static let mainBackground = UIColor(red: 48/255, green: 63/255, blue: 158/255, alpha: 1.00)
-    static let buttonBackground = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.00)
-    static let buttonText = UIColor(red: 254/255, green: 254/255, blue: 254/255, alpha: 1.00)
-    static let textFieldBackground = UIColor(red: 96/255, green: 125/255, blue: 138/255, alpha: 1.00)
-    static let textFieldText = UIColor(red: 254/255, green: 254/255, blue: 254/255, alpha: 1.00)
-    static let textFieldPlaceholder = UIColor(red: 117/255, green: 117/255, blue: 117/255, alpha: 1.00)
+    static let titleLogoText = UIColor(red: 254/255,
+                                       green: 254/255,
+                                       blue: 254/255,
+                                       alpha: 1.00)
+    static let mainBackground = UIColor(red: 48/255,
+                                        green: 63/255,
+                                        blue: 158/255,
+                                        alpha: 1.00)
+    static let buttonBackground = UIColor(red: 33/255,
+                                          green: 33/255,
+                                          blue: 33/255,
+                                          alpha: 1.00)
+    static let buttonText = UIColor(red: 254/255,
+                                    green: 254/255,
+                                    blue: 254/255,
+                                    alpha: 1.00)
+    static let textFieldBackground = UIColor(red: 96/255,
+                                             green: 125/255,
+                                             blue: 138/255,
+                                             alpha: 1.00)
+    static let textFieldText = UIColor(red: 254/255,
+                                       green: 254/255,
+                                       blue: 254/255,
+                                       alpha: 1.00)
+    static let textFieldPlaceholder = UIColor(red: 117/255,
+                                              green: 117/255,
+                                              blue: 117/255,
+                                              alpha: 1.00)
 }
 
 enum Font {

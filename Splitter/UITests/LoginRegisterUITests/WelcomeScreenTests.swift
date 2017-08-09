@@ -33,7 +33,7 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testHasPasswordTextField() {
-        let passwordTextField = app.textFields[AccesID.passwordTextField]
+        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
         
         XCTAssertTrue(passwordTextField.isHittable)
     }
@@ -52,7 +52,7 @@ class WelcomeScreenTests: XCTestCase {
     
     func testTappingRegisterButtonShowsConfirmPasswordTextField() {
         let registerButton = app.buttons[AccesID.registerButton]
-        let confirmPasswordTextField = app.textFields[AccesID.confirmPasswordTextField]
+        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
         
         XCTAssertFalse(confirmPasswordTextField.exists)
         registerButton.tap()
@@ -62,7 +62,7 @@ class WelcomeScreenTests: XCTestCase {
     func testTappingLoginButtonAfterRegisterButtonHidesConfirmationTextFieldAgain() {
         let loginButton = app.buttons[AccesID.loginButton]
         let registerButton = app.buttons[AccesID.registerButton]
-        let confirmPasswordTextField = app.textFields[AccesID.confirmPasswordTextField]
+        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
         
         XCTAssertFalse(confirmPasswordTextField.exists)
         registerButton.tap()
@@ -95,8 +95,8 @@ class WelcomeScreenTests: XCTestCase {
     
     func register(email: String, password: String, confirmationPassword: String) {
         let emailTextField = app.textFields[AccesID.emailTextField]
-        let passwordTextField = app.textFields[AccesID.passwordTextField]
-        let confirmPasswordTextField = app.textFields[AccesID.confirmPasswordTextField]
+        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
+        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
         let registerButton = app.buttons[AccesID.registerButton]
         
         emailTextField.tap()
