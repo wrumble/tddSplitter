@@ -11,11 +11,19 @@ import Firebase
 
 class WelcomeScreenTests: XCTestCase {
     
+    var createdUserEmails = [String]()
     let app = XCUIApplication()
     
     override func setUp() {
         app.launch()
         super.setUp()
+    }
+    
+    override func tearDown() {
+        createdUserEmails.forEach { email in
+            self.removeUser(with: email)
+        }
+        super.tearDown()
     }
     
     func testHasLogoLabel() {
@@ -59,7 +67,7 @@ class WelcomeScreenTests: XCTestCase {
         XCTAssertTrue(confirmPasswordTextField.exists)
     }
     
-    func testTappingLoginButtonAfterRegisterButtonHidesConfirmationTextFieldAgain() {
+    func testRegisterButtonPerformsSegueWithValidEmailAndPassword() {
         let loginButton = app.buttons[AccesID.loginButton]
         let registerButton = app.buttons[AccesID.registerButton]
         let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
@@ -73,9 +81,13 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testSuccesfullyRegisteringNewUserSeguesToMyBillsViewController() {
-        register(email: "WelcomeScreenRegister@email.com",
-                 password: "password",
-                 confirmationPassword: "password")
+        let email = createEmail(with: "\(#function)")
+        let password = "password"
+        
+        createdUserEmails.append(email)
+        register(email: email,
+                 password: password,
+                 confirmationPassword: password)
         
         let titleText = NSLocalizedString("MyBillsViewControllerTitle",
                                           bundle: Bundle(for: WelcomeScreenTests.self),
@@ -88,48 +100,44 @@ class WelcomeScreenTests: XCTestCase {
             if let error = error {
                 XCTFail(String(describing: error))
             } else {
-                self.removeUser()
                 XCTAssertTrue(true)
             }
         })
     }
     
-    func testLoginButtonDoesntSegueWhenEmailIsInvalid() {
-        let emailTextField = app.textFields[AccesID.emailTextField]
-        //let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
-        let loginButton = app.buttons[AccesID.loginButton]
-        let invalidEmail = "invalid@email"
-        //let password = "123456"
+    func testLoginButtonPerformsSegueWithValidEmailAndPassword() {
+        let validEmail = "alreadyRegisteredUser@email.com"
+        let validPassword = "password"
         
-        XCTAssertFalse(loginButton.isEnabled)
+        createdUserEmails.append(validEmail)
+        login(email: validEmail, password: validPassword)
         
-        emailTextField.tap()
-        emailTextField.typeText(invalidEmail)
-//        passwordTextField.tap()
-//        passwordTextField.typeText(password)
+        let titleText = NSLocalizedString("MyBillsViewControllerTitle",
+                                          bundle: Bundle(for: WelcomeScreenTests.self),
+                                          comment: "")
+        let newControllerTitle = app.staticTexts[titleText]
+        let exists = NSPredicate(format: "exists == 1")
         
-        XCTAssertFalse(loginButton.isEnabled)
+        expectation(for: exists, evaluatedWith: newControllerTitle, handler: nil)
+        waitForExpectations(timeout: 10, handler: { error in
+            if let error = error {
+                XCTFail(String(describing: error))
+            } else {
+                XCTAssertTrue(true)
+            }
+        })
     }
     
-    func testLoginButtonEnabledWhenEmailValid() {
+    func login(email: String, password: String) {
         let emailTextField = app.textFields[AccesID.emailTextField]
-        //let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
+        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
         let loginButton = app.buttons[AccesID.loginButton]
-        let invalidEmail = "valid@email.com"
-        //let password = "123456"
-        
-        XCTAssertFalse(loginButton.isEnabled)
         
         emailTextField.tap()
-        emailTextField.typeText(invalidEmail)
-//        passwordTextField.tap()
-//        passwordTextField.typeText(password)
-        
-        XCTAssertTrue(loginButton.isEnabled)
-    }
-    
-    func testRegisteringUsedPasswordDisplaysAlert() {
-        
+        emailTextField.typeText(email)
+        passwordTextField.tap()
+        passwordTextField.typeText(password)
+        loginButton.tap()
     }
     
     func register(email: String, password: String, confirmationPassword: String) {
@@ -148,17 +156,21 @@ class WelcomeScreenTests: XCTestCase {
         registerButton.tap()
     }
     
-    //This isnt working
-    func removeUser() {
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
-        if let user = Auth.auth().currentUser {
-            user.delete(completion: { error in
-                if let error = error {
-                    print(error)
+    func createEmail(with functionName: String) -> String {
+        let badchar = CharacterSet(charactersIn: "()")
+        let cleanedFunctionName = functionName.components(separatedBy: badchar).joined()
+        return "\(cleanedFunctionName)@email.com"
+    }
+    
+    func removeUser(with email: String) {
+        Auth.auth().signIn(withEmail: email, password: "password", completion: { (user, _) in
+            if user != nil {
+                if let signedInUser = Auth.auth().currentUser {
+                    signedInUser.delete()
                 }
-            })
-        }
+            } else {
+                print("No user with email: \(email)")
+            }
+        })
     }
 }
