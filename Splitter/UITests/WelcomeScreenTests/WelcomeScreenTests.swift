@@ -64,6 +64,7 @@ class WelcomeScreenTests: XCTestCase {
         let registerButton = app.buttons[AccesID.registerButton]
         let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
         
+        //dont disable login button when validating email etc
         XCTAssertFalse(confirmPasswordTextField.exists)
         registerButton.tap()
         XCTAssertTrue(confirmPasswordTextField.exists)
@@ -91,6 +92,44 @@ class WelcomeScreenTests: XCTestCase {
                 XCTAssertTrue(true)
             }
         })
+    }
+    
+    func testLoginButtonDoesntSegueWhenEmailIsInvalid() {
+        let emailTextField = app.textFields[AccesID.emailTextField]
+        //let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
+        let loginButton = app.buttons[AccesID.loginButton]
+        let invalidEmail = "invalid@email"
+        //let password = "123456"
+        
+        XCTAssertFalse(loginButton.isEnabled)
+        
+        emailTextField.tap()
+        emailTextField.typeText(invalidEmail)
+//        passwordTextField.tap()
+//        passwordTextField.typeText(password)
+        
+        XCTAssertFalse(loginButton.isEnabled)
+    }
+    
+    func testLoginButtonEnabledWhenEmailValid() {
+        let emailTextField = app.textFields[AccesID.emailTextField]
+        //let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
+        let loginButton = app.buttons[AccesID.loginButton]
+        let invalidEmail = "valid@email.com"
+        //let password = "123456"
+        
+        XCTAssertFalse(loginButton.isEnabled)
+        
+        emailTextField.tap()
+        emailTextField.typeText(invalidEmail)
+//        passwordTextField.tap()
+//        passwordTextField.typeText(password)
+        
+        XCTAssertTrue(loginButton.isEnabled)
+    }
+    
+    func testRegisteringUsedPasswordDisplaysAlert() {
+        
     }
     
     func register(email: String, password: String, confirmationPassword: String) {
