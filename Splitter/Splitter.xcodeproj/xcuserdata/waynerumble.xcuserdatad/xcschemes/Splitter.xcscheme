@@ -109,6 +109,16 @@
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "871559B51F45A5C60022E79A"
+               BuildableName = "WelcomeScreenUnitTests.xctest"
+               BlueprintName = "WelcomeScreenUnitTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

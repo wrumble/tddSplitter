@@ -79,7 +79,6 @@ class WelcomeScreenViewController: UIViewController {
     }
 }
 
-
 extension WelcomeScreenViewController {
     func setupKeyboard() {
         NotificationCenter.default.addObserver(self,
@@ -104,3 +103,5 @@ extension WelcomeScreenViewController {
         textFieldAndButtonView.moveViewDownWithKeyboard()
     }
 }
+
+

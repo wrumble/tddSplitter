@@ -53,8 +53,11 @@ class WelcomeScreenInformationView: UIView {
         confirmPasswordTextField.isSecureTextEntry = true
         confirmPasswordTextField.isHidden = true
         
+        loginButton.isEnabled = false
+        
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+        emailTextField.addTarget(self, action: #selector(textFieldInputDetected), for: .editingChanged)
     }
     
     private func setupLayout() {
@@ -115,6 +118,28 @@ class WelcomeScreenInformationView: UIView {
         }
     }
     
+    @objc private func loginButtonTapped() {
+        if !confirmPasswordTextField.isHidden {
+            moveLoginButtonUp()
+        } else {
+            loginUser()
+        }
+    }
+    
+    @objc private func textFieldInputDetected() {
+        if confirmPasswordTextField.isHidden &&
+            loginTextFieldInputsAreValid() {
+            loginButton.isEnabled = true
+        }
+    }
+    
+    private func loginTextFieldInputsAreValid() -> Bool {
+        if emailTextField.containsValidEmail() {
+            return true
+        }
+        return false
+    }
+    
     private func moveLoginButtonDown() {
         NSLayoutConstraint.deactivate([loginButtonConstraint!])
         loginButtonConstraint = loginButton.pinTop(to: confirmPasswordTextField,
@@ -130,14 +155,6 @@ class WelcomeScreenInformationView: UIView {
         guard let password = passwordTextField.text else { return }
         guard let confirmPassword = confirmPasswordTextField.text else { return }
         onRegister?(email, password, confirmPassword)
-    }
-    
-    @objc private func loginButtonTapped() {
-        if !confirmPasswordTextField.isHidden {
-            moveLoginButtonUp()
-        } else {
-            loginUser()
-        }
     }
     
     private func moveLoginButtonUp() {
@@ -159,7 +176,9 @@ class WelcomeScreenInformationView: UIView {
     
     func moveViewUpWithKeyboard(height: CGFloat) {
         NSLayoutConstraint.deactivate([emailFieldConstraint!])
-        emailFieldConstraint = emailTextField.centerYToSuperview(withConstant: -height/2, priority: .required, relatedBy: .equal)
+        emailFieldConstraint = emailTextField.centerYToSuperview(withConstant: -height/2,
+                                                                 priority: .required,
+                                                                 relatedBy: .equal)
     }
     
     func moveViewDownWithKeyboard() {
