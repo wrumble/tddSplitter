@@ -20,7 +20,7 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     private let firebaseData = FirebaseData()
-    private let textFieldAndButtonView = WelcomeScreenInformationView()
+    let textFieldAndButtonView = WelcomeScreenInformationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,5 +103,3 @@ extension WelcomeScreenViewController {
         textFieldAndButtonView.moveViewDownWithKeyboard()
     }
 }
-
-

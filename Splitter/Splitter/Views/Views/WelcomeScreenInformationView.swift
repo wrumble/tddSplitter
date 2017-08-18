@@ -68,13 +68,13 @@ class WelcomeScreenInformationView: UIView {
         
         titleLogoLabel.pinTop(to: self,
                               constant: Layout.spacer,
-                              priority: .required,
+                              priority: UILayoutPriorityRequired,
                               relatedBy: .greaterThanOrEqual)
         titleLogoLabel.addHeightConstraint(with: Layout.titleLogoTextHeight)
         titleLogoLabel.pinBottom(to: emailTextField,
                                  anchor: .top,
                                  constant: -Layout.spacer,
-                                 priority: .required,
+                                 priority: UILayoutPriorityRequired,
                                  relatedBy: .equal)
         
         emailFieldConstraint = emailTextField.centerYToSuperview()
@@ -84,28 +84,28 @@ class WelcomeScreenInformationView: UIView {
         passwordTextField.pinTop(to: emailTextField,
                                  anchor: .bottom,
                                  constant: Layout.spacer,
-                                 priority: .required,
+                                 priority: UILayoutPriorityRequired,
                                  relatedBy: .equal)
         passwordTextField.addHeightConstraint(with: Layout.textFieldHeight)
         
         confirmPasswordTextField.pinTop(to: passwordTextField,
                                         anchor: .bottom,
                                         constant: Layout.spacer,
-                                        priority: .required,
+                                        priority: UILayoutPriorityRequired,
                                         relatedBy: .equal)
         confirmPasswordTextField.addHeightConstraint(with: Layout.textFieldHeight)
         
         loginButtonConstraint = loginButton.pinTop(to: passwordTextField,
                            anchor: .bottom,
                            constant: Layout.spacer,
-                           priority: .required,
+                           priority: UILayoutPriorityRequired,
                            relatedBy: .equal)
         loginButton.addHeightConstraint(with: Layout.buttonHeight)
         
         registerButton.pinTop(to: loginButton,
                               anchor: .bottom,
                               constant: Layout.spacer,
-                              priority: .required,
+                              priority: UILayoutPriorityRequired,
                               relatedBy: .equal)
         registerButton.addHeightConstraint(with: Layout.buttonHeight)
     }
@@ -145,7 +145,7 @@ class WelcomeScreenInformationView: UIView {
         loginButtonConstraint = loginButton.pinTop(to: confirmPasswordTextField,
                                                    anchor: .bottom,
                                                    constant: Layout.spacer,
-                                                   priority: .required,
+                                                   priority: UILayoutPriorityRequired,
                                                    relatedBy: .equal)
         confirmPasswordTextField.isHidden = false
     }
@@ -162,7 +162,7 @@ class WelcomeScreenInformationView: UIView {
         loginButtonConstraint = loginButton.pinTop(to: passwordTextField,
                                                    anchor: .bottom,
                                                    constant: Layout.spacer,
-                                                   priority: .required,
+                                                   priority: UILayoutPriorityRequired,
                                                    relatedBy: .equal)
         
         confirmPasswordTextField.isHidden = true
@@ -177,7 +177,7 @@ class WelcomeScreenInformationView: UIView {
     func moveViewUpWithKeyboard(height: CGFloat) {
         NSLayoutConstraint.deactivate([emailFieldConstraint!])
         emailFieldConstraint = emailTextField.centerYToSuperview(withConstant: -height/2,
-                                                                 priority: .required,
+                                                                 priority: UILayoutPriorityRequired,
                                                                  relatedBy: .equal)
     }
     
