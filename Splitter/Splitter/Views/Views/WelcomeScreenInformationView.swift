@@ -23,6 +23,7 @@ class WelcomeScreenInformationView: UIView {
     
     var onLogin: ((String, String) -> Void)?
     var onRegister: ((String, String, String) -> Void)?
+    var onInvalidTextFieldInput: ((String, UITextField) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,12 +53,9 @@ class WelcomeScreenInformationView: UIView {
 
         confirmPasswordTextField.isSecureTextEntry = true
         confirmPasswordTextField.isHidden = true
-        
-        loginButton.isEnabled = false
-        
+                
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
-        emailTextField.addTarget(self, action: #selector(textFieldInputDetected), for: .editingChanged)
     }
     
     private func setupLayout() {
@@ -68,13 +66,13 @@ class WelcomeScreenInformationView: UIView {
         
         titleLogoLabel.pinTop(to: self,
                               constant: Layout.spacer,
-                              priority: UILayoutPriorityRequired,
+                              priority: .required,
                               relatedBy: .greaterThanOrEqual)
         titleLogoLabel.addHeightConstraint(with: Layout.titleLogoTextHeight)
         titleLogoLabel.pinBottom(to: emailTextField,
                                  anchor: .top,
                                  constant: -Layout.spacer,
-                                 priority: UILayoutPriorityRequired,
+                                 priority: .required,
                                  relatedBy: .equal)
         
         emailFieldConstraint = emailTextField.centerYToSuperview()
@@ -84,28 +82,28 @@ class WelcomeScreenInformationView: UIView {
         passwordTextField.pinTop(to: emailTextField,
                                  anchor: .bottom,
                                  constant: Layout.spacer,
-                                 priority: UILayoutPriorityRequired,
+                                 priority: .required,
                                  relatedBy: .equal)
         passwordTextField.addHeightConstraint(with: Layout.textFieldHeight)
         
         confirmPasswordTextField.pinTop(to: passwordTextField,
                                         anchor: .bottom,
                                         constant: Layout.spacer,
-                                        priority: UILayoutPriorityRequired,
+                                        priority: .required,
                                         relatedBy: .equal)
         confirmPasswordTextField.addHeightConstraint(with: Layout.textFieldHeight)
         
         loginButtonConstraint = loginButton.pinTop(to: passwordTextField,
                            anchor: .bottom,
                            constant: Layout.spacer,
-                           priority: UILayoutPriorityRequired,
+                           priority: .required,
                            relatedBy: .equal)
         loginButton.addHeightConstraint(with: Layout.buttonHeight)
         
         registerButton.pinTop(to: loginButton,
                               anchor: .bottom,
                               constant: Layout.spacer,
-                              priority: UILayoutPriorityRequired,
+                              priority: .required,
                               relatedBy: .equal)
         registerButton.addHeightConstraint(with: Layout.buttonHeight)
     }
@@ -122,14 +120,12 @@ class WelcomeScreenInformationView: UIView {
         if !confirmPasswordTextField.isHidden {
             moveLoginButtonUp()
         } else {
-            loginUser()
-        }
-    }
-    
-    @objc private func textFieldInputDetected() {
-        if confirmPasswordTextField.isHidden &&
-            loginTextFieldInputsAreValid() {
-            loginButton.isEnabled = true
+            if loginTextFieldInputsAreValid() {
+                loginUser()
+            } else {
+                let text = "Invalid Email Address"
+                onShowToast(with: text, in: emailTextField)
+            }
         }
     }
     
@@ -145,7 +141,7 @@ class WelcomeScreenInformationView: UIView {
         loginButtonConstraint = loginButton.pinTop(to: confirmPasswordTextField,
                                                    anchor: .bottom,
                                                    constant: Layout.spacer,
-                                                   priority: UILayoutPriorityRequired,
+                                                   priority: .required,
                                                    relatedBy: .equal)
         confirmPasswordTextField.isHidden = false
     }
@@ -162,7 +158,7 @@ class WelcomeScreenInformationView: UIView {
         loginButtonConstraint = loginButton.pinTop(to: passwordTextField,
                                                    anchor: .bottom,
                                                    constant: Layout.spacer,
-                                                   priority: UILayoutPriorityRequired,
+                                                   priority: .required,
                                                    relatedBy: .equal)
         
         confirmPasswordTextField.isHidden = true
@@ -174,10 +170,14 @@ class WelcomeScreenInformationView: UIView {
         onLogin?(email, password)
     }
     
+    private func onShowToast(with text: String, in textField: UITextField) {
+        onInvalidTextFieldInput?(text, textField)
+    }
+    
     func moveViewUpWithKeyboard(height: CGFloat) {
         NSLayoutConstraint.deactivate([emailFieldConstraint!])
         emailFieldConstraint = emailTextField.centerYToSuperview(withConstant: -height/2,
-                                                                 priority: UILayoutPriorityRequired,
+                                                                 priority: .required,
                                                                  relatedBy: .equal)
     }
     

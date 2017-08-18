@@ -20,7 +20,7 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     private let firebaseData = FirebaseData()
-    let textFieldAndButtonView = WelcomeScreenInformationView()
+    private let textFieldAndButtonView = WelcomeScreenInformationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class WelcomeScreenViewController: UIViewController {
         setupHierarchy()
         setupLayout()
         setupKeyboard()
+        bindToast()
         bindButtons()
         view.backgroundColor = Color.mainBackground
     }
@@ -58,7 +59,6 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     private func signInUser(email: String, password: String) {
-
         firebaseData.signInUser(email: email, password: password, completion: { (error, splitterUser) in
             if let error = error {
                 //raise error
@@ -67,6 +67,12 @@ class WelcomeScreenViewController: UIViewController {
                 self.currentUser = splitterUser
             }
         })
+    }
+    
+    private func bindToast() {
+        textFieldAndButtonView.onInvalidTextFieldInput = { [weak self] (text, textField) in
+            self?.showToast(in: textField, with: text)
+        }
     }
     
     private func bindButtons() {

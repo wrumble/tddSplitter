@@ -14,8 +14,6 @@ enum Layout {
     static let buttonHeight: CGFloat = 44
     static let spacer: CGFloat = 5
     static let loginButtonYMovement = (Layout.buttonHeight + Layout.spacer) * 2
-    static let welcomeScreenKeyboardMovement = -((Layout.textFieldHeight + Layout.spacer) * 2 +
-                                                 (Layout.buttonHeight + Layout.spacer) * 2)
 }
 
 enum AccesID {
@@ -59,5 +57,6 @@ enum Color {
 }
 
 enum Font {
-    static let titleLogo = "WalkwayBold"
+    static let titleLogoFontName = "WalkwayBold"
+    static let toastFont = UIFont(name: "Montserrat-Light", size: 14.0)
 }

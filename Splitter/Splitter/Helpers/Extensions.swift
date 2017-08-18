@@ -34,10 +34,24 @@ extension UITextField {
 }
 
 extension UIViewController {
-    func showToast(with text: String) {
+    func showToast(in toastSuperView: UIView, with text: String) {
         let toastLabel = ToastLabel()
         toastLabel.text = text
-        view.addSubview(toastLabel)
-        toastLabel.translatesAutoresizingMaskIntoConstraints = false
+        toastSuperView.addSubview(toastLabel)
+        layoutToastLabel(toastLabel)
+        animateToastLabel(toastLabel)
+    }
+    
+    private func layoutToastLabel(_ toastLabel: ToastLabel) {
+        toastLabel.centerYToSuperview()
+        toastLabel.pinToSuperview(edges: [.left, .right])
+    }
+    
+    private func animateToastLabel(_ toastLabel: ToastLabel) {
+        UIView.animate(withDuration: 2.5, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { _ in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
