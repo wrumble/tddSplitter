@@ -31,6 +31,17 @@ extension UITextField {
         }
         return true
     }
+    
+    func passwordReachesMinimumLength() -> Bool {
+        let passwordReg = "^.{\(Constant.minimumPasswordLength),}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordReg)
+        
+        if passwordTest.evaluate(with: self.text) == false {
+            self.becomeFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 
 extension UIViewController {
@@ -48,7 +59,7 @@ extension UIViewController {
     }
     
     private func animateToastLabel(_ toastLabel: ToastLabel) {
-        UIView.animate(withDuration: 2.5, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.5, delay: 0, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: { _ in
             toastLabel.removeFromSuperview()

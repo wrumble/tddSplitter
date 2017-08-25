@@ -112,7 +112,9 @@ class WelcomeScreenInformationView: UIView {
         if confirmPasswordTextField.isHidden {
             moveLoginButtonDown()
         } else {
-            registerNewUer()
+            if registerDetailsAreValid() {
+                registerNewUser()
+            }
         }
     }
     
@@ -120,20 +122,57 @@ class WelcomeScreenInformationView: UIView {
         if !confirmPasswordTextField.isHidden {
             moveLoginButtonUp()
         } else {
-            if loginTextFieldInputsAreValid() {
+            if loginDetailsAreValid() {
                 loginUser()
-            } else {
-                let text = "Invalid Email Address"
-                onShowToast(with: text, in: emailTextField)
             }
         }
     }
     
-    private func loginTextFieldInputsAreValid() -> Bool {
-        if emailTextField.containsValidEmail() {
+    private func loginDetailsAreValid() -> Bool {
+        if containsValidEmail() &&
+           containsValidPassword(textField: passwordTextField) {
             return true
         }
         return false
+    }
+    
+    private func registerDetailsAreValid() -> Bool {
+        if containsValidEmail() &&
+           containsValidPassword(textField: passwordTextField) &&
+           containsValidPassword(textField: confirmPasswordTextField) &&
+           passwordsMatch() {
+            return true
+        }
+        return false
+    }
+    
+    private func containsValidEmail() -> Bool {
+        if emailTextField.containsValidEmail() {
+            return true
+        } else {
+            let errorText = NSLocalizedString("InvalidEmailError", comment: "")
+            onShowToast(with: errorText, in: emailTextField)
+            return false
+        }
+    }
+    
+    private func containsValidPassword(textField: UITextField) -> Bool {
+        if textField.passwordReachesMinimumLength() {
+            return true
+        } else {
+            let errorText = NSLocalizedString("InvalidPasswordError", comment: "")
+            onShowToast(with: errorText, in: textField)
+            return false
+        }
+    }
+    
+    private func passwordsMatch() -> Bool {
+        if passwordTextField.text != confirmPasswordTextField.text {
+            let errorText = NSLocalizedString("PasswordMismatchError", comment: "")
+            onShowToast(with: errorText, in: confirmPasswordTextField)
+            return false
+        }
+        return true
     }
     
     private func moveLoginButtonDown() {
@@ -146,10 +185,11 @@ class WelcomeScreenInformationView: UIView {
         confirmPasswordTextField.isHidden = false
     }
     
-    private func registerNewUer() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        guard let confirmPassword = confirmPasswordTextField.text else { return }
+    private func registerNewUser() {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let confirmPassword = confirmPasswordTextField.text else { return }
+
         onRegister?(email, password, confirmPassword)
     }
     
@@ -165,8 +205,9 @@ class WelcomeScreenInformationView: UIView {
     }
     
     private func loginUser() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
+        
         onLogin?(email, password)
     }
     

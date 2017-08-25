@@ -15,19 +15,21 @@ class SplitterTextField: UITextField, UITextFieldDelegate {
     required init(frame: CGRect, accessID: String) {
         super.init(frame: frame)
         self.accessID = accessID
-        setup()
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    private func setup() {
+    private func setupView() {
         delegate = self
         backgroundColor = Color.textFieldBackground
         accessibilityIdentifier = accessID
         textAlignment = .center
         returnKeyType = .done
+        autocapitalizationType = .none
+        autocorrectionType = .no
         placeholder = NSLocalizedString("\(accessID!)PlaceHolder", comment: "")
     }
     

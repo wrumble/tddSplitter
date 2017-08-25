@@ -42,20 +42,15 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     private func registerNewUser(email: String, password: String, confirmationPassword: String) {
-        
-        if password == confirmationPassword {
-            firebaseData.createUser(email: email, password: password, completion: { (error, _ ) in
-                if let error = error {
-                    //raise error
-                    print(error)
-                } else {
-                    self.signInUser(email: email, password: password)
-                }
-            })
-        } else {
-            //raise password mismatch error
-            print("password mismatch error")
-        }
+        firebaseData.createUser(email: email, password: password, completion: { (error, _ ) in
+            if let error = error {
+                self.showToast(in: self.view, with: error.localizedDescription)
+            } else {
+                let successfulRegistraionText = NSLocalizedString("successfulRegistraionText", comment: "")
+                self.showToast(in: self.view, with: successfulRegistraionText)
+                self.signInUser(email: email, password: password)
+            }
+        })
     }
     
     private func signInUser(email: String, password: String) {
