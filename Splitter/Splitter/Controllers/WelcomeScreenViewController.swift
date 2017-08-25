@@ -46,7 +46,7 @@ class WelcomeScreenViewController: UIViewController {
             if let error = error {
                 self.showToast(in: self.view, with: error.localizedDescription)
             } else {
-                let successfulRegistraionText = NSLocalizedString("successfulRegistraionText", comment: "")
+                let successfulRegistraionText = Localized.successfulRegistraionText
                 self.showToast(in: self.view, with: successfulRegistraionText)
                 self.signInUser(email: email, password: password)
             }
@@ -56,9 +56,10 @@ class WelcomeScreenViewController: UIViewController {
     private func signInUser(email: String, password: String) {
         firebaseData.signInUser(email: email, password: password, completion: { (error, splitterUser) in
             if let error = error {
-                //raise error
-                print(error)
+                self.showToast(in: self.view, with: error.localizedDescription)
             } else {
+                let successfulLoginText = Localized.successfulLoginText
+                self.showToast(in: self.view, with: successfulLoginText)
                 self.currentUser = splitterUser
             }
         })

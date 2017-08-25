@@ -12,6 +12,19 @@ enum Constant {
     static let minimumPasswordLength = 6
 }
 
+enum Localized {
+    //Layout text
+    static let myBillsViewControllerTitle = "MyBillsViewControllerTitle".localized
+    static let splitterTitleLogoText = "SplitterTitleLogoText".localized
+
+    //Toast messages
+    static let invalidEmailError = "InvalidEmailError".localized
+    static let invalidPasswordError = "InvalidPasswordError".localized
+    static let passwordMismatchError = "PasswordMismatchError".localized
+    static let successfulRegistraionText = "SuccessfulRegistraionText".localized
+    static let successfulLoginText = "SuccessfulLoginText".localized
+}
+
 enum Layout {
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
     static let textFieldHeight: CGFloat = 44

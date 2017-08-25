@@ -12,8 +12,8 @@ class SplitterButton: UIButton {
     
     var accessID: String!
     
-    required init(frame: CGRect, accessID: String) {
-        super.init(frame: frame)
+    required init(accessID: String) {
+        super.init(frame: .zero)
         
         self.accessID = accessID
         setup()

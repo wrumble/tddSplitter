@@ -6,6 +6,7 @@
   Copyright © 2017 Wayne Rumble. All rights reserved.
 */
 
+//Layout text
 "MyBillsViewControllerTitle" = "My Bills";
 "SplitterTitleLogoText" = "Splitter";
 "EmailPlaceHolder" = "Email";
@@ -13,6 +14,10 @@
 "ConfirmPasswordPlaceHolder" = "Confirm Password";
 "LoginButtonTitle" = "Login";
 "RegisterButtonTitle" = "Register";
+
+//Toast messages
 "InvalidEmailError" = "Please enter a valid email address to register";
 "InvalidPasswordError" = "Please enter a password longer than 6 characters";
-"PassWordMismatchError" = "Your passwords do not match. Please re-enter them and try again";
+"PasswordMismatchError" = "Your passwords do not match. Please re-enter them and try again";
+"SuccessfulRegistraionText" = "Successful registration";
+"SuccessfulLoginText" = "Successful login";
