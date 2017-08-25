@@ -13,6 +13,7 @@ class WelcomeScreenTests: XCTestCase {
     var createdUserEmail: String?
     
     let registeredEmail = "alreadyregistereduser@email.com"
+    let invalidEmail = "invalid@email"
     
     let app = XCUIApplication()
     let welcomeScreenHelper = WelcomeScreenTestHelper()
@@ -109,10 +110,9 @@ class WelcomeScreenTests: XCTestCase {
         })
     }
     func testRegisteringWithInvalidEmailDisplaysLocalisedError() {
-        let email = "invalid@email"
         let password = "password"
         
-        welcomeScreenHelper.register(email: email,
+        welcomeScreenHelper.register(email: invalidEmail,
                                      password: password,
                                      confirmationPassword: password,
                                      completion: {
@@ -207,6 +207,19 @@ class WelcomeScreenTests: XCTestCase {
             } else {
                 XCTAssertTrue(true)
             }
+        })
+    }
+    
+    func testLoginWithInvalidEmailDisplaysLocalisedError() {
+        let password = "password"
+        welcomeScreenHelper.login(with: invalidEmail,
+                                  and: password,
+                                  completion: {
+                                    
+                                    let localisedErrorMessage = NSLocalizedString("InvalidEmailError",
+                                                                                  bundle: Bundle(for: WelcomeScreenTests.self),
+                                                                                  comment: "")
+                                    XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
         })
     }
 }

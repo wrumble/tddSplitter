@@ -11,7 +11,7 @@ import UIKit
 class ToastLabel: UILabel {
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         setupView()
     }
     

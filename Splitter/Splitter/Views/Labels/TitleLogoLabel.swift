@@ -12,8 +12,8 @@ class TitleLabelLogo: UILabel {
     
     var accessID: String!
     
-    required init(frame: CGRect, accessID: String) {
-        super.init(frame: frame)
+    required init(accessID: String) {
+        super.init(frame: .zero)
         
         self.accessID = accessID
         setup()
@@ -25,7 +25,7 @@ class TitleLabelLogo: UILabel {
     
     private func setup() {
         accessibilityIdentifier = accessID
-        text = NSLocalizedString("SplitterTitleLogoText", comment: "")
+        text = Localized.splitterTitleLogoText
         textColor = Color.titleLogoText
         textAlignment = .center
         font = UIFont(name: Font.titleLogoFontName, size: 200)

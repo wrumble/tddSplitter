@@ -17,7 +17,7 @@ class MyBillsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        titleLabel.text = "My Bills"
+        titleLabel.text = Localized.myBillsViewControllerTitle
         titleLabel.frame = view.frame
         titleLabel.textAlignment = .center
         

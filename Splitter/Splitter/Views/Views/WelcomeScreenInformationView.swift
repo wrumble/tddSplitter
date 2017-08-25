@@ -10,16 +10,14 @@ import UIKit
 
 class WelcomeScreenInformationView: UIView {
 
-    // swiftlint:disable line_length
-    private let titleLogoLabel = TitleLabelLogo(frame: CGRect.zero, accessID: AccesID.titleLogoLabel)
-    private let emailTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.emailTextField)
-    private let passwordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.passwordTextField)
-    private let confirmPasswordTextField = SplitterTextField(frame: CGRect.zero, accessID: AccesID.confirmPasswordTextField)
-    private let loginButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.loginButton)
-    private let registerButton = SplitterButton(frame: CGRect.zero, accessID: AccesID.registerButton)
+    private let titleLogoLabel = TitleLabelLogo(accessID: AccesID.titleLogoLabel)
+    private let emailTextField = SplitterTextField(accessID: AccesID.emailTextField)
+    private let passwordTextField = SplitterTextField(accessID: AccesID.passwordTextField)
+    private let confirmPasswordTextField = SplitterTextField(accessID: AccesID.confirmPasswordTextField)
+    private let loginButton = SplitterButton(accessID: AccesID.loginButton)
+    private let registerButton = SplitterButton(accessID: AccesID.registerButton)
     private var emailFieldConstraint: NSLayoutConstraint?
     private var loginButtonConstraint: NSLayoutConstraint?
-    // swiftlint:enable line_length
     
     var onLogin: ((String, String) -> Void)?
     var onRegister: ((String, String, String) -> Void)?
@@ -150,7 +148,7 @@ class WelcomeScreenInformationView: UIView {
         if emailTextField.containsValidEmail() {
             return true
         } else {
-            let errorText = NSLocalizedString("InvalidEmailError", comment: "")
+            let errorText = Localized.invalidEmailError
             onShowToast(with: errorText, in: emailTextField)
             return false
         }
@@ -160,7 +158,7 @@ class WelcomeScreenInformationView: UIView {
         if textField.passwordReachesMinimumLength() {
             return true
         } else {
-            let errorText = NSLocalizedString("InvalidPasswordError", comment: "")
+            let errorText = Localized.invalidPasswordError
             onShowToast(with: errorText, in: textField)
             return false
         }
@@ -168,7 +166,7 @@ class WelcomeScreenInformationView: UIView {
     
     private func passwordsMatch() -> Bool {
         if passwordTextField.text != confirmPasswordTextField.text {
-            let errorText = NSLocalizedString("PasswordMismatchError", comment: "")
+            let errorText = Localized.passwordMismatchError
             onShowToast(with: errorText, in: confirmPasswordTextField)
             return false
         }

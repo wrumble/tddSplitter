@@ -13,7 +13,7 @@ class WelcomeScreenTestHelper: XCTestCase {
     
     let app = XCUIApplication()
     
-    func login(with email: String, and password: String) {
+    func login(with email: String, and password: String, completion: (() -> Void)? = nil) {
         let emailTextField = app.textFields[AccesID.emailTextField]
         let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
         let loginButton = app.buttons[AccesID.loginButton]
@@ -23,6 +23,8 @@ class WelcomeScreenTestHelper: XCTestCase {
         passwordTextField.tap()
         passwordTextField.typeText(password)
         loginButton.tap()
+        
+        completion?()
     }
     
     func register(email: String, password: String, confirmationPassword: String, completion: (() -> Void)? = nil) {
