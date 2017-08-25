@@ -14,7 +14,7 @@
 
       # Pods for Splitter
 
-        allPods
+      allPods
 
       target ‘BillTests’ do
         inherit! :search_paths

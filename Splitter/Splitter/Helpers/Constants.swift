@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum Constant {
+    static let minimumPasswordLength = 6
+}
+
 enum Layout {
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
     static let textFieldHeight: CGFloat = 44
@@ -17,12 +21,13 @@ enum Layout {
 }
 
 enum AccesID {
-    static let titleLogoLabel = "TitleLabel"
+    static let titleLogoLabel = "Title"
     static let emailTextField = "Email"
     static let passwordTextField = "Password"
     static let confirmPasswordTextField = "ConfirmPassword"
     static let loginButton = "Login"
     static let registerButton = "Register"
+    static let toastLabel = "Toast"
 }
 
 enum Color {

@@ -13,3 +13,6 @@
 "ConfirmPasswordPlaceHolder" = "Confirm Password";
 "LoginButtonTitle" = "Login";
 "RegisterButtonTitle" = "Register";
+"InvalidEmailError" = "Please enter a valid email address to register";
+"InvalidPasswordError" = "Please enter a password longer than 6 characters";
+"PassWordMismatchError" = "Your passwords do not match. Please re-enter them and try again";
