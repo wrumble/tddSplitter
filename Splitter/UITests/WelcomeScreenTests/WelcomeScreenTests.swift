@@ -7,11 +7,15 @@
 //
 
 import XCTest
+// swiftlint:disable line_length
 
 class WelcomeScreenTests: XCTestCase {
     
     var createdUserEmail: String?
     
+    let password = "password"
+    let shortPassword = "passw"
+    let differentPassword = "differentPassword"
     let registeredEmail = "alreadyregistereduser@email.com"
     let invalidEmail = "invalid@email"
     
@@ -41,32 +45,32 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testHasEmailTextField() {
-        let emailTextField = app.textFields[AccesID.emailTextField]
+        let emailTextField = app.textFields[TestAccesID.emailTextField]
         
         XCTAssertTrue(emailTextField.isHittable)
     }
     
     func testHasPasswordTextField() {
-        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
+        let passwordTextField = app.secureTextFields[TestAccesID.passwordTextField]
         
         XCTAssertTrue(passwordTextField.isHittable)
     }
     
     func testHasLoginButton() {
-        let loginButton = app.buttons[AccesID.loginButton]
+        let loginButton = app.buttons[TestAccesID.loginButton]
         
         XCTAssertTrue(loginButton.isHittable)
     }
     
     func testHasRegisterButton() {
-        let registerButton = app.buttons[AccesID.registerButton]
+        let registerButton = app.buttons[TestAccesID.registerButton]
         
         XCTAssertTrue(registerButton.isHittable)
     }
     
     func testTappingRegisterButtonShowsConfirmPasswordTextField() {
-        let registerButton = app.buttons[AccesID.registerButton]
-        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
+        let registerButton = app.buttons[TestAccesID.registerButton]
+        let confirmPasswordTextField = app.secureTextFields[TestAccesID.confirmPasswordTextField]
         
         XCTAssertFalse(confirmPasswordTextField.exists)
         registerButton.tap()
@@ -74,9 +78,9 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testRegisterButtonPerformsSegueWithValidEmailAndPassword() {
-        let loginButton = app.buttons[AccesID.loginButton]
-        let registerButton = app.buttons[AccesID.registerButton]
-        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
+        let loginButton = app.buttons[TestAccesID.loginButton]
+        let registerButton = app.buttons[TestAccesID.registerButton]
+        let confirmPasswordTextField = app.secureTextFields[TestAccesID.confirmPasswordTextField]
         
         //dont disable login button when validating email or password
         XCTAssertFalse(confirmPasswordTextField.exists)
@@ -88,7 +92,6 @@ class WelcomeScreenTests: XCTestCase {
     
     func testSuccesfullyRegisteringNewUserSeguesToMyBillsViewController() {
         createdUserEmail = emailHelper.createEmail(with: "\(#function)")
-        let password = "password"
         
         welcomeScreenHelper.register(email: createdUserEmail!,
                                      password: password,
@@ -110,75 +113,70 @@ class WelcomeScreenTests: XCTestCase {
         })
     }
     func testRegisteringWithInvalidEmailDisplaysLocalisedError() {
-        let password = "password"
+        let localisedErrorMessage = NSLocalizedString("InvalidEmailError",
+                                                      bundle: Bundle(for: WelcomeScreenTests.self),
+                                                      comment: "")
+        let predicate = NSPredicate(format: "exists == true")
+        let query = self.app.
         
         welcomeScreenHelper.register(email: invalidEmail,
                                      password: password,
                                      confirmationPassword: password,
                                      completion: {
-                                        
-                                        let localisedErrorMessage = NSLocalizedString("InvalidEmailError",
-                                                                                      bundle: Bundle(for: WelcomeScreenTests.self),
-                                                                                      comment: "")
+                                        self.expectation(for: predicate, evaluatedWith: query, handler: nil)
+                                        self.waitForExpectations(timeout: 10, handler: nil)
                                         XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
         })
     }
     
     func testRegisteringWithInvalidPasswordDisplaysLocalisedError() {
         let email = emailHelper.createEmail(with: "\(#function)")
-        let password = "12345"
         
         welcomeScreenHelper.register(email: email,
                                      password: password,
-                                     confirmationPassword: password,
+                                     confirmationPassword: shortPassword,
                                      completion: {
                                         
-                                        let localisedErrorMessage = NSLocalizedString("InvalidPasswordError",
-                                                                                      bundle: Bundle(for: WelcomeScreenTests.self),
-                                                                                      comment: "")
-                                        XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
+            let localisedErrorMessage = NSLocalizedString("InvalidPasswordError",
+                                                          bundle: Bundle(for: WelcomeScreenTests.self),
+                                                          comment: "")
+            XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
         })
     }
     
     func testRegisteringWithInvalidConfirmationPasswordDisplaysLocalisedError() {
         let email = emailHelper.createEmail(with: "\(#function)")
-        let password = "123456"
-        let confirmationPassword = "12345"
         
         welcomeScreenHelper.register(email: email,
                                      password: password,
-                                     confirmationPassword: confirmationPassword,
+                                     confirmationPassword: shortPassword,
                                      completion: {
                                         
-                                        let localisedErrorMessage = NSLocalizedString("InvalidPasswordError",
-                                                                                      bundle: Bundle(for: WelcomeScreenTests.self),
-                                                                                      comment: "")
-                                        XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
+            let localisedErrorMessage = NSLocalizedString("InvalidPasswordError",
+                                                          bundle: Bundle(for: WelcomeScreenTests.self),
+                                                          comment: "")
+            XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
         })
     }
     
     func testRegisteringWithDifferentPasswordsDisplaysLocalisedError() {
         let email = emailHelper.createEmail(with: "\(#function)")
-        let password = "123456"
-        let confirmationPassword = "1234567"
         
         welcomeScreenHelper.register(email: email,
                                      password: password,
-                                     confirmationPassword: confirmationPassword,
+                                     confirmationPassword: differentPassword,
                                      completion: {
                                         
-                                        let localisedErrorMessage = NSLocalizedString("PasswordMismatchError",
-                                                                                      bundle: Bundle(for: WelcomeScreenTests.self),
-                                                                                      comment: "")
-                                        XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
+            let localisedErrorMessage = NSLocalizedString("PasswordMismatchError",
+                                                          bundle: Bundle(for: WelcomeScreenTests.self),
+                                                          comment: "")
+            XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
         })
     }
     
     func testRegisteringWithUsedEmailDisplaysFirebaseError() {
-        let email = registeredEmail
-        let password = "password"
         
-        welcomeScreenHelper.register(email: email,
+        welcomeScreenHelper.register(email: registeredEmail,
                                      password: password,
                                      confirmationPassword: password,
                                      completion: {
@@ -189,10 +187,7 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testLoginButtonPerformsSegueWithValidEmailAndPassword() {
-        let validEmail = registeredEmail
-        let validPassword = "password"
-        
-        welcomeScreenHelper.login(with: validEmail, and: validPassword)
+        welcomeScreenHelper.login(with: registeredEmail, and: password)
         
         let titleText = NSLocalizedString("MyBillsViewControllerTitle",
                                           bundle: Bundle(for: WelcomeScreenTests.self),
@@ -211,15 +206,47 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testLoginWithInvalidEmailDisplaysLocalisedError() {
-        let password = "password"
         welcomeScreenHelper.login(with: invalidEmail,
                                   and: password,
                                   completion: {
                                     
-                                    let localisedErrorMessage = NSLocalizedString("InvalidEmailError",
+            let localisedErrorMessage = NSLocalizedString("InvalidEmailError",
+                                                          bundle: Bundle(for: WelcomeScreenTests.self),
+                                                          comment: "")
+            XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
+        })
+    }
+    
+    func testLoginWithIncorrectEmailDisplaysLocalisedError() {
+        welcomeScreenHelper.login(with: invalidEmail,
+                                  and: password,
+                                  completion: {
+                                    
+            let firebaseErrorMessage = "There is no user record corresponding to this identifier. The user may have been deleted."
+            XCTAssert(self.app.staticTexts[firebaseErrorMessage].exists)
+        })
+    }
+    
+    func testLoginWithInvalidPasswordDisplaysLocalisedError() {
+        welcomeScreenHelper.login(with: invalidEmail,
+                                  and: shortPassword,
+                                  completion: {
+                                    
+            let localisedErrorMessage = NSLocalizedString("InvalidPasswordError",
                                                                                   bundle: Bundle(for: WelcomeScreenTests.self),
                                                                                   comment: "")
-                                    XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
+            XCTAssert(self.app.staticTexts[localisedErrorMessage].exists)
+        })
+    }
+    
+    func testLoginWithIncorrectPasswordDisplaysLocalisedError() {
+        let wrongPassword = "wrongPassword"
+        welcomeScreenHelper.login(with: invalidEmail,
+                                  and: wrongPassword,
+                                  completion: {
+                                    
+            let firebaseErrorMessage = "The password is invalid or the user does not have a password"
+            XCTAssert(self.app.staticTexts[firebaseErrorMessage].exists)
         })
     }
 }

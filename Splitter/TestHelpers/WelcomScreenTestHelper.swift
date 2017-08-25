@@ -9,14 +9,24 @@
 import XCTest
 import Foundation
 
+enum TestAccesID {
+    static let titleLogoLabel = "Title"
+    static let emailTextField = "Email"
+    static let passwordTextField = "Password"
+    static let confirmPasswordTextField = "ConfirmPassword"
+    static let loginButton = "Login"
+    static let registerButton = "Register"
+    static let toastLabel = "Toast"
+}
+
 class WelcomeScreenTestHelper: XCTestCase {
     
     let app = XCUIApplication()
     
     func login(with email: String, and password: String, completion: (() -> Void)? = nil) {
-        let emailTextField = app.textFields[AccesID.emailTextField]
-        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
-        let loginButton = app.buttons[AccesID.loginButton]
+        let emailTextField = app.textFields[TestAccesID.emailTextField]
+        let passwordTextField = app.secureTextFields[TestAccesID.passwordTextField]
+        let loginButton = app.buttons[TestAccesID.loginButton]
         
         emailTextField.tap()
         emailTextField.typeText(email)
@@ -28,10 +38,10 @@ class WelcomeScreenTestHelper: XCTestCase {
     }
     
     func register(email: String, password: String, confirmationPassword: String, completion: (() -> Void)? = nil) {
-        let emailTextField = app.textFields[AccesID.emailTextField]
-        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
-        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
-        let registerButton = app.buttons[AccesID.registerButton]
+        let emailTextField = app.textFields[TestAccesID.emailTextField]
+        let passwordTextField = app.secureTextFields[TestAccesID.passwordTextField]
+        let confirmPasswordTextField = app.secureTextFields[TestAccesID.confirmPasswordTextField]
+        let registerButton = app.buttons[TestAccesID.registerButton]
         
         emailTextField.tap()
         emailTextField.typeText(email)
