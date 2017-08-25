@@ -33,7 +33,6 @@
 		8761411C1F4C43F400107372 /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B379D1F29F614001FE485 /* ItemTests.swift */; };
 		8761411D1F4C43FA00107372 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37B61F2A1BFF001FE485 /* UserTests.swift */; };
 		8761411E1F4C440400107372 /* WelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37DD1F2F3A78001FE485 /* WelcomeScreenTests.swift */; };
-		8761411F1F4C443A00107372 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37EF1F2F6322001FE485 /* Constants.swift */; };
 		8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B41831F46EF3300AE9813 /* ToastLabel.swift */; };
 		87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */; };
@@ -942,7 +941,6 @@
 				87F93BA71F4D934E007074BF /* EmailTestHelper.swift in Sources */,
 				8761411E1F4C440400107372 /* WelcomeScreenTests.swift in Sources */,
 				87E649AA1F4DC768007440B0 /* WelcomScreenTestHelper.swift in Sources */,
-				8761411F1F4C443A00107372 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

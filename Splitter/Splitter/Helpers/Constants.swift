@@ -75,6 +75,6 @@ enum Color {
 }
 
 enum Font {
-    static let titleLogoFontName = "WalkwayBold"
+    static let titleLogoFontName = UIFont(name: "WalkwayBold", size: 200)
     static let toastFont = UIFont(name: "Montserrat-Light", size: 14.0)
 }

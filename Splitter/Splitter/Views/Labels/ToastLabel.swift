@@ -21,6 +21,7 @@ class ToastLabel: UILabel {
     }
     
     private func setupView() {
+        accessibilityIdentifier = AccesID.toastLabel
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
         textColor = .white
         numberOfLines = 0
