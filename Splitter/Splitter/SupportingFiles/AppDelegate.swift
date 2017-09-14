@@ -26,4 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    // Used for testing only
+    func resetAppToWelcomeScreen() {
+        window?.rootViewController = WelcomeScreenViewController()
+    }
 }
