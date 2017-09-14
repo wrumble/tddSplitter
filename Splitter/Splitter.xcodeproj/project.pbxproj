@@ -200,13 +200,6 @@
 			path = UnitTests;
 			sourceTree = "<group>";
 		};
-		871B37C81F2F393E001FE485 /* UITests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UITests;
-			sourceTree = "<group>";
-		};
 		871B37E61F2F42EE001FE485 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				87F93B9B1F4D8D30007074BF /* TestHelpers */,
-				871B37C81F2F393E001FE485 /* UITests */,
 				871B37C71F2F392E001FE485 /* UnitTests */,
 			);
 			name = Tests;

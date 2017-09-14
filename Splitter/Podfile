@@ -1,33 +1,33 @@
-    # Uncomment the next line to define a global platform for your project
-    # platform :ios, '9.0'
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
-    target 'Splitter' do
-      # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-      #use_frameworks!
+target 'Splitter' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  #use_frameworks!
 
-      def allPods
-        pod 'Firebase'
-        pod 'Firebase/Database'
-        pod 'Firebase/Auth'
-        pod 'Firebase/Storage'
-      end
+  def allPods
+    pod 'Firebase'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+  end
 
-      # Pods for Splitter
+  # Pods for Splitter
 
-      allPods
+  allPods
 
-      target ‘BillTests’ do
-        inherit! :search_paths
-        allPods
-      end
+  target ‘BillTests’ do
+    inherit! :search_paths
+    allPods
+  end
 
-      target ‘ItemTests’ do
-        inherit! :search_paths
-        allPods
-      end
+  target ‘ItemTests’ do
+    inherit! :search_paths
+    allPods
+  end
 
-      target ‘UserTests’ do
-        inherit! :search_paths
-        allPods
-      end
-    end
+  target ‘UserTests’ do
+    inherit! :search_paths
+    allPods
+  end
+end
