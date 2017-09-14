@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '61908C969D31EB7799379BB550DA5A4D'
+               BlueprintIdentifier = 'FB9AFE57F6CDD795EA6D719746BB6D69'
                BlueprintName = 'Pods-Splitter'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Splitter.a'>

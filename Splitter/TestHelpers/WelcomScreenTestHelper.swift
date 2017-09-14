@@ -18,8 +18,8 @@ enum TestAccesID {
     static let registerButton = "Register"
     static let toastLabel = "Toast"
 }
+
 extension XCTestCase {
-    
     func createEmail(with functionName: String) -> String {
         let brackets = CharacterSet(charactersIn: "()")
         let cleanedFunctionName = functionName.components(separatedBy: brackets).joined()
