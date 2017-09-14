@@ -12,22 +12,39 @@ target 'Splitter' do
     pod 'Firebase/Storage'
   end
 
+  def earlGreyUITests
+    project 'Splitter'
+    use_frameworks!
+    inherit! :search_paths
+    pod 'EarlGrey'
+  end
+
   # Pods for Splitter
 
   allPods
 
-  target ‘BillTests’ do
+  target 'BillTests' do
     inherit! :search_paths
     allPods
   end
 
-  target ‘ItemTests’ do
+  target 'ItemTests' do
     inherit! :search_paths
     allPods
   end
 
-  target ‘UserTests’ do
+  target 'UserTests' do
     inherit! :search_paths
+    allPods
+  end
+
+  target 'WelcomeScreenTests' do
+      earlGreyUITests
+      allPods
+  end
+
+  target 'WelcomeScreenTests2' do
+    earlGreyUITests
     allPods
   end
 end
