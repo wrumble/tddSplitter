@@ -18,40 +18,12 @@ enum TestAccesID {
     static let registerButton = "Register"
     static let toastLabel = "Toast"
 }
-
-class WelcomeScreenTestHelper: XCTestCase {
+extension XCTestCase {
     
-    let app = XCUIApplication()
-    
-    func login(with email: String, and password: String, completion: (() -> Void)? = nil) {
-        let emailTextField = app.textFields[TestAccesID.emailTextField]
-        let passwordTextField = app.secureTextFields[TestAccesID.passwordTextField]
-        let loginButton = app.buttons[TestAccesID.loginButton]
+    func createEmail(with functionName: String) -> String {
+        let brackets = CharacterSet(charactersIn: "()")
+        let cleanedFunctionName = functionName.components(separatedBy: brackets).joined()
         
-        emailTextField.tap()
-        emailTextField.typeText(email)
-        passwordTextField.tap()
-        passwordTextField.typeText(password)
-        loginButton.tap()
-        
-        completion?()
-    }
-    
-    func register(email: String, password: String, confirmationPassword: String, completion: (() -> Void)? = nil) {
-        let emailTextField = app.textFields[TestAccesID.emailTextField]
-        let passwordTextField = app.secureTextFields[TestAccesID.passwordTextField]
-        let confirmPasswordTextField = app.secureTextFields[TestAccesID.confirmPasswordTextField]
-        let registerButton = app.buttons[TestAccesID.registerButton]
-        
-        emailTextField.tap()
-        emailTextField.typeText(email)
-        passwordTextField.tap()
-        passwordTextField.typeText(password)
-        registerButton.tap()
-        confirmPasswordTextField.tap()
-        confirmPasswordTextField.typeText(confirmationPassword)
-        registerButton.tap()
-        
-        completion?()
+        return "\(cleanedFunctionName)@email.com"
     }
 }

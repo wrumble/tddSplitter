@@ -30,8 +30,4 @@
         inherit! :search_paths
         allPods
       end
-
-      target ‘WelcomeScreenTests’ do
-        allPods
-      end
     end
