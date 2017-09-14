@@ -34,39 +34,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC1241F22045700846851"
-               BuildableName = "SplitterTests.xctest"
-               BlueprintName = "SplitterTests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC12F1F22045700846851"
-               BuildableName = "SplitterUITests.xctest"
-               BlueprintName = "SplitterUITests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "871B37B31F2A1BFF001FE485"
                BuildableName = "UserTests.xctest"
                BlueprintName = "UserTests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC15B1F2210FE00846851"
-               BuildableName = "BillSplitterTests.xctest"
-               BlueprintName = "BillSplitterTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -87,36 +57,6 @@
                BlueprintIdentifier = "871B379A1F29F613001FE485"
                BuildableName = "ItemTests.xctest"
                BlueprintName = "ItemTests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "871B37CC1F2F396C001FE485"
-               BuildableName = "RegisterUITests.xctest"
-               BlueprintName = "Login/RegisterUITests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "871B37DA1F2F3A78001FE485"
-               BuildableName = "WelcomeScreenTests.xctest"
-               BlueprintName = "WelcomeScreenTests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "871559B51F45A5C60022E79A"
-               BuildableName = "WelcomeScreenUnitTests.xctest"
-               BlueprintName = "WelcomeScreenUnitTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
