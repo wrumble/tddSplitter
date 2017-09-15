@@ -17,7 +17,6 @@ class UserTests: XCTestCase {
     let databaseReference = Database.database().reference()
     let firebaseData = FirebaseData()
     
-    let emailHelper = EmailTestHelper()
     let firebaseHelper = FirebaseTestHelper()
     
     override func setUp() {
@@ -33,7 +32,7 @@ class UserTests: XCTestCase {
     
     func testCanCreateUser() {
         var testSuccess = false
-        createdUserEmail = emailHelper.createEmail(with: "\(#function)")
+        createdUserEmail = createEmail(with: "\(#function)")
         
         let requestExpectation = expectation(description: "Creates a user")
         
@@ -53,7 +52,7 @@ class UserTests: XCTestCase {
     }
     
     func testUserCanLogin() {
-        createdUserEmail = emailHelper.createEmail(with: "\(#function)")
+        createdUserEmail = createEmail(with: "\(#function)")
         firebaseHelper.createUser(with: createdUserEmail!)
         
         var testSuccess = false
@@ -75,7 +74,7 @@ class UserTests: XCTestCase {
     }
     
     func testUserCanLogout() {
-        createdUserEmail = emailHelper.createEmail(with: "\(#function)")
+        createdUserEmail = createEmail(with: "\(#function)")
         firebaseHelper.createUser(with: createdUserEmail!)
         
         var testSuccess = false

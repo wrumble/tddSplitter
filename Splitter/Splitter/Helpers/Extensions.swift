@@ -62,7 +62,7 @@ extension UIViewController {
         UIView.animate(withDuration: 2.5, delay: 0, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: { _ in
-            toastLabel.removeFromSuperview()
+            toastLabel.isHidden = true
         })
     }
 }
