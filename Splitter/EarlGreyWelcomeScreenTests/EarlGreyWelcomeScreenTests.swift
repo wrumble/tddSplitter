@@ -11,7 +11,7 @@ import EarlGrey
 @testable import Splitter
 
 // swiftlint:disable type_body_length
-class WelcomeScreenTests: XCTestCase {
+class EarlGreyWelcomeScreenTests: XCTestCase {
     
     let password = "password"
     let shortPassword = "passw"
@@ -27,25 +27,25 @@ class WelcomeScreenTests: XCTestCase {
     }
     
     func testHasLogoLabel() {
-        let passwordTextField = grey_accessibilityID(AccesID.passwordTextField)
+        let passwordTextField = grey_accessibilityID(AccessID.passwordTextField)
         EarlGrey.select(elementWithMatcher: passwordTextField)
             .assert(grey_sufficientlyVisible())
     }
     
     func testHasEmailTextField() {
-        let emailTextField = grey_accessibilityID(AccesID.emailTextField)
+        let emailTextField = grey_accessibilityID(AccessID.emailTextField)
         EarlGrey.select(elementWithMatcher: emailTextField)
             .assert(grey_sufficientlyVisible())
     }
     
     func testHasLoginButton() {
-        let loginButton = grey_accessibilityID(AccesID.loginButton)
+        let loginButton = grey_accessibilityID(AccessID.loginButton)
         EarlGrey.select(elementWithMatcher: loginButton)
             .assert(grey_sufficientlyVisible())
     }
     
     func testHasRegisterButton() {
-        let registerButton = grey_accessibilityID(AccesID.registerButton)
+        let registerButton = grey_accessibilityID(AccessID.registerButton)
         EarlGrey.select(elementWithMatcher: registerButton)
             .assert(grey_sufficientlyVisible())
     }
@@ -70,7 +70,7 @@ class WelcomeScreenTests: XCTestCase {
     func testRegisteringWithInvalidPasswordDisplaysLocalisedError() {
         let email = createEmail(with: "\(#function)")
         let localisedErrorMessage = localizedStringWith(key: "InvalidPasswordError")
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
         
@@ -88,7 +88,7 @@ class WelcomeScreenTests: XCTestCase {
     func testRegisteringWithInvalidConfirmationPasswordDisplaysLocalisedError() {
         let email = createEmail(with: "\(#function)")
         let localisedErrorMessage = localizedStringWith(key: "InvalidPasswordError")
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
         
@@ -106,7 +106,7 @@ class WelcomeScreenTests: XCTestCase {
     func testRegisteringWithDifferentPasswordsDisplaysLocalisedError() {
         let email = createEmail(with: "\(#function)")
         let localisedErrorMessage = localizedStringWith(key: "PasswordMismatchError")
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
         
@@ -124,7 +124,7 @@ class WelcomeScreenTests: XCTestCase {
     func testRegisteringWithUsedEmailDisplaysFirebaseError() {
         let firebaseErrorMessage = "The email address is already in use by another account."
         let assertion = grey_text(firebaseErrorMessage)
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
         
         register(email: registeredEmail,
@@ -141,7 +141,7 @@ class WelcomeScreenTests: XCTestCase {
     func testLoginWithInvalidEmailDisplaysLocalisedError() {
         let localisedErrorMessage = localizedStringWith(key: "InvalidEmailError")
         let assertion = grey_text(localisedErrorMessage)
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
         
         login(email: invalidEmail,
@@ -157,7 +157,7 @@ class WelcomeScreenTests: XCTestCase {
     func testLoginWithInvalidPasswordDisplaysLocalisedError() {
         let localisedErrorMessage = localizedStringWith(key: "InvalidPasswordError")
         let assertion = grey_text(localisedErrorMessage)
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
         
         login(email: registeredEmail,
@@ -174,7 +174,7 @@ class WelcomeScreenTests: XCTestCase {
         // swiftlint:disable:next line_length
         let firebaseErrorMessage = "There is no user record corresponding to this identifier. The user may have been deleted."
         let assertion = grey_text(firebaseErrorMessage)
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
         
         login(email: unregisteredEmail,
@@ -190,7 +190,7 @@ class WelcomeScreenTests: XCTestCase {
     func testLoginWithIncorrectPasswordDisplaysFirebaseError() {
         let firebaseErrorMessage = "The password is invalid or the user does not have a password."
         let assertion = grey_text(firebaseErrorMessage)
-        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
+        let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
         
         login(email: registeredEmail,
@@ -232,7 +232,7 @@ class WelcomeScreenTests: XCTestCase {
     
     func localizedStringWith(key: String) -> String {
         return NSLocalizedString(key,
-                                 bundle: Bundle(for: WelcomeScreenTests.self),
+                                 bundle: Bundle(for: EarlGreyWelcomeScreenTests.self),
                                  comment: "")
     }
 }
@@ -240,8 +240,8 @@ class WelcomeScreenTests: XCTestCase {
 extension XCTest {
     
     func login(email: String, password: String) {
-        let emailTextField = grey_accessibilityID(AccesID.emailTextField)
-        let passwordTextField = grey_accessibilityID(AccesID.passwordTextField)
+        let emailTextField = grey_accessibilityID(AccessID.emailTextField)
+        let passwordTextField = grey_accessibilityID(AccessID.passwordTextField)
         let loginButton = grey_accessibilityID(AccesID.loginButton)
         
         EarlGrey.select(elementWithMatcher: emailTextField)
@@ -252,10 +252,10 @@ extension XCTest {
     }
     
     func register(email: String, password: String, confirmationPassword: String) {
-        let emailTextField = grey_accessibilityID(AccesID.emailTextField)
-        let passwordTextField = grey_accessibilityID(AccesID.passwordTextField)
-        let confirmPasswordTextField = grey_accessibilityID(AccesID.confirmPasswordTextField)
-        let registerButton = grey_accessibilityID(AccesID.registerButton)
+        let emailTextField = grey_accessibilityID(AccessID.emailTextField)
+        let passwordTextField = grey_accessibilityID(AccessID.passwordTextField)
+        let confirmPasswordTextField = grey_accessibilityID(AccessID.confirmPasswordTextField)
+        let registerButton = grey_accessibilityID(AccessID.registerButton)
         
         EarlGrey.select(elementWithMatcher: emailTextField)
             .perform(grey_tap()).perform(grey_typeText(email))
