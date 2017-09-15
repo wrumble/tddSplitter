@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Splitter
+
+  Created by Wayne Rumble on 14/09/2017.
+  Copyright © 2017 Wayne Rumble. All rights reserved.
+*/
+
+//Layout text
+"MyBillsViewControllerTitle" = "My Bills";
+"SplitterTitleLogoText" = "Splitter";
+"EmailPlaceHolder" = "Email";
+"PasswordPlaceHolder" = "Password";
+"ConfirmPasswordPlaceHolder" = "Confirm Password";
+"LoginButtonTitle" = "Login";
+"RegisterButtonTitle" = "Register";
+
+//Toast messages
+"InvalidEmailError" = "Please enter a valid email address to register";
+"InvalidPasswordError" = "Please enter a password longer than 6 characters";
+"PasswordMismatchError" = "Your passwords do not match. Please re-enter them and try again";
+"SuccessfulRegistraionText" = "Successful registration";
+"SuccessfulLoginText" = "Successful login";

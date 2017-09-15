@@ -1,0 +1,6 @@
+framework module Pods_EarlGreyWelcomeScreenTests {
+  umbrella header "Pods-EarlGreyWelcomeScreenTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

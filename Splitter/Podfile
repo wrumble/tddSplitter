@@ -5,19 +5,45 @@ target 'Splitter' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   #use_frameworks!
 
-  # Pods for Splitter
-
-    pod 'Firebase'
-    pod 'Firebase/Database'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Storage'
-
-  target 'BillTests' do
-    inherit! :search_paths
+  def allPods
     pod 'Firebase'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
   end
 
+  def earlGreyUITests
+    project 'Splitter'
+    use_frameworks!
+    inherit! :search_paths
+    pod 'EarlGrey'
+  end
+
+  # Pods for Splitter
+
+  allPods
+
+  target 'BillTests' do
+    inherit! :search_paths
+    allPods
+  end
+
+  target 'ItemTests' do
+    inherit! :search_paths
+    allPods
+  end
+
+  target 'UserTests' do
+    inherit! :search_paths
+    allPods
+  end
+
+  target 'EarlGreyWelcomeScreenTests' do
+      earlGreyUITests
+      allPods
+  end
+
+  target 'XCTestWelcomeScreenTests' do
+    allPods
+  end
 end

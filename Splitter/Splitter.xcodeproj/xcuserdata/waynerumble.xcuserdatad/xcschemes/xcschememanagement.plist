@@ -4,14 +4,44 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>EarlGreyWelcomeScreenTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Splitter.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>XCTestWelcomeScreenTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>871B379A1F29F613001FE485</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>871B37B31F2A1BFF001FE485</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>871B37DA1F2F3A78001FE485</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8747FFC61F6ACCA100506BD8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>874AC1101F22045700846851</key>
 		<dict>
 			<key>primary</key>
@@ -28,6 +58,21 @@
 			<true/>
 		</dict>
 		<key>874AC1451F22066900846851</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>874AC17C1F22457000846851</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8760E6EA1F6BFF3B00529685</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8760E6F91F6C014000529685</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -26,45 +26,17 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      language = ""
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC1241F22045700846851"
-               BuildableName = "SplitterTests.xctest"
-               BlueprintName = "SplitterTests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC12F1F22045700846851"
-               BuildableName = "SplitterUITests.xctest"
-               BlueprintName = "SplitterUITests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC1691F2212A000846851"
+               BlueprintIdentifier = "871B37B31F2A1BFF001FE485"
                BuildableName = "UserTests.xctest"
                BlueprintName = "UserTests"
-               ReferencedContainer = "container:Splitter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "874AC15B1F2210FE00846851"
-               BuildableName = "BillSplitterTests.xctest"
-               BlueprintName = "BillSplitterTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -82,9 +54,49 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "87C039C91F28A20100F07C07"
+               BlueprintIdentifier = "871B379A1F29F613001FE485"
                BuildableName = "ItemTests.xctest"
                BlueprintName = "ItemTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8747FFB81F6ACC8A00506BD8"
+               BuildableName = "WelcomeScreenTests.xctest"
+               BlueprintName = "WelcomeScreenTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8747FFC61F6ACCA100506BD8"
+               BuildableName = "WelcomeScreenTests2.xctest"
+               BlueprintName = "WelcomeScreenTests2"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8760E6EA1F6BFF3B00529685"
+               BuildableName = "XCTestWelcomeScreenTests.xctest"
+               BlueprintName = "XCTestWelcomeScreenTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8760E6F91F6C014000529685"
+               BuildableName = "EarlGreyWelcomeScreenTests.xctest"
+               BlueprintName = "EarlGreyWelcomeScreenTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -98,6 +110,13 @@
             ReferencedContainer = "container:Splitter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "DYLD_INSERT_LIBRARIES"
+            value = "@executable_path/EarlGrey.framework/EarlGrey"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -105,6 +124,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

@@ -20,32 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        let welcomeViewController: UIViewController = WelcomeScreenViewController()
-        navigationController = UINavigationController()
-        navigationController!.pushViewController(welcomeViewController, animated: false)
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = navigationController
-        window!.backgroundColor = .white
+        window!.rootViewController = WelcomeScreenViewController()
         window!.makeKeyAndVisible()
         
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
+    
+    // Used for testing only
+    func resetAppToWelcomeScreen() {
+        window?.rootViewController = WelcomeScreenViewController()
     }
 }
