@@ -46,4 +46,9 @@ target 'Splitter' do
   target 'XCTestWelcomeScreenTests' do
     allPods
   end
+
+  target 'EarlGreyMyBillsTests' do
+      earlGreyUITests
+      allPods
+  end
 end
