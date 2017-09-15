@@ -7,3 +7,4 @@ excluded:
   - Pods
   - EarlGreyWelcomeScreenTests/EarlGrey.swift
   - XCTestWelcomeScreenTests/EarlGrey.swift
+  - EarlGreyMyBillsTests/EarlGrey.swift

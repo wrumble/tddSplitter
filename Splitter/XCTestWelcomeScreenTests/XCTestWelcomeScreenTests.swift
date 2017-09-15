@@ -21,7 +21,7 @@ class XCTestWelcomeScreenTests: XCTestCase {
     
     func testTappingRegisterButtonShowsConfirmPasswordTextField() {
         let registerButton = app.buttons[AccesID.registerButton]
-        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
+        let confirmPasswordTextField = app.secureTextFields[AccessID.confirmPasswordTextField]
         
         XCTAssertFalse(confirmPasswordTextField.exists)
         registerButton.tap()
@@ -29,9 +29,9 @@ class XCTestWelcomeScreenTests: XCTestCase {
     }
     
     func testTappingLoginButtonAfterRegisterButtonHidesConfirmationPasswordTextField() {
-        let loginButton = app.buttons[AccesID.loginButton]
-        let registerButton = app.buttons[AccesID.registerButton]
-        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
+        let loginButton = app.buttons[AccessID.loginButton]
+        let registerButton = app.buttons[AccessID.registerButton]
+        let confirmPasswordTextField = app.secureTextFields[AccessID.confirmPasswordTextField]
         
         XCTAssertFalse(confirmPasswordTextField.exists)
         registerButton.tap()
@@ -83,9 +83,9 @@ class XCTestWelcomeScreenTests: XCTestCase {
     }
     
     func login(email: String, password: String) {
-        let emailTextField = app.textFields[AccesID.emailTextField]
-        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
-        let loginButton = app.buttons[AccesID.loginButton]
+        let emailTextField = app.textFields[AccessID.emailTextField]
+        let passwordTextField = app.secureTextFields[AccessID.passwordTextField]
+        let loginButton = app.buttons[AccessID.loginButton]
         
         emailTextField.tap()
         emailTextField.typeText(email)
@@ -95,10 +95,10 @@ class XCTestWelcomeScreenTests: XCTestCase {
     }
     
     func register(email: String, password: String, confirmationPassword: String) {
-        let emailTextField = app.textFields[AccesID.emailTextField]
-        let passwordTextField = app.secureTextFields[AccesID.passwordTextField]
-        let confirmPasswordTextField = app.secureTextFields[AccesID.confirmPasswordTextField]
-        let registerButton = app.buttons[AccesID.registerButton]
+        let emailTextField = app.textFields[AccessID.emailTextField]
+        let passwordTextField = app.secureTextFields[AccessID.passwordTextField]
+        let confirmPasswordTextField = app.secureTextFields[AccessID.confirmPasswordTextField]
+        let registerButton = app.buttons[AccessID.registerButton]
         
         emailTextField.tap()
         emailTextField.typeText(email)

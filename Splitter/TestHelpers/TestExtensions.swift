@@ -8,7 +8,7 @@
 
 import XCTest
 
-enum AccesID {
+enum AccessID {
     static let titleLogoLabel = "Title"
     static let emailTextField = "Email"
     static let passwordTextField = "Password"

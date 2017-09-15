@@ -272,4 +272,3 @@ extension XCTest {
         EarlGrey.select(elementWithMatcher: registerButton).perform(grey_tap())
     }
 }
-
