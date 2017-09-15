@@ -1,15 +1,14 @@
 //
-//  WelcomScreenTestHelper.swift
-//  WelcomeScreenTests
+//  TestExtensions.swift
+//  Splitter
 //
-//  Created by Wayne Rumble on 23/08/2017.
+//  Created by Wayne Rumble on 15/09/2017.
 //  Copyright © 2017 Wayne Rumble. All rights reserved.
 //
 
 import XCTest
-import Foundation
 
-enum TestAccesID {
+enum AccesID {
     static let titleLogoLabel = "Title"
     static let emailTextField = "Email"
     static let passwordTextField = "Password"
@@ -20,6 +19,7 @@ enum TestAccesID {
 }
 
 extension XCTestCase {
+    
     func createEmail(with functionName: String) -> String {
         let brackets = CharacterSet(charactersIn: "()")
         let cleanedFunctionName = functionName.components(separatedBy: brackets).joined()

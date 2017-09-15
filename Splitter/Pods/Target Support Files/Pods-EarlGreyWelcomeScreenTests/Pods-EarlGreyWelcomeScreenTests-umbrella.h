@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_WelcomeScreenTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_WelcomeScreenTestsVersionString[];
+FOUNDATION_EXPORT double Pods_EarlGreyWelcomeScreenTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_EarlGreyWelcomeScreenTestsVersionString[];
 

@@ -5,5 +5,5 @@ disabled_rules:
 
 excluded:
   - Pods
-  - WelcomeScreenTests/EarlGrey.swift
-  - WelcomeScreenTests2/EarlGrey.swift
+  - EarlGreyWelcomeScreenTests/EarlGrey.swift
+  - XCTestWelcomeScreenTests/EarlGrey.swift

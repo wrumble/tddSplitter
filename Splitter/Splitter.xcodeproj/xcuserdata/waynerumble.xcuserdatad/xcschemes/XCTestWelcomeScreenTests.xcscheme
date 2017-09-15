@@ -63,16 +63,16 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8747FFC61F6ACCA100506BD8"
-               BuildableName = "WelcomeScreenTests2.xctest"
-               BlueprintName = "WelcomeScreenTests2"
+               BlueprintIdentifier = "8760E6F91F6C014000529685"
+               BuildableName = "EarlGreyWelcomeScreenTests.xctest"
+               BlueprintName = "EarlGreyWelcomeScreenTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -90,9 +90,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8747FFC61F6ACCA100506BD8"
-               BuildableName = "WelcomeScreenTests2.xctest"
-               BlueprintName = "WelcomeScreenTests2"
+               BlueprintIdentifier = "8760E6EA1F6BFF3B00529685"
+               BuildableName = "XCTestWelcomeScreenTests.xctest"
+               BlueprintName = "XCTestWelcomeScreenTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -38,13 +38,12 @@ target 'Splitter' do
     allPods
   end
 
-  target 'WelcomeScreenTests' do
+  target 'EarlGreyWelcomeScreenTests' do
       earlGreyUITests
       allPods
   end
 
-  target 'WelcomeScreenTests2' do
-    earlGreyUITests
+  target 'XCTestWelcomeScreenTests' do
     allPods
   end
 end

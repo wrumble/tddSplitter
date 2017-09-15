@@ -87,19 +87,6 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher-framework/GTMSessionFetcher.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac-framework/GoogleToolboxForMac.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/nanopb-framework/nanopb.framework"
-  install_framework "${PODS_ROOT}/EarlGrey/EarlGrey/EarlGrey.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher-framework/GTMSessionFetcher.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac-framework/GoogleToolboxForMac.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/nanopb-framework/nanopb.framework"
-  install_framework "${PODS_ROOT}/EarlGrey/EarlGrey/EarlGrey.framework"
-fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
 fi

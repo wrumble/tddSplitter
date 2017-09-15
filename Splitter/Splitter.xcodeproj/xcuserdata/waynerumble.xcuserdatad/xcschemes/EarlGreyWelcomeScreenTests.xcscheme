@@ -20,6 +20,62 @@
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "871B37B31F2A1BFF001FE485"
+               BuildableName = "UserTests.xctest"
+               BlueprintName = "UserTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "874AC17C1F22457000846851"
+               BuildableName = "BillTests.xctest"
+               BlueprintName = "BillTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "871B379A1F29F613001FE485"
+               BuildableName = "ItemTests.xctest"
+               BlueprintName = "ItemTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8760E6EA1F6BFF3B00529685"
+               BuildableName = "XCTestWelcomeScreenTests.xctest"
+               BlueprintName = "XCTestWelcomeScreenTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -34,9 +90,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8747FFB81F6ACC8A00506BD8"
-               BuildableName = "WelcomeScreenTests.xctest"
-               BlueprintName = "WelcomeScreenTests"
+               BlueprintIdentifier = "8760E6F91F6C014000529685"
+               BuildableName = "EarlGreyWelcomeScreenTests.xctest"
+               BlueprintName = "EarlGreyWelcomeScreenTests"
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>

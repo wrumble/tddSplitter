@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0900"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A9B83BA6558FD2AF387AFD748E0F59A"
-               BuildableName = "Pods_WelcomeScreenTests.framework"
-               BlueprintName = "Pods-WelcomeScreenTests"
+               BlueprintIdentifier = "B042AC8FE26D579A5490C6771668237F"
+               BuildableName = "Pods_EarlGreyWelcomeScreenTests.framework"
+               BlueprintName = "Pods-EarlGreyWelcomeScreenTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A9B83BA6558FD2AF387AFD748E0F59A"
-            BuildableName = "Pods_WelcomeScreenTests.framework"
-            BlueprintName = "Pods-WelcomeScreenTests"
+            BlueprintIdentifier = "B042AC8FE26D579A5490C6771668237F"
+            BuildableName = "Pods_EarlGreyWelcomeScreenTests.framework"
+            BlueprintName = "Pods-EarlGreyWelcomeScreenTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

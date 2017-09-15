@@ -80,6 +80,26 @@
                ReferencedContainer = "container:Splitter.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8760E6EA1F6BFF3B00529685"
+               BuildableName = "XCTestWelcomeScreenTests.xctest"
+               BlueprintName = "XCTestWelcomeScreenTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8760E6F91F6C014000529685"
+               BuildableName = "EarlGreyWelcomeScreenTests.xctest"
+               BlueprintName = "EarlGreyWelcomeScreenTests"
+               ReferencedContainer = "container:Splitter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -90,15 +110,15 @@
             ReferencedContainer = "container:Splitter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = 'DYLD_INSERT_LIBRARIES'
-            value = '@executable_path/EarlGrey.framework/EarlGrey'
-            isEnabled = 'YES'>
+            key = "DYLD_INSERT_LIBRARIES"
+            value = "@executable_path/EarlGrey.framework/EarlGrey"
+            isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0900"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8872BADF49FB391ABCD7C0E3ABCB831E"
-               BuildableName = "Pods_WelcomeScreenTests2.framework"
-               BlueprintName = "Pods-WelcomeScreenTests2"
+               BlueprintIdentifier = "166011B90D2D3765885DB34E7EBC877D"
+               BuildableName = "libPods-Splitter-XCTestWelcomeScreenTests.a"
+               BlueprintName = "Pods-Splitter-XCTestWelcomeScreenTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8872BADF49FB391ABCD7C0E3ABCB831E"
-            BuildableName = "Pods_WelcomeScreenTests2.framework"
-            BlueprintName = "Pods-WelcomeScreenTests2"
+            BlueprintIdentifier = "166011B90D2D3765885DB34E7EBC877D"
+            BuildableName = "libPods-Splitter-XCTestWelcomeScreenTests.a"
+            BlueprintName = "Pods-Splitter-XCTestWelcomeScreenTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

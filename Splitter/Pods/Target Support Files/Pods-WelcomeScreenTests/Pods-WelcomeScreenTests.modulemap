@@ -1,6 +1,0 @@
-framework module Pods_WelcomeScreenTests {
-  umbrella header "Pods-WelcomeScreenTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
