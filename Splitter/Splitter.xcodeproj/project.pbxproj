@@ -30,12 +30,12 @@
 		874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874AC1761F223D8300846851 /* GoogleService-Info.plist */; };
 		874AC1881F224F8900846851 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1741F222FD100846851 /* Bill.swift */; };
 		8760E6EE1F6BFF3B00529685 /* XCTestWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E6ED1F6BFF3B00529685 /* XCTestWelcomeScreenTests.swift */; };
-		8760E7051F6C01A000529685 /* EarlGreyWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E7041F6C01A000529685 /* EarlGreyWelcomeScreenTests.swift */; };
 		8760E7071F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E7081F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E70E1F6C072000529685 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8760E70F1F6C072000529685 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8760E7101F6C084400529685 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
+		8760E7131F6C1E8C00529685 /* EarlGreyWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E7121F6C1E8C00529685 /* EarlGreyWelcomeScreenTests.swift */; };
 		8761411B1F4C43ED00107372 /* BillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC17F1F22457000846851 /* BillTests.swift */; };
 		8761411C1F4C43F400107372 /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B379D1F29F614001FE485 /* ItemTests.swift */; };
 		8761411D1F4C43FA00107372 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37B61F2A1BFF001FE485 /* UserTests.swift */; };
@@ -156,8 +156,8 @@
 		8760E6EF1F6BFF3B00529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyWelcomeScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760E6FE1F6C014000529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8760E7041F6C01A000529685 /* EarlGreyWelcomeScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EarlGreyWelcomeScreenTests.swift; path = ../../../../.Trash/EarlGreyWelcomeScreenTests.swift; sourceTree = "<group>"; };
 		8760E70A1F6C064E00529685 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		8760E7121F6C1E8C00529685 /* EarlGreyWelcomeScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlGreyWelcomeScreenTests.swift; sourceTree = "<group>"; };
 		877B41831F46EF3300AE9813 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
 		87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBillsViewController.swift; sourceTree = "<group>"; };
 		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -393,7 +393,7 @@
 		8760E6FB1F6C014000529685 /* EarlGreyWelcomeScreenTests */ = {
 			isa = PBXGroup;
 			children = (
-				8760E7041F6C01A000529685 /* EarlGreyWelcomeScreenTests.swift */,
+				8760E7121F6C1E8C00529685 /* EarlGreyWelcomeScreenTests.swift */,
 				8760E6FE1F6C014000529685 /* Info.plist */,
 				76155B98C8D99CB604F66D41 /* EarlGrey.swift */,
 			);
@@ -1109,8 +1109,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8760E7051F6C01A000529685 /* EarlGreyWelcomeScreenTests.swift in Sources */,
 				8760E70F1F6C072000529685 /* TestExtensions.swift in Sources */,
+				8760E7131F6C1E8C00529685 /* EarlGreyWelcomeScreenTests.swift in Sources */,
 				0E36C9D744D27A0056088815 /* EarlGrey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
