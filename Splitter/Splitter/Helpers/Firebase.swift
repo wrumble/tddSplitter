@@ -128,8 +128,10 @@ struct FirebaseData {
         if let firebaseUser = firebaseUser {
             let id = firebaseUser.uid
             let email = firebaseUser.email
+            let splitterUser = SplitterUser(id: id,
+                                            email: email!)
             
-            return SplitterUser(id: id, email: email!)
+            return splitterUser
         } else {
             return nil
         }

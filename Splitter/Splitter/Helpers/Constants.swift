@@ -31,6 +31,7 @@ enum Localized {
 }
 
 enum Layout {
+    static let carouselViewCornerRadius: CGFloat = 10
     static let deleteButtonHeightWidth: CGFloat = 60
     static let addButtonHeightWidth: CGFloat = 60
     static let titleLabelY: CGFloat = 22
@@ -42,7 +43,8 @@ enum Layout {
 }
 
 enum AccesID {
-    static let billView = "BillView"
+    static let carouselTitleLabel = "CarouselTitleLabel"
+    static let carouselView = "CarouselView"
     static let deleteButton = "DeleteButton"
     static let addButton = "AddButton"
     static let titleLabel = "TitleLabel"
@@ -56,14 +58,26 @@ enum AccesID {
 }
 
 enum Color {
+    static let carouselTitleText = UIColor(red: 33/255,
+                                           green: 33/255,
+                                           blue: 33/255,
+                                           alpha: 1.00)
+    static let carouselTitleLabel = UIColor(red: 33/255,
+                                       green: 33/255,
+                                       blue: 33/255,
+                                       alpha: 1.00)
+    static let carouselView = UIColor(red: 254/255,
+                                      green: 254/255,
+                                      blue: 254/255,
+                                      alpha: 1.00)
     static let titleLabelBackground = UIColor(red: 254/255,
                                               green: 254/255,
                                               blue: 254/255,
                                               alpha: 0.60)
     static let titleLabelText = UIColor(red: 33/255,
-                                       green: 33/255,
-                                       blue: 33/255,
-                                       alpha: 1.00)
+                                        green: 33/255,
+                                        blue: 33/255,
+                                        alpha: 1.00)
     static let titleLogoText = UIColor(red: 254/255,
                                        green: 254/255,
                                        blue: 254/255,

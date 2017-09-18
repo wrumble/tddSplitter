@@ -80,31 +80,36 @@ class BillTests: XCTestCase {
     }
     
     func testCanRequestAllUsersBills() {
-        let requestExpectation = expectation(description: "Request a users bills")
         let userWithBillsID = "LookingForThis"
         let otherUserID = "NotLookingForThis"
-        var resultID1 = String()
-        var resultID2 = String()
-        _ = addBillToFirebaseWith(userID: userWithBillsID)
-        _ = addBillToFirebaseWith(userID: otherUserID)
-        _ = addBillToFirebaseWith(userID: userWithBillsID)
         
-        firebaseData.findBillsWith(userID: userWithBillsID,
-                                   completion: { bills in
-            if let bills = bills {
-                resultID1 = bills[0].id
-                resultID2 = bills[1].id
-                bills.forEach { bill in
-                    self.removeTestBill(withID: bill.id)
+        let otherUserBillID = addBillToFirebaseWith(userID: otherUserID)
+        _ = addBillToFirebaseWith(userID: userWithBillsID)
+        _ = addBillToFirebaseWith(userID: userWithBillsID,
+                                  completion: { _ in
+                                    
+                let requestExpectation = self.expectation(description: "Request a users bills")
+                var resultID1 = String()
+                var resultID2 = String()
+                                    
+                self.firebaseData.findBillsWith(userID: userWithBillsID,
+                                           completion: { bills in
+                        if let bills = bills {
+                            resultID1 = bills[0].userID
+                            resultID2 = bills[1].userID
+                            bills.forEach { bill in
+                                self.removeTestBill(withID: bill.id)
+                            }
+                            XCTAssertEqual(bills.count, 2)
+                        }
+                        requestExpectation.fulfill()
+                })
+                self.waitForExpectations(timeout: 5) { _ in
+                    XCTAssertEqual(resultID1, userWithBillsID)
+                    XCTAssertEqual(resultID2, userWithBillsID)
                 }
-                XCTAssertEqual(bills.count, 2)
-            }
-            requestExpectation.fulfill()
         })
-        waitForExpectations(timeout: 10) { _ in
-            XCTAssertEqual(resultID1, userWithBillsID)
-            XCTAssertEqual(resultID2, userWithBillsID)
-        }
+        removeTestBill(withID: otherUserBillID)
     }
     
     func testCanRemoveBillFromFirebase() {
@@ -126,7 +131,8 @@ class BillTests: XCTestCase {
         }
     }
     
-    func addBillToFirebaseWith(userID: String) -> String {
+    func addBillToFirebaseWith(userID: String,
+                               completion: @escaping (String) -> Void = { _ in }) -> String {
         let bill = Bill(userID: userID,
                         name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
@@ -141,8 +147,10 @@ class BillTests: XCTestCase {
             }
             requestExpectation?.fulfill()
         })
-        waitForExpectations(timeout: 5)
         
+        waitForExpectations(timeout: 5) { _ in
+            completion(bill.id)
+        }
         return bill.id
     }
     

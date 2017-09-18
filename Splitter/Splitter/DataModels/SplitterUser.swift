@@ -12,20 +12,11 @@ import Firebase
 struct SplitterUser {
     
     var id: String
-    var stripeID: String
-    var name: String
     var email: String
-    var hasPaid: [String: Bool]
-    var isPayingBill: [String: Bool]
-    var bills: [Bill]
     
-    init(id: String, email: String) {
-        self.id = ""
-        self.stripeID = ""
-        self.name = ""
+    init(id: String,
+         email: String) {
+        self.id = id
         self.email = email
-        self.hasPaid = [:]
-        self.isPayingBill = [:]
-        self.bills = []
     }
 }

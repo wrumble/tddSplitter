@@ -8,15 +8,25 @@
 
 import UIKit
 import Firebase
+import iCarousel
 
 class MyBillsViewController: UIViewController {
     
     private let addButton = AddButton(accessID: AccesID.addButton)
     private let deleteButton = DeleteButton(accessID: AccesID.deleteButton)
     
+    private var userBills = [Bill]()
     private var titleLabel = TitleLabel(accessID: AccesID.titleLabel)
+    private var carousel = iCarousel()
+    private var carouselDatasource = BillsCarouselDatasource()
+
+    private weak var carouselDelegate = BillsCarouselDelegate()
     
-    var currentUser: SplitterUser!
+    var currentUser: SplitterUser! {
+        didSet {
+            self.userBills = getUserBills()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +34,26 @@ class MyBillsViewController: UIViewController {
         setupHierarchy()
         setupViews()
         setupLayout()
-        getUserBills()
     }
     
     private func setupHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(addButton)
         view.addSubview(deleteButton)
+        view.addSubview(carousel)
     }
     
     private func setupViews() {
         view.backgroundColor = Color.mainBackground
         
         titleLabel.text = Localized.myBillsViewControllerTitle
+        
+        carouselDatasource.bills = userBills
+        carousel.dataSource = carouselDatasource
+        carousel.delegate = carouselDelegate
+        carousel.isPagingEnabled = true
+        carousel.type = .coverFlow
+        carousel.backgroundColor = .clear
     }
     
     private func setupLayout() {
@@ -49,9 +66,23 @@ class MyBillsViewController: UIViewController {
         addButton.pinToSuperview(edges: [.left, .bottom])
         
         deleteButton.pinToSuperview(edges: [.right, .bottom])
+        
+        carousel.pinToSuperviewEdges()
+        
     }
     
-    private func getUserBills() {
+    private func getUserBills() -> [Bill] {
+        let firebaseData = FirebaseData()
+        var currentUserBills = [Bill]()
+        firebaseData.findBillsWith(userID: currentUser.id,
+                                   completion: { bills in
+                                    
+            if let bills = bills {
+                currentUserBills = bills
+            }
+                                    
+        })
         
+        return currentUserBills
     }
 }

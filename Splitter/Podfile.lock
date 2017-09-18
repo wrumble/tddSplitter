@@ -47,6 +47,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - iCarousel (1.8.3)
   - leveldb-library (1.18.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - iCarousel
 
 SPEC CHECKSUMS:
   EarlGrey: f7774b813c888ebdb9a21e612d67874d17d5a326
@@ -72,9 +74,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: 661fc1f8d4131891d256b62e82a45ace8b3f0c3b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 13cc473e670938b89c3ad3dfc5f008cffcc0ed2d
+PODFILE CHECKSUM: 2eb1e99461ddf41638c04ed9b8991a7f18f84abe
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

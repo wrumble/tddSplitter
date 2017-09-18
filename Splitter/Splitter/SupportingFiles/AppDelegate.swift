@@ -34,10 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func startAtMyBillsVCWithUserEmail(_ email: String) {
         let myBillsViewController = MyBillsViewController()
-        FirebaseData().signInUser(email: email,
+        let firebaseData = FirebaseData()
+        firebaseData.signInUser(email: email,
                                   password: "password",
-                                  completion: { (_, splitterUser) in
+                                  completion: { ( _, splitterUser) in
+                                    print(splitterUser)
                 myBillsViewController.currentUser = splitterUser
+                                    
         })
         window?.rootViewController = myBillsViewController
     }

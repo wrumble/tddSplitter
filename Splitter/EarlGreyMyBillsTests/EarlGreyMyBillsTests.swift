@@ -37,13 +37,11 @@ class EarlGreyMyBillsTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
     }
     
-    func testShowsUsersOneBill() {
+    func testShowsUsersBills() {
         startAtMyBillsViewControllerWith(email: userWithOneBillEmail)
-        let usersBill = grey_accessibilityID(AccessID.billView)
-        let assertionText = "TestBill1"
+        let usersBill = grey_accessibilityID(AccessID.carouselView)
         EarlGrey.select(elementWithMatcher: usersBill)
-            .assert(grey_text(assertionText))
-
+            .assert(grey_sufficientlyVisible())
     }
     
     func startAtMyBillsViewControllerWith(email: String) {
