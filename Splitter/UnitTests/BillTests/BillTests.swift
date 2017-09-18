@@ -39,7 +39,8 @@ class BillTests: XCTestCase {
     func testCanCreateNewBill() {
         var testSuccess = false
         let requestExpectation = expectation(description: "Creates a bill")
-        let bill = Bill(name: "Bob Ross",
+        let bill = Bill(userID: "testID",
+                        name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",
                         imageURL: "https://testurl.com",
@@ -62,7 +63,8 @@ class BillTests: XCTestCase {
     
     func testCanRequestBillWithId() {
         var resultID = String()
-        let id = addBillToFirebase()
+        let userID = "jT9AZdggj0gYKJjGlYPsf4uSqko1"
+        let id = addBillToFirebaseWith(userID: userID)
         let requestExpectation = expectation(description: "Request a bill")
         
         firebaseData.findBill(with: id, completion: { bill in
@@ -77,9 +79,38 @@ class BillTests: XCTestCase {
         removeTestBill(withID: id)
     }
     
+    func testCanRequestAllUsersBills() {
+        let requestExpectation = expectation(description: "Request a users bills")
+        let userWithBillsID = "LookingForThis"
+        let otherUserID = "NotLookingForThis"
+        var resultID1 = String()
+        var resultID2 = String()
+        _ = addBillToFirebaseWith(userID: userWithBillsID)
+        _ = addBillToFirebaseWith(userID: otherUserID)
+        _ = addBillToFirebaseWith(userID: userWithBillsID)
+        
+        firebaseData.findBillsWith(userID: userWithBillsID,
+                                   completion: { bills in
+            if let bills = bills {
+                resultID1 = bills[0].id
+                resultID2 = bills[1].id
+                bills.forEach { bill in
+                    self.removeTestBill(withID: bill.id)
+                }
+                XCTAssertEqual(bills.count, 2)
+            }
+            requestExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 10) { _ in
+            XCTAssertEqual(resultID1, userWithBillsID)
+            XCTAssertEqual(resultID2, userWithBillsID)
+        }
+    }
+    
     func testCanRemoveBillFromFirebase() {
         var testSuccess = false
-        let id = addBillToFirebase()
+        let userID = "jT9AZdggj0gYKJjGlYPsf4uSqko1"
+        let id = addBillToFirebaseWith(userID: userID)
         let requestExpectation = expectation(description: "Remove a bill")
         
         firebaseData.removeBill(with: id, completion: { (error) in
@@ -95,8 +126,9 @@ class BillTests: XCTestCase {
         }
     }
     
-    func addBillToFirebase() -> String {
-        let bill = Bill(name: "Bob Ross",
+    func addBillToFirebaseWith(userID: String) -> String {
+        let bill = Bill(userID: userID,
+                        name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",
                         imageURL: "https://testurl.com",

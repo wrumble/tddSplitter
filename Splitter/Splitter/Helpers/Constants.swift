@@ -42,6 +42,7 @@ enum Layout {
 }
 
 enum AccesID {
+    static let billView = "BillView"
     static let deleteButton = "DeleteButton"
     static let addButton = "AddButton"
     static let titleLabel = "TitleLabel"

@@ -10,17 +10,30 @@ import Foundation
 
 typealias JSON = [String: Any?]
 
+protocol JSONable {
+    var id: String { get }
+    func toJSON() -> JSON
+}
+
 struct Bill: JSONable {
     
     var id: String
+    var userID: String
     var name: String
     var date: String
     var location: String?
     var imageURL: String
     var items: [Item]?
     
-    init(name: String, date: String, location: String?, imageURL: String, items: [Item]?) {
+    init(userID: String,
+         name: String,
+         date: String,
+         location: String?,
+         imageURL: String,
+         items: [Item]?) {
+        
         self.id = UUID().uuidString
+        self.userID = userID
         self.name = name
         self.date = date
         self.location = location
@@ -29,17 +42,12 @@ struct Bill: JSONable {
     }
     
     func toJSON() -> JSON {
-        return [
-            "name": name,
-            "location": location,
-            "date": date,
-            "imageURL": imageURL,
-            "id": id
+        return ["id": id,
+                "userID": userID,
+                "name": name,
+                "location": location,
+                "date": date,
+                "imageURL": imageURL
         ]
     }
-}
-
-protocol JSONable {
-    var id: String { get }
-    func toJSON() -> JSON
 }

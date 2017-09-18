@@ -78,7 +78,8 @@ class ItemTests: XCTestCase {
     }
     
     func addBillToFirebase() -> String {
-        let bill = Bill(name: "Bob Ross",
+        let bill = Bill(userID: "testID",
+                        name: "Bob Ross",
                         date: Date().currentDateTimeAsString(),
                         location: "MacDonalds",
                         imageURL: "https://testurl.com",

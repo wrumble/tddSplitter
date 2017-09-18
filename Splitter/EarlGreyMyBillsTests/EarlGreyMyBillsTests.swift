@@ -13,32 +13,42 @@ import EarlGrey
 // swiftlint:disable type_body_length
 class EarlGreyMyBillsTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        startAtMyBillsViewController()
-    }
+    let registeredUserEmail = "alreadyregistereduser@email.com"
+    let userWithOneBillEmail = "userwithonebill@email.com"
     
     func testHasTitleLabel() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
         let titleLabel = grey_accessibilityID(AccessID.titleLabel)
         EarlGrey.select(elementWithMatcher: titleLabel)
             .assert(grey_sufficientlyVisible())
     }
     
     func testHasAddBillButton() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
         let addbutton = grey_accessibilityID(AccessID.addButton)
         EarlGrey.select(elementWithMatcher: addbutton)
             .assert(grey_sufficientlyVisible())
     }
     
     func testHasDeleteBillButton() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
         let deleteButton = grey_accessibilityID(AccessID.deleteButton)
         EarlGrey.select(elementWithMatcher: deleteButton)
             .assert(grey_sufficientlyVisible())
     }
     
-    func startAtMyBillsViewController() {
+    func testShowsUsersOneBill() {
+        startAtMyBillsViewControllerWith(email: userWithOneBillEmail)
+        let usersBill = grey_accessibilityID(AccessID.billView)
+        let assertionText = "TestBill1"
+        EarlGrey.select(elementWithMatcher: usersBill)
+            .assert(grey_text(assertionText))
+
+    }
+    
+    func startAtMyBillsViewControllerWith(email: String) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.startAtMyBillsViewController()
+        appDelegate?.startAtMyBillsVCWithUserEmail(email)
     }
     
     func localizedStringWith(key: String) -> String {

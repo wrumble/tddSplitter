@@ -102,6 +102,16 @@ struct FirebaseData {
         })
     }
     
+    func findBillsWith(userID: String,
+                       completion: @escaping (_ bills: [Bill]?) -> Void) {
+        databaseReference.queryOrdered(byChild: "userID")
+                         .queryEqual(toValue: userID)
+                         .observeSingleEvent(of: .value, with: { snapshot in
+            let bills = self.createBillsArray(snapshot)
+            completion(bills)
+        })
+    }
+    
     func findItem(_ item: Item,
                   completion: @escaping (_ Item: Item?) -> Void) {
         let itemReference = databaseReference.child(item.billID)
@@ -143,26 +153,39 @@ struct FirebaseData {
     
     private func createBill(from snapshot: DataSnapshot) -> Bill {
         let id = snapshot.childSnapshot(forPath: "id").value!
+        let userID = snapshot.childSnapshot(forPath: "userID").value!
         let name = snapshot.childSnapshot(forPath: "name").value!
         let date = snapshot.childSnapshot(forPath: "date").value!
         let location = snapshot.childSnapshot(forPath: "location").value!
         let imageURL = snapshot.childSnapshot(forPath: "imageURL").value!
         let itemsSnapshot = snapshot.childSnapshot(forPath: "Items")
         var items = [Item]()
+        
         if let createdItems = self.createItemsArray(itemsSnapshot) {
             items = createdItems
         }
         
-        var bill = Bill(name: name as! String,
-                    date: date as! String,
-                    location: location as? String,
-                    imageURL: imageURL as! String,
-                    items: items)
+        var bill = Bill(userID: userID as! String,
+                        name: name as! String,
+                        date: date as! String,
+                        location: location as? String,
+                        imageURL: imageURL as! String,
+                        items: items)
         bill.id = id as! String
         
         return bill
     }
     
+    private func createBillsArray(_ snapshot: DataSnapshot?) -> [Bill]? {
+        var bills = [Bill]()
+        (snapshot?.children.allObjects as! [DataSnapshot]).forEach { snapshot in
+            let bill = self.createBill(from: snapshot)
+            bills.append(bill)
+        }
+        
+        return bills
+    }
+
     private func createItemsArray(_ snapshot: DataSnapshot?) -> [Item]? {
         var items = [Item]()
         (snapshot?.children.allObjects as! [DataSnapshot]).forEach { snapshot in

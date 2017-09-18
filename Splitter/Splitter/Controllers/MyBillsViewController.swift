@@ -24,6 +24,7 @@ class MyBillsViewController: UIViewController {
         setupHierarchy()
         setupViews()
         setupLayout()
+        getUserBills()
     }
     
     private func setupHierarchy() {
@@ -48,5 +49,9 @@ class MyBillsViewController: UIViewController {
         addButton.pinToSuperview(edges: [.left, .bottom])
         
         deleteButton.pinToSuperview(edges: [.right, .bottom])
+    }
+    
+    private func getUserBills() {
+        
     }
 }
