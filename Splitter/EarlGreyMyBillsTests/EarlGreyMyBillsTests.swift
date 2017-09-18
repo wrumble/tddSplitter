@@ -24,6 +24,12 @@ class EarlGreyMyBillsTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
     }
     
+    func testHasAddBillButton() {
+        let addbutton = grey_accessibilityID(AccessID.addButton)
+        EarlGrey.select(elementWithMatcher: addbutton)
+            .assert(grey_sufficientlyVisible())
+    }
+    
     func waitForSuccess(of assertion: GREYMatcher,
                         with element: GREYElementInteraction,
                         conditionName: String ) -> Bool {

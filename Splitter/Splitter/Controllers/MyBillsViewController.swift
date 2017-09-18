@@ -11,7 +11,10 @@ import Firebase
 
 class MyBillsViewController: UIViewController {
     
-    var titleLabel = TitleLabel(accessID: AccesID.titleLabel)
+    private let addButton = AddButton(accessID: AccesID.addButton)
+    
+    private var titleLabel = TitleLabel(accessID: AccesID.titleLabel)
+    
     var currentUser: SplitterUser!
     
     override func viewDidLoad() {
@@ -24,10 +27,12 @@ class MyBillsViewController: UIViewController {
     
     private func setupHierarchy() {
         view.addSubview(titleLabel)
+        view.addSubview(addButton)
     }
     
     private func setupViews() {
         view.backgroundColor = Color.mainBackground
+        
         titleLabel.text = Localized.myBillsViewControllerTitle
     }
     
@@ -37,5 +42,7 @@ class MyBillsViewController: UIViewController {
                           constant: Layout.titleLabelY,
                           priority: .required,
                           relatedBy: .equal)
+        
+        addButton.pinToSuperview(edges: [.left, .bottom])
     }
 }

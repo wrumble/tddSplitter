@@ -12,6 +12,10 @@ enum Constant {
     static let minimumPasswordLength = 6
 }
 
+enum Image {
+    static let addButton = UIImage(named: "addIcon")
+}
+
 enum Localized {
     //Layout text
     static let myBillsViewControllerTitle = "MyBillsViewControllerTitle".localized
@@ -26,6 +30,7 @@ enum Localized {
 }
 
 enum Layout {
+    static let addButtonHeightWidth: CGFloat = 60
     static let titleLabelY: CGFloat = 22
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
     static let textFieldHeight: CGFloat = 44
@@ -35,6 +40,7 @@ enum Layout {
 }
 
 enum AccesID {
+    static let addButton = "AddButton"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"
     static let emailTextField = "Email"

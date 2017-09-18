@@ -26,6 +26,7 @@
 		871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871B37F41F308CE6001FE485 /* WalkwayBold.ttf */; };
 		872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */; };
 		873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A11F6FCF9900F602EF /* TitleLabel.swift */; };
+		873CD1A41F6FF34F00F602EF /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A31F6FF34F00F602EF /* AddButton.swift */; };
 		874AC1151F22045700846851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1141F22045700846851 /* AppDelegate.swift */; };
 		874AC11C1F22045700846851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874AC11B1F22045700846851 /* Assets.xcassets */; };
 		874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */; };
@@ -165,6 +166,7 @@
 		872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLogoLabel.swift; sourceTree = "<group>"; };
 		872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splitter.entitlements; sourceTree = "<group>"; };
 		873CD1A11F6FCF9900F602EF /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		873CD1A31F6FF34F00F602EF /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		874AC1111F22045700846851 /* Splitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AC1141F22045700846851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874AC11B1F22045700846851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				871B37F11F2F7C49001FE485 /* SplitterButton.swift */,
+				873CD1A31F6FF34F00F602EF /* AddButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1222,6 +1225,7 @@
 				871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */,
 				8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */,
 				87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */,
+				873CD1A41F6FF34F00F602EF /* AddButton.swift in Sources */,
 				871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */,
 				873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */,
 				874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */,
