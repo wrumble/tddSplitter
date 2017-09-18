@@ -12,6 +12,7 @@ import Firebase
 class MyBillsViewController: UIViewController {
     
     private let addButton = AddButton(accessID: AccesID.addButton)
+    private let deleteButton = DeleteButton(accessID: AccesID.deleteButton)
     
     private var titleLabel = TitleLabel(accessID: AccesID.titleLabel)
     
@@ -28,6 +29,7 @@ class MyBillsViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(addButton)
+        view.addSubview(deleteButton)
     }
     
     private func setupViews() {
@@ -44,5 +46,7 @@ class MyBillsViewController: UIViewController {
                           relatedBy: .equal)
         
         addButton.pinToSuperview(edges: [.left, .bottom])
+        
+        deleteButton.pinToSuperview(edges: [.right, .bottom])
     }
 }

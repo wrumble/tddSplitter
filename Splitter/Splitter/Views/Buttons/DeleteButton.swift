@@ -1,5 +1,5 @@
 //
-//  TitleLabel.swift
+//  DeleteButton.swift
 //  Splitter
 //
 //  Created by Wayne Rumble on 18/09/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TitleLabel: UILabel {
+class DeleteButton: UIButton {
     
     var accessID: String!
     
@@ -25,12 +25,10 @@ class TitleLabel: UILabel {
     
     private func setup() {
         accessibilityIdentifier = accessID
-        backgroundColor = Color.titleLabelBackground
-        textColor = Color.titleLabelText
-        textAlignment = .center
-        font = Font.titleLabelFont
-        numberOfLines = 0
-        minimumScaleFactor = 0.1
-        adjustsFontSizeToFitWidth = true
+        backgroundColor = .clear
+        setBackgroundImage(Image.deleteButton, for: .normal)
+        
+        addHeightConstraint(with: Layout.deleteButtonHeightWidth)
+        addWidthConstraint(with: Layout.deleteButtonHeightWidth)
     }
 }

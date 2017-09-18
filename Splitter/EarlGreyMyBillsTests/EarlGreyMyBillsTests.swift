@@ -30,26 +30,10 @@ class EarlGreyMyBillsTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
     }
     
-    func waitForSuccess(of assertion: GREYMatcher,
-                        with element: GREYElementInteraction,
-                        conditionName: String ) -> Bool {
-        var success = false
-        
-        GREYCondition(name: conditionName, block: { () -> Bool in
-            
-            let errorOrNil = UnsafeMutablePointer<NSError?>.allocate(capacity: 1)
-            errorOrNil.initialize(to: nil)
-            
-            element.assert(with: assertion, error: errorOrNil)
-            
-            success = errorOrNil.pointee == nil
-            errorOrNil.deinitialize()
-            errorOrNil.deallocate(capacity: 1)
-            
-            return success
-        }).wait(withTimeout: 3.0)
-        
-        return success
+    func testHasDeleteBillButton() {
+        let deleteButton = grey_accessibilityID(AccessID.deleteButton)
+        EarlGrey.select(elementWithMatcher: deleteButton)
+            .assert(grey_sufficientlyVisible())
     }
     
     func startAtMyBillsViewController() {

@@ -13,6 +13,7 @@ enum Constant {
 }
 
 enum Image {
+    static let deleteButton = UIImage(named: "deleteIcon")
     static let addButton = UIImage(named: "addIcon")
 }
 
@@ -30,6 +31,7 @@ enum Localized {
 }
 
 enum Layout {
+    static let deleteButtonHeightWidth: CGFloat = 60
     static let addButtonHeightWidth: CGFloat = 60
     static let titleLabelY: CGFloat = 22
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
@@ -40,6 +42,7 @@ enum Layout {
 }
 
 enum AccesID {
+    static let deleteButton = "DeleteButton"
     static let addButton = "AddButton"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"
@@ -52,6 +55,10 @@ enum AccesID {
 }
 
 enum Color {
+    static let titleLabelBackground = UIColor(red: 254/255,
+                                              green: 254/255,
+                                              blue: 254/255,
+                                              alpha: 0.60)
     static let titleLabelText = UIColor(red: 33/255,
                                        green: 33/255,
                                        blue: 33/255,
