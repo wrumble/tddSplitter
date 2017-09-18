@@ -1,14 +1,14 @@
 //
-//  TitleLogoLabel.swift
+//  TitleLabel.swift
 //  Splitter
 //
-//  Created by Wayne Rumble on 01/08/2017.
+//  Created by Wayne Rumble on 18/09/2017.
 //  Copyright © 2017 Wayne Rumble. All rights reserved.
 //
 
 import UIKit
 
-class TitleLabelLogo: UILabel {
+class TitleLabel: UILabel {
     
     var accessID: String!
     
@@ -25,10 +25,9 @@ class TitleLabelLogo: UILabel {
     
     private func setup() {
         accessibilityIdentifier = accessID
-        text = Localized.splitterTitleLogoText
-        textColor = Color.titleLogoText
+        textColor = Color.titleLabelText
         textAlignment = .center
-        font = Font.titleLogoFont
+        font = Font.titleLabelFont
         numberOfLines = 0
         minimumScaleFactor = 0.1
         adjustsFontSizeToFitWidth = true

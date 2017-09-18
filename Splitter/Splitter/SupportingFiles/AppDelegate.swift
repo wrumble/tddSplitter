@@ -27,8 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    // Used for testing only
+// Used for testing only
     func resetAppToWelcomeScreen() {
         window?.rootViewController = WelcomeScreenViewController()
+    }
+    
+    func startAtMyBillsViewController() {
+        let myBillsViewController = MyBillsViewController()
+        FirebaseData().signInUser(email: "alreadyregistereduser@email.com",
+                                  password: "password",
+                                  completion: { (_, splitterUser) in
+                myBillsViewController.currentUser = splitterUser
+        })
+        window?.rootViewController = myBillsViewController
     }
 }

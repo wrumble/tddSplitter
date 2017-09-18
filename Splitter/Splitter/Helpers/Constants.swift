@@ -26,6 +26,7 @@ enum Localized {
 }
 
 enum Layout {
+    static let titleLabelY: CGFloat = 22
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
     static let textFieldHeight: CGFloat = 44
     static let buttonHeight: CGFloat = 44
@@ -34,7 +35,8 @@ enum Layout {
 }
 
 enum AccesID {
-    static let titleLogoLabel = "Title"
+    static let titleLabel = "TitleLabel"
+    static let titleLogoLabel = "TitleLogo"
     static let emailTextField = "Email"
     static let passwordTextField = "Password"
     static let confirmPasswordTextField = "ConfirmPassword"
@@ -44,6 +46,10 @@ enum AccesID {
 }
 
 enum Color {
+    static let titleLabelText = UIColor(red: 33/255,
+                                       green: 33/255,
+                                       blue: 33/255,
+                                       alpha: 1.00)
     static let titleLogoText = UIColor(red: 254/255,
                                        green: 254/255,
                                        blue: 254/255,
@@ -75,6 +81,7 @@ enum Color {
 }
 
 enum Font {
-    static let titleLogoFontName = UIFont(name: "WalkwayBold", size: 200)
-    static let toastFont = UIFont(name: "Montserrat-Light", size: 14.0)
+    static let titleLabelFont = UIFont.systemFont(ofSize: 26)
+    static let titleLogoFont = UIFont(name: "WalkwayBold", size: 200)
+    static let toastFont = UIFont.systemFont(ofSize: 16)
 }

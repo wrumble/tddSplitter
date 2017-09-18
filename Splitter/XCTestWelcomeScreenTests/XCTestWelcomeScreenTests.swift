@@ -20,7 +20,7 @@ class XCTestWelcomeScreenTests: XCTestCase {
     }
     
     func testTappingRegisterButtonShowsConfirmPasswordTextField() {
-        let registerButton = app.buttons[AccesID.registerButton]
+        let registerButton = app.buttons[AccessID.registerButton]
         let confirmPasswordTextField = app.secureTextFields[AccessID.confirmPasswordTextField]
         
         XCTAssertFalse(confirmPasswordTextField.exists)

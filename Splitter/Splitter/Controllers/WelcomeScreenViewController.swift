@@ -26,15 +26,19 @@ class WelcomeScreenViewController: UIViewController {
         super.viewDidLoad()
         
         setupHierarchy()
+        setupViews()
         setupLayout()
         setupKeyboard()
         bindToast()
         bindButtons()
-        view.backgroundColor = Color.mainBackground
     }
     
     private func setupHierarchy() {
         view.addSubview(textFieldAndButtonView)
+    }
+    
+    private func setupViews() {
+        view.backgroundColor = Color.mainBackground
     }
     
     private func setupLayout() {

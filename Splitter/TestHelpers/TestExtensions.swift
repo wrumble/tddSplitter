@@ -9,7 +9,8 @@
 import XCTest
 
 enum AccessID {
-    static let titleLogoLabel = "Title"
+    static let titleLabel = "TitleLabel"
+    static let titleLogoLabel = "TitleLogo"
     static let emailTextField = "Email"
     static let passwordTextField = "Password"
     static let confirmPasswordTextField = "ConfirmPassword"
