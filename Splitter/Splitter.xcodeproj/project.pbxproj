@@ -42,6 +42,7 @@
 		874AC1881F224F8900846851 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1741F222FD100846851 /* Bill.swift */; };
 		874D37E81F714F3C0092ACB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		874D37EA1F7153DE0092ACB4 /* NewBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D37E91F7153DE0092ACB4 /* NewBillViewController.swift */; };
+		874D37EC1F71698A0092ACB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D37EB1F71698A0092ACB4 /* LaunchScreen.storyboard */; };
 		8760E6EE1F6BFF3B00529685 /* XCTestWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E6ED1F6BFF3B00529685 /* XCTestWelcomeScreenTests.swift */; };
 		8760E7071F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E7081F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
@@ -204,6 +205,7 @@
 		874AC17F1F22457000846851 /* BillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTests.swift; sourceTree = "<group>"; };
 		874AC1811F22457000846851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		874D37E91F7153DE0092ACB4 /* NewBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBillViewController.swift; sourceTree = "<group>"; };
+		874D37EB1F71698A0092ACB4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		875ABB8F1F3329E300699EE8 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		875ABB911F3329F900699EE8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		875ABB931F332A0200699EE8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -570,6 +572,7 @@
 				874AC11B1F22045700846851 /* Assets.xcassets */,
 				874AC1201F22045700846851 /* Info.plist */,
 				874AC1761F223D8300846851 /* GoogleService-Info.plist */,
+				874D37EB1F71698A0092ACB4 /* LaunchScreen.storyboard */,
 				871B37EE1F2F4573001FE485 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
@@ -922,6 +925,7 @@
 				871B37EC1F2F4573001FE485 /* Localizable.strings in Resources */,
 				874AC11C1F22045700846851 /* Assets.xcassets in Resources */,
 				874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */,
+				874D37EC1F71698A0092ACB4 /* LaunchScreen.storyboard in Resources */,
 				871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
