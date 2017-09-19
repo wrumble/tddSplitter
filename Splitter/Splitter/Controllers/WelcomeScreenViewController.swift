@@ -13,9 +13,9 @@ class WelcomeScreenViewController: UIViewController {
     
     private var currentUser: SplitterUser? {
         didSet {
-            let nextViewController = MyBillsViewController()
-            nextViewController.currentUser = self.currentUser
-            present(nextViewController, animated: true)
+            let myBillsViewController = MyBillsViewController()
+            myBillsViewController.currentUser = self.currentUser
+            present(myBillsViewController, animated: false)
         }
     }
     

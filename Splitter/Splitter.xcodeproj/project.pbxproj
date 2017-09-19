@@ -17,6 +17,9 @@
 		6C90CA6C8DD6F70A751AC7F2 /* Pods_Splitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A9F609BB793F5C68C6F659 /* Pods_Splitter.framework */; };
 		779F92902DCAB300161CED7A /* Pods_UserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D19CE047805879DD987BA2C /* Pods_UserTests.framework */; };
 		870A910B1F6FFA1E00D2D16D /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870A910A1F6FFA1E00D2D16D /* DeleteButton.swift */; };
+		871682BD1F712BDB004046E9 /* NoBillsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871682BC1F712BDB004046E9 /* NoBillsLabel.swift */; };
+		871682F01F714C7A004046E9 /* XCTestMyBillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871682EF1F714C7A004046E9 /* XCTestMyBillsTests.swift */; };
+		871682F71F714C9B004046E9 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		871B37A61F29F6A0001FE485 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37A51F29F6A0001FE485 /* Item.swift */; };
 		871B37BF1F2A1EF9001FE485 /* SplitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37BE1F2A1EF9001FE485 /* SplitterUser.swift */; };
 		871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */; };
@@ -26,7 +29,7 @@
 		871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37F11F2F7C49001FE485 /* SplitterButton.swift */; };
 		871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871B37F41F308CE6001FE485 /* WalkwayBold.ttf */; };
 		872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */; };
-		87344C511F7058C000C0B3FE /* BillsCarouselDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* BillsCarouselDatasource.swift */; };
+		87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */; };
 		87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */; };
 		87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C541F705D8400C0B3FE /* BillCarouselView.swift */; };
 		87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */; };
@@ -37,6 +40,8 @@
 		874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */; };
 		874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874AC1761F223D8300846851 /* GoogleService-Info.plist */; };
 		874AC1881F224F8900846851 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1741F222FD100846851 /* Bill.swift */; };
+		874D37E81F714F3C0092ACB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
+		874D37EA1F7153DE0092ACB4 /* NewBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D37E91F7153DE0092ACB4 /* NewBillViewController.swift */; };
 		8760E6EE1F6BFF3B00529685 /* XCTestWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E6ED1F6BFF3B00529685 /* XCTestWelcomeScreenTests.swift */; };
 		8760E7071F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E7081F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
@@ -65,6 +70,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		871682F21F714C7A004046E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 874AC1091F22045700846851 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 874AC1101F22045700846851;
+			remoteInfo = Splitter;
+		};
 		871B37A01F29F614001FE485 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 874AC1091F22045700846851 /* Project object */;
@@ -154,6 +166,10 @@
 		76155B98C8D99CB604F66D41 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		857CD289AEC4FB4CD4D952FC /* Pods_ItemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		870A910A1F6FFA1E00D2D16D /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
+		871682BC1F712BDB004046E9 /* NoBillsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBillsLabel.swift; sourceTree = "<group>"; };
+		871682ED1F714C7A004046E9 /* XCTestMyBillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCTestMyBillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		871682EF1F714C7A004046E9 /* XCTestMyBillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestMyBillsTests.swift; sourceTree = "<group>"; };
+		871682F11F714C7A004046E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871B379B1F29F613001FE485 /* ItemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		871B379D1F29F614001FE485 /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		871B379F1F29F614001FE485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +187,7 @@
 		871B37F41F308CE6001FE485 /* WalkwayBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WalkwayBold.ttf; sourceTree = "<group>"; };
 		872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLogoLabel.swift; sourceTree = "<group>"; };
 		872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splitter.entitlements; sourceTree = "<group>"; };
-		87344C501F7058C000C0B3FE /* BillsCarouselDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsCarouselDatasource.swift; sourceTree = "<group>"; };
+		87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDatasource.swift; sourceTree = "<group>"; };
 		87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDelegate.swift; sourceTree = "<group>"; };
 		87344C541F705D8400C0B3FE /* BillCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselView.swift; sourceTree = "<group>"; };
 		87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTitleLabel.swift; sourceTree = "<group>"; };
@@ -187,6 +203,7 @@
 		874AC17D1F22457000846851 /* BillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AC17F1F22457000846851 /* BillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTests.swift; sourceTree = "<group>"; };
 		874AC1811F22457000846851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		874D37E91F7153DE0092ACB4 /* NewBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBillViewController.swift; sourceTree = "<group>"; };
 		875ABB8F1F3329E300699EE8 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		875ABB911F3329F900699EE8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		875ABB931F332A0200699EE8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -234,6 +251,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		871682EA1F714C7A004046E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		871B37981F29F613001FE485 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +321,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		871682EE1F714C7A004046E9 /* XCTestMyBillsTests */ = {
+			isa = PBXGroup;
+			children = (
+				871682EF1F714C7A004046E9 /* XCTestMyBillsTests.swift */,
+				871682F11F714C7A004046E9 /* Info.plist */,
+			);
+			path = XCTestMyBillsTests;
+			sourceTree = "<group>";
+		};
 		871B379C1F29F614001FE485 /* ItemTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +390,7 @@
 		87344C4F1F7058A300C0B3FE /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				87344C501F7058C000C0B3FE /* BillsCarouselDatasource.swift */,
+				87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -367,9 +400,10 @@
 			children = (
 				874AC1131F22045700846851 /* Splitter */,
 				874AC1871F22471E00846851 /* Tests */,
-				8760E6EC1F6BFF3B00529685 /* XCTestWelcomeScreenTests */,
 				8760E6FB1F6C014000529685 /* EarlGreyWelcomeScreenTests */,
+				8760E6EC1F6BFF3B00529685 /* XCTestWelcomeScreenTests */,
 				87F9E91F1F6C3829000B6B48 /* EarlGreyMyBillsTests */,
+				871682EE1F714C7A004046E9 /* XCTestMyBillsTests */,
 				874AC1121F22045700846851 /* Products */,
 				874AC1521F220BEE00846851 /* Frameworks */,
 				BFF52E5691E2F832B3ED52CE /* Pods */,
@@ -386,6 +420,7 @@
 				8760E6EB1F6BFF3B00529685 /* XCTestWelcomeScreenTests.xctest */,
 				8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */,
 				87F9E91E1F6C3829000B6B48 /* EarlGreyMyBillsTests.xctest */,
+				871682ED1F714C7A004046E9 /* XCTestMyBillsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -483,6 +518,7 @@
 				873CD1A11F6FCF9900F602EF /* TitleLabel.swift */,
 				877B41831F46EF3300AE9813 /* ToastLabel.swift */,
 				87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */,
+				871682BC1F712BDB004046E9 /* NoBillsLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -544,6 +580,7 @@
 			children = (
 				874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */,
 				87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */,
+				874D37E91F7153DE0092ACB4 /* NewBillViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -601,6 +638,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		871682EC1F714C7A004046E9 /* XCTestMyBillsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 871682F41F714C7A004046E9 /* Build configuration list for PBXNativeTarget "XCTestMyBillsTests" */;
+			buildPhases = (
+				871682E91F714C7A004046E9 /* Sources */,
+				871682EA1F714C7A004046E9 /* Frameworks */,
+				871682EB1F714C7A004046E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				871682F31F714C7A004046E9 /* PBXTargetDependency */,
+			);
+			name = XCTestMyBillsTests;
+			productName = XCTestMyBillsTests;
+			productReference = 871682ED1F714C7A004046E9 /* XCTestMyBillsTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		871B379A1F29F613001FE485 /* ItemTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 871B37A21F29F614001FE485 /* Build configuration list for PBXNativeTarget "ItemTests" */;
@@ -760,6 +815,11 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Wayne Rumble";
 				TargetAttributes = {
+					871682EC1F714C7A004046E9 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 874AC1101F22045700846851;
+					};
 					871B379A1F29F613001FE485 = {
 						CreatedOnToolsVersion = 9.0;
 						TestTargetID = 874AC1101F22045700846851;
@@ -827,11 +887,20 @@
 				8760E6EA1F6BFF3B00529685 /* XCTestWelcomeScreenTests */,
 				8760E6F91F6C014000529685 /* EarlGreyWelcomeScreenTests */,
 				87F9E91D1F6C3829000B6B48 /* EarlGreyMyBillsTests */,
+				871682EC1F714C7A004046E9 /* XCTestMyBillsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		871682EB1F714C7A004046E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				874D37E81F714F3C0092ACB4 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		871B37991F29F613001FE485 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1324,6 +1393,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		871682E91F714C7A004046E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				871682F01F714C7A004046E9 /* XCTestMyBillsTests.swift in Sources */,
+				871682F71F714C9B004046E9 /* TestExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		871B37971F29F613001FE485 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1348,15 +1426,17 @@
 			files = (
 				874AC1151F22045700846851 /* AppDelegate.swift in Sources */,
 				872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */,
+				874D37EA1F7153DE0092ACB4 /* NewBillViewController.swift in Sources */,
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
 				87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */,
+				871682BD1F712BDB004046E9 /* NoBillsLabel.swift in Sources */,
 				871B37F01F2F6322001FE485 /* Constants.swift in Sources */,
 				87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */,
-				87344C511F7058C000C0B3FE /* BillsCarouselDatasource.swift in Sources */,
+				87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */,
 				871B37E91F2F430C001FE485 /* SplitterTextField.swift in Sources */,
 				871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */,
 				8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */,
@@ -1411,6 +1491,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		871682F31F714C7A004046E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 874AC1101F22045700846851 /* Splitter */;
+			targetProxy = 871682F21F714C7A004046E9 /* PBXContainerItemProxy */;
+		};
 		871B37A11F29F614001FE485 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 874AC1101F22045700846851 /* Splitter */;
@@ -1456,6 +1541,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		871682F51F714C7A004046E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WJMTPNAAQV;
+				INFOPLIST_FILE = XCTestMyBillsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waynerumble.XCTestMyBillsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Splitter;
+			};
+			name = Debug;
+		};
+		871682F61F714C7A004046E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WJMTPNAAQV;
+				INFOPLIST_FILE = XCTestMyBillsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waynerumble.XCTestMyBillsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Splitter;
+			};
+			name = Release;
+		};
 		871B37A31F29F614001FE485 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E412145F8C654E1A41249BE /* Pods-ItemTests.debug.xcconfig */;
@@ -1842,6 +1961,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		871682F41F714C7A004046E9 /* Build configuration list for PBXNativeTarget "XCTestMyBillsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				871682F51F714C7A004046E9 /* Debug */,
+				871682F61F714C7A004046E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		871B37A21F29F614001FE485 /* Build configuration list for PBXNativeTarget "ItemTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -9,6 +9,7 @@
 import XCTest
 
 enum AccessID {
+    static let noBillsLabel = "NoBillsLabel"
     static let carouselTitleLabel = "CarouselTitleLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "DeleteButton"

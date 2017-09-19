@@ -14,49 +14,64 @@ class MyBillsViewController: UIViewController {
     
     private let addButton = AddButton(accessID: AccesID.addButton)
     private let deleteButton = DeleteButton(accessID: AccesID.deleteButton)
-    
-    private var userBills = [Bill]()
-    private var titleLabel = TitleLabel(accessID: AccesID.titleLabel)
-    private var carousel = iCarousel()
-    private var carouselDatasource = BillsCarouselDatasource()
 
-    private weak var carouselDelegate = BillsCarouselDelegate()
+    private let noBillsLabel = NoBillsLabel()
+    private var titleLabel = TitleLabel()
+    private var carousel = iCarousel()
+    private var carouselDatasource = BillCarouselDatasource()
+
+    private weak var carouselDelegate = BillCarouselDelegate()
     
     var currentUser: SplitterUser! {
         didSet {
-            self.userBills = getUserBills()
+            getUserBills()
+        }
+    }
+    
+    private var userBills: [Bill]? {
+        didSet {
+            carouselDatasource.bills = userBills!
+            carousel.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         setupHierarchy()
         setupViews()
         setupLayout()
     }
     
     private func setupHierarchy() {
+        view.addSubview(carousel)
         view.addSubview(titleLabel)
         view.addSubview(addButton)
         view.addSubview(deleteButton)
-        view.addSubview(carousel)
+        view.addSubview(noBillsLabel)
+
     }
     
     private func setupViews() {
         view.backgroundColor = Color.mainBackground
         
-        titleLabel.text = Localized.myBillsViewControllerTitle
-        
-        carouselDatasource.bills = userBills
         carousel.dataSource = carouselDatasource
         carousel.delegate = carouselDelegate
         carousel.isPagingEnabled = true
         carousel.type = .coverFlow
         carousel.backgroundColor = .clear
+        
+        titleLabel.text = Localized.myBillsViewControllerTitle
+        
+        addButton.addTarget(self, action: #selector(addButtonWasTapped), for: .touchUpInside)
+        
+        noBillsLabel.text = Localized.noBillsMessage
+        noBillsLabel.isHidden = true
     }
     
     private func setupLayout() {
+        carousel.pinToSuperviewEdges()
+        
         titleLabel.pinToSuperview(edges: [.left, .right])
         titleLabel.pinTop(to: view,
                           constant: Layout.titleLabelY,
@@ -67,22 +82,28 @@ class MyBillsViewController: UIViewController {
         
         deleteButton.pinToSuperview(edges: [.right, .bottom])
         
-        carousel.pinToSuperviewEdges()
-        
+        noBillsLabel.pinToSuperview(edges: [.left, .right])
+        noBillsLabel.centerXToSuperview()
+        noBillsLabel.centerYToSuperview()
     }
     
-    private func getUserBills() -> [Bill] {
+    private func getUserBills() {
         let firebaseData = FirebaseData()
-        var currentUserBills = [Bill]()
         firebaseData.findBillsWith(userID: currentUser.id,
                                    completion: { bills in
-                                    
             if let bills = bills {
-                currentUserBills = bills
+                self.userBills = bills
+                self.noBillsLabel.isHidden = true
+            } else {
+                self.noBillsLabel.isHidden = false
+                self.deleteButton.isHidden = true
             }
-                                    
         })
-        
-        return currentUserBills
+    }
+    
+    @objc private func addButtonWasTapped() {
+        let newBillViewController = NewBillViewController()
+        newBillViewController.currentUserID = currentUser.id
+        present(newBillViewController, animated: false)
     }
 }

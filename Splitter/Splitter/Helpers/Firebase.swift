@@ -107,8 +107,11 @@ struct FirebaseData {
         databaseReference.queryOrdered(byChild: "userID")
                          .queryEqual(toValue: userID)
                          .observeSingleEvent(of: .value, with: { snapshot in
-            let bills = self.createBillsArray(snapshot)
-            completion(bills)
+            if snapshot.exists() {
+                let bills = self.createBillsArray(snapshot)
+                completion(bills)
+            }
+            completion(nil)
         })
     }
     

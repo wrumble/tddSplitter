@@ -12,10 +12,9 @@ class TitleLabel: UILabel {
     
     var accessID: String!
     
-    required init(accessID: String) {
+    required init() {
         super.init(frame: .zero)
         
-        self.accessID = accessID
         setup()
     }
     
@@ -24,7 +23,7 @@ class TitleLabel: UILabel {
     }
     
     private func setup() {
-        accessibilityIdentifier = accessID
+        accessibilityIdentifier = AccesID.titleLabel
         backgroundColor = Color.titleLabelBackground
         textColor = Color.titleLabelText
         textAlignment = .center

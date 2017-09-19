@@ -7,6 +7,7 @@
  */
 
 //Layout text
+"NewBillViewControllerTitle" = "New Bills";
 "MyBillsViewControllerTitle" = "My Bills";
 "SplitterTitleLogoText" = "Splitter";
 "EmailPlaceHolder" = "Email";
@@ -22,3 +23,6 @@
 "SuccessfulRegistraionText" = "Successful registration";
 "SuccessfulLoginText" = "Successful login";
 
+//Bills Mesages
+
+"NoBillsMessage" = "You currently have no bills, tap the + button to add a new bill";

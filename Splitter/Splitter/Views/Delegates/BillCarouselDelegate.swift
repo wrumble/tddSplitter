@@ -9,6 +9,6 @@
 import Foundation
 import iCarousel
 
-class BillsCarouselDelegate: NSObject, iCarouselDelegate {
+class BillCarouselDelegate: NSObject, iCarouselDelegate {
 
 }

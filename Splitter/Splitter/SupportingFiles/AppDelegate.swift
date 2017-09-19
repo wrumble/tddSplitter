@@ -38,10 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         firebaseData.signInUser(email: email,
                                   password: "password",
                                   completion: { ( _, splitterUser) in
-                                    print(splitterUser)
                 myBillsViewController.currentUser = splitterUser
-                                    
+                self.window?.rootViewController = myBillsViewController
         })
-        window?.rootViewController = myBillsViewController
     }
 }

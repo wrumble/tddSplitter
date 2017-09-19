@@ -19,6 +19,7 @@ enum Image {
 
 enum Localized {
     //Layout text
+    static let newBillViewControllerTitle = "NewBillViewControllerTitle".localized
     static let myBillsViewControllerTitle = "MyBillsViewControllerTitle".localized
     static let splitterTitleLogoText = "SplitterTitleLogoText".localized
 
@@ -28,9 +29,19 @@ enum Localized {
     static let passwordMismatchError = "PasswordMismatchError".localized
     static let successfulRegistraionText = "SuccessfulRegistraionText".localized
     static let successfulLoginText = "SuccessfulLoginText".localized
+    
+    //Bills Messages
+    static let noBillsMessage = "NoBillsMessage".localized
+
 }
 
 enum Layout {
+    static let carouselViewX: CGFloat = UIScreen.main.bounds.width * 0.07
+    static let carouselViewY: CGFloat = titleLabelY * 2 + spacer
+    static let carouselViewWidth: CGFloat = UIScreen.main.bounds.width - (carouselViewX * 2)
+    static let carouselViewHeight: CGFloat = UIScreen.main.bounds.height -
+                                             addButtonHeightWidth - spacer -
+                                             carouselViewY
     static let carouselViewCornerRadius: CGFloat = 10
     static let deleteButtonHeightWidth: CGFloat = 60
     static let addButtonHeightWidth: CGFloat = 60
@@ -43,6 +54,7 @@ enum Layout {
 }
 
 enum AccesID {
+    static let noBillsLabel = "NoBillsLabel"
     static let carouselTitleLabel = "CarouselTitleLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "DeleteButton"
@@ -58,6 +70,10 @@ enum AccesID {
 }
 
 enum Color {
+    static let noBillsText = UIColor(red: 254/255,
+                                           green: 254/255,
+                                           blue: 254/255,
+                                           alpha: 1.00)
     static let carouselTitleText = UIColor(red: 33/255,
                                            green: 33/255,
                                            blue: 33/255,
@@ -69,7 +85,7 @@ enum Color {
     static let carouselView = UIColor(red: 254/255,
                                       green: 254/255,
                                       blue: 254/255,
-                                      alpha: 1.00)
+                                      alpha: 0.85)
     static let titleLabelBackground = UIColor(red: 254/255,
                                               green: 254/255,
                                               blue: 254/255,
