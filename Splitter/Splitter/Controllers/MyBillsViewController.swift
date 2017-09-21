@@ -65,6 +65,8 @@ class MyBillsViewController: UIViewController {
         
         addButton.addTarget(self, action: #selector(addButtonWasTapped), for: .touchUpInside)
         
+        deleteButton.isHidden = true
+        
         noBillsLabel.text = Localized.noBillsMessage
         noBillsLabel.isHidden = true
     }
@@ -91,14 +93,39 @@ class MyBillsViewController: UIViewController {
         let firebaseData = FirebaseData()
         firebaseData.findBillsWith(userID: currentUser.id,
                                    completion: { bills in
-            if let bills = bills {
-                self.userBills = bills
-                self.noBillsLabel.isHidden = true
+            if let userbills = bills {
+                self.userBills = userbills
+                self.hideNoBillsLabel()
+                self.showDeleteButton()
             } else {
-                self.noBillsLabel.isHidden = false
-                self.deleteButton.isHidden = true
+                self.showNoBillsLabel()
+                self.hideDeleteButton()
             }
         })
+    }
+    
+    private func showDeleteButton() {
+        DispatchQueue.main.async { [weak self] in
+            self?.deleteButton.isHidden = false
+        }
+    }
+    
+    private func hideDeleteButton() {
+        DispatchQueue.main.async { [weak self] in
+            self?.deleteButton.isHidden = true
+        }
+    }
+    
+    private func showNoBillsLabel() {
+        DispatchQueue.main.async { [weak self] in
+            self?.noBillsLabel.isHidden = false
+        }
+    }
+    
+    private func hideNoBillsLabel() {
+        DispatchQueue.main.async { [weak self] in
+            self?.noBillsLabel.isHidden = true
+        }
     }
     
     @objc private func addButtonWasTapped() {

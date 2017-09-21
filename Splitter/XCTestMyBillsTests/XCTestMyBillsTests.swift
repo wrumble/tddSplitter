@@ -12,6 +12,7 @@ class XCTestMyBillsTests: XCTestCase {
     
     let app = XCUIApplication()
     let registeredUserEmail = "alreadyregistereduser@email.com"
+    let userWithOneBillEmail = "userwithonebill@email.com"
     let password = "password"
     
     override func setUp() {
@@ -20,15 +21,46 @@ class XCTestMyBillsTests: XCTestCase {
     }
     
     func testDeleteButtonNotVisibleWhenThereAreNoBills() {
-        waitForMyBillsViewController {
+        waitForMyBillsViewControllerWith(email: registeredUserEmail, completion: {
             let deleteButton = self.app.buttons[AccessID.deleteButton]
             
             XCTAssertFalse(deleteButton.exists)
-        }
+        })
+    }
+    
+    func testDeleteButtonIsVisibleWhenThereAreBills() {
+        waitForMyBillsViewControllerWith(email: userWithOneBillEmail, completion: {
+            let deleteButton = self.app.buttons[AccessID.deleteButton]
+            
+            XCTAssertTrue(deleteButton.exists)
+        })
+    }
+    
+    func testNoBillsLabelNotVisibleWhenUserHasBills() {
+        let titleText = NSLocalizedString("MyBillsViewControllerTitle",
+                                          bundle: Bundle(for: XCTestMyBillsTests.self),
+                                          comment: "")
+        let newControllerTitle = app.staticTexts[titleText]
+        let exists = NSPredicate(format: "exists == 1")
+        
+        login(email: userWithOneBillEmail, password: password)
+        
+        expectation(for: exists, evaluatedWith: newControllerTitle, handler: nil)
+        waitForExpectations(timeout: 10, handler: { error in
+            if let error = error {
+                XCTFail(String(describing: error))
+            } else {
+                let noBillsMessage = NSLocalizedString("NoBillsMessage",
+                                                       bundle: Bundle(for: XCTestMyBillsTests.self),
+                                                       comment: "")
+                let noBillsLabel = self.app.staticTexts[noBillsMessage]
+                XCTAssertFalse(noBillsLabel.exists)
+            }
+        })
     }
     
     func testAddBillButtonSeguesToNewBillViewController() {
-        waitForMyBillsViewController {
+        waitForMyBillsViewControllerWith(email: registeredUserEmail, completion: {
             let addButton = self.app.buttons[AccessID.addButton]
             let newBillTitleText = NSLocalizedString("NewBillViewControllerTitle",
                                                      bundle: Bundle(for: XCTestMyBillsTests.self),
@@ -42,7 +74,7 @@ class XCTestMyBillsTests: XCTestCase {
             self.waitForExpectations(timeout: 10)
             
             XCTAssertTrue(newBillViewControllerTitle.exists)
-        }
+        })
     }
     
     func login(email: String, password: String) {
@@ -57,14 +89,14 @@ class XCTestMyBillsTests: XCTestCase {
         loginButton.tap()
     }
     
-    func waitForMyBillsViewController(completion: @escaping () -> Void) {
+    func waitForMyBillsViewControllerWith(email: String, completion: @escaping () -> Void) {
         let myBillsTitleText = NSLocalizedString("MyBillsViewControllerTitle",
                                                  bundle: Bundle(for: XCTestMyBillsTests.self),
                                                  comment: "")
         let myBillsViewControllerTitle = app.staticTexts[myBillsTitleText]
         let myBillsTitleExists = NSPredicate(format: "exists == 1")
         
-        login(email: registeredUserEmail,
+        login(email: email,
               password: password)
         
         expectation(for: myBillsTitleExists, evaluatedWith: myBillsViewControllerTitle, handler: nil)

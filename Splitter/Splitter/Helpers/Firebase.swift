@@ -110,8 +110,9 @@ struct FirebaseData {
             if snapshot.exists() {
                 let bills = self.createBillsArray(snapshot)
                 completion(bills)
+            } else {
+                completion(nil)
             }
-            completion(nil)
         })
     }
     

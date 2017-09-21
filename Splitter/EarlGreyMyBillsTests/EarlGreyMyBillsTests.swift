@@ -34,26 +34,13 @@ class EarlGreyMyBillsTests: XCTestCase {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
         let assertion = grey_sufficientlyVisible()
         let addButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.addButton))
-        let conditionName = "Wait for NoBillsLabel to appear"
+        let conditionName = "Wait for add bills button to appear"
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: addButton,
                                                  conditionName: conditionName)
         
         GREYAssertTrue(appearedSuccesfully,
-                       reason: "Delete Bill View Appeared")
-    }
-    
-    func testHasDeleteBillButton() {
-        startAtMyBillsViewControllerWith(email: registeredUserEmail)
-        let assertion = grey_sufficientlyVisible()
-        let deleteButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.deleteButton))
-        let conditionName = "Wait for NoBillsLabel to appear"
-        let appearedSuccesfully = waitForSuccess(of: assertion,
-                                                 with: deleteButton,
-                                                 conditionName: conditionName)
-        
-        GREYAssertTrue(appearedSuccesfully,
-                       reason: "Delete Bill View Appeared")
+                       reason: "Add bill button Appeared")
     }
     
     func testShowsUsersBills() {
@@ -81,7 +68,7 @@ class EarlGreyMyBillsTests: XCTestCase {
         GREYAssertTrue(appearedSuccesfully,
                        reason: "Users Bill View Appeared")
     }
-    
+        
     func startAtMyBillsViewControllerWith(email: String) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.startAtMyBillsVCWithUserEmail(email)
