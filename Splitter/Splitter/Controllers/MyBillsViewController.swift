@@ -12,10 +12,12 @@ import iCarousel
 
 class MyBillsViewController: UIViewController {
     
-    private let addButton = AddButton(accessID: AccesID.addButton)
-    private let deleteButton = DeleteButton(accessID: AccesID.deleteButton)
+    private let addButton = IconButton(accessID: AccesID.addButton,
+                                      iconImage: Image.addButton!)
+    private let deleteButton = IconButton(accessID: AccesID.deleteButton,
+                                            iconImage: Image.deleteButton!)
 
-    private let noBillsLabel = NoBillsLabel()
+    private let noBillsLabel = InstructionLabel()
     private var titleLabel = TitleLabel()
     private var carousel = iCarousel()
     private var carouselDatasource = BillCarouselDatasource()
@@ -81,8 +83,12 @@ class MyBillsViewController: UIViewController {
                           relatedBy: .equal)
         
         addButton.pinToSuperview(edges: [.left, .bottom])
+        addButton.addHeightConstraint(with: Layout.addButtonHeightWidth)
+        addButton.addWidthConstraint(with: Layout.addButtonHeightWidth)
         
         deleteButton.pinToSuperview(edges: [.right, .bottom])
+        deleteButton.addHeightConstraint(with: Layout.deleteButtonHeightWidth)
+        deleteButton.addWidthConstraint(with: Layout.deleteButtonHeightWidth)
         
         noBillsLabel.pinToSuperview(edges: [.left, .right])
         noBillsLabel.centerXToSuperview()

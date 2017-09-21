@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoBillsLabel: UILabel {
+class InstructionLabel: UILabel {
     
     init() {
         super.init(frame: .zero)
@@ -21,12 +21,12 @@ class NoBillsLabel: UILabel {
     }
     
     private func setupView() {
-        accessibilityIdentifier = AccesID.noBillsLabel
+        accessibilityIdentifier = AccesID.instructionLabel
         backgroundColor = .clear
-        textColor = Color.noBillsText
+        textColor = Color.instructionLabelText
         numberOfLines = 0
         textAlignment = .center
-        font = Font.titleLabelFont
+        font = Font.instructionLabel
         clipsToBounds = true
         sizeToFit()
     }

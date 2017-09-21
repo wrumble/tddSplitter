@@ -8,3 +8,4 @@ excluded:
   - EarlGreyWelcomeScreenTests/EarlGrey.swift
   - XCTestWelcomeScreenTests/EarlGrey.swift
   - EarlGreyMyBillsTests/EarlGrey.swift
+  - EarlGreyNewBillTests/EarlGrey.swift

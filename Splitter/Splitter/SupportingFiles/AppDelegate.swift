@@ -42,4 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = myBillsViewController
         })
     }
+
+    func startAtNewBillVCWithUserID(_ userID: String) {
+        let newBillViewController = NewBillViewController()
+        newBillViewController.currentUserID = userID
+        window?.rootViewController = newBillViewController
+    }
 }

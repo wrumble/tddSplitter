@@ -13,6 +13,9 @@ enum Constant {
 }
 
 enum Image {
+    static let cameraButton = UIImage(named: "cameraIcon")
+    static let homeButton = UIImage(named: "homeIcon")
+    static let saveButton = UIImage(named: "saveIcon")
     static let deleteButton = UIImage(named: "deleteIcon")
     static let addButton = UIImage(named: "addIcon")
 }
@@ -32,10 +35,14 @@ enum Localized {
     
     //Bills Messages
     static let noBillsMessage = "NoBillsMessage".localized
-
+    static let imageInstructionText = "ImageInstructionText".localized
 }
 
 enum Layout {
+    static let screenEdgeSpacer: CGFloat = 15
+    static let cameraButtonHeightWidth: CGFloat = 45
+    static let homeButtonHeightWidth: CGFloat = 45
+    static let saveButtonHeightWidth: CGFloat = 45
     static let carouselViewX: CGFloat = UIScreen.main.bounds.width * 0.07
     static let carouselViewY: CGFloat = titleLabelY * 2 + spacer
     static let carouselViewWidth: CGFloat = UIScreen.main.bounds.width - (carouselViewX * 2)
@@ -54,11 +61,17 @@ enum Layout {
 }
 
 enum AccesID {
+    static let instructionLabel = "InstructionLabel"
+    static let cameraButton = "Camera"
+    static let homeButton = "Home"
+    static let saveButton = "Save"
+    static let locationTextField = "Location"
+    static let nameTextField = "Name"
     static let noBillsLabel = "NoBillsLabel"
     static let carouselTitleLabel = "CarouselTitleLabel"
     static let carouselView = "CarouselView"
-    static let deleteButton = "DeleteButton"
-    static let addButton = "AddButton"
+    static let deleteButton = "Delete"
+    static let addButton = "Add"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"
     static let emailTextField = "Email"
@@ -70,7 +83,7 @@ enum AccesID {
 }
 
 enum Color {
-    static let noBillsText = UIColor(red: 254/255,
+    static let instructionLabelText = UIColor(red: 254/255,
                                            green: 254/255,
                                            blue: 254/255,
                                            alpha: 1.00)
@@ -110,22 +123,23 @@ enum Color {
                                     green: 254/255,
                                     blue: 254/255,
                                     alpha: 1.00)
-    static let textFieldBackground = UIColor(red: 96/255,
-                                             green: 125/255,
-                                             blue: 138/255,
+    static let textFieldBackground = UIColor(red: 88/255,
+                                             green: 130/255,
+                                             blue: 145/255,
                                              alpha: 1.00)
     static let textFieldText = UIColor(red: 254/255,
                                        green: 254/255,
                                        blue: 254/255,
                                        alpha: 1.00)
-    static let textFieldPlaceholder = UIColor(red: 117/255,
-                                              green: 117/255,
-                                              blue: 117/255,
+    static let textFieldPlaceholder = UIColor(red: 17/255,
+                                              green: 69/255,
+                                              blue: 89/255,
                                               alpha: 1.00)
 }
 
 enum Font {
-    static let titleLabelFont = UIFont.systemFont(ofSize: 26)
-    static let titleLogoFont = UIFont(name: "WalkwayBold", size: 200)
+    static let instructionLabel = UIFont.systemFont(ofSize: 20)
+    static let titleLabel = UIFont.systemFont(ofSize: 26)
+    static let titleLogo = UIFont(name: "WalkwayBold", size: 200)
     static let toastFont = UIFont.systemFont(ofSize: 16)
 }

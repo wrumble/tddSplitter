@@ -11,13 +11,14 @@
 		07AA61DD457172BC79801FC1 /* EarlGrey.framework in EarlGrey Copy Files */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0E36C9D744D27A0056088815 /* EarlGrey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76155B98C8D99CB604F66D41 /* EarlGrey.swift */; };
 		16BA80819373F19D7FF85D9A /* Pods_EarlGreyMyBillsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EA0CF14B1E313755253B5C /* Pods_EarlGreyMyBillsTests.framework */; };
+		17B6B5C60FECCC3E5F09AC8A /* EarlGrey.framework in EarlGrey Copy Files */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F59EE1D47AF18F30C81ED50 /* Pods_EarlGreyWelcomeScreenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D632BCD38E959C84B9D2A73B /* Pods_EarlGreyWelcomeScreenTests.framework */; };
 		250B431EE7F1BC1AE7F25B8D /* Pods_Splitter_XCTestWelcomeScreenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E55D8E904139BBDC679E36E /* Pods_Splitter_XCTestWelcomeScreenTests.framework */; };
+		2D911DD8930C2CD37FF46A82 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; };
 		53B043FCB77D8114D177DB79 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; };
 		6C90CA6C8DD6F70A751AC7F2 /* Pods_Splitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A9F609BB793F5C68C6F659 /* Pods_Splitter.framework */; };
 		779F92902DCAB300161CED7A /* Pods_UserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D19CE047805879DD987BA2C /* Pods_UserTests.framework */; };
-		870A910B1F6FFA1E00D2D16D /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870A910A1F6FFA1E00D2D16D /* DeleteButton.swift */; };
-		871682BD1F712BDB004046E9 /* NoBillsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871682BC1F712BDB004046E9 /* NoBillsLabel.swift */; };
+		871682BD1F712BDB004046E9 /* InstructionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871682BC1F712BDB004046E9 /* InstructionLabel.swift */; };
 		871682F01F714C7A004046E9 /* XCTestMyBillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871682EF1F714C7A004046E9 /* XCTestMyBillsTests.swift */; };
 		871682F71F714C9B004046E9 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		871B37A61F29F6A0001FE485 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37A51F29F6A0001FE485 /* Item.swift */; };
@@ -34,7 +35,7 @@
 		87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C541F705D8400C0B3FE /* BillCarouselView.swift */; };
 		87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */; };
 		873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A11F6FCF9900F602EF /* TitleLabel.swift */; };
-		873CD1A41F6FF34F00F602EF /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A31F6FF34F00F602EF /* AddButton.swift */; };
+		873CD1A41F6FF34F00F602EF /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A31F6FF34F00F602EF /* IconButton.swift */; };
 		874AC1151F22045700846851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1141F22045700846851 /* AppDelegate.swift */; };
 		874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1501F2206ED00846851 /* WelcomeScreenViewController.swift */; };
 		874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874AC1761F223D8300846851 /* GoogleService-Info.plist */; };
@@ -53,8 +54,12 @@
 		8761411D1F4C43FA00107372 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37B61F2A1BFF001FE485 /* UserTests.swift */; };
 		8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B41831F46EF3300AE9813 /* ToastLabel.swift */; };
+		877F55601F74204100CABA05 /* EarlGreyNewBillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */; };
+		877F55671F74218400CABA05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
+		877F55681F74219D00CABA05 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */; };
 		87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
+		87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */; };
 		87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6EC01F73EDB300C314F5 /* Assets.xcassets */; };
 		87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */; };
 		87F93BA61F4D934A007074BF /* FirebaseTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */; };
@@ -68,6 +73,8 @@
 		9D56CA7F0A98D664CEC39F57 /* EarlGrey.framework in EarlGrey Copy Files */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AF76E8ABCC36BEAB8E9EAF59 /* Pods_BillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B658200B599F23566AEC6D28 /* Pods_BillTests.framework */; };
 		B1FBAA6B741C965FB78E8EA5 /* EarlGrey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FD0E52A5A59F68182433E3 /* EarlGrey.swift */; };
+		CB974C79FE481D8770309656 /* EarlGrey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BD903F03CD7727D09E69C /* EarlGrey.swift */; };
+		F7E890B3FEF5C4604CBFA9E4 /* Pods_EarlGreyNewBillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2FE383AFE885D4AC0AF1B6 /* Pods_EarlGreyNewBillTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +120,13 @@
 			remoteGlobalIDString = 874AC1101F22045700846851;
 			remoteInfo = Splitter;
 		};
+		877F55621F74204100CABA05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 874AC1091F22045700846851 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 874AC1101F22045700846851;
+			remoteInfo = Splitter;
+		};
 		87F9E9231F6C3829000B6B48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 874AC1091F22045700846851 /* Project object */;
@@ -145,28 +159,41 @@
 			name = "EarlGrey Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B69C3AAE97EAF9E8586B797 /* EarlGrey Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(TEST_HOST)/../";
+			dstSubfolderSpec = 0;
+			files = (
+				17B6B5C60FECCC3E5F09AC8A /* EarlGrey.framework in EarlGrey Copy Files */,
+			);
+			name = "EarlGrey Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0171A81E34B38E4B7F00FD02 /* Pods-EarlGreyNewBillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyNewBillTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests.release.xcconfig"; sourceTree = "<group>"; };
 		0362902E59A180EE4741DC5F /* Pods-Splitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Splitter/Pods-Splitter.release.xcconfig"; sourceTree = "<group>"; };
 		07FD0E52A5A59F68182433E3 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		0F612A1622680F32D70D0413 /* Pods-BillTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BillTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BillTests/Pods-BillTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E55D8E904139BBDC679E36E /* Pods_Splitter_XCTestWelcomeScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splitter_XCTestWelcomeScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D01283B2099A000B14FF83 /* Pods-Splitter-XCTestWelcomeScreenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splitter-XCTestWelcomeScreenTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Splitter-XCTestWelcomeScreenTests/Pods-Splitter-XCTestWelcomeScreenTests.release.xcconfig"; sourceTree = "<group>"; };
 		297EC4BFB719F980C5C18D48 /* Pods_WelcomeScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WelcomeScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BCEF2A77E3E84EF7B77C3F5 /* Pods-EarlGreyNewBillTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyNewBillTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3EE740B96F791DA20B141B7C /* Pods-ItemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemTests/Pods-ItemTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B76DBCBEAA575B1E9951CF0 /* Pods_WelcomeScreenTests2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WelcomeScreenTests2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A9F609BB793F5C68C6F659 /* Pods_Splitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D05AC5897EA0E36B8783CED /* Pods-UserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserTests/Pods-UserTests.release.xcconfig"; sourceTree = "<group>"; };
 		67AA9E4454F11322A8B37139 /* Pods-BillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BillTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BillTests/Pods-BillTests.release.xcconfig"; sourceTree = "<group>"; };
+		6C2FE383AFE885D4AC0AF1B6 /* Pods_EarlGreyNewBillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EarlGreyNewBillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D19CE047805879DD987BA2C /* Pods_UserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF53DAA17D0CF0B7B504C44 /* Pods-UserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserTests/Pods-UserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		76155B98C8D99CB604F66D41 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		7BA345E4BCD91E21974762EF /* Pods-EarlGreyWelcomeScreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyWelcomeScreenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C71A037BBAC230531AB906 /* Pods-Splitter-XCTestWelcomeScreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splitter-XCTestWelcomeScreenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Splitter-XCTestWelcomeScreenTests/Pods-Splitter-XCTestWelcomeScreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		857CD289AEC4FB4CD4D952FC /* Pods_ItemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		870A910A1F6FFA1E00D2D16D /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
-		871682BC1F712BDB004046E9 /* NoBillsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBillsLabel.swift; sourceTree = "<group>"; };
+		871682BC1F712BDB004046E9 /* InstructionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionLabel.swift; sourceTree = "<group>"; };
 		871682ED1F714C7A004046E9 /* XCTestMyBillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCTestMyBillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		871682EF1F714C7A004046E9 /* XCTestMyBillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestMyBillsTests.swift; sourceTree = "<group>"; };
 		871682F11F714C7A004046E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,7 +219,7 @@
 		87344C541F705D8400C0B3FE /* BillCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselView.swift; sourceTree = "<group>"; };
 		87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTitleLabel.swift; sourceTree = "<group>"; };
 		873CD1A11F6FCF9900F602EF /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		873CD1A31F6FF34F00F602EF /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		873CD1A31F6FF34F00F602EF /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		874AC1111F22045700846851 /* Splitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AC1141F22045700846851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874AC1201F22045700846851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,9 +243,13 @@
 		8760E6FE1F6C014000529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8760E70A1F6C064E00529685 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		877B41831F46EF3300AE9813 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
+		877F555D1F74204100CABA05 /* EarlGreyNewBillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyNewBillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlGreyNewBillTests.swift; sourceTree = "<group>"; };
+		877F55611F74204100CABA05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBillsViewController.swift; sourceTree = "<group>"; };
 		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		87A218EB1F25EEAA00B4BE74 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndInstructionView.swift; sourceTree = "<group>"; };
 		87EB6EC01F73EDB300C314F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInformationView.swift; sourceTree = "<group>"; };
 		87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestHelper.swift; sourceTree = "<group>"; };
@@ -230,6 +261,7 @@
 		87FB5B781F22613500C87EDC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		8D8BE200AF38AD8BC078AE2B /* Pods-ItemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemTests/Pods-ItemTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91A30403830697528667F9D9 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Pods/EarlGrey/EarlGrey/EarlGrey.framework; sourceTree = SOURCE_ROOT; };
+		954BD903F03CD7727D09E69C /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		B658200B599F23566AEC6D28 /* Pods_BillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA0AFEC27B0A612AE7FCDC2 /* libPods-Splitter-WelcomeScreenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Splitter-WelcomeScreenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4EE964AA1B83F6C6994864 /* Pods-EarlGreyMyBillsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyMyBillsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -298,6 +330,15 @@
 			files = (
 				53B043FCB77D8114D177DB79 /* EarlGrey.framework in Frameworks */,
 				1F59EE1D47AF18F30C81ED50 /* Pods_EarlGreyWelcomeScreenTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		877F555A1F74204100CABA05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D911DD8930C2CD37FF46A82 /* EarlGrey.framework in Frameworks */,
+				F7E890B3FEF5C4604CBFA9E4 /* Pods_EarlGreyNewBillTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +437,7 @@
 				8760E6EC1F6BFF3B00529685 /* XCTestWelcomeScreenTests */,
 				87F9E91F1F6C3829000B6B48 /* EarlGreyMyBillsTests */,
 				871682EE1F714C7A004046E9 /* XCTestMyBillsTests */,
+				877F555E1F74204100CABA05 /* EarlGreyNewBillTests */,
 				874AC1121F22045700846851 /* Products */,
 				874AC1521F220BEE00846851 /* Frameworks */,
 				89CF53490775222B12B922F7 /* Pods */,
@@ -413,6 +455,7 @@
 				8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */,
 				87F9E91E1F6C3829000B6B48 /* EarlGreyMyBillsTests.xctest */,
 				871682ED1F714C7A004046E9 /* XCTestMyBillsTests.xctest */,
+				877F555D1F74204100CABA05 /* EarlGreyNewBillTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -452,6 +495,7 @@
 				55A9F609BB793F5C68C6F659 /* Pods_Splitter.framework */,
 				1E55D8E904139BBDC679E36E /* Pods_Splitter_XCTestWelcomeScreenTests.framework */,
 				6D19CE047805879DD987BA2C /* Pods_UserTests.framework */,
+				6C2FE383AFE885D4AC0AF1B6 /* Pods_EarlGreyNewBillTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -510,7 +554,7 @@
 				873CD1A11F6FCF9900F602EF /* TitleLabel.swift */,
 				877B41831F46EF3300AE9813 /* ToastLabel.swift */,
 				87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */,
-				871682BC1F712BDB004046E9 /* NoBillsLabel.swift */,
+				871682BC1F712BDB004046E9 /* InstructionLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -527,8 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				871B37F11F2F7C49001FE485 /* SplitterButton.swift */,
-				873CD1A31F6FF34F00F602EF /* AddButton.swift */,
-				870A910A1F6FFA1E00D2D16D /* DeleteButton.swift */,
+				873CD1A31F6FF34F00F602EF /* IconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -538,8 +581,19 @@
 			children = (
 				87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */,
 				87344C541F705D8400C0B3FE /* BillCarouselView.swift */,
+				87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		877F555E1F74204100CABA05 /* EarlGreyNewBillTests */ = {
+			isa = PBXGroup;
+			children = (
+				877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */,
+				877F55611F74204100CABA05 /* Info.plist */,
+				954BD903F03CD7727D09E69C /* EarlGrey.swift */,
+			);
+			path = EarlGreyNewBillTests;
 			sourceTree = "<group>";
 		};
 		87A218E61F25E88E00B4BE74 /* Helpers */ = {
@@ -614,6 +668,8 @@
 				22D01283B2099A000B14FF83 /* Pods-Splitter-XCTestWelcomeScreenTests.release.xcconfig */,
 				6DF53DAA17D0CF0B7B504C44 /* Pods-UserTests.debug.xcconfig */,
 				5D05AC5897EA0E36B8783CED /* Pods-UserTests.release.xcconfig */,
+				3BCEF2A77E3E84EF7B77C3F5 /* Pods-EarlGreyNewBillTests.debug.xcconfig */,
+				0171A81E34B38E4B7F00FD02 /* Pods-EarlGreyNewBillTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -766,6 +822,28 @@
 			productReference = 8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		877F555C1F74204100CABA05 /* EarlGreyNewBillTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 877F55661F74204100CABA05 /* Build configuration list for PBXNativeTarget "EarlGreyNewBillTests" */;
+			buildPhases = (
+				02F4D2102E59372C913B7852 /* [CP] Check Pods Manifest.lock */,
+				877F55591F74204100CABA05 /* Sources */,
+				877F555A1F74204100CABA05 /* Frameworks */,
+				877F555B1F74204100CABA05 /* Resources */,
+				8B69C3AAE97EAF9E8586B797 /* EarlGrey Copy Files */,
+				4C3DADEBBBF04B5D7507C3E0 /* [CP] Embed Pods Frameworks */,
+				4BBE9FAD183DC60005C10687 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				877F55631F74204100CABA05 /* PBXTargetDependency */,
+			);
+			name = EarlGreyNewBillTests;
+			productName = EarlGreyNewBillTests;
+			productReference = 877F555D1F74204100CABA05 /* EarlGreyNewBillTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		87F9E91D1F6C3829000B6B48 /* EarlGreyMyBillsTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87F9E9271F6C3829000B6B48 /* Build configuration list for PBXNativeTarget "EarlGreyMyBillsTests" */;
@@ -843,6 +921,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 874AC1101F22045700846851;
 					};
+					877F555C1F74204100CABA05 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 874AC1101F22045700846851;
+					};
 					87F9E91D1F6C3829000B6B48 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -871,6 +954,7 @@
 				8760E6F91F6C014000529685 /* EarlGreyWelcomeScreenTests */,
 				87F9E91D1F6C3829000B6B48 /* EarlGreyMyBillsTests */,
 				871682EC1F714C7A004046E9 /* XCTestMyBillsTests */,
+				877F555C1F74204100CABA05 /* EarlGreyNewBillTests */,
 			);
 		};
 /* End PBXProject section */
@@ -933,6 +1017,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		877F555B1F74204100CABA05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				877F55671F74218400CABA05 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		87F9E91C1F6C3829000B6B48 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -944,6 +1036,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02F4D2102E59372C913B7852 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EarlGreyNewBillTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0EA7FC26F9CAA385B10FF754 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1110,6 +1220,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BBE9FAD183DC60005C10687 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C3DADEBBBF04B5D7507C3E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/EarlGrey/EarlGrey/EarlGrey.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EarlGrey.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5B1A7B85CDA0784D3B4E45D9 /* [CP] Check Pods Manifest.lock */ = {
@@ -1417,7 +1570,7 @@
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
 				87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */,
-				871682BD1F712BDB004046E9 /* NoBillsLabel.swift in Sources */,
+				871682BD1F712BDB004046E9 /* InstructionLabel.swift in Sources */,
 				871B37F01F2F6322001FE485 /* Constants.swift in Sources */,
 				87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */,
 				87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */,
@@ -1426,9 +1579,9 @@
 				8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */,
 				87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */,
 				87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */,
-				873CD1A41F6FF34F00F602EF /* AddButton.swift in Sources */,
+				873CD1A41F6FF34F00F602EF /* IconButton.swift in Sources */,
+				87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */,
 				871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */,
-				870A910B1F6FFA1E00D2D16D /* DeleteButton.swift in Sources */,
 				873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */,
 				874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */,
 				871B37BF1F2A1EF9001FE485 /* SplitterUser.swift in Sources */,
@@ -1459,6 +1612,16 @@
 				87F9E9291F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift in Sources */,
 				8760E70F1F6C072000529685 /* TestExtensions.swift in Sources */,
 				0E36C9D744D27A0056088815 /* EarlGrey.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		877F55591F74204100CABA05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				877F55601F74204100CABA05 /* EarlGreyNewBillTests.swift in Sources */,
+				877F55681F74219D00CABA05 /* TestExtensions.swift in Sources */,
+				CB974C79FE481D8770309656 /* EarlGrey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1504,6 +1667,11 @@
 			isa = PBXTargetDependency;
 			target = 874AC1101F22045700846851 /* Splitter */;
 			targetProxy = 8760E6FF1F6C014000529685 /* PBXContainerItemProxy */;
+		};
+		877F55631F74204100CABA05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 874AC1101F22045700846851 /* Splitter */;
+			targetProxy = 877F55621F74204100CABA05 /* PBXContainerItemProxy */;
 		};
 		87F9E9241F6C3829000B6B48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1904,6 +2072,42 @@
 			};
 			name = Release;
 		};
+		877F55641F74204100CABA05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BCEF2A77E3E84EF7B77C3F5 /* Pods-EarlGreyNewBillTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WJMTPNAAQV;
+				INFOPLIST_FILE = EarlGreyNewBillTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waynerumble.EarlGreyNewBillTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Splitter.app/Splitter";
+			};
+			name = Debug;
+		};
+		877F55651F74204100CABA05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0171A81E34B38E4B7F00FD02 /* Pods-EarlGreyNewBillTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WJMTPNAAQV;
+				INFOPLIST_FILE = EarlGreyNewBillTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waynerumble.EarlGreyNewBillTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Splitter.app/Splitter";
+			};
+			name = Release;
+		};
 		87F9E9251F6C3829000B6B48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE4EE964AA1B83F6C6994864 /* Pods-EarlGreyMyBillsTests.debug.xcconfig */;
@@ -2013,6 +2217,15 @@
 			buildConfigurations = (
 				8760E7021F6C014000529685 /* Debug */,
 				8760E7031F6C014000529685 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		877F55661F74204100CABA05 /* Build configuration list for PBXNativeTarget "EarlGreyNewBillTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				877F55641F74204100CABA05 /* Debug */,
+				877F55651F74204100CABA05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

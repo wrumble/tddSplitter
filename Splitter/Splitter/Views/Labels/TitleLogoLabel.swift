@@ -28,7 +28,7 @@ class TitleLabelLogo: UILabel {
         text = Localized.splitterTitleLogoText
         textColor = Color.titleLogoText
         textAlignment = .center
-        font = Font.titleLogoFont
+        font = Font.titleLogo
         numberOfLines = 0
         minimumScaleFactor = 0.1
         adjustsFontSizeToFitWidth = true

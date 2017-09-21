@@ -27,7 +27,7 @@ class TitleLabel: UILabel {
         backgroundColor = Color.titleLabelBackground
         textColor = Color.titleLabelText
         textAlignment = .center
-        font = Font.titleLabelFont
+        font = Font.titleLabel
         numberOfLines = 0
         minimumScaleFactor = 0.1
         adjustsFontSizeToFitWidth = true

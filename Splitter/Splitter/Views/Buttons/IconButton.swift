@@ -8,14 +8,16 @@
 
 import UIKit
 
-class AddButton: UIButton {
+class IconButton: UIButton {
     
-    var accessID: String!
+    private var accessID: String!
+    private var iconImage: UIImage!
     
-    required init(accessID: String) {
+    required init(accessID: String, iconImage: UIImage) {
         super.init(frame: .zero)
         
         self.accessID = accessID
+        self.iconImage = iconImage
         setup()
     }
     
@@ -26,9 +28,6 @@ class AddButton: UIButton {
     private func setup() {
         accessibilityIdentifier = accessID
         backgroundColor = .clear
-        setBackgroundImage(Image.addButton, for: .normal)
-        
-        addHeightConstraint(with: Layout.addButtonHeightWidth)
-        addWidthConstraint(with: Layout.addButtonHeightWidth)
+        setBackgroundImage(iconImage, for: .normal)
     }
 }

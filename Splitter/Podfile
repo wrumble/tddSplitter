@@ -52,4 +52,9 @@ target 'Splitter' do
       earlGreyUITests
       allPods
   end
+
+  target 'EarlGreyNewBillTests' do
+      earlGreyUITests
+      allPods
+  end
 end
