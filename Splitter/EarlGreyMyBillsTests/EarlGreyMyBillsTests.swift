@@ -18,16 +18,42 @@ class EarlGreyMyBillsTests: XCTestCase {
     
     func testHasTitleLabel() {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
-        let titleLabel = grey_accessibilityID(AccessID.titleLabel)
-        EarlGrey.select(elementWithMatcher: titleLabel)
-            .assert(grey_sufficientlyVisible())
+        let assertion = grey_sufficientlyVisible()
+        let titleLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLabel))
+        let conditionName = "Wait for NoBillsLabel to appear"
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: titleLabel,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Delete Bill View Appeared")
+
     }
     
     func testHasAddBillButton() {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
-        let addbutton = grey_accessibilityID(AccessID.addButton)
-        EarlGrey.select(elementWithMatcher: addbutton)
-            .assert(grey_sufficientlyVisible())
+        let assertion = grey_sufficientlyVisible()
+        let addButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.addButton))
+        let conditionName = "Wait for NoBillsLabel to appear"
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: addButton,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Delete Bill View Appeared")
+    }
+    
+    func testHasDeleteBillButton() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
+        let assertion = grey_sufficientlyVisible()
+        let deleteButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.deleteButton))
+        let conditionName = "Wait for NoBillsLabel to appear"
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: deleteButton,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Delete Bill View Appeared")
     }
     
     func testShowsUsersBills() {
@@ -43,7 +69,7 @@ class EarlGreyMyBillsTests: XCTestCase {
                        reason: "Users Bill View Appeared")
     }
     
-    func testShowsNoBillsMessageWhenUserHasNone() {
+    func testShowsNoBillsMessageWhenUserHasNoBills() {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
         let assertion = grey_sufficientlyVisible()
         let noBillsLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.noBillsLabel))
