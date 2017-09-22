@@ -138,8 +138,5 @@ class NewBillViewController: UIViewController {
                                               constant: -Layout.spacer,
                                               priority: .required,
                                               relatedBy: .equal)
-        
-        recieptImageAndInstructionView.instructionLabel
-                                      .frame = recieptImageAndInstructionView.frame
     }
 }

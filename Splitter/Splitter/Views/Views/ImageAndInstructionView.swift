@@ -10,11 +10,15 @@ import UIKit
 
 class ImageAndInstructionView: UIImageView {
 
-    var instructionLabel = UILabel()
+    var instructionLabel = InstructionLabel()
     var receiptImageView = UIImage()
     
     required init() {
         super.init(frame: .zero)
+        
+        setupHierarchy()
+        setupViews()
+        setupLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,5 +36,9 @@ class ImageAndInstructionView: UIImageView {
         instructionLabel.textAlignment = .center
         instructionLabel.text = Localized.imageInstructionText
         instructionLabel.font = Font.instructionLabel
+    }
+    
+    private func setupLayout() {
+        instructionLabel.pinToSuperviewEdges()
     }
 }
