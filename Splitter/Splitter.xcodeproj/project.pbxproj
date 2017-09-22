@@ -60,6 +60,8 @@
 		87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */; };
 		87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
 		87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */; };
+		87D1D3B91F7516F2008E3C34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B81F7516F2008E3C34 /* User.swift */; };
+		87D1D3BB1F7518EC008E3C34 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */; };
 		87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6EC01F73EDB300C314F5 /* Assets.xcassets */; };
 		87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */; };
 		87F93BA61F4D934A007074BF /* FirebaseTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */; };
@@ -250,6 +252,8 @@
 		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		87A218EB1F25EEAA00B4BE74 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndInstructionView.swift; sourceTree = "<group>"; };
+		87D1D3B81F7516F2008E3C34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		87EB6EC01F73EDB300C314F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInformationView.swift; sourceTree = "<group>"; };
 		87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestHelper.swift; sourceTree = "<group>"; };
@@ -637,6 +641,8 @@
 			children = (
 				8760E70A1F6C064E00529685 /* TestExtensions.swift */,
 				87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */,
+				87D1D3B81F7516F2008E3C34 /* User.swift */,
+				87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -1561,9 +1567,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D1D3BB1F7518EC008E3C34 /* UserRepository.swift in Sources */,
 				874AC1151F22045700846851 /* AppDelegate.swift in Sources */,
 				872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */,
 				874D37EA1F7153DE0092ACB4 /* NewBillViewController.swift in Sources */,
+				87D1D3B91F7516F2008E3C34 /* User.swift in Sources */,
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
