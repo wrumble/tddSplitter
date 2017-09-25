@@ -120,21 +120,6 @@ class EarlGreyNewBillTests: XCTestCase {
                        reason: "Instruction label appeared")
     }
     
-    func testSelectedImageShowsInNewBillViewController() {
-        startAtNewBillVCWithUserID("No need yet")
-        let cameraButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.cameraButton))
-        cameraButton.perform(grey_tap())
-        let assertion = grey_sufficientlyVisible()
-        let imagePicker = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.imagePicker))
-        let conditionName = "Wait for instruction label to appear"
-        _ = waitForSuccess(of: assertion,
-                           with: imagePicker,
-                           conditionName: conditionName)
-        
-        
-        
-    }
-    
 //Helper methods
     
     func startAtNewBillVCWithUserID(_ userID: String) {

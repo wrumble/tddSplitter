@@ -177,10 +177,10 @@ class NewBillViewController: UIViewController,
                 completion: nil)
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController,
-                                       didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         recieptImageAndInstructionView.image = image
+        recieptImageAndInstructionView.instructionLabel.isHidden = true
         dismiss(animated:true,
                 completion: nil)
     }

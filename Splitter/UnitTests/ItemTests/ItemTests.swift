@@ -20,7 +20,7 @@ class ItemTests: XCTestCase {
         let billID = addBillToFirebase()
         let requestExpectation = expectation(description: "Creates an Item")
         let item = Item(name: "Baked Beans",
-                        price: 3.50,
+                        price: "3.50",
                         billID: billID)
         
         firebaseData.createItem(item,
@@ -99,7 +99,7 @@ class ItemTests: XCTestCase {
     
     func addItemToBill(withID billID: String) -> Item {
         let item = Item(name: "Baked Beans",
-                        price: 3.50,
+                        price: "3.50",
                         billID: billID)
         
         weak var requestExpectation = expectation(description: "Creates an item")
