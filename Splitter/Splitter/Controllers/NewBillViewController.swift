@@ -8,7 +8,9 @@
 
 import UIKit
 
-class NewBillViewController: UIViewController {
+class NewBillViewController: UIViewController,
+                             UIImagePickerControllerDelegate,
+                             UINavigationControllerDelegate {
     
     var currentUserID: String?
     
@@ -45,6 +47,10 @@ class NewBillViewController: UIViewController {
         view.backgroundColor = Color.mainBackground
         
         titleLabel.text = Localized.newBillViewControllerTitle
+        
+        cameraButton.addTarget(self,
+                               action: #selector(cameraButtonWasTapped),
+                               for: .touchUpInside)
     }
     
     private func setupLayout() {
@@ -138,5 +144,44 @@ class NewBillViewController: UIViewController {
                                               constant: -Layout.spacer,
                                               priority: .required,
                                               relatedBy: .equal)
+    }
+    
+    @objc private func cameraButtonWasTapped() {
+        let imagePicker = UIImagePickerController()
+        setupImagePicker(imagePicker)
+        selectSourceTypeFor(imagePicker)
+        present(imagePicker,
+                animated: true,
+                completion: nil)
+    }
+    
+    private func setupImagePicker(_ imagePicker: UIImagePickerController) {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.modalPresentationStyle = .popover
+    }
+    
+    private func selectSourceTypeFor(_ imagePicker: UIImagePickerController) {
+        if  UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.cameraFlashMode = .auto
+            imagePicker.cameraOverlayView?.accessibilityIdentifier = AccesID.imagePicker
+        } else {
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.navigationBar.accessibilityIdentifier = AccesID.imagePicker
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true,
+                completion: nil)
+    }
+    
+    private func imagePickerController(_ picker: UIImagePickerController,
+                                       didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        recieptImageAndInstructionView.image = image
+        dismiss(animated:true,
+                completion: nil)
     }
 }

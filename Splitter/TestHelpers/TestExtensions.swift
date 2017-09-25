@@ -9,6 +9,7 @@
 import XCTest
 
 enum AccessID {
+    static let imagePicker = "ImagePicker"
     static let instructionLabel = "InstructionLabel"
     static let cameraButton = "Camera"
     static let homeButton = "Home"
