@@ -13,8 +13,11 @@ import EarlGrey
 // swiftlint:disable line_length
 class EarlGreyNewBillTests: XCTestCase {
     
+    let user = SplitterUser(id: "jT9AZdggj0gYKJjGlYPsf4uSqko1",
+                            email: "userwithonebill@email.com")
+    
     func testHasTitleLabel() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let titleLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLabel))
         let conditionName = "Wait for NoBillsLabel to appear"
@@ -28,7 +31,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testHasBillNameTextField() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let billNameTextField = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.nameTextField))
         let conditionName = "Wait for name textfield to appear"
@@ -41,7 +44,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testHasBillLocationTextField() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let billLocationTextField = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.locationTextField))
         let conditionName = "Wait for location textfield to appear"
@@ -54,7 +57,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testHasTakeCameraButton() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let cameraButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.cameraButton))
         let conditionName = "Wait for camera button to appear"
@@ -67,7 +70,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testHasHomeButton() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let homeButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.homeButton))
         let conditionName = "Wait for home button to appear"
@@ -80,7 +83,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testHasSaveButton() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let saveButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.saveButton))
         let conditionName = "Wait for save button to appear"
@@ -93,7 +96,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testHasInstructionLabelButton() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let assertion = grey_sufficientlyVisible()
         let instructionLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.instructionLabel))
         let conditionName = "Wait for instruction label to appear"
@@ -106,7 +109,7 @@ class EarlGreyNewBillTests: XCTestCase {
     }
     
     func testTappingCameraButtonOpensImagePickerController() {
-        startAtNewBillVCWithUserID("No need yet")
+        startAtNewBillVCWithUserID(user)
         let cameraButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.cameraButton))
         cameraButton.perform(grey_tap())
         let assertion = grey_sufficientlyVisible()
@@ -120,11 +123,28 @@ class EarlGreyNewBillTests: XCTestCase {
                        reason: "Instruction label appeared")
     }
     
+    func testTappingHomeButtonGoesToMyBillsViewController() {
+        let homeButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.homeButton))
+        let titleLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLabel))
+        let assertion = grey_text("My Bills")
+        let conditionName = "Wait for label to appear"
+        
+        startAtNewBillVCWithUserID(user)
+        homeButton.perform(grey_tap())
+        
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: titleLabel,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully, reason: "Correct view controller did not appear")
+        
+    }
+    
 //Helper methods
     
-    func startAtNewBillVCWithUserID(_ userID: String) {
+    func startAtNewBillVCWithUserID(_ user: SplitterUser) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.startAtNewBillVCWithUserID(userID)
+        appDelegate?.startAtNewBillVCWithUserID(user)
     }
     
     func waitForSuccess(of assertion: GREYMatcher,

@@ -43,9 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
 
-    func startAtNewBillVCWithUserID(_ userID: String) {
+    func startAtNewBillVCWithUserID(_ user: SplitterUser) {
         let newBillViewController = NewBillViewController()
-        newBillViewController.currentUserID = userID
+        newBillViewController.currentUser = user
         window?.rootViewController = newBillViewController
     }
 }

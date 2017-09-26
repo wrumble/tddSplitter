@@ -12,7 +12,7 @@ class NewBillViewController: UIViewController,
                              UIImagePickerControllerDelegate,
                              UINavigationControllerDelegate {
     
-    var currentUserID: String?
+    var currentUser: SplitterUser?
     
     private var titleLabel = TitleLabel()
     private var nameTextField = SplitterTextField(accessID: AccesID.nameTextField)
@@ -50,6 +50,9 @@ class NewBillViewController: UIViewController,
         
         cameraButton.addTarget(self,
                                action: #selector(cameraButtonWasTapped),
+                               for: .touchUpInside)
+        homeButton.addTarget(self,
+                               action: #selector(homeButtonWasTapped),
                                for: .touchUpInside)
     }
     
@@ -153,6 +156,12 @@ class NewBillViewController: UIViewController,
         present(imagePicker,
                 animated: true,
                 completion: nil)
+    }
+    
+    @objc private func homeButtonWasTapped() {
+        let myBillsViewController = MyBillsViewController()
+        myBillsViewController.currentUser = currentUser
+        present(myBillsViewController, animated: false)
     }
     
     private func setupImagePicker(_ imagePicker: UIImagePickerController) {

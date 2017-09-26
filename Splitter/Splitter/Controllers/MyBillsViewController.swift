@@ -136,7 +136,7 @@ class MyBillsViewController: UIViewController {
     
     @objc private func addButtonWasTapped() {
         let newBillViewController = NewBillViewController()
-        newBillViewController.currentUserID = currentUser.id
+        newBillViewController.currentUser = currentUser
         present(newBillViewController, animated: false)
     }
 }

@@ -24,7 +24,7 @@ class RegexTests: XCTestCase {
     }
     
     func testReturnsCorrectMatch() {
-        let ocrResult = "2 cheese burger £8.0 dfgh"
+        let ocrResult = "2 cheese burger £8.0"
         let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
         let expectation = "8.0"
         do {
