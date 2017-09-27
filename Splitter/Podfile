@@ -24,17 +24,7 @@ target 'Splitter' do
 
   allPods
 
-  target 'BillTests' do
-    inherit! :search_paths
-    allPods
-  end
-
-  target 'ItemTests' do
-    inherit! :search_paths
-    allPods
-  end
-
-  target 'UserTests' do
+  target 'UnitTests' do
     inherit! :search_paths
     allPods
   end
@@ -42,10 +32,6 @@ target 'Splitter' do
   target 'EarlGreyWelcomeScreenTests' do
       earlGreyUITests
       allPods
-  end
-
-  target 'XCTestWelcomeScreenTests' do
-    allPods
   end
 
   target 'EarlGreyMyBillsTests' do
