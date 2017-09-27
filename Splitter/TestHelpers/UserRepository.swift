@@ -15,10 +15,17 @@ class UserRepository {
     let incorrectPassword = "wrongpassword"
     let registeredEmail = "alreadyregistereduser@email.com"
     let unregisteredEmail = "unregistered@email.com"
+    let newUserEmail = "newuser@email.com"
     let invalidEmail = "invalid@email"
     
     func getValidUser() -> TestUser {
         return TestUser(email: registeredEmail,
+                        password: password,
+                        confirmationPassword: password)
+    }
+    
+    func getNewUser() -> TestUser {
+        return TestUser(email: newUserEmail,
                         password: password,
                         confirmationPassword: password)
     }

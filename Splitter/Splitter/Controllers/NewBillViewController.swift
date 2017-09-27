@@ -25,6 +25,15 @@ class NewBillViewController: UIViewController,
                                           iconImage: Image.saveButton!)
     private var recieptImageAndInstructionView = ImageAndInstructionView()
     
+    required init(currentUser: SplitterUser) {
+        super.init(nibName: nil, bundle: nil)
+        self.currentUser = currentUser
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -159,8 +168,7 @@ class NewBillViewController: UIViewController,
     }
     
     @objc private func homeButtonWasTapped() {
-        let myBillsViewController = MyBillsViewController()
-        myBillsViewController.currentUser = currentUser
+        let myBillsViewController = MyBillsViewController(currentUser: currentUser!)
         present(myBillsViewController, animated: false)
     }
     

@@ -13,6 +13,7 @@ import EarlGrey
 // swiftlint:disable type_body_length
 class EarlGreyMyBillsTests: XCTestCase {
     
+    let userRepository = UserRepository()
     let registeredUserEmail = "alreadyregistereduser@email.com"
     let userWithOneBillEmail = "userwithonebill@email.com"
     
@@ -43,6 +44,31 @@ class EarlGreyMyBillsTests: XCTestCase {
                        reason: "Add bill button Appeared")
     }
     
+    func testDeleteButtonNotVisibleWhenThereAreNoBills() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
+
+        let deleteButton = grey_accessibilityID(AccessID.deleteButton)
+        var error: NSError?
+        
+        EarlGrey.select(elementWithMatcher: deleteButton)
+            .assert(grey_sufficientlyVisible(), error: &error)
+        GREYAssertTrue((error != nil), reason: "Delete button is visible")
+    }
+    
+    func testDeleteButtonIsVisibleWhenThereAreBills() {
+        startAtMyBillsViewControllerWith(email: userWithOneBillEmail)
+        
+        let assertion = grey_sufficientlyVisible()
+        let deleteButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.deleteButton))
+        let conditionName = "Wait for NoBillsLabel to appear"
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: deleteButton,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Delete Bill View Appeared")
+    }
+    
     func testShowsUsersBills() {
         startAtMyBillsViewControllerWith(email: userWithOneBillEmail)
         let assertion = grey_sufficientlyVisible()
@@ -58,17 +84,48 @@ class EarlGreyMyBillsTests: XCTestCase {
     
     func testShowsNoBillsMessageWhenUserHasNoBills() {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
-        let assertion = grey_sufficientlyVisible()
-        let noBillsLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.noBillsLabel))
+        
+        let labelText = localizedStringWith(key: "StringNoBillsMessage")
+        let assertion = grey_text(labelText)
+        let noBillsLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.instructionLabel))
         let conditionName = "Wait for NoBillsLabel to appear"
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: noBillsLabel,
                                                  conditionName: conditionName)
         
         GREYAssertTrue(appearedSuccesfully,
-                       reason: "Users Bill View Appeared")
+                       reason: "Label did not appear")
     }
+    
+    func testNoBillsLabelNotVisibleWhenUserHasBills() {
+        startAtMyBillsViewControllerWith(email: userWithOneBillEmail)
         
+        let instructionLabel = grey_accessibilityID(AccessID.instructionLabel)
+        var error: NSError?
+        
+        EarlGrey.select(elementWithMatcher: instructionLabel)
+            .assert(grey_sufficientlyVisible(), error: &error)
+        GREYAssertTrue((error != nil), reason: "Label is visible")
+    }
+    
+    func testAddBillButtonSeguesToNewBillViewController() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
+        let addButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.addButton))
+        let newBillTitleText = localizedStringWith(key: "NewBillViewControllerTitle")
+        let assertion = grey_text(newBillTitleText)
+        let conditionName = "Wait for label to appear"
+        
+        addButton.perform(grey_tap())
+        
+        let titleLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLabel))
+        
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: titleLabel,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully, reason: "Did not segue")
+    }
+    
     func startAtMyBillsViewControllerWith(email: String) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.startAtMyBillsVCWithUserEmail(email)
@@ -78,18 +135,6 @@ class EarlGreyMyBillsTests: XCTestCase {
         return NSLocalizedString(key,
                                  bundle: Bundle(for: EarlGreyMyBillsTests.self),
                                  comment: "")
-    }
-    
-    func login(email: String, password: String) {
-        let emailTextField = grey_accessibilityID(AccessID.emailTextField)
-        let passwordTextField = grey_accessibilityID(AccessID.passwordTextField)
-        let loginButton = grey_accessibilityID(AccessID.loginButton)
-        
-        EarlGrey.select(elementWithMatcher: emailTextField)
-            .perform(grey_tap()).perform(grey_typeText(email))
-        EarlGrey.select(elementWithMatcher: passwordTextField)
-            .perform(grey_tap()).perform(grey_typeText(password))
-        EarlGrey.select(elementWithMatcher: loginButton).perform(grey_tap())
     }
     
     func waitForSuccess(of assertion: GREYMatcher,

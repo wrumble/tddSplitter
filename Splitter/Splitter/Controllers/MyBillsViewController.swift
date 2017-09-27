@@ -18,9 +18,9 @@ class MyBillsViewController: UIViewController {
                                             iconImage: Image.deleteButton!)
 
     private let noBillsLabel = InstructionLabel()
-    private var titleLabel = TitleLabel()
-    private var carousel = iCarousel()
-    private var carouselDatasource = BillCarouselDatasource()
+    private let titleLabel = TitleLabel()
+    private let carousel = iCarousel()
+    private let carouselDatasource = BillCarouselDatasource()
 
     private weak var carouselDelegate = BillCarouselDelegate()
     
@@ -35,6 +35,15 @@ class MyBillsViewController: UIViewController {
             carouselDatasource.bills = userBills!
             carousel.reloadData()
         }
+    }
+    
+    required init(currentUser: SplitterUser) {
+        super.init(nibName: nil, bundle: nil)
+        self.currentUser = currentUser
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -135,8 +144,7 @@ class MyBillsViewController: UIViewController {
     }
     
     @objc private func addButtonWasTapped() {
-        let newBillViewController = NewBillViewController()
-        newBillViewController.currentUser = currentUser
+        let newBillViewController = NewBillViewController(currentUser: currentUser!)
         present(newBillViewController, animated: false)
     }
 }

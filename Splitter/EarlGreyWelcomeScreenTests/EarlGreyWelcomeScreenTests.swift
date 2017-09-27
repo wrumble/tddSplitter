@@ -44,6 +44,41 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
     }
     
+    func testTappingRegisterButtonShowsConfirmPasswordTextField() {
+        let confirmationTextField = grey_accessibilityID(AccessID.confirmPasswordTextField)
+        let registerButton = grey_accessibilityID(AccessID.registerButton)
+        
+        var error: NSError?
+        
+        EarlGrey.select(elementWithMatcher: confirmationTextField)
+            .assert(grey_sufficientlyVisible(), error: &error)
+        GREYAssertTrue((error != nil), reason: "Confirmation textfield is visible")
+        EarlGrey.select(elementWithMatcher: registerButton).perform(grey_tap())
+        EarlGrey.select(elementWithMatcher: confirmationTextField)
+            .assert(grey_sufficientlyVisible())
+    }
+    
+    func testConfirmationTextFieldAppearsAfterTappingRegisterButton() {
+        let confirmationTextField = grey_accessibilityID(AccessID.confirmPasswordTextField)
+        let registerButton = grey_accessibilityID(AccessID.registerButton)
+        let loginButton = grey_accessibilityID(AccessID.loginButton)
+        
+        var error: NSError?
+        
+        EarlGrey.select(elementWithMatcher: confirmationTextField)
+            .assert(grey_sufficientlyVisible(), error: &error)
+        GREYAssertTrue((error != nil), reason: "Confirmation textfield is visible")
+        EarlGrey.select(elementWithMatcher: registerButton)
+                .perform(grey_tap())
+        EarlGrey.select(elementWithMatcher: confirmationTextField)
+                .assert(grey_sufficientlyVisible())
+        EarlGrey.select(elementWithMatcher: loginButton)
+                .perform(grey_tap())
+        EarlGrey.select(elementWithMatcher: confirmationTextField)
+            .assert(grey_sufficientlyVisible(), error: &error)
+        GREYAssertTrue((error != nil), reason: "Confirmation textfield is visible")
+    }
+    
     func testRegisteringWithInvalidEmailDisplaysLocalisedError() {
         let localisedErrorMessage = localizedStringWith(key: "InvalidEmailError")
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
@@ -124,6 +159,21 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
+    func testSuccesfullyRegisteringNewUserSeguesToMyBillsViewController() {
+        let titleLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLabel))
+        let assertion = grey_sufficientlyVisible()
+        let conditionName = "Wait for label to appear"
+        let validUser = userRepository.getNewUser()
+        
+        register(validUser)
+        
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: titleLabel,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully, reason: "Did not segue")
+    }
+    
     func testLoginWithInvalidEmailDisplaysLocalisedError() {
         let localisedErrorMessage = localizedStringWith(key: "InvalidEmailError")
         let assertion = grey_text(localisedErrorMessage)
@@ -189,6 +239,21 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
+    func testSuccesfulLoginPerformsSegueToMyBillsViewController() {
+        let titleLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLabel))
+        let assertion = grey_sufficientlyVisible()
+        let conditionName = "Wait for label to appear"
+        let validUser = userRepository.getValidUser()
+        
+        login(validUser)
+
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: titleLabel,
+                                                 conditionName: conditionName)
+
+        GREYAssertTrue(appearedSuccesfully, reason: "Did not segue")
+    }
+    
     func waitForSuccess(of assertion: GREYMatcher,
                         with element: GREYElementInteraction,
                         conditionName: String ) -> Bool {
@@ -221,9 +286,6 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
                                  bundle: Bundle(for: EarlGreyWelcomeScreenTests.self),
                                  comment: "")
     }
-}
-
-extension XCTest {
     
     func login(_ user: TestUser) {
         let emailTextField = grey_accessibilityID(AccessID.emailTextField)

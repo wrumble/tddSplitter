@@ -16,7 +16,6 @@ enum AccessID {
     static let saveButton = "Save"
     static let locationTextField = "Location"
     static let nameTextField = "Name"
-    static let noBillsLabel = "NoBillsLabel"
     static let carouselTitleLabel = "CarouselTitleLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "Delete"
