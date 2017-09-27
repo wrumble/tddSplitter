@@ -358,7 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				874AC1131F22045700846851 /* Splitter */,
-				874AC1871F22471E00846851 /* Tests */,
+				87CF98191F7BF03B002A60BD /* Tests */,
 				8760E6FB1F6C014000529685 /* EarlGreyWelcomeScreenTests */,
 				87F9E91F1F6C3829000B6B48 /* EarlGreyMyBillsTests */,
 				877F555E1F74204100CABA05 /* EarlGreyNewBillTests */,
@@ -429,15 +429,6 @@
 				871B37BE1F2A1EF9001FE485 /* SplitterUser.swift */,
 			);
 			path = DataModels;
-			sourceTree = "<group>";
-		};
-		874AC1871F22471E00846851 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				87F93B9B1F4D8D30007074BF /* TestHelpers */,
-				871B37C71F2F392E001FE485 /* UnitTests */,
-			);
-			name = Tests;
 			sourceTree = "<group>";
 		};
 		8760E6FB1F6C014000529685 /* EarlGreyWelcomeScreenTests */ = {
@@ -535,6 +526,15 @@
 				874D37E91F7153DE0092ACB4 /* NewBillViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		87CF98191F7BF03B002A60BD /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				871B37C71F2F392E001FE485 /* UnitTests */,
+				87F93B9B1F4D8D30007074BF /* TestHelpers */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		87F93B9B1F4D8D30007074BF /* TestHelpers */ = {
@@ -1493,7 +1493,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = L3QZJU3LP7;
-				INFOPLIST_FILE = UnitTests/BillTests/Info.plist;
+				INFOPLIST_FILE = Tests/UnitTests/BillTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.waynerumble.BillTests;
@@ -1510,7 +1510,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = L3QZJU3LP7;
-				INFOPLIST_FILE = UnitTests/BillTests/Info.plist;
+				INFOPLIST_FILE = Tests/UnitTests/BillTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.waynerumble.BillTests;
