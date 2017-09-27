@@ -13,13 +13,7 @@ import EarlGrey
 // swiftlint:disable type_body_length
 class EarlGreyWelcomeScreenTests: XCTestCase {
     
-    let password = "password"
-    let shortPassword = "passw"
-    let differentPassword = "differentPassword"
-    let wrongPassword = "wrongpassword"
-    let registeredEmail = "alreadyregistereduser@email.com"
-    let unregisteredEmail = "unregistered@email.com"
-    let invalidEmail = "invalid@email"
+    let userRepository = UserRepository()
     
     override func setUp() {
         super.setUp()
@@ -55,70 +49,63 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccesID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
+        let invalidEmailUser = userRepository.getInvalidEmailUser()
         
-        register(email: invalidEmail,
-                 password: password,
-                 confirmationPassword: password)
+        register(invalidEmailUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testRegisteringWithInvalidPasswordDisplaysLocalisedError() {
-        let email = createEmail(with: "\(#function)")
         let localisedErrorMessage = localizedStringWith(key: "InvalidPasswordError")
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
+        let tooShortPasswordUser = userRepository.getTooShortPasswordUser()
         
-        register(email: email,
-                 password: password,
-                 confirmationPassword: shortPassword)
+        register(tooShortPasswordUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testRegisteringWithInvalidConfirmationPasswordDisplaysLocalisedError() {
-        let email = createEmail(with: "\(#function)")
         let localisedErrorMessage = localizedStringWith(key: "InvalidPasswordError")
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
+        let tooShortConfirmationPasswordUser = userRepository.getTooShortConfirmationPasswordUser()
         
-        register(email: email,
-                 password: password,
-                 confirmationPassword: shortPassword)
+        register(tooShortConfirmationPasswordUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testRegisteringWithDifferentPasswordsDisplaysLocalisedError() {
-        let email = createEmail(with: "\(#function)")
         let localisedErrorMessage = localizedStringWith(key: "PasswordMismatchError")
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let assertion = grey_text(localisedErrorMessage)
         let conditionName = "Wait for toast to appear with correct text"
+        let differentConfirmationPasswordUser = userRepository.getDifferentConfirmationPasswordUser()
         
-        register(email: email,
-                 password: password,
-                 confirmationPassword: differentPassword)
+        register(differentConfirmationPasswordUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testRegisteringWithUsedEmailDisplaysFirebaseError() {
@@ -126,16 +113,15 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         let assertion = grey_text(firebaseErrorMessage)
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
+        let usedEmailUser = userRepository.getUsedEmailUser()
         
-        register(email: registeredEmail,
-                 password: password,
-                 confirmationPassword: password)
+        register(usedEmailUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testLoginWithInvalidEmailDisplaysLocalisedError() {
@@ -143,15 +129,15 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         let assertion = grey_text(localisedErrorMessage)
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
+        let invalidEmailUser = userRepository.getInvalidEmailUser()
         
-        login(email: invalidEmail,
-              password: password)
+        login(invalidEmailUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testLoginWithInvalidPasswordDisplaysLocalisedError() {
@@ -159,15 +145,15 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         let assertion = grey_text(localisedErrorMessage)
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
+        let shortPasswordUser = userRepository.getTooShortPasswordUser()
         
-        login(email: registeredEmail,
-              password: shortPassword)
+        login(shortPasswordUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testLoginWithUnregisteredEmailDisplaysFirebaseError() {
@@ -176,15 +162,15 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         let assertion = grey_text(firebaseErrorMessage)
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
+        let unregisteredEmailUser = userRepository.getUnregisteredEmailUser()
         
-        login(email: unregisteredEmail,
-              password: password)
+        login(unregisteredEmailUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func testLoginWithIncorrectPasswordDisplaysFirebaseError() {
@@ -192,15 +178,15 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
         let assertion = grey_text(firebaseErrorMessage)
         let toastLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.toastLabel))
         let conditionName = "Wait for toast to appear"
+        let incorrectPasswordUser = userRepository.getIncorrectPasswordUser()
         
-        login(email: registeredEmail,
-              password: wrongPassword)
+        login(incorrectPasswordUser)
         
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: toastLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Toast appeared with correct text")
+        GREYAssertTrue(appearedSuccesfully, reason: "Toast did not appear with correct text")
     }
     
     func waitForSuccess(of assertion: GREYMatcher,
@@ -239,34 +225,34 @@ class EarlGreyWelcomeScreenTests: XCTestCase {
 
 extension XCTest {
     
-    func login(email: String, password: String) {
+    func login(_ user: TestUser) {
         let emailTextField = grey_accessibilityID(AccessID.emailTextField)
         let passwordTextField = grey_accessibilityID(AccessID.passwordTextField)
         let loginButton = grey_accessibilityID(AccesID.loginButton)
         
         EarlGrey.select(elementWithMatcher: emailTextField)
-            .perform(grey_tap()).perform(grey_typeText(email))
+            .perform(grey_tap()).perform(grey_typeText(user.email))
         EarlGrey.select(elementWithMatcher: passwordTextField)
-            .perform(grey_tap()).perform(grey_typeText(password))
+            .perform(grey_tap()).perform(grey_typeText(user.password))
         EarlGrey.select(elementWithMatcher: loginButton).perform(grey_tap())
     }
     
-    func register(email: String, password: String, confirmationPassword: String) {
+    func register(_ user: TestUser) {
         let emailTextField = grey_accessibilityID(AccessID.emailTextField)
         let passwordTextField = grey_accessibilityID(AccessID.passwordTextField)
         let confirmPasswordTextField = grey_accessibilityID(AccessID.confirmPasswordTextField)
         let registerButton = grey_accessibilityID(AccessID.registerButton)
         
         EarlGrey.select(elementWithMatcher: emailTextField)
-            .perform(grey_tap()).perform(grey_typeText(email))
+            .perform(grey_tap()).perform(grey_typeText(user.email))
         
         EarlGrey.select(elementWithMatcher: passwordTextField)
-            .perform(grey_tap()).perform(grey_typeText(password))
+            .perform(grey_tap()).perform(grey_typeText(user.password))
         
         EarlGrey.select(elementWithMatcher: registerButton).perform(grey_tap())
         
         EarlGrey.select(elementWithMatcher: confirmPasswordTextField)
-            .perform(grey_tap()).perform(grey_typeText(confirmationPassword))
+            .perform(grey_tap()).perform(grey_typeText(user.confirmationPassword))
         
         EarlGrey.select(elementWithMatcher: registerButton).perform(grey_tap())
     }
