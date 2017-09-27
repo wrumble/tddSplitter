@@ -148,9 +148,9 @@ struct FirebaseData {
         let creationDate = snapshot.childSnapshot(forPath: "creationDate").value!
         let billID = snapshot.childSnapshot(forPath: "billID").value!
         
-        var item = Item(name: name as? String,
-                    price: price as? String,
-                    billID: billID as? String)
+        var item = Item(name: name as! String,
+                        price: price as! String,
+                        billID: billID as! String)
         item.id = id as! String
         item.creationDate = creationDate as! String
         

@@ -155,6 +155,8 @@ class BillTests: XCTestCase {
     }
     
     func removeTestBill(withID id: String) {
-        databaseReference.child("Bills").child(id).removeValue()
+        databaseReference.child("Bills")
+                         .child(id)
+                         .removeValue()
     }
 }

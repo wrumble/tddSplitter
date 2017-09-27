@@ -16,12 +16,14 @@ struct Item: JSONable {
     var creationDate: String
     var billID: String
     
-    init(name: String?, price: String?, billID: String?) {
+    init(name: String = "",
+         price: String = "",
+         billID: String) {
         self.id = UUID().uuidString
-        self.name = name!
-        self.price = price!
+        self.name = name
+        self.price = price
         self.creationDate = Date().currentDateTimeAsString()
-        self.billID = billID!
+        self.billID = billID
     }
     
     func toJSON() -> JSON {

@@ -30,6 +30,11 @@
 		871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37F11F2F7C49001FE485 /* SplitterButton.swift */; };
 		871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871B37F41F308CE6001FE485 /* WalkwayBold.ttf */; };
 		872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */; };
+		873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */; };
+		873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C61F79324800C960F6 /* OCRResultConverter.swift */; };
+		873218C91F79456B00C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
+		873218CB1F79470500C960F6 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218CA1F79470500C960F6 /* RegexTests.swift */; };
+		873218CC1F79479900C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
 		87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */; };
 		87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */; };
 		87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C541F705D8400C0B3FE /* BillCarouselView.swift */; };
@@ -214,6 +219,10 @@
 		871B37F41F308CE6001FE485 /* WalkwayBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WalkwayBold.ttf; sourceTree = "<group>"; };
 		872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLogoLabel.swift; sourceTree = "<group>"; };
 		872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splitter.entitlements; sourceTree = "<group>"; };
+		873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultParsingTests.swift; sourceTree = "<group>"; };
+		873218C61F79324800C960F6 /* OCRResultConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultConverter.swift; sourceTree = "<group>"; };
+		873218C81F79456B00C960F6 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		873218CA1F79470500C960F6 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDatasource.swift; sourceTree = "<group>"; };
 		87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDelegate.swift; sourceTree = "<group>"; };
 		87344C541F705D8400C0B3FE /* BillCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselView.swift; sourceTree = "<group>"; };
@@ -384,6 +393,7 @@
 		871B37C71F2F392E001FE485 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				873218CD1F7A572C00C960F6 /* ImageToTextTests */,
 				874AC17E1F22457000846851 /* BillTests */,
 				871B379C1F29F614001FE485 /* ItemTests */,
 				871B37B51F2A1BFF001FE485 /* UserTests */,
@@ -410,6 +420,15 @@
 				871B37F41F308CE6001FE485 /* WalkwayBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		873218CD1F7A572C00C960F6 /* ImageToTextTests */ = {
+			isa = PBXGroup;
+			children = (
+				873218CA1F79470500C960F6 /* RegexTests.swift */,
+				873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */,
+			);
+			path = ImageToTextTests;
 			sourceTree = "<group>";
 		};
 		87344C4E1F70589800C0B3FE /* Delegates */ = {
@@ -603,6 +622,8 @@
 				87A218EB1F25EEAA00B4BE74 /* Firebase.swift */,
 				871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */,
 				871B37EF1F2F6322001FE485 /* Constants.swift */,
+				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
+				873218C81F79456B00C960F6 /* Regex.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1572,6 +1593,7 @@
 				87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */,
 				871682BD1F712BDB004046E9 /* InstructionLabel.swift in Sources */,
 				871B37F01F2F6322001FE485 /* Constants.swift in Sources */,
+				873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */,
 				87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */,
 				87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */,
 				871B37E91F2F430C001FE485 /* SplitterTextField.swift in Sources */,
@@ -1585,6 +1607,7 @@
 				873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */,
 				874AC1511F2206ED00846851 /* WelcomeScreenViewController.swift in Sources */,
 				871B37BF1F2A1EF9001FE485 /* SplitterUser.swift in Sources */,
+				873218C91F79456B00C960F6 /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1592,6 +1615,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */,
+				873218CC1F79479900C960F6 /* Regex.swift in Sources */,
+				873218CB1F79470500C960F6 /* RegexTests.swift in Sources */,
 				8761411B1F4C43ED00107372 /* BillTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
