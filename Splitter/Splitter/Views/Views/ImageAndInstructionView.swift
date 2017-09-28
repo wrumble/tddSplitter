@@ -11,7 +11,13 @@ import UIKit
 class ImageAndInstructionView: UIImageView {
 
     var instructionLabel = InstructionLabel()
-    var receiptImageView = UIImage()
+    var base64ImageData: String?
+    
+    override var image: UIImage? {
+        didSet {
+            base64ImageData = image?.base64EncodeImage()
+        }
+    }
     
     required init() {
         super.init(frame: .zero)
@@ -31,7 +37,7 @@ class ImageAndInstructionView: UIImageView {
     
     private func setupViews() {
         backgroundColor = .clear
-        image = receiptImageView
+        contentMode = .scaleAspectFit
         
         instructionLabel.textAlignment = .center
         instructionLabel.text = Localized.imageInstructionText

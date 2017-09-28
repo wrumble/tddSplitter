@@ -44,6 +44,30 @@ extension UITextField {
     }
 }
 
+extension UIImage {
+    func base64EncodeImage() -> String {
+        var imagedata = UIImagePNGRepresentation(self)!
+        
+        // Resize the image if it exceeds the 2MB Google Vision API limit
+        if imagedata.count > 2097152 {
+            let oldSize = self.size
+            let newSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
+            imagedata = resizeImage(newSize, image: self)
+        }
+        
+        return imagedata.base64EncodedString(options: .endLineWithCarriageReturn)
+    }
+    
+    func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
+        UIGraphicsBeginImageContext(imageSize)
+        image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        let resizedImage = UIImagePNGRepresentation(newImage!)
+        UIGraphicsEndImageContext()
+        return resizedImage!
+    }
+}
+
 extension UIViewController {
     func showToast(in toastSuperView: UIView, with text: String) {
         let toastLabel = ToastLabel()

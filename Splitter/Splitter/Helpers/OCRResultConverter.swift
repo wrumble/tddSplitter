@@ -11,11 +11,11 @@ import UIKit
 class OCRResultConverter {
         
     func convertToItems(_ receiptLine: String,
-                        with billID: String) -> [Item] {
+                        billID: String) -> [Item] {
         var itemArray = [Item]()
         let itemQuantity = returnItemQuantity(receiptLine)
         
-        for _ in 1...itemQuantity {
+        for _ in 0..<itemQuantity {
             var item = Item(billID: billID)
             
             item.price = String( returnItemPrice(receiptLine)/Double(itemQuantity) )
@@ -28,11 +28,18 @@ class OCRResultConverter {
     
     func returnItemQuantity(_ receiptLine: String) -> Int {
         //This returns only integers less than 3 digits long
-        let pattern = "^[0-9]{1,2}+$"
+        let numberAndXPattern = "\\d+[xX]"
+        let justNumberPattern = "^[0-9]{1,2}+$"
         let firstWord = String(describing: receiptLine.split(separator: " ")
                                                      .first!)
         if let quantity = returnRegexResultsFrom(firstWord,
-                                                 pattern: pattern) {
+                                                 pattern: numberAndXPattern) {
+            var filteredQuantity = quantity.first?.replacingOccurrences(of: "x", with: "")
+            filteredQuantity = filteredQuantity?.replacingOccurrences(of: "X", with: "")
+            return Int(filteredQuantity!)!
+        }
+        if let quantity = returnRegexResultsFrom(firstWord,
+                                                 pattern: justNumberPattern) {
             return Int(quantity.first!)!
         }
         return 1

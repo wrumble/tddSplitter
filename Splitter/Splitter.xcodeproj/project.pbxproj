@@ -25,6 +25,7 @@
 		871B37F01F2F6322001FE485 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37EF1F2F6322001FE485 /* Constants.swift */; };
 		871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37F11F2F7C49001FE485 /* SplitterButton.swift */; };
 		871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871B37F41F308CE6001FE485 /* WalkwayBold.ttf */; };
+		871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E31C51F7D0EE2000354E7 /* OCRRequest.swift */; };
 		872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */; };
 		873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */; };
 		873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C61F79324800C960F6 /* OCRResultConverter.swift */; };
@@ -48,6 +49,7 @@
 		8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		8773583B1F7BFFDB00EE7C19 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8773583C1F7BFFE000EE7C19 /* FirebaseTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */; };
+		877358471F7D01A700EE7C19 /* OCRRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877358461F7D01A700EE7C19 /* OCRRequestTests.swift */; };
 		877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B41831F46EF3300AE9813 /* ToastLabel.swift */; };
 		877F55601F74204100CABA05 /* EarlGreyNewBillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */; };
 		877F55671F74218400CABA05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
@@ -176,6 +178,7 @@
 		871B37F11F2F7C49001FE485 /* SplitterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterButton.swift; sourceTree = "<group>"; };
 		871B37F31F2F86FD001FE485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		871B37F41F308CE6001FE485 /* WalkwayBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WalkwayBold.ttf; sourceTree = "<group>"; };
+		871E31C51F7D0EE2000354E7 /* OCRRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRequest.swift; sourceTree = "<group>"; };
 		872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLogoLabel.swift; sourceTree = "<group>"; };
 		872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splitter.entitlements; sourceTree = "<group>"; };
 		873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultParsingTests.swift; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 		8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyWelcomeScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760E6FE1F6C014000529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8760E70A1F6C064E00529685 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		877358461F7D01A700EE7C19 /* OCRRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRequestTests.swift; sourceTree = "<group>"; };
 		877B41831F46EF3300AE9813 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
 		877F555D1F74204100CABA05 /* EarlGreyNewBillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyNewBillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlGreyNewBillTests.swift; sourceTree = "<group>"; };
@@ -293,10 +297,11 @@
 		871B37C71F2F392E001FE485 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				873218CA1F79470500C960F6 /* RegexTests.swift */,
-				873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */,
 				874AC17F1F22457000846851 /* BillTests.swift */,
 				871B379D1F29F614001FE485 /* ItemTests.swift */,
+				877358461F7D01A700EE7C19 /* OCRRequestTests.swift */,
+				873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */,
+				873218CA1F79470500C960F6 /* RegexTests.swift */,
 				871B37B61F2A1BFF001FE485 /* UserTests.swift */,
 				874AC1811F22457000846851 /* Info.plist */,
 			);
@@ -479,12 +484,13 @@
 		87A218E61F25E88E00B4BE74 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				871B37EF1F2F6322001FE485 /* Constants.swift */,
 				87A218E71F25E8A200B4BE74 /* Extensions.swift */,
 				87A218EB1F25EEAA00B4BE74 /* Firebase.swift */,
-				871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */,
-				871B37EF1F2F6322001FE485 /* Constants.swift */,
+				871E31C51F7D0EE2000354E7 /* OCRRequest.swift */,
 				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
 				873218C81F79456B00C960F6 /* Regex.swift */,
+				871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1125,6 +1131,7 @@
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
+				871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
 				87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */,
@@ -1152,6 +1159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877358471F7D01A700EE7C19 /* OCRRequestTests.swift in Sources */,
 				87CF98161F7BDEC3002A60BD /* ItemTests.swift in Sources */,
 				87CF98171F7BDEC3002A60BD /* UserTests.swift in Sources */,
 				873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */,

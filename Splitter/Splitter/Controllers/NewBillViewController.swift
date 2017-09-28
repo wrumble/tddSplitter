@@ -65,6 +65,9 @@ class NewBillViewController: UIViewController,
         homeButton.addTarget(self,
                                action: #selector(homeButtonWasTapped),
                                for: .touchUpInside)
+        saveButton.addTarget(self,
+                             action: #selector(saveButtonWasTapped),
+                             for: .touchUpInside)
     }
     
     private func setupLayout() {
@@ -202,5 +205,12 @@ class NewBillViewController: UIViewController,
         recieptImageAndInstructionView.instructionLabel.isHidden = true
         dismiss(animated:true,
                 completion: nil)
+    }
+    
+    @objc private func saveButtonWasTapped() {
+        if let base64ImageData = recieptImageAndInstructionView.base64ImageData {
+            let ocrRequest = OCRRequest()
+            ocrRequest.createRequest(with: base64ImageData)
+        }
     }
 }
