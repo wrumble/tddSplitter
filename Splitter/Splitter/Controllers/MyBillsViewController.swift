@@ -24,12 +24,6 @@ class MyBillsViewController: UIViewController {
 
     private weak var carouselDelegate = BillCarouselDelegate()
     
-    var currentUser: SplitterUser! {
-        didSet {
-            getUserBills()
-        }
-    }
-    
     private var userBills: [Bill]? {
         didSet {
             carouselDatasource.bills = userBills!
@@ -37,9 +31,17 @@ class MyBillsViewController: UIViewController {
         }
     }
     
+    private var currentUser: SplitterUser! {
+        didSet {
+            getUserBills()
+        }
+    }
+    
     required init(currentUser: SplitterUser) {
         super.init(nibName: nil, bundle: nil)
-        self.currentUser = currentUser
+        defer {
+            self.currentUser = currentUser
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

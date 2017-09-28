@@ -63,7 +63,7 @@ class BillTests: XCTestCase {
     
     func testCanRequestBillWithId() {
         var resultID = String()
-        let userID = "jT9AZdggj0gYKJjGlYPsf4uSqko1"
+        let userID = "tatbGKexJVW8Mi8dY3YgHafWBjI2"
         let id = addBillToFirebaseWith(userID: userID)
         let requestExpectation = expectation(description: "Request a bill")
         
@@ -114,7 +114,7 @@ class BillTests: XCTestCase {
     
     func testCanRemoveBillFromFirebase() {
         var testSuccess = false
-        let userID = "jT9AZdggj0gYKJjGlYPsf4uSqko1"
+        let userID = "tatbGKexJVW8Mi8dY3YgHafWBjI2"
         let id = addBillToFirebaseWith(userID: userID)
         let requestExpectation = expectation(description: "Remove a bill")
         

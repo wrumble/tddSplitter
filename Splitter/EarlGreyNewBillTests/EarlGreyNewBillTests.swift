@@ -13,7 +13,7 @@ import EarlGrey
 // swiftlint:disable line_length
 class EarlGreyNewBillTests: XCTestCase {
     
-    let user = SplitterUser(id: "jT9AZdggj0gYKJjGlYPsf4uSqko1",
+    let user = SplitterUser(id: "tatbGKexJVW8Mi8dY3YgHafWBjI2",
                             email: "userwithonebill@email.com")
     
     func testHasTitleLabel() {

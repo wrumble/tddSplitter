@@ -27,7 +27,9 @@ class NewBillViewController: UIViewController,
     
     required init(currentUser: SplitterUser) {
         super.init(nibName: nil, bundle: nil)
-        self.currentUser = currentUser
+        defer {
+            self.currentUser = currentUser
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
