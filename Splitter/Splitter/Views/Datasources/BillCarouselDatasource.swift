@@ -21,10 +21,7 @@ class BillCarouselDatasource: NSObject, iCarouselDataSource {
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         let bill = bills[index]
         let billCarouselView = BillCarouselView(bill: bill)
-        billCarouselView.frame = CGRect(x: Layout.carouselViewX,
-                                        y: Layout.carouselViewY,
-                                        width: Layout.carouselViewWidth,
-                                        height: Layout.carouselViewHeight)
+        billCarouselView.frame = carousel.frame
         
         return billCarouselView
     }

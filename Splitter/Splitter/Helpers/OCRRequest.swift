@@ -32,7 +32,7 @@ class OCRRequest {
         
         // Run the request on a background thread
         DispatchQueue.global().async {
-            let task: URLSessionDataTask = self.session.dataTask(with: request) { (data, _ , error) in
+            let task: URLSessionDataTask = self.session.dataTask(with: request) { (data, _, error) in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "")
                 return

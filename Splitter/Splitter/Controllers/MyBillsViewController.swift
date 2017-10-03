@@ -57,9 +57,9 @@ class MyBillsViewController: UIViewController {
     }
     
     private func setupHierarchy() {
-        view.addSubview(carousel)
         view.addSubview(titleLabel)
         view.addSubview(addButton)
+        view.addSubview(carousel)
         view.addSubview(deleteButton)
         view.addSubview(noBillsLabel)
 
@@ -68,15 +68,15 @@ class MyBillsViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = Color.mainBackground
         
+        titleLabel.text = Localized.myBillsViewControllerTitle
+        
+        addButton.addTarget(self, action: #selector(addButtonWasTapped), for: .touchUpInside)
+        
         carousel.dataSource = carouselDatasource
         carousel.delegate = carouselDelegate
         carousel.isPagingEnabled = true
         carousel.type = .coverFlow
         carousel.backgroundColor = .clear
-        
-        titleLabel.text = Localized.myBillsViewControllerTitle
-        
-        addButton.addTarget(self, action: #selector(addButtonWasTapped), for: .touchUpInside)
         
         deleteButton.isHidden = true
         
@@ -85,8 +85,6 @@ class MyBillsViewController: UIViewController {
     }
     
     private func setupLayout() {
-        carousel.pinToSuperviewEdges()
-        
         titleLabel.pinToSuperview(edges: [.left, .right])
         titleLabel.pinTop(to: view,
                           constant: Layout.titleLabelY,
@@ -96,6 +94,23 @@ class MyBillsViewController: UIViewController {
         addButton.pinToSuperview(edges: [.left, .bottom])
         addButton.addHeightConstraint(with: Layout.addButtonHeightWidth)
         addButton.addWidthConstraint(with: Layout.addButtonHeightWidth)
+        
+        carousel.pinTop(to: titleLabel,
+                        anchor: .bottom,
+                        constant: Layout.spacer,
+                        priority: .required,
+                        relatedBy: .equal)
+        carousel.pinToSuperviewLeft(withConstant: Layout.spacer,
+                                    priority: .required,
+                                    relatedBy: .equal)
+        carousel.pinToSuperviewRight(withConstant: -Layout.spacer,
+                                    priority: .required,
+                                    relatedBy: .equal)
+        carousel.pinBottom(to: addButton,
+                           anchor: .top,
+                           constant: Layout.spacer,
+                           priority: .required,
+                           relatedBy: .equal)
         
         deleteButton.pinToSuperview(edges: [.right, .bottom])
         deleteButton.addHeightConstraint(with: Layout.deleteButtonHeightWidth)

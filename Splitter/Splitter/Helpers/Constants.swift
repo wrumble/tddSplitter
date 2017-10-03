@@ -43,16 +43,11 @@ enum Layout {
     static let cameraButtonHeightWidth: CGFloat = 45
     static let homeButtonHeightWidth: CGFloat = 45
     static let saveButtonHeightWidth: CGFloat = 45
-    static let carouselViewX: CGFloat = UIScreen.main.bounds.width * 0.07
-    static let carouselViewY: CGFloat = titleLabelY * 2 + spacer
-    static let carouselViewWidth: CGFloat = UIScreen.main.bounds.width - (carouselViewX * 2)
-    static let carouselViewHeight: CGFloat = UIScreen.main.bounds.height -
-                                             addButtonHeightWidth - spacer -
-                                             carouselViewY
     static let carouselViewCornerRadius: CGFloat = 10
     static let deleteButtonHeightWidth: CGFloat = 60
     static let addButtonHeightWidth: CGFloat = 60
     static let titleLabelY: CGFloat = 22
+    static let titleLabelHeight: CGFloat = 32
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
     static let textFieldHeight: CGFloat = 44
     static let buttonHeight: CGFloat = 44

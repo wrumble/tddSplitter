@@ -9,9 +9,7 @@
 import UIKit
 
 class TitleLabel: UILabel {
-    
-    var accessID: String!
-    
+        
     required init() {
         super.init(frame: .zero)
         

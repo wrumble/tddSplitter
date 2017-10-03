@@ -86,6 +86,7 @@ class NewBillViewController: UIViewController,
                           constant: Layout.titleLabelY,
                           priority: .required,
                           relatedBy: .equal)
+        titleLabel.addHeightConstraint(with: Layout.titleLabelHeight)
     }
     
     private func layoutNameTextField() {
