@@ -127,37 +127,13 @@ class MyBillsViewController: UIViewController {
                                    completion: { bills in
             if let userbills = bills {
                 self.userBills = userbills
-                self.hideNoBillsLabel()
-                self.showDeleteButton()
+                self.noBillsLabel.hide()
+                self.deleteButton.show()
             } else {
-                self.showNoBillsLabel()
-                self.hideDeleteButton()
+                self.noBillsLabel.show()
+                self.deleteButton.hide()
             }
         })
-    }
-    
-    private func showDeleteButton() {
-        DispatchQueue.main.async { [weak self] in
-            self?.deleteButton.isHidden = false
-        }
-    }
-    
-    private func hideDeleteButton() {
-        DispatchQueue.main.async { [weak self] in
-            self?.deleteButton.isHidden = true
-        }
-    }
-    
-    private func showNoBillsLabel() {
-        DispatchQueue.main.async { [weak self] in
-            self?.noBillsLabel.isHidden = false
-        }
-    }
-    
-    private func hideNoBillsLabel() {
-        DispatchQueue.main.async { [weak self] in
-            self?.noBillsLabel.isHidden = true
-        }
     }
     
     @objc private func addButtonWasTapped() {

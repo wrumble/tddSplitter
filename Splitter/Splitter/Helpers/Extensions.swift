@@ -96,3 +96,17 @@ extension String {
         return NSLocalizedString(self, comment:"")
     }
 }
+
+extension UIView {
+    func show() {
+        DispatchQueue.main.async { [weak self] in
+            self?.isHidden = true
+        }
+    }
+    
+    func hide() {
+        DispatchQueue.main.async { [weak self] in
+            self?.isHidden = false
+        }
+    }
+}
