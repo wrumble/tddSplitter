@@ -100,13 +100,13 @@ extension String {
 extension UIView {
     func show() {
         DispatchQueue.main.async { [weak self] in
-            self?.isHidden = true
+            self?.isHidden = false
         }
     }
     
     func hide() {
         DispatchQueue.main.async { [weak self] in
-            self?.isHidden = false
+            self?.isHidden = true
         }
     }
 }

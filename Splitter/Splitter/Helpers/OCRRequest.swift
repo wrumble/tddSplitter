@@ -25,7 +25,18 @@ class OCRRequest {
         request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
         
         // Build our API request
-        let jsonRequest = ["requests": ["image": ["content": base64Image], "features": [["type": "TEXT_DETECTION"]]]]
+        let jsonRequest = [
+            "requests": [
+                "image": [
+                    "content": base64Image
+                ],
+                "features": [
+                    [
+                        "type": "DOCUMENT_TEXT_DETECTION"
+                    ]
+                ]
+            ]
+        ]
         let  jsonData = try? JSONSerialization.data(withJSONObject: jsonRequest)
         
         request.httpBody = jsonData

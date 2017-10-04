@@ -21,7 +21,7 @@ class MyBillsViewController: UIViewController {
     private let titleLabel = TitleLabel()
     private let carousel = iCarousel()
     private let carouselDatasource = BillCarouselDatasource()
-
+    private let activityIndicator = ActivityIndicator(text: Localized.loadingMessage)
     private weak var carouselDelegate = BillCarouselDelegate()
     
     private var userBills: [Bill]? {
@@ -62,7 +62,7 @@ class MyBillsViewController: UIViewController {
         view.addSubview(carousel)
         view.addSubview(deleteButton)
         view.addSubview(noBillsLabel)
-
+        view.addSubview(activityIndicator)
     }
     
     private func setupViews() {
@@ -78,10 +78,10 @@ class MyBillsViewController: UIViewController {
         carousel.type = .coverFlow
         carousel.backgroundColor = .clear
         
-        deleteButton.isHidden = true
+        deleteButton.hide()
         
         noBillsLabel.text = Localized.noBillsMessage
-        noBillsLabel.isHidden = true
+        noBillsLabel.hide()
     }
     
     private func setupLayout() {
@@ -133,6 +133,7 @@ class MyBillsViewController: UIViewController {
                 self.noBillsLabel.show()
                 self.deleteButton.hide()
             }
+            self.activityIndicator.hide()
         })
     }
     

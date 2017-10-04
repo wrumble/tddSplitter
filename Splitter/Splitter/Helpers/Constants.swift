@@ -36,6 +36,9 @@ enum Localized {
     //Bills Messages
     static let noBillsMessage = "NoBillsMessage".localized
     static let imageInstructionText = "ImageInstructionText".localized
+    
+    //ActivityIndicator messages
+    static let loadingMessage = "LoadingMessage".localized
 }
 
 enum Layout {
@@ -79,6 +82,18 @@ enum AccesID {
 }
 
 enum Color {
+    static let activityIndicatorSpinner = UIColor(red: 33/255,
+                                                      green: 33/255,
+                                                      blue: 33/255,
+                                                      alpha: 1.00)
+    static let activityIndicatorBackground = UIColor(red: 254/255,
+                                                     green: 254/255,
+                                                     blue: 254/255,
+                                                     alpha: 0.60)
+    static let activityIndicatorText = UIColor(red: 33/255,
+                                           green: 33/255,
+                                           blue: 33/255,
+                                           alpha: 1.00)
     static let instructionLabelText = UIColor(red: 254/255,
                                            green: 254/255,
                                            blue: 254/255,
@@ -134,6 +149,7 @@ enum Color {
 }
 
 enum Font {
+    static let activityIndicator = UIFont.systemFont(ofSize: 26)
     static let instructionLabel = UIFont.systemFont(ofSize: 20)
     static let titleLabel = UIFont.systemFont(ofSize: 26)
     static let titleLogo = UIFont(name: "WalkwayBold", size: 200)
