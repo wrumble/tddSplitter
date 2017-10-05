@@ -20,7 +20,7 @@ class WelcomeScreenViewController: UIViewController {
     
     private let firebaseData = FirebaseData()
     private let textFieldAndButtonView = WelcomeScreenInformationView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +57,7 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     private func signInUser(email: String, password: String) {
+
         firebaseData.signInUser(email: email, password: password, completion: { (error, splitterUser) in
             if let error = error {
                 self.showToast(in: self.view, with: error.localizedDescription)

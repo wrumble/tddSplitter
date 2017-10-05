@@ -62,10 +62,10 @@ class OCRRequest {
             let responses = json![0]
             let fullTextAnnotation = responses["fullTextAnnotation"] as! [String: Any]
             let receiptText = fullTextAnnotation["text"] as! String
+            let converter = OCRResultConverter()
             print(receiptText)
             receiptText.enumerateLines { receiptLine, _ in
                 print(receiptLine)
-                let converter = OCRResultConverter()
                 let items = converter.convertToItems(receiptLine,
                                                      billID: "9FA261C5-DDF9-40AF-94A5-D81356CE9A21")
                 print(items)

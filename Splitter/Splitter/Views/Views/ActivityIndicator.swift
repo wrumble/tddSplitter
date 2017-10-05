@@ -24,7 +24,7 @@ class ActivityIndicator: UIView {
     
     required init(text: String) {
         super.init(frame: .zero)
-        self.width = UIScreen.main.bounds.width/2.3
+        self.width = UIScreen.main.bounds.width/2.0
         self.height = 50.0
         self.size = 40
         self.text = text
@@ -55,8 +55,7 @@ class ActivityIndicator: UIView {
     }
     
     private func setupView(_ superview: UIView) {
-        
-        let x = superview.frame.size.width/2 - width/2
+        let x = superview.frame.width/2 - width/2
         let y = superview.frame.height/2 - height/2
         frame = CGRect(x: x,
                        y: y,
@@ -68,20 +67,22 @@ class ActivityIndicator: UIView {
     }
     
     private func setupActivityIndicator() {
-        
-        activityIndictor.frame = CGRect()
+        activityIndictor.frame = CGRect(x: 5,
+                                        y: height/2 - size/2,
+                                        width: size,
+                                        height: size)
         activityIndictor.color = Color.activityIndicatorSpinner
     }
     
     private func setupTextLabel() {
-        
+        textLabel.numberOfLines = 0
         textLabel.text = text
         textLabel.textAlignment = .center
+        textLabel.textColor = Color.activityIndicatorText
+        textLabel.font = Font.activityIndicator
         textLabel.frame = CGRect(x: size + 5,
                                  y: 0,
                                  width: width - size - 15,
                                  height: height)
-        textLabel.textColor = Color.activityIndicatorText
-        textLabel.font = Font.activityIndicator
     }
 }

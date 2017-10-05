@@ -128,7 +128,7 @@ struct FirebaseData {
         })
     }
     
-    private func createSplitterUser(from firebaseUser: User?) -> SplitterUser? {
+    func createSplitterUser(from firebaseUser: User?) -> SplitterUser? {
         if let firebaseUser = firebaseUser {
             let id = firebaseUser.uid
             let email = firebaseUser.email

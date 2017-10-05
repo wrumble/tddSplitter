@@ -12,8 +12,12 @@ import iCarousel
 
 class MyBillsViewController: UIViewController {
     
+    private let firebaseData = FirebaseData()
+    
     private let addButton = IconButton(accessID: AccesID.addButton,
                                       iconImage: Image.addButton!)
+    private let logoutButton = IconButton(accessID: AccesID.logoutButton,
+                                          iconImage: Image.logoutButton!)
     private let deleteButton = IconButton(accessID: AccesID.deleteButton,
                                             iconImage: Image.deleteButton!)
 
@@ -59,6 +63,7 @@ class MyBillsViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(addButton)
+        view.addSubview(logoutButton)
         view.addSubview(carousel)
         view.addSubview(deleteButton)
         view.addSubview(noBillsLabel)
@@ -71,6 +76,8 @@ class MyBillsViewController: UIViewController {
         titleLabel.text = Localized.myBillsViewControllerTitle
         
         addButton.addTarget(self, action: #selector(addButtonWasTapped), for: .touchUpInside)
+        
+        logoutButton.addTarget(self, action: #selector(logoutButtonWasTapped), for: .touchUpInside)
         
         carousel.dataSource = carouselDatasource
         carousel.delegate = carouselDelegate
@@ -95,20 +102,27 @@ class MyBillsViewController: UIViewController {
         addButton.addHeightConstraint(with: Layout.addButtonHeightWidth)
         addButton.addWidthConstraint(with: Layout.addButtonHeightWidth)
         
+        logoutButton.pinToSuperviewBottom(withConstant: 0,
+                                          priority: .required,
+                                          relatedBy: .equal)
+        logoutButton.centerXToSuperview()
+        logoutButton.addHeightConstraint(with: Layout.logoutButtonHeightWidth)
+        logoutButton.addWidthConstraint(with: Layout.logoutButtonHeightWidth)
+        
         carousel.pinTop(to: titleLabel,
                         anchor: .bottom,
-                        constant: Layout.spacer,
+                        constant: Layout.screenEdgeSpacer,
                         priority: .required,
                         relatedBy: .equal)
-        carousel.pinToSuperviewLeft(withConstant: Layout.spacer,
+        carousel.pinToSuperviewLeft(withConstant: Layout.screenEdgeSpacer,
                                     priority: .required,
                                     relatedBy: .equal)
-        carousel.pinToSuperviewRight(withConstant: -Layout.spacer,
+        carousel.pinToSuperviewRight(withConstant: -Layout.screenEdgeSpacer,
                                     priority: .required,
                                     relatedBy: .equal)
-        carousel.pinBottom(to: addButton,
+        carousel.pinBottom(to: logoutButton,
                            anchor: .top,
-                           constant: Layout.spacer,
+                           constant: 0,
                            priority: .required,
                            relatedBy: .equal)
         
@@ -122,7 +136,6 @@ class MyBillsViewController: UIViewController {
     }
     
     private func getUserBills() {
-        let firebaseData = FirebaseData()
         firebaseData.findBillsWith(userID: currentUser.id,
                                    completion: { bills in
             if let userbills = bills {
@@ -140,5 +153,14 @@ class MyBillsViewController: UIViewController {
     @objc private func addButtonWasTapped() {
         let newBillViewController = NewBillViewController(currentUser: currentUser!)
         present(newBillViewController, animated: false)
+    }
+    
+    @objc private func logoutButtonWasTapped() {
+        firebaseData.signOutUser(completion: { successful in
+            if successful {
+                let welcomeScreenViewController = WelcomeScreenViewController()
+                self.present(welcomeScreenViewController, animated: false)
+            }
+        })
     }
 }

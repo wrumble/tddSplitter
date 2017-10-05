@@ -18,11 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        FirebaseApp.configure()
-        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = WelcomeScreenViewController()
-        window!.makeKeyAndVisible()
+        FirebaseApp.configure()
+        Auth.auth().addStateDidChangeListener { _, user in
+            if let user = user {
+                let firebaseData = FirebaseData()
+                let splitterUser = firebaseData.createSplitterUser(from: user)
+                self.window!.rootViewController = MyBillsViewController(currentUser: splitterUser!)
+            } else {
+                self.window!.rootViewController = WelcomeScreenViewController()
+            }
+            self.window!.makeKeyAndVisible()
+        }
         
         return true
     }

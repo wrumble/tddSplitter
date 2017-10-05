@@ -17,6 +17,7 @@ enum Image {
     static let homeButton = UIImage(named: "homeIcon")
     static let saveButton = UIImage(named: "saveIcon")
     static let deleteButton = UIImage(named: "deleteIcon")
+    static let logoutButton = UIImage(named: "logoutIcon")
     static let addButton = UIImage(named: "addIcon")
 }
 
@@ -39,6 +40,9 @@ enum Localized {
     
     //ActivityIndicator messages
     static let loadingMessage = "LoadingMessage".localized
+    static let loggingInMessage = "LoggingInMessage".localized
+    static let registeringMessage = "RegisteringMessage".localized
+    static let readingTextMessage = "ReadingTextMessage".localized
 }
 
 enum Layout {
@@ -48,6 +52,7 @@ enum Layout {
     static let saveButtonHeightWidth: CGFloat = 45
     static let carouselViewCornerRadius: CGFloat = 10
     static let deleteButtonHeightWidth: CGFloat = 60
+    static let logoutButtonHeightWidth: CGFloat = 60
     static let addButtonHeightWidth: CGFloat = 60
     static let titleLabelY: CGFloat = 22
     static let titleLabelHeight: CGFloat = 32
@@ -70,6 +75,7 @@ enum AccesID {
     static let carouselTitleLabel = "CarouselTitleLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "Delete"
+    static let logoutButton = "Logout"
     static let addButton = "Add"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"
@@ -149,7 +155,7 @@ enum Color {
 }
 
 enum Font {
-    static let activityIndicator = UIFont.systemFont(ofSize: 26)
+    static let activityIndicator = UIFont.systemFont(ofSize: 18)
     static let instructionLabel = UIFont.systemFont(ofSize: 20)
     static let titleLabel = UIFont.systemFont(ofSize: 26)
     static let titleLogo = UIFont(name: "WalkwayBold", size: 200)
