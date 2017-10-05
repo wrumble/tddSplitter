@@ -44,6 +44,19 @@ class EarlGreyMyBillsTests: XCTestCase {
                        reason: "Add bill button Appeared")
     }
     
+    func testHasLogoutBillButton() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
+        let assertion = grey_sufficientlyVisible()
+        let addButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.logoutButton))
+        let conditionName = "Wait for add bills button to appear"
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: addButton,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Add bill button Appeared")
+    }
+    
     func testDeleteButtonNotVisibleWhenThereAreNoBills() {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
 
@@ -51,8 +64,10 @@ class EarlGreyMyBillsTests: XCTestCase {
         var error: NSError?
         
         EarlGrey.select(elementWithMatcher: deleteButton)
-            .assert(grey_sufficientlyVisible(), error: &error)
-        GREYAssertTrue((error != nil), reason: "Delete button is visible")
+            .assert(grey_sufficientlyVisible(),
+                    error: &error)
+        GREYAssertTrue((error != nil),
+                       reason: "Delete button is visible")
     }
     
     func testDeleteButtonIsVisibleWhenThereAreBills() {
@@ -85,8 +100,7 @@ class EarlGreyMyBillsTests: XCTestCase {
     func testShowsNoBillsMessageWhenUserHasNoBills() {
         startAtMyBillsViewControllerWith(email: registeredUserEmail)
         
-        let labelText = localizedStringWith(key: "StringNoBillsMessage")
-        let assertion = grey_text(labelText)
+        let assertion = grey_sufficientlyVisible()
         let noBillsLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.instructionLabel))
         let conditionName = "Wait for NoBillsLabel to appear"
         let appearedSuccesfully = waitForSuccess(of: assertion,
@@ -104,8 +118,10 @@ class EarlGreyMyBillsTests: XCTestCase {
         var error: NSError?
         
         EarlGrey.select(elementWithMatcher: instructionLabel)
-            .assert(grey_sufficientlyVisible(), error: &error)
-        GREYAssertTrue((error != nil), reason: "Label is visible")
+            .assert(grey_sufficientlyVisible(),
+                    error: &error)
+        GREYAssertTrue((error != nil),
+                       reason: "Label is visible")
     }
     
     func testAddBillButtonSeguesToNewBillViewController() {
@@ -123,7 +139,27 @@ class EarlGreyMyBillsTests: XCTestCase {
                                                  with: titleLabel,
                                                  conditionName: conditionName)
         
-        GREYAssertTrue(appearedSuccesfully, reason: "Did not segue")
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Did not segue")
+    }
+    
+    func testLogoutButtonSeguesToWelcomeScreenViewController() {
+        startAtMyBillsViewControllerWith(email: registeredUserEmail)
+        let logoutButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.logoutButton))
+        let welcomeScreenLogoText = localizedStringWith(key: "SplitterTitleLogoText")
+        let assertion = grey_text(welcomeScreenLogoText)
+        let conditionName = "Wait for label to appear"
+
+        logoutButton.perform(grey_tap())
+
+        let titleLogoLabel = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.titleLogoLabel))
+        
+        let appearedSuccesfully = waitForSuccess(of: assertion,
+                                                 with: titleLogoLabel,
+                                                 conditionName: conditionName)
+        
+        GREYAssertTrue(appearedSuccesfully,
+                       reason: "Did not segue")
     }
     
     func startAtMyBillsViewControllerWith(email: String) {
@@ -154,7 +190,7 @@ class EarlGreyMyBillsTests: XCTestCase {
             errorOrNil.deallocate(capacity: 1)
             
             return success
-        }).wait(withTimeout: 5.0)
+        }).wait(withTimeout: 3.0)
         
         return success
     }

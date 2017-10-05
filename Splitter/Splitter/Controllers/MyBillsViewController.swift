@@ -66,8 +66,8 @@ class MyBillsViewController: UIViewController {
         view.addSubview(logoutButton)
         view.addSubview(carousel)
         view.addSubview(deleteButton)
-        view.addSubview(noBillsLabel)
         view.addSubview(activityIndicator)
+        view.addSubview(noBillsLabel)
     }
     
     private func setupViews() {
@@ -75,9 +75,13 @@ class MyBillsViewController: UIViewController {
         
         titleLabel.text = Localized.myBillsViewControllerTitle
         
-        addButton.addTarget(self, action: #selector(addButtonWasTapped), for: .touchUpInside)
+        addButton.addTarget(self,
+                            action: #selector(addButtonWasTapped),
+                            for: .touchUpInside)
         
-        logoutButton.addTarget(self, action: #selector(logoutButtonWasTapped), for: .touchUpInside)
+        logoutButton.addTarget(self,
+                               action: #selector(logoutButtonWasTapped),
+                               for: .touchUpInside)
         
         carousel.dataSource = carouselDatasource
         carousel.delegate = carouselDelegate
@@ -86,6 +90,8 @@ class MyBillsViewController: UIViewController {
         carousel.backgroundColor = .clear
         
         deleteButton.hide()
+        
+        activityIndicator.hide()
         
         noBillsLabel.text = Localized.noBillsMessage
         noBillsLabel.hide()
@@ -136,6 +142,7 @@ class MyBillsViewController: UIViewController {
     }
     
     private func getUserBills() {
+        activityIndicator.show()
         firebaseData.findBillsWith(userID: currentUser.id,
                                    completion: { bills in
             if let userbills = bills {
@@ -152,14 +159,14 @@ class MyBillsViewController: UIViewController {
     
     @objc private func addButtonWasTapped() {
         let newBillViewController = NewBillViewController(currentUser: currentUser!)
-        present(newBillViewController, animated: false)
+        view.window?.rootViewController = newBillViewController
     }
     
     @objc private func logoutButtonWasTapped() {
         firebaseData.signOutUser(completion: { successful in
             if successful {
                 let welcomeScreenViewController = WelcomeScreenViewController()
-                self.present(welcomeScreenViewController, animated: false)
+                self.view.window?.rootViewController = welcomeScreenViewController
             }
         })
     }

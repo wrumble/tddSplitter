@@ -19,6 +19,7 @@ enum AccessID {
     static let carouselTitleLabel = "CarouselTitleLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "Delete"
+    static let logoutButton = "Logout"
     static let addButton = "Add"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"

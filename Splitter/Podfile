@@ -11,6 +11,7 @@ target 'Splitter' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'LifetimeTracker'
     pod 'iCarousel'
   end
 

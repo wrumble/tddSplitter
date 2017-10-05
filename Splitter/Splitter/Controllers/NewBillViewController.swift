@@ -175,7 +175,7 @@ class NewBillViewController: UIViewController,
     
     @objc private func homeButtonWasTapped() {
         let myBillsViewController = MyBillsViewController(currentUser: currentUser!)
-        present(myBillsViewController, animated: false)
+        view.window?.rootViewController = myBillsViewController
     }
     
     private func setupImagePicker(_ imagePicker: UIImagePickerController) {
@@ -206,6 +206,7 @@ class NewBillViewController: UIViewController,
         recieptImageAndInstructionView.instructionLabel.isHidden = true
         dismiss(animated:true,
                 completion: nil)
+        
     }
     
     @objc private func saveButtonWasTapped() {

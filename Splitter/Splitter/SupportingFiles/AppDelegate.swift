@@ -8,18 +8,25 @@
 
 import UIKit
 import Firebase
+import LifetimeTracker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration().refreshUI)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         FirebaseApp.configure()
+        checkUserLoginStatus()
+        
+        return true
+    }
+    
+    private func checkUserLoginStatus() {
         Auth.auth().addStateDidChangeListener { _, user in
             if let user = user {
                 let firebaseData = FirebaseData()
@@ -30,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             self.window!.makeKeyAndVisible()
         }
-        
-        return true
     }
     
 // Used for testing only
@@ -40,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func startAtMyBillsVCWithUserEmail(_ email: String) {
+        checkUserLoginStatus()
         let firebaseData = FirebaseData()
         firebaseData.signInUser(email: email,
                                   password: "password",
