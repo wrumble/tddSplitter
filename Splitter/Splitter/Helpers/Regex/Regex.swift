@@ -9,8 +9,9 @@
 import UIKit
 
 class Regex {
-    let internalExpression: NSRegularExpression
-    let pattern: String
+    
+    private let internalExpression: NSRegularExpression
+    private let pattern: String
     
     init(_ pattern: String) throws {
         self.pattern = pattern
@@ -22,12 +23,21 @@ class Regex {
         }
     }
     
-    func containsMatch(input: String) -> Bool {
+    func returnRegexResultsFrom(_ text: String) -> [String]? {
+        if containsMatch(input: text) {
+            return returnMatchesAsStrings(input: text)
+        } else {
+            print("No match found with regex pattern")
+            return nil
+        }
+    }
+    
+    private func containsMatch(input: String) -> Bool {
         let matches = returnMatches(input: input)
         return matches.count > 0
     }
     
-    func returnsMatchesAsStrings(input: String) -> [String] {
+    private func returnMatchesAsStrings(input: String) -> [String] {
         let matches = returnMatches(input: input)
         
         return matches.map {

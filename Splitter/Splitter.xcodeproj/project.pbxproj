@@ -31,7 +31,6 @@
 		873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C61F79324800C960F6 /* OCRResultConverter.swift */; };
 		873218C91F79456B00C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
 		873218CB1F79470500C960F6 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218CA1F79470500C960F6 /* RegexTests.swift */; };
-		873218CC1F79479900C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
 		87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */; };
 		87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */; };
 		87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C541F705D8400C0B3FE /* BillCarouselView.swift */; };
@@ -64,6 +63,7 @@
 		87D1D3BB1F7518EC008E3C34 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */; };
 		87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6EC01F73EDB300C314F5 /* Assets.xcassets */; };
 		87EBAFEB1F851A5700D5B2C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */; };
+		87EBAFF01F86935800D5B2C0 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBAFEF1F86935800D5B2C0 /* Price.swift */; };
 		87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */; };
 		87F9E9211F6C3829000B6B48 /* EarlGreyMyBillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9E9201F6C3829000B6B48 /* EarlGreyMyBillsTests.swift */; };
 		87F9E9291F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9E9281F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift */; };
@@ -223,6 +223,7 @@
 		87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		87EB6EC01F73EDB300C314F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		87EBAFEF1F86935800D5B2C0 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInformationView.swift; sourceTree = "<group>"; };
 		87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestHelper.swift; sourceTree = "<group>"; };
 		87F9E91E1F6C3829000B6B48 /* EarlGreyMyBillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyMyBillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,9 +491,8 @@
 				871B37EF1F2F6322001FE485 /* Constants.swift */,
 				87A218E71F25E8A200B4BE74 /* Extensions.swift */,
 				87A218EB1F25EEAA00B4BE74 /* Firebase.swift */,
-				871E31C51F7D0EE2000354E7 /* OCRRequest.swift */,
-				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
-				873218C81F79456B00C960F6 /* Regex.swift */,
+				87EBAFEE1F86932F00D5B2C0 /* Regex */,
+				87EBAFED1F868D9A00D5B2C0 /* OCR */,
 				871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */,
 			);
 			path = Helpers;
@@ -529,6 +529,24 @@
 				87F93B9B1F4D8D30007074BF /* TestHelpers */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		87EBAFED1F868D9A00D5B2C0 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				871E31C51F7D0EE2000354E7 /* OCRRequest.swift */,
+				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		87EBAFEE1F86932F00D5B2C0 /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				873218C81F79456B00C960F6 /* Regex.swift */,
+				87EBAFEF1F86935800D5B2C0 /* Price.swift */,
+			);
+			path = Regex;
 			sourceTree = "<group>";
 		};
 		87F93B9B1F4D8D30007074BF /* TestHelpers */ = {
@@ -1144,6 +1162,7 @@
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
+				87EBAFF01F86935800D5B2C0 /* Price.swift in Sources */,
 				871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
@@ -1179,7 +1198,6 @@
 				873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */,
 				8773583B1F7BFFDB00EE7C19 /* TestExtensions.swift in Sources */,
 				8773583C1F7BFFE000EE7C19 /* FirebaseTestHelper.swift in Sources */,
-				873218CC1F79479900C960F6 /* Regex.swift in Sources */,
 				873218CB1F79470500C960F6 /* RegexTests.swift in Sources */,
 				8761411B1F4C43ED00107372 /* BillTests.swift in Sources */,
 			);
@@ -1456,7 +1474,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BA345E4BCD91E21974762EF /* Pods-EarlGreyWelcomeScreenTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1476,7 +1494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC7EAECE15C71E70AE7A5730 /* Pods-EarlGreyWelcomeScreenTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1496,7 +1514,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3BCEF2A77E3E84EF7B77C3F5 /* Pods-EarlGreyNewBillTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1515,7 +1533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0171A81E34B38E4B7F00FD02 /* Pods-EarlGreyNewBillTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1534,7 +1552,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE4EE964AA1B83F6C6994864 /* Pods-EarlGreyMyBillsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1553,7 +1571,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA9EF31A2A557577471FAF72 /* Pods-EarlGreyMyBillsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;

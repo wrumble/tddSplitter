@@ -56,22 +56,22 @@ class OCRRequest {
     }
     
     private func printResults(_ data: Data) {
-        do {
-            let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-            let json = jsonObject!["responses"] as? [[String: Any]]
-            let responses = json![0]
-            let fullTextAnnotation = responses["fullTextAnnotation"] as! [String: Any]
-            let receiptText = fullTextAnnotation["text"] as! String
-            let converter = OCRResultConverter()
-            print(receiptText)
-            receiptText.enumerateLines { receiptLine, _ in
-                print(receiptLine)
-                let items = converter.convertToItems(receiptLine,
-                                                     billID: "9FA261C5-DDF9-40AF-94A5-D81356CE9A21")
-                print(items)
-            }
-        } catch {
-            print("Error deserializing JSON: \(error)")
-        }
+//        do {
+//            let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+//            let json = jsonObject!["responses"] as? [[String: Any]]
+//            let responses = json![0]
+//            let fullTextAnnotation = responses["fullTextAnnotation"] as! [String: Any]
+//            let receiptText = fullTextAnnotation["text"] as! String
+//            let converter = OCRResultConverter()
+//            print(receiptText)
+//            receiptText.enumerateLines { receiptLine, _ in
+//                print(receiptLine)
+//                let items = converter.convertToItems(receiptLine,
+//                                                     billID: "9FA261C5-DDF9-40AF-94A5-D81356CE9A21")
+//                print(items)
+//            }
+//        } catch {
+//            print("Error deserializing JSON: \(error)")
+//        }
     }
 }

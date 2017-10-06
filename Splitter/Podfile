@@ -1,48 +1,59 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+    # Uncomment the next line to define a global platform for your project
+    # platform :ios, '9.0'
 
-target 'Splitter' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-  inhibit_all_warnings!
+    target 'Splitter' do
+      # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+        use_frameworks!
+        inhibit_all_warnings!
 
-  def allPods
-    pod 'Firebase'
-    pod 'Firebase/Database'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Storage'
-    pod 'LifetimeTracker'
-    pod 'iCarousel'
-  end
+        def allPods
+          pod 'Firebase'
+          pod 'Firebase/Database'
+          pod 'Firebase/Auth'
+          pod 'Firebase/Storage'
+          pod 'LifetimeTracker'
+          pod 'iCarousel'
+        end
 
-  def earlGreyUITests
-    project 'Splitter'
-    use_frameworks!
-    inherit! :search_paths
-    pod 'EarlGrey'
-  end
+        def earlGreyUITests
+          project 'Splitter'
+          use_frameworks!
+          inherit! :search_paths
+          pod 'EarlGrey'
+        end
 
-  # Pods for Splitter
+        # Pods for Splitter
 
-  allPods
+        allPods
 
-  target 'UnitTests' do
-    inherit! :search_paths
-    allPods
-  end
+        target 'UnitTests' do
+          inherit! :search_paths
+          allPods
+        end
 
-  target 'EarlGreyWelcomeScreenTests' do
-      earlGreyUITests
-      allPods
-  end
+        target 'EarlGreyWelcomeScreenTests' do
+          earlGreyUITests
+          allPods
+        end
 
-  target 'EarlGreyMyBillsTests' do
-      earlGreyUITests
-      allPods
-  end
+        target 'EarlGreyMyBillsTests' do
+          earlGreyUITests
+          allPods
+        end
 
-  target 'EarlGreyNewBillTests' do
-      earlGreyUITests
-      allPods
-  end
-end
+        target 'EarlGreyNewBillTests' do
+          earlGreyUITests
+          allPods
+        end
+
+        post_install do |installer|
+            installer.pods_project.targets.each do |target|
+                target.build_configurations.each do |config|
+                    config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+                    config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = "NO"
+                    config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+                    config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+                end
+            end
+        end
+    end
