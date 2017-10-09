@@ -29,7 +29,6 @@ class OCRResultConverter {
         return itemArray
     }
     
-    
     private func returnItemQuantity(_ receiptLine: inout String) -> Int {
         let numberAndXPattern = "\\d{1,2}(\\s[xX]|[xX])"
         let justNumberPattern = "^\\d{1,2}\\s"
@@ -101,6 +100,8 @@ class OCRResultConverter {
              receiptLine = regex.listMatches(wantedCharacters, inString: receiptLine)
                                 .joined()
                                 .trimmingCharacters(in: .whitespacesAndNewlines)
+        } else {
+            receiptLine = "Untitled"
         }
     }
 }
