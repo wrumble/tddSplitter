@@ -63,7 +63,6 @@
 		87D1D3BB1F7518EC008E3C34 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */; };
 		87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6EC01F73EDB300C314F5 /* Assets.xcassets */; };
 		87EBAFEB1F851A5700D5B2C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */; };
-		87EBAFF01F86935800D5B2C0 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBAFEF1F86935800D5B2C0 /* Price.swift */; };
 		87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */; };
 		87F9E9211F6C3829000B6B48 /* EarlGreyMyBillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9E9201F6C3829000B6B48 /* EarlGreyMyBillsTests.swift */; };
 		87F9E9291F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9E9281F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift */; };
@@ -223,7 +222,6 @@
 		87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		87EB6EC01F73EDB300C314F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		87EBAFEF1F86935800D5B2C0 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInformationView.swift; sourceTree = "<group>"; };
 		87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestHelper.swift; sourceTree = "<group>"; };
 		87F9E91E1F6C3829000B6B48 /* EarlGreyMyBillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyMyBillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -544,7 +542,6 @@
 			isa = PBXGroup;
 			children = (
 				873218C81F79456B00C960F6 /* Regex.swift */,
-				87EBAFEF1F86935800D5B2C0 /* Price.swift */,
 			);
 			path = Regex;
 			sourceTree = "<group>";
@@ -1162,7 +1159,6 @@
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
-				87EBAFF01F86935800D5B2C0 /* Price.swift in Sources */,
 				871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,

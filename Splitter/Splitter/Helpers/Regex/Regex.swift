@@ -10,45 +10,47 @@ import UIKit
 
 class Regex {
     
-    private let internalExpression: NSRegularExpression
-    private let pattern: String
-    
-    init(_ pattern: String) throws {
-        self.pattern = pattern
-        do {
-            self.internalExpression = try NSRegularExpression(pattern: pattern,
-                                                              options: .caseInsensitive)
-        } catch let error {
-            throw error
+    func listMatches(_ pattern: String,
+                     inString string: String) -> [String] {
+        let regex = regexWith(pattern)!
+        let range = rangeOf(string)
+        let matches = regex.matches(in: string, range: range)
+        
+        return matches.map {
+            let range = $0.range
+            return (string as NSString).substring(with: range)
         }
     }
     
-    func returnRegexResultsFrom(_ text: String) -> [String]? {
-        if containsMatch(input: text) {
-            return returnMatchesAsStrings(input: text)
-        } else {
-            print("No match found with regex pattern")
+    func containsMatch(_ pattern: String,
+                       inString string: String) -> Bool {
+        let regex = regexWith(pattern)!
+        let range = rangeOf(string)
+        return regex.firstMatch(in: string, range: range) != nil
+    }
+    
+    func replaceMatches(_ pattern: String,
+                        inString string: String,
+                        withString replacementString: String) -> String? {
+        let regex = regexWith(pattern)!
+        let range = rangeOf(string)
+        
+        return regex.stringByReplacingMatches(in: string,
+                                              range: range,
+                                              withTemplate: replacementString)
+    }
+    
+    private func regexWith(_ pattern: String) -> NSRegularExpression? {
+        do {
+            return try NSRegularExpression(pattern: pattern,
+                                           options: .caseInsensitive)
+        } catch let error {
+            print(error.localizedDescription)
             return nil
         }
     }
     
-    private func containsMatch(input: String) -> Bool {
-        let matches = returnMatches(input: input)
-        return matches.count > 0
-    }
-    
-    private func returnMatchesAsStrings(input: String) -> [String] {
-        let matches = returnMatches(input: input)
-        
-        return matches.map {
-            let range = Range($0.range, in: input)!
-            return String(input[range.lowerBound..<range.upperBound])
-        }
-    }
-    
-    private func returnMatches(input: String) -> [NSTextCheckingResult] {
-        let range = NSRange(input.startIndex..., in: input)
-        return internalExpression.matches(in: input,
-                                          range: range)
+    private func rangeOf(_ string: String) -> NSRange {
+        return NSRange(string.startIndex..., in: string)
     }
 }
