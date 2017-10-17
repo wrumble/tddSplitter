@@ -11,11 +11,11 @@ import UIKit
 class ImageAndInstructionView: UIImageView {
 
     var instructionLabel = InstructionLabel()
-    var base64ImageData: String?
+    var base64Image: String!
     
     override var image: UIImage? {
         didSet {
-            base64ImageData = image?.base64EncodeImage()
+            base64Image = image?.base64EncodeImage()
         }
     }
     

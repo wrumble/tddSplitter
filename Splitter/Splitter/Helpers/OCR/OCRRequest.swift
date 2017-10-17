@@ -5,74 +5,70 @@
 //  Created by Wayne Rumble on 28/09/2017.
 //  Copyright © 2017 Wayne Rumble. All rights reserved.
 //
-
-import Foundation
+import UIKit
+import AFNetworking
 
 class OCRRequest {
     
-    let session = URLSession.shared
-    let googleAPIKey = "AIzaSyAPpD4rR9d2rQ8DLQHXFfL3_zbNOBgY9ag"
-    var googleURL: URL {
-        return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
+    var urlExtension = "extractText"
+    
+    func uploadReceiptImage(image: String) {
+        let params = ["image": image] as [String: Any]
+        HttpRequest().post(params: params,
+                           URLExtension: urlExtension,
+                           success: { response in print(response)},
+                           fail: { response in print(response)})
+//        HttpRequest().postWithImageData(params: params,
+//                                        URLExtension: urlExtension,
+//                                        imageData: image,
+//                                        success: { response in print(response)},
+//                                        fail: { response in print(response)})
+    }
+}
+    
+class HttpRequest {
+    
+    let manager = AFHTTPSessionManager()
+    let baseURL = "http://localhost:8080/"
+    
+    init() {
+        setSerializers()
     }
     
-    func createRequest(with base64Image: String) {
-        // Create our request URL
-        
-        var request = URLRequest(url: googleURL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
-        
-        // Build our API request
-        let jsonRequest = [
-            "requests": [
-                "image": [
-                    "content": base64Image
-                ],
-                "features": [
-                    [
-                        "type": "DOCUMENT_TEXT_DETECTION"
-                    ]
-                ]
-            ]
-        ]
-        let  jsonData = try? JSONSerialization.data(withJSONObject: jsonRequest)
-        
-        request.httpBody = jsonData
-        
-        // Run the request on a background thread
-        DispatchQueue.global().async {
-            let task: URLSessionDataTask = self.session.dataTask(with: request) { (data, _, error) in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "")
-                return
-            }
-                self.printResults(data)
-            }
-            
-            task.resume()
-        }
+    //Set Session managers serializers.
+    func setSerializers() {
+        manager.requestSerializer = AFHTTPRequestSerializer()
+        manager.responseSerializer = AFHTTPResponseSerializer()
     }
     
-    private func printResults(_ data: Data) {
-        do {
-            let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-            let json = jsonObject!["responses"] as? [[String: Any]]
-            let responses = json![0]
-            let fullTextAnnotation = responses["fullTextAnnotation"] as! [String: Any]
-            let receiptText = fullTextAnnotation["text"] as! String
-            let converter = OCRResultConverter()
-            print(receiptText)
-            receiptText.enumerateLines { receiptLine, _ in
-                print(receiptLine)
-                var text = receiptLine
-                let items = converter.convertToItems(&text,
-                                                     billID: "9FA261C5-DDF9-40AF-94A5-D81356CE9A21")
-                print(items)
-            }
-        } catch {
-            print("Error deserializing JSON: \(error)")
-        }
+    //Add extension to baseURL
+    func setURL(URLExtension: String) -> String {
+        return baseURL + URLExtension
+    }
+    
+    //Make standard api request with params.
+    func post(params: [String: Any], URLExtension: String, success:@escaping ((String) -> Void), fail:@escaping (([String: Any]) -> Void)) {
+        
+        manager.post(self.setURL(URLExtension: URLExtension), parameters: params, progress: nil,
+                     success: {(_ task: URLSessionDataTask, _ responseObject: Any) -> Void in
+                        do {
+                            let response = NSString(data: (responseObject as! NSData) as Data,
+                                                    encoding: String.Encoding.utf8.rawValue)!
+                            success(response as String)
+                            
+                        } catch {
+                            print("Serialising new account json object went wrong.")
+                        }
+                        
+        }, failure: { (operation, error) -> Void in
+            let response = ["failed": error]
+            fail(response)
+        })
+    }
+    
+    func handleError(_ error: NSError) -> UIAlertController {
+        let alert = UIAlertController(title: "Please Try Again", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        return alert
     }
 }

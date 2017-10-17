@@ -210,9 +210,7 @@ class NewBillViewController: UIViewController,
     }
     
     @objc private func saveButtonWasTapped() {
-        if let base64ImageData = recieptImageAndInstructionView.base64ImageData {
-            let ocrRequest = OCRRequest()
-            ocrRequest.createRequest(with: base64ImageData)
-        }
+        let ocrRequest = OCRRequest()
+        ocrRequest.uploadReceiptImage(image: recieptImageAndInstructionView.base64Image)
     }
 }

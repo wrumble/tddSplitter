@@ -7,6 +7,7 @@
         inhibit_all_warnings!
 
         def allPods
+          pod 'AFNetworking'
           pod 'Firebase'
           pod 'Firebase/Database'
           pod 'Firebase/Auth'
