@@ -34,7 +34,6 @@ class OCRRequest {
     private func post(params: [String: Any],
                       success: @escaping ((String) -> Void),
                       fail: @escaping ((String?) -> Void)) {
-        
         manager.post(url,
                      parameters: params,
                      progress: nil,

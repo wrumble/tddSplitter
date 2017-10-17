@@ -14,15 +14,17 @@ class OCRResultConverter {
     
     func convertToItems(_ receiptLine: inout String,
                         billID: String) -> [Item] {
+        if receiptLine == "" { return [] }
+        
         var itemArray = [Item]()
+        var item = Item(billID: billID)
         let itemQuantity = returnItemQuantity(&receiptLine)
 
+        item.price = String( returnItemPrice(&receiptLine) / Double(itemQuantity) )
+        formatItemName(&receiptLine)
+        item.name = receiptLine
+        
         for _ in 0..<itemQuantity {
-            var item = Item(billID: billID)
-
-            item.price = String( returnItemPrice(&receiptLine) / Double(itemQuantity) )
-            formatItemName(&receiptLine)
-            item.name = receiptLine
             itemArray.append(item)
         }
 
@@ -69,8 +71,9 @@ class OCRResultConverter {
                                inString: receiptLine) {
             price = regex.listMatches(pricePattern,
                                       inString: receiptLine).last!
-            if let priceRange = receiptLine.range(of: price) {
-                receiptLine.removeSubrange(priceRange.lowerBound..<priceRange.upperBound)
+            if let index = receiptLine.range(of: price)?.lowerBound {
+                let substring = receiptLine[..<index]
+                receiptLine = String(substring)
             }
             normalizePrice(&price)
         }

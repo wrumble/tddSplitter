@@ -39,6 +39,7 @@ enum Localized {
     static let imageInstructionText = "ImageInstructionText".localized
     
     //ActivityIndicator messages
+    static let extractingTextMessage = "ExtractingTextMessage".localized
     static let loadingMessage = "LoadingMessage".localized
     static let loggingInMessage = "LoggingInMessage".localized
     static let registeringMessage = "RegisteringMessage".localized
@@ -88,18 +89,30 @@ enum AccesID {
 }
 
 enum Color {
-    static let activityIndicatorSpinner = UIColor(red: 33/255,
+    static let activityIndicatorDarkSpinner = UIColor(red: 33/255,
                                                       green: 33/255,
                                                       blue: 33/255,
                                                       alpha: 1.00)
-    static let activityIndicatorBackground = UIColor(red: 254/255,
-                                                     green: 254/255,
-                                                     blue: 254/255,
-                                                     alpha: 0.60)
-    static let activityIndicatorText = UIColor(red: 33/255,
+    static let activityIndicatorLightSpinner = UIColor(red: 254/255,
+                                                       green: 254/255,
+                                                       blue: 254/255,
+                                                       alpha: 0.60)
+    static let activityIndicatorDarkBackground = UIColor(red: 33/255,
+                                                         green: 33/255,
+                                                         blue: 33/255,
+                                                         alpha: 1.00)
+    static let activityIndicatorLightBackground = UIColor(red: 254/255,
+                                                          green: 254/255,
+                                                          blue: 254/255,
+                                                          alpha: 0.60)
+    static let activityIndicatorDarkText = UIColor(red: 33/255,
                                            green: 33/255,
                                            blue: 33/255,
                                            alpha: 1.00)
+    static let activityIndicatorLightText = UIColor(red: 254/255,
+                                                    green: 254/255,
+                                                    blue: 254/255,
+                                                    alpha: 0.60)
     static let instructionLabelText = UIColor(red: 254/255,
                                            green: 254/255,
                                            blue: 254/255,

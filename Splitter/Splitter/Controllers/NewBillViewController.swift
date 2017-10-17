@@ -25,6 +25,9 @@ class NewBillViewController: UIViewController,
                                           iconImage: Image.saveButton!)
     private var recieptImageAndInstructionView = ImageAndInstructionView()
     
+    private let activityIndicator = ActivityIndicator(text: Localized.extractingTextMessage,
+                                                      isDarkIndicator: true)
+    
     required init(currentUser: SplitterUser) {
         super.init(nibName: nil, bundle: nil)
         defer {
@@ -52,6 +55,7 @@ class NewBillViewController: UIViewController,
         view.addSubview(homeButton)
         view.addSubview(saveButton)
         view.addSubview(recieptImageAndInstructionView)
+        view.addSubview(activityIndicator)
     }
     
     private func setupViews() {
@@ -68,6 +72,8 @@ class NewBillViewController: UIViewController,
         saveButton.addTarget(self,
                              action: #selector(saveButtonWasTapped),
                              for: .touchUpInside)
+        
+        activityIndicator.hide()
     }
     
     private func setupLayout() {
@@ -214,8 +220,10 @@ class NewBillViewController: UIViewController,
         let image = recieptImageAndInstructionView.base64Image!
         let ocrRequest = OCRRequest()
         let ocrResultConverter = OCRResultConverter()
-        var items = [Item]()
+        
+        activityIndicator.show()
         ocrRequest.uploadReceiptImage(image: image, complete: { textResult in
+            var items = [Item]()
             if let textResult = textResult {
                 let receiptLines = textResult.components(separatedBy: .newlines)
                 receiptLines.forEach { line in
@@ -230,6 +238,7 @@ class NewBillViewController: UIViewController,
                     print(item)
                     print("\n\n")
                 }
+                self.activityIndicator.hide()
             }
         })
     }
