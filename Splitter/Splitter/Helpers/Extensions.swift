@@ -46,16 +46,12 @@ extension UITextField {
 
 extension UIImage {
     func base64EncodeImage() -> String {
-        var imagedata = UIImagePNGRepresentation(self)!
-        
-        // Resize the image if it exceeds the 2MB Google Vision API limit
-        if imagedata.count > 2097152 {
-            let oldSize = self.size
-            let newSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
-            imagedata = resizeImage(newSize, image: self)
+        var base64String = ""
+        if CIImage(image: self) != nil {
+            let imagedata = UIImageJPEGRepresentation(self, 1.0)!
+            base64String = imagedata.base64EncodedString(options: .lineLength64Characters)
         }
-        
-        return imagedata.base64EncodedString(options: .endLineWithCarriageReturn)
+        return base64String
     }
     
     func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {

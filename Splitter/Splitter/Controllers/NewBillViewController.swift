@@ -200,7 +200,8 @@ class NewBillViewController: UIViewController,
                 completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         recieptImageAndInstructionView.image = image
         recieptImageAndInstructionView.instructionLabel.isHidden = true
@@ -210,7 +211,7 @@ class NewBillViewController: UIViewController,
     }
     
     @objc private func saveButtonWasTapped() {
-        let ocrRequest = OCRRequest()
-        ocrRequest.uploadReceiptImage(image: recieptImageAndInstructionView.base64Image)
+        let image = recieptImageAndInstructionView.base64Image!
+        _ = OCRRequest(image)
     }
 }
