@@ -53,15 +53,6 @@ extension UIImage {
         }
         return base64String
     }
-    
-    func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
-        UIGraphicsBeginImageContext(imageSize)
-        image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        let resizedImage = UIImagePNGRepresentation(newImage!)
-        UIGraphicsEndImageContext()
-        return resizedImage!
-    }
 }
 
 extension UIViewController {

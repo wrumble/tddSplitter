@@ -12,7 +12,7 @@ class NewBillViewController: UIViewController,
                              UIImagePickerControllerDelegate,
                              UINavigationControllerDelegate {
     
-    var currentUser: SplitterUser?
+    var currentUser: SplitterUser!
     
     private var titleLabel = TitleLabel()
     private var nameTextField = SplitterTextField(accessID: AccesID.nameTextField)
@@ -212,6 +212,25 @@ class NewBillViewController: UIViewController,
     
     @objc private func saveButtonWasTapped() {
         let image = recieptImageAndInstructionView.base64Image!
-        _ = OCRRequest(image)
+        let ocrRequest = OCRRequest()
+        let ocrResultConverter = OCRResultConverter()
+        var items = [Item]()
+        ocrRequest.uploadReceiptImage(image: image, complete: { textResult in
+            if let textResult = textResult {
+                let receiptLines = textResult.components(separatedBy: .newlines)
+                receiptLines.forEach { line in
+                    var receiptLine = line
+                    let newItems = ocrResultConverter.convertToItems(&receiptLine,
+                                                                     billID: self.currentUser.id)
+                    newItems.forEach { item in
+                        items.append(item)
+                    }
+                }
+                items.forEach { item in
+                    print(item)
+                    print("\n\n")
+                }
+            }
+        })
     }
 }
