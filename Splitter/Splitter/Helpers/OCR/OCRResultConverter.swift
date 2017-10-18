@@ -15,16 +15,17 @@ class OCRResultConverter {
     func convertToItems(_ receiptLine: inout String,
                         billID: String) -> [Item] {
         if receiptLine == "" { return [] }
-        
         var itemArray = [Item]()
-        var item = Item(billID: billID)
         let itemQuantity = returnItemQuantity(&receiptLine)
-
-        item.price = String( returnItemPrice(&receiptLine) / Double(itemQuantity) )
+        let itemPrice = String( returnItemPrice(&receiptLine) / Double(itemQuantity) )
         formatItemName(&receiptLine)
-        item.name = receiptLine
-        
+
         for _ in 0..<itemQuantity {
+            var item = Item(billID: billID)
+
+            item.price = itemPrice
+            item.name = receiptLine
+            
             itemArray.append(item)
         }
 

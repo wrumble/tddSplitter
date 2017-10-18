@@ -161,19 +161,18 @@ struct FirebaseData {
         let id = snapshot.childSnapshot(forPath: "id").value!
         let userID = snapshot.childSnapshot(forPath: "userID").value!
         let name = snapshot.childSnapshot(forPath: "name").value!
-        let date = snapshot.childSnapshot(forPath: "date").value!
         let location = snapshot.childSnapshot(forPath: "location").value!
         let imageURL = snapshot.childSnapshot(forPath: "imageURL").value!
-        let itemsSnapshot = snapshot.childSnapshot(forPath: "Items")
+        let itemsSnapshot = snapshot.childSnapshot(forPath: "items")
         var items = [Item]()
         
         if let createdItems = self.createItemsArray(itemsSnapshot) {
             items = createdItems
         }
         
-        var bill = Bill(userID: userID as! String,
+        var bill = Bill(id: id as! String,
+                        userID: userID as! String,
                         name: name as! String,
-                        date: date as! String,
                         location: location as? String,
                         imageURL: imageURL as! String,
                         items: items)

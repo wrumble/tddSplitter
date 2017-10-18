@@ -20,22 +20,22 @@ struct Bill: JSONable {
     var id: String
     var userID: String
     var name: String
-    var date: String
+    var creationDate: String
     var location: String?
     var imageURL: String
     var items: [Item]?
     
-    init(userID: String,
+    init(id: String,
+         userID: String,
          name: String,
-         date: String,
          location: String?,
          imageURL: String,
          items: [Item]?) {
         
-        self.id = UUID().uuidString
+        self.id = id
         self.userID = userID
         self.name = name
-        self.date = date
+        self.creationDate = Date().currentDateTimeAsString()
         self.location = location
         self.imageURL = imageURL
         self.items = items
@@ -46,8 +46,17 @@ struct Bill: JSONable {
                 "userID": userID,
                 "name": name,
                 "location": location,
-                "date": date,
-                "imageURL": imageURL
+                "creationDate": creationDate,
+                "imageURL": imageURL,
+                "items": itemsAsJson()
         ]
+    }
+    
+    func itemsAsJson() -> JSON {
+        var itemsJson = JSON()
+        items?.forEach { item in
+            itemsJson[item.id] = item.toJSON()
+        }
+        return itemsJson
     }
 }

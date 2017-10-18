@@ -14,6 +14,8 @@ class NewBillViewController: UIViewController,
     
     var currentUser: SplitterUser!
     
+    private let billID = UUID().uuidString
+
     private var titleLabel = TitleLabel()
     private var nameTextField = SplitterTextField(accessID: AccesID.nameTextField)
     private var locationTextField = SplitterTextField(accessID: AccesID.locationTextField)
@@ -180,6 +182,10 @@ class NewBillViewController: UIViewController,
     }
     
     @objc private func homeButtonWasTapped() {
+        goToMyBillsViewController()
+    }
+    
+    private func goToMyBillsViewController() {
         let myBillsViewController = MyBillsViewController(currentUser: currentUser!)
         view.window?.rootViewController = myBillsViewController
     }
@@ -217,29 +223,73 @@ class NewBillViewController: UIViewController,
     }
     
     @objc private func saveButtonWasTapped() {
-        let image = recieptImageAndInstructionView.base64Image!
         let ocrRequest = OCRRequest()
-        let ocrResultConverter = OCRResultConverter()
+        let image = recieptImageAndInstructionView.base64Image!
+        var imageURL: String = ""
+        createImageURL(complete: {url in
+            imageURL = url
+        })
         
         activityIndicator.show()
-        ocrRequest.uploadReceiptImage(image: image, complete: { textResult in
-            var items = [Item]()
+        ocrRequest.uploadReceiptImage(image: image,
+                                      complete: { textResult in
             if let textResult = textResult {
-                let receiptLines = textResult.components(separatedBy: .newlines)
-                receiptLines.forEach { line in
-                    var receiptLine = line
-                    let newItems = ocrResultConverter.convertToItems(&receiptLine,
-                                                                     billID: self.currentUser.id)
-                    newItems.forEach { item in
-                        items.append(item)
-                    }
-                }
-                items.forEach { item in
-                    print(item)
-                    print("\n\n")
-                }
-                self.activityIndicator.hide()
+                let items = self.createItems(textResult)
+                self.createBill(items: items,
+                                imageURL: imageURL)
             }
+            self.activityIndicator.hide()
+        })
+    }
+    
+    private func createItems(_ textResult: String) -> [Item] {
+        var items = [Item]()
+        let ocrResultConverter = OCRResultConverter()
+        let receiptLines = textResult.components(separatedBy: .newlines)
+        receiptLines.forEach { line in
+            var receiptLine = line
+            let newItems = ocrResultConverter.convertToItems(&receiptLine,
+                                                             billID: billID)
+            newItems.forEach { item in
+                items.append(item)
+            }
+        }
+        
+        return items
+    }
+    
+    private func createBill(items: [Item],
+                            imageURL: String) {
+        let firebaseData = FirebaseData()
+        let name = nameTextField.text ?? ""
+        let location = locationTextField.text ?? ""
+        let bill = Bill(id: billID,
+                        userID: self.currentUser.id,
+                        name: name,
+                        location: location,
+                        imageURL: imageURL,
+                        items: items)
+        
+        firebaseData.createBill(bill,
+                                completion: { error in
+            if let error = error {
+                print(error)
+            }
+            self.goToMyBillsViewController()
+        })
+    }
+    
+    private func createImageURL(complete: @escaping((String) -> Void)) {
+        var imageURL = ""
+        let firebaseStorage = FirebaseStorage()
+        let imageData = UIImageJPEGRepresentation(recieptImageAndInstructionView.image!, 0.5)!
+        firebaseStorage.uploadImage(billId: billID,
+                                    imageData: imageData,
+                                    completion: { url in
+            if let url = url {
+                imageURL = url.absoluteString
+            }
+            complete(imageURL)
         })
     }
 }
