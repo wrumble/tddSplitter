@@ -14,16 +14,16 @@ class TitleLabelLogo: UILabel {
     
     required init(accessID: String) {
         super.init(frame: .zero)
-        
         self.accessID = accessID
-        setup()
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupView()
     }
     
-    private func setup() {
+    private func setupView() {
         accessibilityIdentifier = accessID
         text = Localized.splitterTitleLogoText
         textColor = Color.titleLogoText

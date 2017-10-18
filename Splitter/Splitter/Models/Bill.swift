@@ -59,4 +59,12 @@ struct Bill: JSONable {
         }
         return itemsJson
     }
+    
+    func totalPrice() -> Double {
+        var total = 0.0
+        items?.forEach { item in
+            total += Double(item.price)!
+        }
+        return total
+    }
 }

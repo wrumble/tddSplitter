@@ -145,14 +145,14 @@ struct FirebaseData {
         let id = snapshot.childSnapshot(forPath: "id").value!
         let name = snapshot.childSnapshot(forPath: "name").value!
         let price = snapshot.childSnapshot(forPath: "price").value!
-        let creationDate = snapshot.childSnapshot(forPath: "creationDate").value!
+        let creationID = snapshot.childSnapshot(forPath: "creationID").value!
         let billID = snapshot.childSnapshot(forPath: "billID").value!
         
         var item = Item(name: name as! String,
                         price: price as! String,
+                        creationID: creationID as! String,
                         billID: billID as! String)
         item.id = id as! String
-        item.creationDate = creationDate as! String
         
         return item
     }
@@ -162,6 +162,7 @@ struct FirebaseData {
         let userID = snapshot.childSnapshot(forPath: "userID").value!
         let name = snapshot.childSnapshot(forPath: "name").value!
         let location = snapshot.childSnapshot(forPath: "location").value!
+        let creationDate = snapshot.childSnapshot(forPath: "creationDate").value!
         let imageURL = snapshot.childSnapshot(forPath: "imageURL").value!
         let itemsSnapshot = snapshot.childSnapshot(forPath: "items")
         var items = [Item]()
@@ -176,7 +177,7 @@ struct FirebaseData {
                         location: location as? String,
                         imageURL: imageURL as! String,
                         items: items)
-        bill.id = id as! String
+        bill.creationDate = creationDate as! String
         
         return bill
     }

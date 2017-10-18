@@ -1,5 +1,5 @@
 //
-//  BillsCarouselDatasource.swift
+//  BillsCarouselDataSource.swift
 //  Splitter
 //
 //  Created by Wayne Rumble on 18/09/2017.
@@ -9,10 +9,9 @@
 import Foundation
 import iCarousel
 
-class BillCarouselDatasource: NSObject, iCarouselDataSource {
+class BillCarouselDataSource: NSObject, iCarouselDataSource {
     
     var bills = [Bill]()
-    var superView = UIView()
     
     func numberOfItems(in carousel: iCarousel) -> Int {
         return bills.count

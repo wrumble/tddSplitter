@@ -24,7 +24,7 @@ class MyBillsViewController: UIViewController {
     private let noBillsLabel = InstructionLabel()
     private let titleLabel = TitleLabel()
     private let carousel = iCarousel()
-    private let carouselDatasource = BillCarouselDatasource()
+    private let carouselDatasource = BillCarouselDataSource()
     private let activityIndicator = ActivityIndicator(text: Localized.loadingMessage)
     private weak var carouselDelegate = BillCarouselDelegate()
     

@@ -13,16 +13,17 @@ struct Item: JSONable {
     var id: String
     var name: String
     var price: String
-    var creationDate: String
+    var creationID: String
     var billID: String
     
     init(name: String = "",
          price: String = "",
+         creationID: String = "",
          billID: String) {
         self.id = UUID().uuidString
         self.name = name
         self.price = price
-        self.creationDate = Date().currentDateTimeAsString()
+        self.creationID = creationID
         self.billID = billID
     }
     
@@ -31,7 +32,7 @@ struct Item: JSONable {
             "id": id,
             "name": name,
             "price": price,
-            "creationDate": creationDate,
+            "creationID": creationID,
             "billID": billID
         ]
     }

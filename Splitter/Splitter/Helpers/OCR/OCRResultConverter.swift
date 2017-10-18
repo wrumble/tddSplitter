@@ -11,24 +11,25 @@ import UIKit
 class OCRResultConverter {
     
     let regex = Regex()
+    var creationCount = 0
     
     func convertToItems(_ receiptLine: inout String,
                         billID: String) -> [Item] {
-        if receiptLine == "" { return [] }
+        if receiptLine == "" || receiptLine == " " { return [] }
         var itemArray = [Item]()
         let itemQuantity = returnItemQuantity(&receiptLine)
         let itemPrice = String( returnItemPrice(&receiptLine) / Double(itemQuantity) )
         formatItemName(&receiptLine)
 
         for _ in 0..<itemQuantity {
-            var item = Item(billID: billID)
-
-            item.price = itemPrice
-            item.name = receiptLine
+            let item = Item(name: receiptLine,
+                            price: itemPrice,
+                            creationID: String(creationCount),
+                            billID: billID)
             
             itemArray.append(item)
         }
-
+        creationCount += 1
         return itemArray
     }
     

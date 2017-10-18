@@ -65,6 +65,8 @@ enum Layout {
 }
 
 enum AccesID {
+    static let carouselLocationLabel = "CarouselLocationLabel"
+    static let carouselDateLabel = "CarouselDateLabel"
     static let imagePicker = "ImagePicker"
     static let instructionLabel = "InstructionLabel"
     static let cameraButton = "Camera"
@@ -73,7 +75,7 @@ enum AccesID {
     static let locationTextField = "Location"
     static let nameTextField = "Name"
     static let noBillsLabel = "NoBillsLabel"
-    static let carouselTitleLabel = "CarouselTitleLabel"
+    static let carouselNameLabel = "CarouselNameLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "Delete"
     static let logoutButton = "Logout"
@@ -117,7 +119,7 @@ enum Color {
                                            green: 254/255,
                                            blue: 254/255,
                                            alpha: 1.00)
-    static let carouselTitleText = UIColor(red: 33/255,
+    static let carouselText = UIColor(red: 33/255,
                                            green: 33/255,
                                            blue: 33/255,
                                            alpha: 1.00)
@@ -128,7 +130,7 @@ enum Color {
     static let carouselView = UIColor(red: 254/255,
                                       green: 254/255,
                                       blue: 254/255,
-                                      alpha: 0.85)
+                                      alpha: 0.75)
     static let titleLabelBackground = UIColor(red: 254/255,
                                               green: 254/255,
                                               blue: 254/255,
@@ -168,6 +170,8 @@ enum Color {
 }
 
 enum Font {
+    static let carouselText = UIFont.systemFont(ofSize: 24)
+    static let carouselDateText = UIFont.systemFont(ofSize: 20)
     static let activityIndicator = UIFont.systemFont(ofSize: 18)
     static let instructionLabel = UIFont.systemFont(ofSize: 20)
     static let titleLabel = UIFont.systemFont(ofSize: 26)

@@ -13,7 +13,7 @@ extension Date {
     func currentDateTimeAsString() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm dd/MM/yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
         
         return formatter.string(from: date)
     }
