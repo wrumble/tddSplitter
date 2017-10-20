@@ -9,7 +9,7 @@
 import Foundation
 import iCarousel
 
-class BillCarouselDataSource: NSObject, iCarouselDataSource {
+class CarouselDataSource: NSObject, iCarouselDataSource {
     
     var bills = [Bill]()
     

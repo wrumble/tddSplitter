@@ -33,8 +33,7 @@
 		873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C61F79324800C960F6 /* OCRResultConverter.swift */; };
 		873218C91F79456B00C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
 		873218CB1F79470500C960F6 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218CA1F79470500C960F6 /* RegexTests.swift */; };
-		87344C511F7058C000C0B3FE /* BillCarouselDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* BillCarouselDataSource.swift */; };
-		87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */; };
+		87344C511F7058C000C0B3FE /* CarouselDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* CarouselDataSource.swift */; };
 		87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C541F705D8400C0B3FE /* BillCarouselView.swift */; };
 		87344C571F7060CA00C0B3FE /* CarouselLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C561F7060CA00C0B3FE /* CarouselLabel.swift */; };
 		873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A11F6FCF9900F602EF /* TitleLabel.swift */; };
@@ -58,6 +57,7 @@
 		878C59FD4CC8BF797DB0161D /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7723B0732EB4D5616EAE81 /* Pods_UnitTests.framework */; };
 		87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */; };
 		87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
+		87B1EE241F97D390005E1674 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */; };
 		87CF98161F7BDEC3002A60BD /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B379D1F29F614001FE485 /* ItemTests.swift */; };
 		87CF98171F7BDEC3002A60BD /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37B61F2A1BFF001FE485 /* UserTests.swift */; };
 		87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */; };
@@ -189,8 +189,7 @@
 		873218C61F79324800C960F6 /* OCRResultConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultConverter.swift; sourceTree = "<group>"; };
 		873218C81F79456B00C960F6 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		873218CA1F79470500C960F6 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
-		87344C501F7058C000C0B3FE /* BillCarouselDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDataSource.swift; sourceTree = "<group>"; };
-		87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDelegate.swift; sourceTree = "<group>"; };
+		87344C501F7058C000C0B3FE /* CarouselDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselDataSource.swift; sourceTree = "<group>"; };
 		87344C541F705D8400C0B3FE /* BillCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselView.swift; sourceTree = "<group>"; };
 		87344C561F7060CA00C0B3FE /* CarouselLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLabel.swift; sourceTree = "<group>"; };
 		873CD1A11F6FCF9900F602EF /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
@@ -221,6 +220,7 @@
 		87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBillsViewController.swift; sourceTree = "<group>"; };
 		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		87A218EB1F25EEAA00B4BE74 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
 		87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndInstructionView.swift; sourceTree = "<group>"; };
 		87D1D3B81F7516F2008E3C34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -302,6 +302,7 @@
 		870B43A01F97A2330056ED1E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -326,7 +327,6 @@
 				870B43A01F97A2330056ED1E /* Cells */,
 				877B41881F46F58200AE9813 /* Buttons */,
 				87344C4F1F7058A300C0B3FE /* Datasources */,
-				87344C4E1F70589800C0B3FE /* Delegates */,
 				877B41861F46F47900AE9813 /* Labels */,
 				877B41871F46F57700AE9813 /* TextFields */,
 				877B41891F46F58900AE9813 /* Views */,
@@ -342,18 +342,10 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		87344C4E1F70589800C0B3FE /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */,
-			);
-			path = Delegates;
-			sourceTree = "<group>";
-		};
 		87344C4F1F7058A300C0B3FE /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				87344C501F7058C000C0B3FE /* BillCarouselDataSource.swift */,
+				87344C501F7058C000C0B3FE /* CarouselDataSource.swift */,
 				870B439E1F979F3C0056ED1E /* CarouselTableViewDataSource.swift */,
 			);
 			path = Datasources;
@@ -1191,14 +1183,14 @@
 				871B37F01F2F6322001FE485 /* Constants.swift in Sources */,
 				870B439C1F9783BB0056ED1E /* CarouselButton.swift in Sources */,
 				873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */,
+				87B1EE241F97D390005E1674 /* CarouselTableViewCell.swift in Sources */,
 				87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */,
 				87EBAFEB1F851A5700D5B2C0 /* ActivityIndicator.swift in Sources */,
-				87344C511F7058C000C0B3FE /* BillCarouselDataSource.swift in Sources */,
+				87344C511F7058C000C0B3FE /* CarouselDataSource.swift in Sources */,
 				871B37E91F2F430C001FE485 /* SplitterTextField.swift in Sources */,
 				871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */,
 				8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */,
 				87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */,
-				87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */,
 				870B439F1F979F3C0056ED1E /* CarouselTableViewDataSource.swift in Sources */,
 				873CD1A41F6FF34F00F602EF /* IconButton.swift in Sources */,
 				87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */,

@@ -26,7 +26,7 @@ class CarouselButton: UIButton {
         titleLabel?.font = Font.carouselText
     }
     
-    func applyMaskLayer() {
+    private func applyMaskLayer() {
         let maskBounds = bounds
         let maskPath = UIBezierPath(roundedRect: maskBounds,
                                 byRoundingCorners: [.bottomLeft, .bottomRight],

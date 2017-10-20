@@ -24,9 +24,8 @@ class MyBillsViewController: UIViewController {
     private let noBillsLabel = InstructionLabel()
     private let titleLabel = TitleLabel()
     private let carousel = iCarousel()
-    private let carouselDatasource = BillCarouselDataSource()
+    private let carouselDatasource = CarouselDataSource()
     private let activityIndicator = ActivityIndicator(text: Localized.loadingMessage)
-    private weak var carouselDelegate = BillCarouselDelegate()
     
     private var userBills: [Bill]? {
         didSet {
@@ -84,7 +83,6 @@ class MyBillsViewController: UIViewController {
                                for: .touchUpInside)
         
         carousel.dataSource = carouselDatasource
-        carousel.delegate = carouselDelegate
         carousel.isPagingEnabled = true
         carousel.type = .coverFlow
         carousel.backgroundColor = .clear

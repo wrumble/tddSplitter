@@ -15,7 +15,7 @@ class BillCarouselView: UIView {
     private let nameLabel = CarouselLabel()
     private let locationLabel = CarouselLabel()
     private let dateLabel = CarouselLabel()
-    let splitButton = CarouselButton()
+    private let splitButton = CarouselButton()
     private let tableView = UITableView()
     
     required init(bill: Bill) {
@@ -59,9 +59,15 @@ class BillCarouselView: UIView {
         dateLabel.textAlignment = .right
         dateLabel.accessibilityIdentifier = AccesID.carouselDateLabel
         
+        let dataSource = CarouselTableViewDataSource()
+        
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.dataSource = CarouselTableViewDataSource(items: bill.items!)
+        tableView.dataSource = dataSource
+        tableView.register(CarouselTableViewCell.classForCoder(),
+                           forCellReuseIdentifier: "carouselTableViewCell")
+        dataSource.items = bill.items
+        tableView.reloadData()
         
         let buttonTitle = "Split £\(bill.totalPrice())"
         splitButton.setTitle(buttonTitle, for: .normal)
@@ -81,7 +87,7 @@ class BillCarouselView: UIView {
                                  priority: .required)
         dateLabel.pinTop(to: nameLabel, anchor: .bottom)
         
-        tableView.pinTop(to: locationLabel, anchor: .bottom)
+        tableView.pinTop(to: dateLabel, anchor: .bottom)
         tableView.pinToSuperview(edges: [.left, .right])
         tableView.pinBottom(to: splitButton, anchor: .top)
         

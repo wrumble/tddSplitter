@@ -101,6 +101,6 @@ extension UIView {
 extension Array {
     func filterDuplicates<T>(_ keyValue: (Element) -> T) -> [Element] {
         var uniqueKeys = Set<String>()
-        return filter{ uniqueKeys.insert("\(keyValue($0))").inserted }
+        return filter { uniqueKeys.insert("\(keyValue($0))").inserted }
     }
 }
