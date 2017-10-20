@@ -18,17 +18,33 @@ class OCRResultConverter {
         if receiptLine == "" || receiptLine == " " { return [] }
         var itemArray = [Item]()
         let itemQuantity = returnItemQuantity(&receiptLine)
-        let itemPrice = String( returnItemPrice(&receiptLine) / Double(itemQuantity) )
+        var itemPrice: String {
+            if String(returnItemPrice(&receiptLine)) == "0.0" {
+                return "0.0"
+            }
+            return String(returnItemPrice(&receiptLine) / Double(itemQuantity) )
+        }
+        
         formatItemName(&receiptLine)
-
-        for _ in 0..<itemQuantity {
+        
+        if itemQuantity == 0 {
             let item = Item(name: receiptLine,
                             price: itemPrice,
                             creationID: String(creationCount),
                             billID: billID)
             
             itemArray.append(item)
+        } else {
+            for _ in 0..<itemQuantity {
+                let item = Item(name: receiptLine,
+                                price: itemPrice,
+                                creationID: String(creationCount),
+                                billID: billID)
+                
+                itemArray.append(item)
+            }
         }
+        
         creationCount += 1
         return itemArray
     }

@@ -26,7 +26,8 @@ class CarouselTableViewDataSource: NSObject, UITableViewDataSource {
     //Set what each cell in the tableview contains.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CarouselTableViewCell = tableView.dequeueReusableCell(withIdentifier: "carouselTableViewCell") as! CarouselTableViewCell
-        let duplicateItems = items?.filter { Int($0.creationID)! == indexPath.row }
+        let sortedItems = items?.sorted(by: { Int($0.creationID)! < Int($1.creationID)! })
+        let duplicateItems = sortedItems?.filter { Int($0.creationID)! == indexPath.row }
         let quantity = "\(duplicateItems!.count) x "
         let name = duplicateItems![0].name
         let price = formatPrice(duplicateItems![0].price)
@@ -44,7 +45,7 @@ class CarouselTableViewDataSource: NSObject, UITableViewDataSource {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         if let formattedTipAmount = formatter.string(from: price) {
-            formattedPrice = "Tip Amount: \(formattedTipAmount)"
+            formattedPrice = " \(formattedTipAmount)"
         }
         return formattedPrice
     }
