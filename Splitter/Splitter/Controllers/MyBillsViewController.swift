@@ -57,7 +57,6 @@ class MyBillsViewController: UIViewController {
         setupHierarchy()
         setupViews()
         setupLayout()
-        listenForUpdates()
     }
     
     private func setupHierarchy() {
@@ -89,6 +88,9 @@ class MyBillsViewController: UIViewController {
         carousel.backgroundColor = .clear
         
         deleteButton.hide()
+        deleteButton.addTarget(self,
+                               action: #selector(deleteButtonWasTapped),
+                               for: .touchUpInside)
         
         activityIndicator.hide()
         
@@ -171,16 +173,20 @@ class MyBillsViewController: UIViewController {
         })
     }
     
-    private func listenForUpdates() {
-        userBills?.forEach { bill in
-            let databaseReference = Database.database().reference().child("Bills").child(bill.id)
-            databaseReference.observe(.childChanged, with: { (_) in
-                self.getUserBills {
-                    self.carousel.reloadData()
-                }
-            }) { (error) in
+    @objc private func deleteButtonWasTapped() {
+        let billIndex = carousel.currentItemIndex
+        let billID = userBills![billIndex].id
+        firebaseData.removeBill(with: billID,
+                                completion: { error in
+            if let error = error {
                 print(error.localizedDescription)
             }
-        }
+            self.userBills?.remove(at: billIndex)
+            if self.userBills?.count == 0 {
+                self.noBillsLabel.show()
+                self.deleteButton.hide()
+            }
+            self.carousel.reloadData()
+        })
     }
 }

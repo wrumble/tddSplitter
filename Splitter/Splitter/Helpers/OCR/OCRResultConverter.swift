@@ -135,7 +135,7 @@ class OCRResultConverter {
                 stringBeforePrice == "8" ||
                 stringBeforePrice == "0" {
                     nameArray.remove(at: index - 1)
-                    receiptLine = nameArray.joined(separator: " ")
+                    receiptLine = nameArray.joined(separator: " v")
             }
         }
 

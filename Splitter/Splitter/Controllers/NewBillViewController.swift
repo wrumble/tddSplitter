@@ -224,7 +224,7 @@ class NewBillViewController: UIViewController,
     
     @objc private func saveButtonWasTapped() {
         let ocrRequest = OCRRequest()
-        let image = recieptImageAndInstructionView.base64Image!
+        guard let image = recieptImageAndInstructionView.base64Image else { return }
         var imageURL: String = ""
         createImageURL(complete: {url in
             imageURL = url

@@ -29,7 +29,7 @@ struct FirebaseStorage {
 
 struct FirebaseData {
     
-    let databaseReference = Database.database().reference().child("Bills")
+    private let databaseReference = Database.database().reference().child("Bills")
     
     func createUser(email: String,
                     password: String,
@@ -192,7 +192,7 @@ struct FirebaseData {
         return bills
     }
 
-    private func createItemsArray(_ snapshot: DataSnapshot?) -> [Item]? {
+    func createItemsArray(_ snapshot: DataSnapshot?) -> [Item]? {
         var items = [Item]()
         (snapshot?.children.allObjects as! [DataSnapshot]).forEach { snapshot in
             let item = self.createItem(from: snapshot)

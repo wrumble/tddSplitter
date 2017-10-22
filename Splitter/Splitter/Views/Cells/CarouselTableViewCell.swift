@@ -86,7 +86,7 @@ class CarouselTableViewCell: UITableViewCell {
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
-        priceLabel.pinToSuperview(edges: [.top, .right, .bottom])
+        priceLabel.pinToSuperview(edges: [.top, .bottom])
         priceLabel.pinToSuperviewRight(withConstant: -Layout.spacer,
                                        priority: .required,
                                        relatedBy: .equal)

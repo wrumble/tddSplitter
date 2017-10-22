@@ -12,7 +12,7 @@ class CarouselTableViewDataSource: NSObject, UITableViewDataSource {
     
     var items: [Item]? {
         didSet {
-            let duplicatedItems = items?.filterDuplicates { ( $0.creationID ) }
+            let duplicatedItems = items?.filterDuplicates { ( $0.name, $0.price ) }
             filteredItems = duplicatedItems?.sorted(by: { Int($0.creationID)! < Int($1.creationID)! })
         }
     }

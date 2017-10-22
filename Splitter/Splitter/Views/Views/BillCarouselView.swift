@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BillCarouselView: UIView {
     
@@ -27,6 +28,7 @@ class BillCarouselView: UIView {
         setupHierarchy()
         setupViews()
         setupLayout()
+        listenForUpdates()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +53,7 @@ class BillCarouselView: UIView {
         nameLabel.textAlignment = .center
         nameLabel.accessibilityIdentifier = AccesID.carouselNameLabel
         
+        locationLabel.numberOfLines = 0
         locationLabel.text = bill.location
         locationLabel.textAlignment = .left
         locationLabel.accessibilityIdentifier = AccesID.carouselLocationLabel
@@ -81,13 +84,16 @@ class BillCarouselView: UIView {
                                      priority: .required)
         locationLabel.pinTop(to: nameLabel, anchor: .bottom)
         locationLabel.pinRight(to: dateLabel, anchor: .left)
+        locationLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
         dateLabel.pinToSuperview(edges: [.right],
                                  constant: -Layout.spacer,
                                  priority: .required)
         dateLabel.pinTop(to: nameLabel, anchor: .bottom)
+        dateLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        dateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
-        tableView.pinTop(to: dateLabel,
+        tableView.pinTop(to: locationLabel,
                           anchor: .bottom,
                           constant: Layout.spacer,
                           priority: .required,
@@ -96,5 +102,30 @@ class BillCarouselView: UIView {
         tableView.pinBottom(to: splitButton, anchor: .top)
         
         splitButton.pinToSuperview(edges: [.left, .right, .bottom])
+    }
+    
+    private func listenForUpdates() {
+        let databaseReference = Database.database().reference().child("Bills").child(bill.id)
+        databaseReference.observe(.childChanged, with: { (snapshot) in
+            self.updateView(with: snapshot)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func updateView(with snapshot: DataSnapshot) {
+        switch snapshot.key {
+        case "name":
+            nameLabel.text = snapshot.value as? String
+        case "location":
+            locationLabel.text = snapshot.value as? String
+        case "items":
+            let database = FirebaseData()
+            let newItems = database.createItemsArray(snapshot)
+            dataSource.items = newItems
+            tableView.reloadData()
+        default:
+            return
+        }
     }
 }
