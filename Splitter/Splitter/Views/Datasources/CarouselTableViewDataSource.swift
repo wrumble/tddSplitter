@@ -30,23 +30,14 @@ class CarouselTableViewDataSource: NSObject, UITableViewDataSource {
         let duplicateItems = sortedItems?.filter { Int($0.creationID)! == indexPath.row }
         let quantity = "\(duplicateItems!.count) x "
         let name = duplicateItems![0].name
-        let price = formatPrice(duplicateItems![0].price)
+        let doublePrice = Double(duplicateItems![0].price)!
+        let doubleQuantity = Double(duplicateItems!.count)
+        let price = String(doublePrice * doubleQuantity)
         
         cell.quantityLabel.text = quantity
         cell.nameLabel.text = name
-        cell.priceLabel.text = price
+        cell.priceLabel.text = price.formatPrice()
         
         return cell
-    }
-    
-    private func formatPrice(_ stringPrice: String) -> String {
-        var formattedPrice = stringPrice
-        let price = NSNumber(value: Double(stringPrice)!)
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        if let formattedTipAmount = formatter.string(from: price) {
-            formattedPrice = " \(formattedTipAmount)"
-        }
-        return formattedPrice
     }
 }

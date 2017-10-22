@@ -68,7 +68,8 @@ class BillCarouselView: UIView {
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
         
-        let buttonTitle = "Split £\(bill.totalPrice())"
+        let totalPrice = bill.totalPrice()
+        let buttonTitle = "Split\(totalPrice.formatPrice())"
         splitButton.setTitle(buttonTitle, for: .normal)
     }
     
@@ -86,7 +87,11 @@ class BillCarouselView: UIView {
                                  priority: .required)
         dateLabel.pinTop(to: nameLabel, anchor: .bottom)
         
-        tableView.pinTop(to: dateLabel, anchor: .bottom)
+        tableView.pinTop(to: dateLabel,
+                          anchor: .bottom,
+                          constant: Layout.spacer,
+                          priority: .required,
+                          relatedBy: .equal)
         tableView.pinToSuperview(edges: [.left, .right])
         tableView.pinBottom(to: splitButton, anchor: .top)
         

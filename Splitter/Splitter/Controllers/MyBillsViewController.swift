@@ -36,7 +36,7 @@ class MyBillsViewController: UIViewController {
     
     private var currentUser: SplitterUser! {
         didSet {
-            getUserBills()
+            getUserBills {}
         }
     }
     
@@ -57,6 +57,7 @@ class MyBillsViewController: UIViewController {
         setupHierarchy()
         setupViews()
         setupLayout()
+        listenForUpdates()
     }
     
     private func setupHierarchy() {
@@ -139,7 +140,7 @@ class MyBillsViewController: UIViewController {
         noBillsLabel.centerYToSuperview()
     }
     
-    private func getUserBills() {
+    private func getUserBills(complete: @escaping (() -> Void)) {
         activityIndicator.show()
         firebaseData.findBillsWith(userID: currentUser.id,
                                    completion: { bills in
@@ -152,6 +153,7 @@ class MyBillsViewController: UIViewController {
                 self.deleteButton.hide()
             }
             self.activityIndicator.hide()
+                                    complete()
         })
     }
     
@@ -167,5 +169,18 @@ class MyBillsViewController: UIViewController {
                 self.view.window?.rootViewController = welcomeScreenViewController
             }
         })
+    }
+    
+    private func listenForUpdates() {
+        userBills?.forEach { bill in
+            let databaseReference = Database.database().reference().child("Bills").child(bill.id)
+            databaseReference.observe(.childChanged, with: { (_) in
+                self.getUserBills {
+                    self.carousel.reloadData()
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
     }
 }

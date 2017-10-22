@@ -45,11 +45,10 @@ class CarouselTableViewCell: UITableViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
-        containerView.backgroundColor = .clear
+        containerView.backgroundColor = Color.carouselView
         
         quantityLabel.textAlignment = .left
         quantityLabel.backgroundColor = .clear
-        quantityLabel.backgroundColor = Color.carouselView
         quantityLabel.textColor = Color.carouselText
         quantityLabel.font = Font.carouselText
 
@@ -67,18 +66,31 @@ class CarouselTableViewCell: UITableViewCell {
     
     private func setupLayout() {
         containerView.pinToSuperview(edges: [.left, .right])
-        containerView.pinToSuperviewTop(withConstant: -2, priority: .required, relatedBy: .equal)
-        containerView.pinToSuperviewBottom(withConstant: -2, priority: .required, relatedBy: .equal)
+        containerView.pinToSuperviewTop(withConstant: Layout.spacer/2,
+                                        priority: .required,
+                                        relatedBy: .equal)
+        containerView.pinToSuperviewBottom(withConstant: Layout.spacer/2,
+                                           priority: .required,
+                                           relatedBy: .equal)
         
-        quantityLabel.pinToSuperview(edges: [.top, .left, .bottom])
-        quantityLabel.contentCompressionResistancePriority(for: .horizontal)
-        
+        quantityLabel.pinToSuperview(edges: [.top, .bottom])
+        quantityLabel.pinToSuperviewLeft(withConstant: Layout.spacer,
+                                         priority: .required,
+                                         relatedBy: .equal)
+        quantityLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        quantityLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+
         nameLabel.pinToSuperview(edges: [.top, .bottom])
         nameLabel.pinLeft(to: quantityLabel, anchor: .right)
         nameLabel.pinRight(to: priceLabel, anchor: .left)
-        nameLabel.contentHuggingPriority(for: .horizontal)
+        nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        nameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
         priceLabel.pinToSuperview(edges: [.top, .right, .bottom])
-        priceLabel.contentCompressionResistancePriority(for: .horizontal)
+        priceLabel.pinToSuperviewRight(withConstant: -Layout.spacer,
+                                       priority: .required,
+                                       relatedBy: .equal)
+        priceLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        priceLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 }

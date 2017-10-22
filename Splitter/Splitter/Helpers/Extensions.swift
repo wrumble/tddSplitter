@@ -82,6 +82,17 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment:"")
     }
+    
+    func formatPrice() -> String {
+        var formattedPrice = self
+        let price = NSNumber(value: Double(self)!)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let formattedTipAmount = formatter.string(from: price) {
+            formattedPrice = " \(formattedTipAmount)"
+        }
+        return formattedPrice
+    }
 }
 
 extension UIView {
@@ -102,5 +113,12 @@ extension Array {
     func filterDuplicates<T>(_ keyValue: (Element) -> T) -> [Element] {
         var uniqueKeys = Set<String>()
         return filter { uniqueKeys.insert("\(keyValue($0))").inserted }
+    }
+}
+
+extension Double {
+    func rounded(toPlaces places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
