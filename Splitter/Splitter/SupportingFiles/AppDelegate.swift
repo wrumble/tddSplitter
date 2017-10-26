@@ -9,13 +9,12 @@
 import UIKit
 import Firebase
 import LifetimeTracker
+import Flutter
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: FlutterAppDelegate {
 
-    var window: UIWindow?
-
-    func application(_ application: UIApplication,
+    override func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration().refreshUI)
         

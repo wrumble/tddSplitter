@@ -58,6 +58,15 @@
 		87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */; };
 		87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
 		87B1EE241F97D390005E1674 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */; };
+		87BF1C811FA226D30041C3E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C801FA226D30041C3E5 /* LaunchScreen.storyboard */; };
+		87BF1C951FA241A70041C3E5 /* Flutter in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C941FA241A60041C3E5 /* Flutter */; };
+		87BF1C9D1FA2424A0041C3E5 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C961FA242460041C3E5 /* Debug.xcconfig */; };
+		87BF1C9E1FA2424A0041C3E5 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C971FA242470041C3E5 /* AppFrameworkInfo.plist */; };
+		87BF1C9F1FA2424A0041C3E5 /* Generated.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C981FA242470041C3E5 /* Generated.xcconfig */; };
+		87BF1CA01FA2424A0041C3E5 /* app.flx in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C991FA242480041C3E5 /* app.flx */; };
+		87BF1CA11FA2424A0041C3E5 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C9A1FA242490041C3E5 /* Release.xcconfig */; };
+		87BF1CA21FA2424A0041C3E5 /* App.framework in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C9B1FA242490041C3E5 /* App.framework */; };
+		87BF1CA31FA2424A0041C3E5 /* Flutter.framework in Resources */ = {isa = PBXBuildFile; fileRef = 87BF1C9C1FA2424A0041C3E5 /* Flutter.framework */; };
 		87CF98161F7BDEC3002A60BD /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B379D1F29F614001FE485 /* ItemTests.swift */; };
 		87CF98171F7BDEC3002A60BD /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37B61F2A1BFF001FE485 /* UserTests.swift */; };
 		87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */; };
@@ -221,6 +230,15 @@
 		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		87A218EB1F25EEAA00B4BE74 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
+		87BF1C801FA226D30041C3E5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87BF1C941FA241A60041C3E5 /* Flutter */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Flutter; sourceTree = "<group>"; };
+		87BF1C961FA242460041C3E5 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
+		87BF1C971FA242470041C3E5 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		87BF1C981FA242470041C3E5 /* Generated.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
+		87BF1C991FA242480041C3E5 /* app.flx */ = {isa = PBXFileReference; lastKnownFileType = file; name = app.flx; path = Flutter/app.flx; sourceTree = "<group>"; };
+		87BF1C9A1FA242490041C3E5 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		87BF1C9B1FA242490041C3E5 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
+		87BF1C9C1FA2424A0041C3E5 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = Flutter/Flutter.framework; sourceTree = "<group>"; };
 		87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndInstructionView.swift; sourceTree = "<group>"; };
 		87D1D3B81F7516F2008E3C34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -354,6 +372,13 @@
 		874AC1081F22045700846851 = {
 			isa = PBXGroup;
 			children = (
+				87BF1C991FA242480041C3E5 /* app.flx */,
+				87BF1C9B1FA242490041C3E5 /* App.framework */,
+				87BF1C971FA242470041C3E5 /* AppFrameworkInfo.plist */,
+				87BF1C961FA242460041C3E5 /* Debug.xcconfig */,
+				87BF1C9C1FA2424A0041C3E5 /* Flutter.framework */,
+				87BF1C981FA242470041C3E5 /* Generated.xcconfig */,
+				87BF1C9A1FA242490041C3E5 /* Release.xcconfig */,
 				874AC1131F22045700846851 /* Splitter */,
 				87CF98191F7BF03B002A60BD /* Tests */,
 				8760E6FB1F6C014000529685 /* EarlGreyWelcomeScreenTests */,
@@ -392,6 +417,7 @@
 		874AC1521F220BEE00846851 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87BF1C941FA241A60041C3E5 /* Flutter */,
 				875ABB971F332A1000699EE8 /* SystemConfiguration.framework */,
 				875ABB951F332A0900699EE8 /* Security.framework */,
 				875ABB931F332A0200699EE8 /* CFNetwork.framework */,
@@ -505,6 +531,7 @@
 		87A218E91F25E8E000B4BE74 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				87BF1C801FA226D30041C3E5 /* LaunchScreen.storyboard */,
 				871B37F51F308CEE001FE485 /* Fonts */,
 				872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */,
 				87EB6EC01F73EDB300C314F5 /* Assets.xcassets */,
@@ -785,9 +812,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87BF1C9D1FA2424A0041C3E5 /* Debug.xcconfig in Resources */,
+				87BF1C9E1FA2424A0041C3E5 /* AppFrameworkInfo.plist in Resources */,
+				87BF1C9F1FA2424A0041C3E5 /* Generated.xcconfig in Resources */,
+				87BF1CA01FA2424A0041C3E5 /* app.flx in Resources */,
+				87BF1CA11FA2424A0041C3E5 /* Release.xcconfig in Resources */,
+				87BF1CA21FA2424A0041C3E5 /* App.framework in Resources */,
+				87BF1CA31FA2424A0041C3E5 /* Flutter.framework in Resources */,
 				87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */,
 				871B37EC1F2F4573001FE485 /* Localizable.strings in Resources */,
 				874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */,
+				87BF1C951FA241A70041C3E5 /* Flutter in Resources */,
+				87BF1C811FA226D30041C3E5 /* LaunchScreen.storyboard in Resources */,
 				871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -852,9 +888,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${PODS_ROOT}/../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -863,9 +901,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -965,9 +1005,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${PODS_ROOT}/../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -976,9 +1018,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1015,9 +1059,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${PODS_ROOT}/../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1025,9 +1071,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1058,9 +1106,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${PODS_ROOT}/../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1069,9 +1119,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1120,9 +1172,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${PODS_ROOT}/../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1130,9 +1184,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",

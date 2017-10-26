@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Flutter
 
 class BillCarouselView: UIView {
     
@@ -19,6 +20,7 @@ class BillCarouselView: UIView {
     private let splitButton = CarouselButton()
     private let tableView = UITableView()
     private let dataSource = CarouselTableViewDataSource()
+    private let flutterViewController = FlutterViewController()
     
     required init(bill: Bill) {
         super.init(frame: .zero)
@@ -39,7 +41,8 @@ class BillCarouselView: UIView {
         addSubview(nameLabel)
         addSubview(locationLabel)
         addSubview(dateLabel)
-        addSubview(tableView)
+        addSubview(flutterViewController.view)
+        //addSubview(tableView)
         addSubview(splitButton)
     }
     
@@ -65,11 +68,8 @@ class BillCarouselView: UIView {
         
         dataSource.items = bill.items
         
-        tableView.register(CarouselTableViewCell.classForCoder(),
-                           forCellReuseIdentifier: "carouselTableViewCell")
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        tableView.dataSource = dataSource
+        flutterViewController.view.isUserInteractionEnabled = true
+        flutterViewController.view.isMultipleTouchEnabled = true
         
         let totalPrice = bill.totalPrice()
         let buttonTitle = "Split\(totalPrice.formatPrice())"
@@ -93,13 +93,13 @@ class BillCarouselView: UIView {
         dateLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         dateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
-        tableView.pinTop(to: locationLabel,
-                          anchor: .bottom,
-                          constant: Layout.spacer,
-                          priority: .required,
-                          relatedBy: .equal)
-        tableView.pinToSuperview(edges: [.left, .right])
-        tableView.pinBottom(to: splitButton, anchor: .top)
+        flutterViewController.view.pinTop(to: locationLabel,
+                         anchor: .bottom,
+                         constant: Layout.spacer,
+                         priority: .required,
+                         relatedBy: .equal)
+        flutterViewController.view.pinToSuperview(edges: [.left, .right])
+        flutterViewController.view.pinBottom(to: splitButton, anchor: .top)
         
         splitButton.pinToSuperview(edges: [.left, .right, .bottom])
     }

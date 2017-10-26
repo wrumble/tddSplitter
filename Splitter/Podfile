@@ -7,6 +7,8 @@
         inhibit_all_warnings!
 
         def allPods
+          addFlutter
+          pod 'MaterialControls', '~> 1.2.2'
           pod 'AFNetworking'
           pod 'Firebase'
           pod 'Firebase/Database'
@@ -15,6 +17,25 @@
           pod 'LifetimeTracker'
           pod 'iCarousel'
         end
+
+        def addFlutter
+            pod 'Flutter', :path => "~/flutter/bin/cache/artifacts/engine/ios"
+
+            if File.exists? '../.flutter-plugins'
+              flutter_root = File.expand_path('..')
+              File.foreach('../.flutter-plugins') { |line|
+                plugin = line.split(pattern='=')
+                if plugin.length == 2
+                  name = plugin[0].strip()
+                  path = plugin[1].strip()
+                  resolved_path = File.expand_path("#{path}/ios", flutter_root)
+                  pod name, :path => resolved_path
+                else
+                  puts "Invalid plugin specification: #{line}"
+                end
+              }
+            end
+          end
 
         def earlGreyUITests
           project 'Splitter'
@@ -51,6 +72,7 @@
             installer.pods_project.targets.each do |target|
                 target.build_configurations.each do |config|
                     config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+                    config.build_settings['ENABLE_BITCODE'] = "NO"
                     config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = "NO"
                     config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
                     config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"

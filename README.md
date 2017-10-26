@@ -1,1 +1,19 @@
-As part of the novoda NCU i am going to start an old project from scratch thats totally test driven, uses firebase instead of coredata and facebook invites to the 'Table' with live updates as people choose items to pay for. In swift 4 on xcode 9 beta.
+# Example of embedding Flutter using FlutterView
+
+This project demonstrates how to embed Flutter within an iOS or Android
+application. On iOS, the iOS and Flutter components are built with Xcode. On
+Android, the Android and Flutter components are built with Android Studio or
+gradle.
+
+You can read more about
+[accessing platform and third-party services in Flutter](https://flutter.io/platform-services/).
+
+## iOS
+
+You can open `ios/Splitter.xcworkspace` in Xcode and build the project as
+usual. For this sample you need to run `pod install` from the `ios` folder
+before building the first time.
+
+## Android
+
+You can open `android/` in Android Studio and build the project as usual.

@@ -11,7 +11,7 @@ import AFNetworking
 class OCRRequest {
     
     private let manager = AFHTTPSessionManager()
-    private let url = "http://localhost:8080/extractText"
+    private let url = "https://tesseractimageserver.herokuapp.com/extractText"
     
     init() {
         setSerializers()
