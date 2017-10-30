@@ -170,8 +170,9 @@ enum Color {
 }
 
 enum Font {
-    static let carouselText = UIFont.systemFont(ofSize: 24)
-    static let carouselDateText = UIFont.systemFont(ofSize: 20)
+    static let tableViewText = UIFont.systemFont(ofSize: 20)
+    static let carouselTitleText = UIFont.systemFont(ofSize: 24)
+    static let carouselSubText = UIFont.systemFont(ofSize: 20)
     static let activityIndicator = UIFont.systemFont(ofSize: 18)
     static let instructionLabel = UIFont.systemFont(ofSize: 20)
     static let titleLabel = UIFont.systemFont(ofSize: 26)

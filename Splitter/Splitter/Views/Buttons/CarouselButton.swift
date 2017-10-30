@@ -23,7 +23,7 @@ class CarouselButton: UIButton {
     private func setupView() {
         backgroundColor = Color.buttonBackground
         setTitleColor(Color.buttonText, for: .normal)
-        titleLabel?.font = Font.carouselText
+        titleLabel?.font = Font.carouselSubText
     }
     
     private func applyMaskLayer() {

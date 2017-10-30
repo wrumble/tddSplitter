@@ -23,7 +23,6 @@ class CarouselLabel: UILabel {
     private func setupView() {
         backgroundColor = .clear
         textColor = Color.carouselText
-        font = Font.carouselText
         numberOfLines = 0
         minimumScaleFactor = 0.1
         adjustsFontSizeToFitWidth = true

@@ -52,14 +52,16 @@ class BillCarouselView: UIView {
         nameLabel.text = bill.name
         nameLabel.textAlignment = .center
         nameLabel.accessibilityIdentifier = AccesID.carouselNameLabel
+        nameLabel.font = Font.carouselTitleText
         
         locationLabel.numberOfLines = 0
         locationLabel.text = bill.location
         locationLabel.textAlignment = .left
         locationLabel.accessibilityIdentifier = AccesID.carouselLocationLabel
+        locationLabel.font = Font.carouselSubText
         
         dateLabel.text = bill.creationDate
-        dateLabel.font = Font.carouselDateText
+        dateLabel.font = Font.carouselSubText
         dateLabel.textAlignment = .right
         dateLabel.accessibilityIdentifier = AccesID.carouselDateLabel
         

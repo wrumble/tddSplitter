@@ -50,18 +50,18 @@ class CarouselTableViewCell: UITableViewCell {
         quantityLabel.textAlignment = .left
         quantityLabel.backgroundColor = .clear
         quantityLabel.textColor = Color.carouselText
-        quantityLabel.font = Font.carouselText
+        quantityLabel.font = Font.tableViewText
 
         nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .left
         nameLabel.backgroundColor = .clear
         nameLabel.textColor = Color.carouselText
-        nameLabel.font = Font.carouselText
+        nameLabel.font = Font.tableViewText
 
         priceLabel.textAlignment = .right
         priceLabel.backgroundColor = .clear
         priceLabel.textColor = Color.carouselText
-        priceLabel.font = Font.carouselText
+        priceLabel.font = Font.tableViewText
     }
     
     private func setupLayout() {
