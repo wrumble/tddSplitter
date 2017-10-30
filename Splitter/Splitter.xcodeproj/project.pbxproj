@@ -46,6 +46,7 @@
 		8760E7071F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E70F1F6C072000529685 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8761411B1F4C43ED00107372 /* BillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC17F1F22457000846851 /* BillTests.swift */; };
+		8766D1261FA389720049A7B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */; };
 		8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		8773583B1F7BFFDB00EE7C19 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8773583C1F7BFFE000EE7C19 /* FirebaseTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */; };
@@ -212,6 +213,7 @@
 		8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyWelcomeScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760E6FE1F6C014000529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8760E70A1F6C064E00529685 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877358461F7D01A700EE7C19 /* OCRRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRequestTests.swift; sourceTree = "<group>"; };
 		877B41831F46EF3300AE9813 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
 		877F555D1F74204100CABA05 /* EarlGreyNewBillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyNewBillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -510,6 +512,7 @@
 				87EB6EC01F73EDB300C314F5 /* Assets.xcassets */,
 				874AC1141F22045700846851 /* AppDelegate.swift */,
 				874AC1201F22045700846851 /* Info.plist */,
+				8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */,
 				874AC1761F223D8300846851 /* GoogleService-Info.plist */,
 				871B37EE1F2F4573001FE485 /* Localizable.strings */,
 			);
@@ -721,9 +724,13 @@
 				TargetAttributes = {
 					874AC1101F22045700846851 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -788,6 +795,7 @@
 				87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */,
 				871B37EC1F2F4573001FE485 /* Localizable.strings in Resources */,
 				874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */,
+				8766D1261FA389720049A7B1 /* LaunchScreen.storyboard in Resources */,
 				871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -852,6 +860,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -863,6 +872,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -965,6 +975,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -976,6 +987,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1015,6 +1027,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -1025,6 +1038,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1058,6 +1072,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -1069,6 +1084,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1120,6 +1136,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -1130,6 +1147,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1397,6 +1415,7 @@
 			baseConfigurationReference = F44D59D32D38FDAAF00E4A58 /* Pods-Splitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Splitter/SupportingFiles/Splitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1416,6 +1435,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1426,6 +1447,7 @@
 			baseConfigurationReference = 0362902E59A180EE4741DC5F /* Pods-Splitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Splitter/SupportingFiles/Splitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1445,6 +1467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -11,7 +11,7 @@ import AFNetworking
 class OCRRequest {
     
     private let manager = AFHTTPSessionManager()
-    private let url = "http://localhost:8080/extractText"
+    private let url = "http://45.55.68.131:8080/extractText"
     
     init() {
         setSerializers()

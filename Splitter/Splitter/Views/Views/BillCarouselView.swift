@@ -94,10 +94,10 @@ class BillCarouselView: UIView {
         dateLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         tableView.pinTop(to: locationLabel,
-                          anchor: .bottom,
-                          constant: Layout.spacer,
-                          priority: .required,
-                          relatedBy: .equal)
+                                          anchor: .bottom,
+                                          constant: Layout.spacer,
+                                          priority: .required,
+                                          relatedBy: .equal)
         tableView.pinToSuperview(edges: [.left, .right])
         tableView.pinBottom(to: splitButton, anchor: .top)
         

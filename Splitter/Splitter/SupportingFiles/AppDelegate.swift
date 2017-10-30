@@ -12,9 +12,9 @@ import LifetimeTracker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration().refreshUI)
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-// Used for testing only
+    // Used for testing only
     func resetAppToWelcomeScreen() {
         window?.rootViewController = WelcomeScreenViewController()
     }
@@ -48,13 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         checkUserLoginStatus()
         let firebaseData = FirebaseData()
         firebaseData.signInUser(email: email,
-                                  password: "password",
-                                  completion: { ( _, splitterUser) in
-                let myBillsViewController = MyBillsViewController(currentUser: splitterUser!)
-                self.window?.rootViewController = myBillsViewController
+                                password: "password",
+                                completion: { ( _, splitterUser) in
+                                    let myBillsViewController = MyBillsViewController(currentUser: splitterUser!)
+                                    self.window?.rootViewController = myBillsViewController
         })
     }
-
+    
     func startAtNewBillVCWithUserID(_ user: SplitterUser) {
         let newBillViewController = NewBillViewController(currentUser: user)
         window?.rootViewController = newBillViewController

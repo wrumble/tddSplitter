@@ -26,7 +26,6 @@ class NewBillViewController: UIViewController,
     private var saveButton = IconButton(accessID: AccesID.saveButton,
                                           iconImage: Image.saveButton!)
     private var recieptImageAndInstructionView = ImageAndInstructionView()
-    
     private let activityIndicator = ActivityIndicator(text: Localized.extractingTextMessage,
                                                       isDarkIndicator: true)
     
@@ -193,7 +192,7 @@ class NewBillViewController: UIViewController,
     private func setupImagePicker(_ imagePicker: UIImagePickerController) {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        imagePicker.modalPresentationStyle = .popover
+        imagePicker.modalPresentationStyle = .fullScreen
     }
     
     private func selectSourceTypeFor(_ imagePicker: UIImagePickerController) {
@@ -201,6 +200,7 @@ class NewBillViewController: UIViewController,
             imagePicker.sourceType = .camera
             imagePicker.cameraFlashMode = .auto
             imagePicker.cameraOverlayView?.accessibilityIdentifier = AccesID.imagePicker
+            imagePicker.cameraOverlayView?.isUserInteractionEnabled = false
         } else {
             imagePicker.sourceType = .photoLibrary
             imagePicker.navigationBar.accessibilityIdentifier = AccesID.imagePicker
@@ -214,7 +214,7 @@ class NewBillViewController: UIViewController,
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
         recieptImageAndInstructionView.image = image
         recieptImageAndInstructionView.instructionLabel.isHidden = true
         dismiss(animated:true,
