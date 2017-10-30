@@ -9,20 +9,18 @@
 import UIKit
 
 class TitleLabel: UILabel {
-    
-    var accessID: String!
-    
+        
     required init() {
         super.init(frame: .zero)
-        
-        setup()
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupView()
     }
     
-    private func setup() {
+    private func setupView() {
         accessibilityIdentifier = AccesID.titleLabel
         backgroundColor = Color.titleLabelBackground
         textColor = Color.titleLabelText

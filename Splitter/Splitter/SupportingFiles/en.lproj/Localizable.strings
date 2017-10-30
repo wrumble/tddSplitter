@@ -36,3 +36,9 @@
 "NoBillsMessage" = "You currently have no bills, tap the + button to add a new bill";
 "ImageInstructionText" = "Once you have taken a clear, straight photo of your receipt. Crop the image so it contains only a list of each items name, price and quantity. You do not need to include the bill total in the cropped image.";
 
+//ActivityIndicator messages
+"ExtractingTextMessage" = "Extracting text";
+"LoadingMessage" = "Loading";
+"LoggingInMessage" = "Logging in";
+"RegisteringMessage" = "Registering";
+"ReadingTextMessage" = "Reading text";

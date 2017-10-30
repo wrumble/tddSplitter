@@ -8,7 +8,9 @@
 
 import XCTest
 
-enum AccessID {
+enum AccesID {
+    static let carouselLocationLabel = "CarouselLocationLabel"
+    static let carouselDateLabel = "CarouselDateLabel"
     static let imagePicker = "ImagePicker"
     static let instructionLabel = "InstructionLabel"
     static let cameraButton = "Camera"
@@ -16,9 +18,11 @@ enum AccessID {
     static let saveButton = "Save"
     static let locationTextField = "Location"
     static let nameTextField = "Name"
-    static let carouselTitleLabel = "CarouselTitleLabel"
+    static let noBillsLabel = "NoBillsLabel"
+    static let carouselNameLabel = "CarouselNameLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "Delete"
+    static let logoutButton = "Logout"
     static let addButton = "Add"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"
@@ -31,7 +35,6 @@ enum AccessID {
 }
 
 extension XCTestCase {
-    
     func createEmail(with functionName: String) -> String {
         let brackets = CharacterSet(charactersIn: "()")
         let cleanedFunctionName = functionName.components(separatedBy: brackets).joined()

@@ -17,6 +17,7 @@ enum Image {
     static let homeButton = UIImage(named: "homeIcon")
     static let saveButton = UIImage(named: "saveIcon")
     static let deleteButton = UIImage(named: "deleteIcon")
+    static let logoutButton = UIImage(named: "logoutIcon")
     static let addButton = UIImage(named: "addIcon")
 }
 
@@ -36,6 +37,13 @@ enum Localized {
     //Bills Messages
     static let noBillsMessage = "NoBillsMessage".localized
     static let imageInstructionText = "ImageInstructionText".localized
+    
+    //ActivityIndicator messages
+    static let extractingTextMessage = "ExtractingTextMessage".localized
+    static let loadingMessage = "LoadingMessage".localized
+    static let loggingInMessage = "LoggingInMessage".localized
+    static let registeringMessage = "RegisteringMessage".localized
+    static let readingTextMessage = "ReadingTextMessage".localized
 }
 
 enum Layout {
@@ -43,16 +51,12 @@ enum Layout {
     static let cameraButtonHeightWidth: CGFloat = 45
     static let homeButtonHeightWidth: CGFloat = 45
     static let saveButtonHeightWidth: CGFloat = 45
-    static let carouselViewX: CGFloat = UIScreen.main.bounds.width * 0.07
-    static let carouselViewY: CGFloat = titleLabelY * 2 + spacer
-    static let carouselViewWidth: CGFloat = UIScreen.main.bounds.width - (carouselViewX * 2)
-    static let carouselViewHeight: CGFloat = UIScreen.main.bounds.height -
-                                             addButtonHeightWidth - spacer -
-                                             carouselViewY
     static let carouselViewCornerRadius: CGFloat = 10
     static let deleteButtonHeightWidth: CGFloat = 60
+    static let logoutButtonHeightWidth: CGFloat = 60
     static let addButtonHeightWidth: CGFloat = 60
     static let titleLabelY: CGFloat = 22
+    static let titleLabelHeight: CGFloat = 32
     static let titleLogoTextHeight: CGFloat = UIScreen.main.bounds.height/8
     static let textFieldHeight: CGFloat = 44
     static let buttonHeight: CGFloat = 44
@@ -61,6 +65,8 @@ enum Layout {
 }
 
 enum AccesID {
+    static let carouselLocationLabel = "CarouselLocationLabel"
+    static let carouselDateLabel = "CarouselDateLabel"
     static let imagePicker = "ImagePicker"
     static let instructionLabel = "InstructionLabel"
     static let cameraButton = "Camera"
@@ -69,9 +75,10 @@ enum AccesID {
     static let locationTextField = "Location"
     static let nameTextField = "Name"
     static let noBillsLabel = "NoBillsLabel"
-    static let carouselTitleLabel = "CarouselTitleLabel"
+    static let carouselNameLabel = "CarouselNameLabel"
     static let carouselView = "CarouselView"
     static let deleteButton = "Delete"
+    static let logoutButton = "Logout"
     static let addButton = "Add"
     static let titleLabel = "TitleLabel"
     static let titleLogoLabel = "TitleLogo"
@@ -84,11 +91,35 @@ enum AccesID {
 }
 
 enum Color {
+    static let activityIndicatorDarkSpinner = UIColor(red: 33/255,
+                                                      green: 33/255,
+                                                      blue: 33/255,
+                                                      alpha: 1.00)
+    static let activityIndicatorLightSpinner = UIColor(red: 254/255,
+                                                       green: 254/255,
+                                                       blue: 254/255,
+                                                       alpha: 0.60)
+    static let activityIndicatorDarkBackground = UIColor(red: 33/255,
+                                                         green: 33/255,
+                                                         blue: 33/255,
+                                                         alpha: 1.00)
+    static let activityIndicatorLightBackground = UIColor(red: 254/255,
+                                                          green: 254/255,
+                                                          blue: 254/255,
+                                                          alpha: 0.60)
+    static let activityIndicatorDarkText = UIColor(red: 33/255,
+                                           green: 33/255,
+                                           blue: 33/255,
+                                           alpha: 1.00)
+    static let activityIndicatorLightText = UIColor(red: 254/255,
+                                                    green: 254/255,
+                                                    blue: 254/255,
+                                                    alpha: 0.60)
     static let instructionLabelText = UIColor(red: 254/255,
                                            green: 254/255,
                                            blue: 254/255,
                                            alpha: 1.00)
-    static let carouselTitleText = UIColor(red: 33/255,
+    static let carouselText = UIColor(red: 33/255,
                                            green: 33/255,
                                            blue: 33/255,
                                            alpha: 1.00)
@@ -99,7 +130,7 @@ enum Color {
     static let carouselView = UIColor(red: 254/255,
                                       green: 254/255,
                                       blue: 254/255,
-                                      alpha: 0.85)
+                                      alpha: 0.75)
     static let titleLabelBackground = UIColor(red: 254/255,
                                               green: 254/255,
                                               blue: 254/255,
@@ -139,6 +170,10 @@ enum Color {
 }
 
 enum Font {
+    static let tableViewText = UIFont.systemFont(ofSize: 20)
+    static let carouselTitleText = UIFont.systemFont(ofSize: 24)
+    static let carouselSubText = UIFont.systemFont(ofSize: 20)
+    static let activityIndicator = UIFont.systemFont(ofSize: 18)
     static let instructionLabel = UIFont.systemFont(ofSize: 20)
     static let titleLabel = UIFont.systemFont(ofSize: 26)
     static let titleLogo = UIFont(name: "WalkwayBold", size: 200)

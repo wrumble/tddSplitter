@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import UserNotifications
 import Foundation
 
 extension Date {
     func currentDateTimeAsString() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm dd/MM/yyyy"
+        formatter.dateFormat = "dd/MM/yy"
         
         return formatter.string(from: date)
     }
@@ -44,6 +46,17 @@ extension UITextField {
     }
 }
 
+extension UIImage {
+    func base64EncodeImage() -> String {
+        var base64String = ""
+        if CIImage(image: self) != nil {
+            let imagedata = UIImageJPEGRepresentation(self, 1.0)!
+            base64String = imagedata.base64EncodedString(options: .lineLength64Characters)
+        }
+        return base64String
+    }
+}
+
 extension UIViewController {
     func showToast(in toastSuperView: UIView, with text: String) {
         let toastLabel = ToastLabel()
@@ -62,7 +75,7 @@ extension UIViewController {
         UIView.animate(withDuration: 2.5, delay: 0, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: { _ in
-            toastLabel.isHidden = true
+            toastLabel.hide()
         })
     }
 }
@@ -70,5 +83,44 @@ extension UIViewController {
 extension String {
     var localized: String {
         return NSLocalizedString(self, comment:"")
+    }
+    
+    func formatPrice() -> String {
+        var formattedPrice = self
+        let price = NSNumber(value: Double(self)!)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let formattedTipAmount = formatter.string(from: price) {
+            formattedPrice = " \(formattedTipAmount)"
+        }
+        return formattedPrice
+    }
+}
+
+extension UIView {
+    func show() {
+        DispatchQueue.main.async { [weak self] in
+            self?.isHidden = false
+        }
+    }
+    
+    func hide() {
+        DispatchQueue.main.async { [weak self] in
+            self?.isHidden = true
+        }
+    }
+}
+
+extension Array {
+    func filterDuplicates<T>(_ keyValue: (Element) -> T) -> [Element] {
+        var uniqueKeys = Set<String>()
+        return filter { uniqueKeys.insert("\(keyValue($0))").inserted }
+    }
+}
+
+extension Double {
+    func rounded(toPlaces places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }

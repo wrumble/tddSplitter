@@ -12,8 +12,10 @@ class NewBillViewController: UIViewController,
                              UIImagePickerControllerDelegate,
                              UINavigationControllerDelegate {
     
-    var currentUser: SplitterUser?
+    var currentUser: SplitterUser!
     
+    private let billID = UUID().uuidString
+
     private var titleLabel = TitleLabel()
     private var nameTextField = SplitterTextField(accessID: AccesID.nameTextField)
     private var locationTextField = SplitterTextField(accessID: AccesID.locationTextField)
@@ -24,6 +26,8 @@ class NewBillViewController: UIViewController,
     private var saveButton = IconButton(accessID: AccesID.saveButton,
                                           iconImage: Image.saveButton!)
     private var recieptImageAndInstructionView = ImageAndInstructionView()
+    private let activityIndicator = ActivityIndicator(text: Localized.extractingTextMessage,
+                                                      isDarkIndicator: true)
     
     required init(currentUser: SplitterUser) {
         super.init(nibName: nil, bundle: nil)
@@ -52,6 +56,7 @@ class NewBillViewController: UIViewController,
         view.addSubview(homeButton)
         view.addSubview(saveButton)
         view.addSubview(recieptImageAndInstructionView)
+        view.addSubview(activityIndicator)
     }
     
     private func setupViews() {
@@ -65,6 +70,11 @@ class NewBillViewController: UIViewController,
         homeButton.addTarget(self,
                                action: #selector(homeButtonWasTapped),
                                for: .touchUpInside)
+        saveButton.addTarget(self,
+                             action: #selector(saveButtonWasTapped),
+                             for: .touchUpInside)
+        
+        activityIndicator.hide()
     }
     
     private func setupLayout() {
@@ -83,6 +93,7 @@ class NewBillViewController: UIViewController,
                           constant: Layout.titleLabelY,
                           priority: .required,
                           relatedBy: .equal)
+        titleLabel.addHeightConstraint(with: Layout.titleLabelHeight)
     }
     
     private func layoutNameTextField() {
@@ -170,14 +181,18 @@ class NewBillViewController: UIViewController,
     }
     
     @objc private func homeButtonWasTapped() {
+        goToMyBillsViewController()
+    }
+    
+    private func goToMyBillsViewController() {
         let myBillsViewController = MyBillsViewController(currentUser: currentUser!)
-        present(myBillsViewController, animated: false)
+        view.window?.rootViewController = myBillsViewController
     }
     
     private func setupImagePicker(_ imagePicker: UIImagePickerController) {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        imagePicker.modalPresentationStyle = .popover
+        imagePicker.modalPresentationStyle = .fullScreen
     }
     
     private func selectSourceTypeFor(_ imagePicker: UIImagePickerController) {
@@ -185,6 +200,7 @@ class NewBillViewController: UIViewController,
             imagePicker.sourceType = .camera
             imagePicker.cameraFlashMode = .auto
             imagePicker.cameraOverlayView?.accessibilityIdentifier = AccesID.imagePicker
+            imagePicker.cameraOverlayView?.isUserInteractionEnabled = false
         } else {
             imagePicker.sourceType = .photoLibrary
             imagePicker.navigationBar.accessibilityIdentifier = AccesID.imagePicker
@@ -196,11 +212,84 @@ class NewBillViewController: UIViewController,
                 completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
         recieptImageAndInstructionView.image = image
         recieptImageAndInstructionView.instructionLabel.isHidden = true
         dismiss(animated:true,
                 completion: nil)
+        
+    }
+    
+    @objc private func saveButtonWasTapped() {
+        let ocrRequest = OCRRequest()
+        guard let image = recieptImageAndInstructionView.base64Image else { return }
+        var imageURL: String = ""
+        createImageURL(complete: {url in
+            imageURL = url
+        })
+        
+        activityIndicator.show()
+        ocrRequest.uploadReceiptImage(image: image,
+                                      complete: { textResult in
+            if let textResult = textResult {
+                let items = self.createItems(textResult)
+                self.createBill(items: items,
+                                imageURL: imageURL)
+            }
+            self.activityIndicator.hide()
+        })
+    }
+    
+    private func createItems(_ textResult: String) -> [Item] {
+        var items = [Item]()
+        let ocrResultConverter = OCRResultConverter()
+        let receiptLines = textResult.components(separatedBy: .newlines)
+        receiptLines.forEach { line in
+            var receiptLine = line
+            let newItems = ocrResultConverter.convertToItems(&receiptLine,
+                                                             billID: billID)
+            newItems.forEach { item in
+                items.append(item)
+            }
+        }
+        
+        return items
+    }
+    
+    private func createBill(items: [Item],
+                            imageURL: String) {
+        let firebaseData = FirebaseData()
+        let name = nameTextField.text ?? ""
+        let location = locationTextField.text ?? ""
+        let bill = Bill(id: billID,
+                        userID: self.currentUser.id,
+                        name: name,
+                        location: location,
+                        imageURL: imageURL,
+                        items: items)
+        
+        firebaseData.createBill(bill,
+                                completion: { error in
+            if let error = error {
+                print(error)
+            }
+            self.goToMyBillsViewController()
+        })
+    }
+    
+    private func createImageURL(complete: @escaping((String) -> Void)) {
+        var imageURL = ""
+        let firebaseStorage = FirebaseStorage()
+        let imageData = UIImageJPEGRepresentation(recieptImageAndInstructionView.image!, 0.5)!
+        firebaseStorage.uploadImage(billId: billID,
+                                    imageData: imageData,
+                                    completion: { url in
+            if let url = url {
+                imageURL = url.absoluteString
+            }
+            complete(imageURL)
+        })
     }
 }

@@ -16,6 +16,8 @@
 		2D911DD8930C2CD37FF46A82 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; };
 		53B043FCB77D8114D177DB79 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A30403830697528667F9D9 /* EarlGrey.framework */; };
 		6C90CA6C8DD6F70A751AC7F2 /* Pods_Splitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A9F609BB793F5C68C6F659 /* Pods_Splitter.framework */; };
+		870B439C1F9783BB0056ED1E /* CarouselButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B439B1F9783BB0056ED1E /* CarouselButton.swift */; };
+		870B439F1F979F3C0056ED1E /* CarouselTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B439E1F979F3C0056ED1E /* CarouselTableViewDataSource.swift */; };
 		871682BD1F712BDB004046E9 /* InstructionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871682BC1F712BDB004046E9 /* InstructionLabel.swift */; };
 		871B37A61F29F6A0001FE485 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37A51F29F6A0001FE485 /* Item.swift */; };
 		871B37BF1F2A1EF9001FE485 /* SplitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37BE1F2A1EF9001FE485 /* SplitterUser.swift */; };
@@ -25,16 +27,15 @@
 		871B37F01F2F6322001FE485 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37EF1F2F6322001FE485 /* Constants.swift */; };
 		871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37F11F2F7C49001FE485 /* SplitterButton.swift */; };
 		871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871B37F41F308CE6001FE485 /* WalkwayBold.ttf */; };
+		871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E31C51F7D0EE2000354E7 /* OCRRequest.swift */; };
 		872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */; };
 		873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */; };
 		873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C61F79324800C960F6 /* OCRResultConverter.swift */; };
 		873218C91F79456B00C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
 		873218CB1F79470500C960F6 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218CA1F79470500C960F6 /* RegexTests.swift */; };
-		873218CC1F79479900C960F6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873218C81F79456B00C960F6 /* Regex.swift */; };
-		87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */; };
-		87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */; };
+		87344C511F7058C000C0B3FE /* CarouselDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C501F7058C000C0B3FE /* CarouselDataSource.swift */; };
 		87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C541F705D8400C0B3FE /* BillCarouselView.swift */; };
-		87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */; };
+		87344C571F7060CA00C0B3FE /* CarouselLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344C561F7060CA00C0B3FE /* CarouselLabel.swift */; };
 		873CD1A21F6FCF9900F602EF /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A11F6FCF9900F602EF /* TitleLabel.swift */; };
 		873CD1A41F6FF34F00F602EF /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CD1A31F6FF34F00F602EF /* IconButton.swift */; };
 		874AC1151F22045700846851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC1141F22045700846851 /* AppDelegate.swift */; };
@@ -45,9 +46,11 @@
 		8760E7071F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E70F1F6C072000529685 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8761411B1F4C43ED00107372 /* BillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC17F1F22457000846851 /* BillTests.swift */; };
+		8766D1261FA389720049A7B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */; };
 		8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		8773583B1F7BFFDB00EE7C19 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8773583C1F7BFFE000EE7C19 /* FirebaseTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */; };
+		877358471F7D01A700EE7C19 /* OCRRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877358461F7D01A700EE7C19 /* OCRRequestTests.swift */; };
 		877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B41831F46EF3300AE9813 /* ToastLabel.swift */; };
 		877F55601F74204100CABA05 /* EarlGreyNewBillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */; };
 		877F55671F74218400CABA05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
@@ -55,12 +58,14 @@
 		878C59FD4CC8BF797DB0161D /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7723B0732EB4D5616EAE81 /* Pods_UnitTests.framework */; };
 		87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */; };
 		87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218EB1F25EEAA00B4BE74 /* Firebase.swift */; };
+		87B1EE241F97D390005E1674 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */; };
 		87CF98161F7BDEC3002A60BD /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B379D1F29F614001FE485 /* ItemTests.swift */; };
 		87CF98171F7BDEC3002A60BD /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B37B61F2A1BFF001FE485 /* UserTests.swift */; };
 		87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */; };
 		87D1D3B91F7516F2008E3C34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3B81F7516F2008E3C34 /* User.swift */; };
 		87D1D3BB1F7518EC008E3C34 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */; };
 		87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6EC01F73EDB300C314F5 /* Assets.xcassets */; };
+		87EBAFEB1F851A5700D5B2C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */; };
 		87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */; };
 		87F9E9211F6C3829000B6B48 /* EarlGreyMyBillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9E9201F6C3829000B6B48 /* EarlGreyMyBillsTests.swift */; };
 		87F9E9291F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F9E9281F6C389D000B6B48 /* EarlGreyWelcomeScreenTests.swift */; };
@@ -164,6 +169,8 @@
 		7BA345E4BCD91E21974762EF /* Pods-EarlGreyWelcomeScreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyWelcomeScreenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C71A037BBAC230531AB906 /* Pods-Splitter-XCTestWelcomeScreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splitter-XCTestWelcomeScreenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Splitter-XCTestWelcomeScreenTests/Pods-Splitter-XCTestWelcomeScreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		857CD289AEC4FB4CD4D952FC /* Pods_ItemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		870B439B1F9783BB0056ED1E /* CarouselButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselButton.swift; sourceTree = "<group>"; };
+		870B439E1F979F3C0056ED1E /* CarouselTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewDataSource.swift; sourceTree = "<group>"; };
 		871682BC1F712BDB004046E9 /* InstructionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionLabel.swift; sourceTree = "<group>"; };
 		871B379D1F29F614001FE485 /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		871B37A51F29F6A0001FE485 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -176,16 +183,16 @@
 		871B37F11F2F7C49001FE485 /* SplitterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterButton.swift; sourceTree = "<group>"; };
 		871B37F31F2F86FD001FE485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		871B37F41F308CE6001FE485 /* WalkwayBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WalkwayBold.ttf; sourceTree = "<group>"; };
+		871E31C51F7D0EE2000354E7 /* OCRRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRequest.swift; sourceTree = "<group>"; };
 		872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLogoLabel.swift; sourceTree = "<group>"; };
 		872D3B1A1F30D17A00F2FEC2 /* Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splitter.entitlements; sourceTree = "<group>"; };
 		873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultParsingTests.swift; sourceTree = "<group>"; };
 		873218C61F79324800C960F6 /* OCRResultConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResultConverter.swift; sourceTree = "<group>"; };
 		873218C81F79456B00C960F6 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		873218CA1F79470500C960F6 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
-		87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDatasource.swift; sourceTree = "<group>"; };
-		87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselDelegate.swift; sourceTree = "<group>"; };
+		87344C501F7058C000C0B3FE /* CarouselDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselDataSource.swift; sourceTree = "<group>"; };
 		87344C541F705D8400C0B3FE /* BillCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCarouselView.swift; sourceTree = "<group>"; };
-		87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTitleLabel.swift; sourceTree = "<group>"; };
+		87344C561F7060CA00C0B3FE /* CarouselLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLabel.swift; sourceTree = "<group>"; };
 		873CD1A11F6FCF9900F602EF /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		873CD1A31F6FF34F00F602EF /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		874AC1111F22045700846851 /* Splitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +213,8 @@
 		8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyWelcomeScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760E6FE1F6C014000529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8760E70A1F6C064E00529685 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		877358461F7D01A700EE7C19 /* OCRRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRequestTests.swift; sourceTree = "<group>"; };
 		877B41831F46EF3300AE9813 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
 		877F555D1F74204100CABA05 /* EarlGreyNewBillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyNewBillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		877F555F1F74204100CABA05 /* EarlGreyNewBillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlGreyNewBillTests.swift; sourceTree = "<group>"; };
@@ -213,10 +222,12 @@
 		87A0465C1F30E92000EBC2D2 /* MyBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBillsViewController.swift; sourceTree = "<group>"; };
 		87A218E71F25E8A200B4BE74 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		87A218EB1F25EEAA00B4BE74 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
 		87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndInstructionView.swift; sourceTree = "<group>"; };
 		87D1D3B81F7516F2008E3C34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87D1D3BA1F7518EC008E3C34 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		87EB6EC01F73EDB300C314F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInformationView.swift; sourceTree = "<group>"; };
 		87F93B971F4D8D20007074BF /* FirebaseTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestHelper.swift; sourceTree = "<group>"; };
 		87F9E91E1F6C3829000B6B48 /* EarlGreyMyBillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyMyBillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,13 +301,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		870B43A01F97A2330056ED1E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				87B1EE231F97D390005E1674 /* CarouselTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		871B37C71F2F392E001FE485 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				873218CA1F79470500C960F6 /* RegexTests.swift */,
-				873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */,
 				874AC17F1F22457000846851 /* BillTests.swift */,
 				871B379D1F29F614001FE485 /* ItemTests.swift */,
+				877358461F7D01A700EE7C19 /* OCRRequestTests.swift */,
+				873218C41F792FC600C960F6 /* OCRResultParsingTests.swift */,
+				873218CA1F79470500C960F6 /* RegexTests.swift */,
 				871B37B61F2A1BFF001FE485 /* UserTests.swift */,
 				874AC1811F22457000846851 /* Info.plist */,
 			);
@@ -306,11 +326,11 @@
 		871B37E61F2F42EE001FE485 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				870B43A01F97A2330056ED1E /* Cells */,
+				877B41881F46F58200AE9813 /* Buttons */,
 				87344C4F1F7058A300C0B3FE /* Datasources */,
-				87344C4E1F70589800C0B3FE /* Delegates */,
 				877B41861F46F47900AE9813 /* Labels */,
 				877B41871F46F57700AE9813 /* TextFields */,
-				877B41881F46F58200AE9813 /* Buttons */,
 				877B41891F46F58900AE9813 /* Views */,
 			);
 			path = Views;
@@ -324,18 +344,11 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		87344C4E1F70589800C0B3FE /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				87344C521F70594E00C0B3FE /* BillCarouselDelegate.swift */,
-			);
-			path = Delegates;
-			sourceTree = "<group>";
-		};
 		87344C4F1F7058A300C0B3FE /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				87344C501F7058C000C0B3FE /* BillCarouselDatasource.swift */,
+				87344C501F7058C000C0B3FE /* CarouselDataSource.swift */,
+				870B439E1F979F3C0056ED1E /* CarouselTableViewDataSource.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -371,7 +384,7 @@
 			children = (
 				871B37E61F2F42EE001FE485 /* Views */,
 				87A218EA1F25E8F900B4BE74 /* Controllers */,
-				874AC1781F223EEF00846851 /* DataModels */,
+				874AC1781F223EEF00846851 /* Models */,
 				87A218E61F25E88E00B4BE74 /* Helpers */,
 				87A218E91F25E8E000B4BE74 /* SupportingFiles */,
 			);
@@ -407,14 +420,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		874AC1781F223EEF00846851 /* DataModels */ = {
+		874AC1781F223EEF00846851 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				874AC1741F222FD100846851 /* Bill.swift */,
 				871B37A51F29F6A0001FE485 /* Item.swift */,
 				871B37BE1F2A1EF9001FE485 /* SplitterUser.swift */,
 			);
-			path = DataModels;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8760E6FB1F6C014000529685 /* EarlGreyWelcomeScreenTests */ = {
@@ -433,7 +446,7 @@
 				872D3B151F30C5C300F2FEC2 /* TitleLogoLabel.swift */,
 				873CD1A11F6FCF9900F602EF /* TitleLabel.swift */,
 				877B41831F46EF3300AE9813 /* ToastLabel.swift */,
-				87344C561F7060CA00C0B3FE /* CarouselTitleLabel.swift */,
+				87344C561F7060CA00C0B3FE /* CarouselLabel.swift */,
 				871682BC1F712BDB004046E9 /* InstructionLabel.swift */,
 			);
 			path = Labels;
@@ -452,6 +465,7 @@
 			children = (
 				871B37F11F2F7C49001FE485 /* SplitterButton.swift */,
 				873CD1A31F6FF34F00F602EF /* IconButton.swift */,
+				870B439B1F9783BB0056ED1E /* CarouselButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -462,6 +476,7 @@
 				87EE7B301F3B457C000F7E96 /* WelcomeScreenInformationView.swift */,
 				87344C541F705D8400C0B3FE /* BillCarouselView.swift */,
 				87D1D3B61F74480D008E3C34 /* ImageAndInstructionView.swift */,
+				87EBAFEA1F851A5700D5B2C0 /* ActivityIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -479,12 +494,12 @@
 		87A218E61F25E88E00B4BE74 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				871B37EF1F2F6322001FE485 /* Constants.swift */,
 				87A218E71F25E8A200B4BE74 /* Extensions.swift */,
 				87A218EB1F25EEAA00B4BE74 /* Firebase.swift */,
+				87EBAFEE1F86932F00D5B2C0 /* Regex */,
+				87EBAFED1F868D9A00D5B2C0 /* OCR */,
 				871B37C51F2F339A001FE485 /* UIView+Autolayout.swift */,
-				871B37EF1F2F6322001FE485 /* Constants.swift */,
-				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
-				873218C81F79456B00C960F6 /* Regex.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -497,6 +512,7 @@
 				87EB6EC01F73EDB300C314F5 /* Assets.xcassets */,
 				874AC1141F22045700846851 /* AppDelegate.swift */,
 				874AC1201F22045700846851 /* Info.plist */,
+				8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */,
 				874AC1761F223D8300846851 /* GoogleService-Info.plist */,
 				871B37EE1F2F4573001FE485 /* Localizable.strings */,
 			);
@@ -520,6 +536,23 @@
 				87F93B9B1F4D8D30007074BF /* TestHelpers */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		87EBAFED1F868D9A00D5B2C0 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				871E31C51F7D0EE2000354E7 /* OCRRequest.swift */,
+				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		87EBAFEE1F86932F00D5B2C0 /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				873218C81F79456B00C960F6 /* Regex.swift */,
+			);
+			path = Regex;
 			sourceTree = "<group>";
 		};
 		87F93B9B1F4D8D30007074BF /* TestHelpers */ = {
@@ -691,9 +724,13 @@
 				TargetAttributes = {
 					874AC1101F22045700846851 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -758,6 +795,7 @@
 				87EB6EC11F73EDB300C314F5 /* Assets.xcassets in Resources */,
 				871B37EC1F2F4573001FE485 /* Localizable.strings in Resources */,
 				874AC1771F223D8300846851 /* GoogleService-Info.plist in Resources */,
+				8766D1261FA389720049A7B1 /* LaunchScreen.storyboard in Resources */,
 				871B37F61F308E3E001FE485 /* WalkwayBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,8 +859,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -830,8 +871,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -930,8 +974,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -939,8 +986,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -976,16 +1026,22 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1015,8 +1071,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1024,8 +1083,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1073,16 +1135,22 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1125,19 +1193,23 @@
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
+				871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */,
 				874AC1881F224F8900846851 /* Bill.swift in Sources */,
 				871B37A61F29F6A0001FE485 /* Item.swift in Sources */,
-				87344C571F7060CA00C0B3FE /* CarouselTitleLabel.swift in Sources */,
+				87344C571F7060CA00C0B3FE /* CarouselLabel.swift in Sources */,
 				871682BD1F712BDB004046E9 /* InstructionLabel.swift in Sources */,
 				871B37F01F2F6322001FE485 /* Constants.swift in Sources */,
+				870B439C1F9783BB0056ED1E /* CarouselButton.swift in Sources */,
 				873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */,
+				87B1EE241F97D390005E1674 /* CarouselTableViewCell.swift in Sources */,
 				87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */,
-				87344C511F7058C000C0B3FE /* BillCarouselDatasource.swift in Sources */,
+				87EBAFEB1F851A5700D5B2C0 /* ActivityIndicator.swift in Sources */,
+				87344C511F7058C000C0B3FE /* CarouselDataSource.swift in Sources */,
 				871B37E91F2F430C001FE485 /* SplitterTextField.swift in Sources */,
 				871B37C61F2F339A001FE485 /* UIView+Autolayout.swift in Sources */,
 				8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */,
 				87A0465D1F30E92000EBC2D2 /* MyBillsViewController.swift in Sources */,
-				87344C531F70594E00C0B3FE /* BillCarouselDelegate.swift in Sources */,
+				870B439F1F979F3C0056ED1E /* CarouselTableViewDataSource.swift in Sources */,
 				873CD1A41F6FF34F00F602EF /* IconButton.swift in Sources */,
 				87D1D3B71F74480D008E3C34 /* ImageAndInstructionView.swift in Sources */,
 				871B37F21F2F7C49001FE485 /* SplitterButton.swift in Sources */,
@@ -1152,12 +1224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877358471F7D01A700EE7C19 /* OCRRequestTests.swift in Sources */,
 				87CF98161F7BDEC3002A60BD /* ItemTests.swift in Sources */,
 				87CF98171F7BDEC3002A60BD /* UserTests.swift in Sources */,
 				873218C51F792FC600C960F6 /* OCRResultParsingTests.swift in Sources */,
 				8773583B1F7BFFDB00EE7C19 /* TestExtensions.swift in Sources */,
 				8773583C1F7BFFE000EE7C19 /* FirebaseTestHelper.swift in Sources */,
-				873218CC1F79479900C960F6 /* Regex.swift in Sources */,
 				873218CB1F79470500C960F6 /* RegexTests.swift in Sources */,
 				8761411B1F4C43ED00107372 /* BillTests.swift in Sources */,
 			);
@@ -1343,6 +1415,7 @@
 			baseConfigurationReference = F44D59D32D38FDAAF00E4A58 /* Pods-Splitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Splitter/SupportingFiles/Splitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1362,6 +1435,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1372,6 +1447,7 @@
 			baseConfigurationReference = 0362902E59A180EE4741DC5F /* Pods-Splitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Splitter/SupportingFiles/Splitter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1391,6 +1467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rumblewayne.Splitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1434,7 +1511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BA345E4BCD91E21974762EF /* Pods-EarlGreyWelcomeScreenTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1454,7 +1531,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC7EAECE15C71E70AE7A5730 /* Pods-EarlGreyWelcomeScreenTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1474,7 +1551,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3BCEF2A77E3E84EF7B77C3F5 /* Pods-EarlGreyNewBillTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1493,7 +1570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0171A81E34B38E4B7F00FD02 /* Pods-EarlGreyNewBillTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1512,7 +1589,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE4EE964AA1B83F6C6994864 /* Pods-EarlGreyMyBillsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;
@@ -1531,7 +1608,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA9EF31A2A557577471FAF72 /* Pods-EarlGreyMyBillsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJMTPNAAQV;

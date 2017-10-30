@@ -7,33 +7,38 @@
 //
 
 import XCTest
+@testable import Splitter
 
 class RegexTests: XCTestCase {
+    
+    let regex = Regex()
     
     func testReturnsTrueWhenContainsAMatch() {
         let ocrResult = "2 cheese burger £8.0"
         let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
-        do {
-            let regex = try Regex(pattern)
-            let result = regex.containsMatch(input: ocrResult)
+        let result = regex.containsMatch(pattern,
+                                         inString: ocrResult)
             
-            XCTAssertTrue(result, "Does not contain a match")
-        } catch {
-            XCTFail()
-        }
+        XCTAssertTrue(result, "Does not contain a match")
     }
     
     func testReturnsCorrectMatch() {
         let ocrResult = "2 cheese burger £8.0"
         let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
-        let expectation = "8.0"
-        do {
-            let regex = try Regex(pattern)
-            let result = regex.returnsMatchesAsStrings(input: ocrResult).first
-            
+        let expectation = ["8.0"]
+        let result = regex.listMatches(pattern,
+                                       inString: ocrResult)
             XCTAssertEqual(expectation, result)
-        } catch {
-            XCTFail()
-        }
+
+    }
+    
+    func testReplacesOccurenceOfMatchWithString() {
+        let ocrResult = "2 cheese burger £8.0"
+        let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
+        let expectation = "2 cheese burger £"
+        let result = regex.replaceMatches(pattern,
+                                          inString: ocrResult,
+                                          withString: "")
+        XCTAssertEqual(expectation, result)
     }
 }

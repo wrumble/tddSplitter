@@ -18,14 +18,14 @@ class IconButton: UIButton {
         
         self.accessID = accessID
         self.iconImage = iconImage
-        setup()
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    private func setup() {
+    private func setupView() {
         accessibilityIdentifier = accessID
         backgroundColor = .clear
         setBackgroundImage(iconImage, for: .normal)
