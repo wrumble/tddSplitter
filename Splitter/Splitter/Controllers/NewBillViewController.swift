@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ALCameraViewController
 
 class NewBillViewController: UIViewController,
                              UIImagePickerControllerDelegate,
@@ -15,7 +16,15 @@ class NewBillViewController: UIViewController,
     var currentUser: SplitterUser!
     
     private let billID = UUID().uuidString
-
+    private let activityIndicator = ActivityIndicator(text: Localized.extractingTextMessage,
+                                                      isDarkIndicator: true)
+    private var minimumSize = CGSize(width: 60, height: 60)
+    private var croppingParameters: CroppingParameters {
+        return CroppingParameters(isEnabled: true,
+                                  allowResizing: true,
+                                  allowMoving: true,
+                                  minimumSize: minimumSize)
+    }
     private var titleLabel = TitleLabel()
     private var nameTextField = SplitterTextField(accessID: AccesID.nameTextField)
     private var locationTextField = SplitterTextField(accessID: AccesID.locationTextField)
@@ -26,9 +35,7 @@ class NewBillViewController: UIViewController,
     private var saveButton = IconButton(accessID: AccesID.saveButton,
                                           iconImage: Image.saveButton!)
     private var recieptImageAndInstructionView = ImageAndInstructionView()
-    private let activityIndicator = ActivityIndicator(text: Localized.extractingTextMessage,
-                                                      isDarkIndicator: true)
-    
+
     required init(currentUser: SplitterUser) {
         super.init(nibName: nil, bundle: nil)
         defer {
@@ -171,15 +178,6 @@ class NewBillViewController: UIViewController,
                                               relatedBy: .equal)
     }
     
-    @objc private func cameraButtonWasTapped() {
-        let imagePicker = UIImagePickerController()
-        setupImagePicker(imagePicker)
-        selectSourceTypeFor(imagePicker)
-        present(imagePicker,
-                animated: true,
-                completion: nil)
-    }
-    
     @objc private func homeButtonWasTapped() {
         goToMyBillsViewController()
     }
@@ -189,37 +187,37 @@ class NewBillViewController: UIViewController,
         view.window?.rootViewController = myBillsViewController
     }
     
-    private func setupImagePicker(_ imagePicker: UIImagePickerController) {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.modalPresentationStyle = .fullScreen
+    @objc private func cameraButtonWasTapped() {
+        selectSourceType()
     }
     
-    private func selectSourceTypeFor(_ imagePicker: UIImagePickerController) {
+    private func selectSourceType() {
         if  UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-            imagePicker.cameraFlashMode = .auto
-            imagePicker.cameraOverlayView?.accessibilityIdentifier = AccesID.imagePicker
-            imagePicker.cameraOverlayView?.isUserInteractionEnabled = false
+            openCameraView()
         } else {
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.navigationBar.accessibilityIdentifier = AccesID.imagePicker
+            openPhotoLibrary()
         }
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true,
-                completion: nil)
+    private func openCameraView() {
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters,
+                                                        allowsLibraryAccess: true) { [weak self] image, asset in
+            self?.recieptImageAndInstructionView.image = image
+            self?.recieptImageAndInstructionView.instructionLabel.isHidden = true
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        present(cameraViewController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerEditedImage] as! UIImage
-        recieptImageAndInstructionView.image = image
-        recieptImageAndInstructionView.instructionLabel.isHidden = true
-        dismiss(animated:true,
-                completion: nil)
+    private func openPhotoLibrary() {
+        let libraryViewController = CameraViewController.imagePickerViewController(croppingParameters: croppingParameters) { [weak self] image, asset in
+            self?.recieptImageAndInstructionView.image = image
+            self?.recieptImageAndInstructionView.instructionLabel.isHidden = true
+            self?.dismiss(animated: true, completion: nil)
+        }
         
+        present(libraryViewController, animated: true, completion: nil)
     }
     
     @objc private func saveButtonWasTapped() {

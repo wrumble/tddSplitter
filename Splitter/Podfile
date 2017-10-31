@@ -7,6 +7,7 @@
         inhibit_all_warnings!
 
         def allPods
+          pod 'ALCameraViewController', '~> 2.0.3'
           pod 'AFNetworking'
           pod 'Firebase'
           pod 'Firebase/Database'

@@ -24,4 +24,10 @@ xcuserdata/
 
 .build/
 
-Splitter/Pods
+!Splitter/
+
+application/*
+!Splitter/Pods/
+
+Splitter/Pods/*
+!Splitter/Pods/ALCameraViewController/
