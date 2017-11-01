@@ -20,8 +20,4 @@ class OCRRequestTests: XCTestCase {
         imageData = image.base64EncodeImage()
         ocrRequest = OCRRequest()
     }
-    
-    func testRequestReturnsExpectedJson() {
-        ocrRequest.createRequest(with: imageData)
-    }
 }

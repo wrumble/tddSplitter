@@ -8,7 +8,7 @@
 
 import XCTest
 
-enum AccesID {
+enum AccessID {
     static let carouselLocationLabel = "CarouselLocationLabel"
     static let carouselDateLabel = "CarouselDateLabel"
     static let imagePicker = "ImagePicker"

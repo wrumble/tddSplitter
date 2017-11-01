@@ -9,9 +9,7 @@
 import UIKit
 import ALCameraViewController
 
-class NewBillViewController: UIViewController,
-                             UIImagePickerControllerDelegate,
-                             UINavigationControllerDelegate {
+class NewBillViewController: UIViewController {
     
     var currentUser: SplitterUser!
     
