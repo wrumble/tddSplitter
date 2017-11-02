@@ -114,13 +114,13 @@ class EarlGreyNewBillTests: XCTestCase {
         cameraButton.perform(grey_tap())
         let assertion = grey_sufficientlyVisible()
         let imagePicker = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.imagePicker))
-        let conditionName = "Wait for instruction label to appear"
+        let conditionName = "Wait for imagePickerController to appear"
         let appearedSuccesfully = waitForSuccess(of: assertion,
                                                  with: imagePicker,
                                                  conditionName: conditionName)
         
         GREYAssertTrue(appearedSuccesfully,
-                       reason: "Instruction label appeared")
+                       reason: "ImagePicker did not appear")
     }
     
     func testTappingHomeButtonGoesToMyBillsViewController() {

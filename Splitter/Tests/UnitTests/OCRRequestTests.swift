@@ -20,4 +20,14 @@ class OCRRequestTests: XCTestCase {
         imageData = image.base64EncodeImage()
         ocrRequest = OCRRequest()
     }
+<<<<<<< HEAD
+=======
+    
+    func testRequestReturnsExpectedJson() {
+        ocrRequest.uploadReceiptImage(image: imageData,
+                                      complete: { (receiptText) in
+            print(receiptText)
+            })
+    }
+>>>>>>> RefactorAddTests
 }

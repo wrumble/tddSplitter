@@ -199,7 +199,7 @@ class NewBillViewController: UIViewController {
     
     private func openCameraView() {
         let cameraViewController = CameraViewController(croppingParameters: croppingParameters,
-                                                        allowsLibraryAccess: true) { [weak self] image, asset in
+                                                        allowsLibraryAccess: true) { [weak self] image, _ in
             self?.recieptImageAndInstructionView.image = image
             self?.recieptImageAndInstructionView.instructionLabel.isHidden = true
             self?.dismiss(animated: true, completion: nil)
@@ -209,12 +209,12 @@ class NewBillViewController: UIViewController {
     }
     
     private func openPhotoLibrary() {
-        let libraryViewController = CameraViewController.imagePickerViewController(croppingParameters: croppingParameters) { [weak self] image, asset in
+        let libraryViewController = CameraViewController.imagePickerViewController(croppingParameters: croppingParameters) { [weak self] image, _ in
             self?.recieptImageAndInstructionView.image = image
             self?.recieptImageAndInstructionView.instructionLabel.isHidden = true
             self?.dismiss(animated: true, completion: nil)
         }
-        
+        libraryViewController.visibleViewController?.view.accessibilityIdentifier = AccesID.imagePicker
         present(libraryViewController, animated: true, completion: nil)
     }
     
