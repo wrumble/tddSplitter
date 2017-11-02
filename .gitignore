@@ -31,3 +31,6 @@ application/*
 
 Splitter/Pods/*
 !Splitter/Pods/ALCameraViewController/
+
+Splitter/ParallelBuilds/
+Splitter/-scheme:build/

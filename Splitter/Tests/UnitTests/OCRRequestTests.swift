@@ -22,6 +22,9 @@ class OCRRequestTests: XCTestCase {
     }
     
     func testRequestReturnsExpectedJson() {
-        ocrRequest.createRequest(with: imageData)
+        ocrRequest.uploadReceiptImage(image: imageData,
+                                      complete: { (receiptText) in
+            print(receiptText)
+            })
     }
 }

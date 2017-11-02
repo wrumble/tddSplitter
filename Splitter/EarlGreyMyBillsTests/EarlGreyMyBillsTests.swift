@@ -64,7 +64,7 @@ class EarlGreyMyBillsTests: XCTestCase {
         var error: NSError?
         
         EarlGrey.select(elementWithMatcher: deleteButton)
-            .assert(grey_sufficientlyVisible(),
+                .assert(grey_sufficientlyVisible(),
                     error: &error)
         GREYAssertTrue((error != nil),
                        reason: "Delete button is visible")
@@ -73,15 +73,14 @@ class EarlGreyMyBillsTests: XCTestCase {
     func testDeleteButtonIsVisibleWhenThereAreBills() {
         startAtMyBillsViewControllerWith(email: userWithOneBillEmail)
         
-        let assertion = grey_sufficientlyVisible()
-        let deleteButton = EarlGrey.select(elementWithMatcher: grey_accessibilityID(AccessID.deleteButton))
-        let conditionName = "Wait for NoBillsLabel to appear"
-        let appearedSuccesfully = waitForSuccess(of: assertion,
-                                                 with: deleteButton,
-                                                 conditionName: conditionName)
+        let deleteButton = grey_accessibilityID(AccessID.deleteButton)
+        var error: NSError?
         
-        GREYAssertTrue(appearedSuccesfully,
-                       reason: "Delete Bill View Appeared")
+        EarlGrey.select(elementWithMatcher: deleteButton)
+                .assert(grey_sufficientlyVisible(),
+                    error: &error)
+        GREYAssertFalse((error != nil),
+                       reason: "Delete button not visible")
     }
     
     func testShowsUsersBills() {
@@ -118,7 +117,7 @@ class EarlGreyMyBillsTests: XCTestCase {
         var error: NSError?
         
         EarlGrey.select(elementWithMatcher: instructionLabel)
-            .assert(grey_sufficientlyVisible(),
+                .assert(grey_sufficientlyVisible(),
                     error: &error)
         GREYAssertTrue((error != nil),
                        reason: "Label is visible")
