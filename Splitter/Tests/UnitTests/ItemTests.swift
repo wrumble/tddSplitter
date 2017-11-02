@@ -78,13 +78,8 @@ class ItemTests: XCTestCase {
     }
     
     func addBillToFirebase() -> String {
-<<<<<<< HEAD
-        let bill = Bill(id: UUID().uuidString,
-                        userID: "testID",
-=======
         let bill = Bill(id: "testBillID",
                         userID: "testUserID",
->>>>>>> RefactorAddTests
                         name: "Bob Ross",
                         location: "MacDonalds",
                         imageURL: "https://testurl.com",
