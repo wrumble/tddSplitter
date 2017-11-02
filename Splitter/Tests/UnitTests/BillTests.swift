@@ -39,11 +39,7 @@ class BillTests: XCTestCase {
     func testCanCreateNewBill() {
         var testSuccess = false
         let requestExpectation = expectation(description: "Creates a bill")
-<<<<<<< HEAD
-        let bill = Bill(id: UUID().uuidString,
-=======
         let bill = Bill(id: "testBillID",
->>>>>>> RefactorAddTests
                         userID: "testID",
                         name: "Bob Ross",
                         location: "MacDonalds",
@@ -137,11 +133,7 @@ class BillTests: XCTestCase {
     
     func addBillToFirebaseWith(userID: String,
                                completion: @escaping (String) -> Void = { _ in }) -> String {
-<<<<<<< HEAD
-        let bill = Bill(id: UUID().uuidString,
-=======
         let bill = Bill(id: "testBillID",
->>>>>>> RefactorAddTests
                         userID: userID,
                         name: "Bob Ross",
                         location: "MacDonalds",
