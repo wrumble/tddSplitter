@@ -83,7 +83,7 @@ class BillTests: XCTestCase {
         let userWithBillsID = "LookingForThis"
         let otherUserID = "NotLookingForThis"
         
-        let otherUserBillID = addBillToFirebaseWith(userID: otherUserID)
+        _ = addBillToFirebaseWith(userID: otherUserID)
         _ = addBillToFirebaseWith(userID: userWithBillsID)
         _ = addBillToFirebaseWith(userID: userWithBillsID,
                                   completion: { _ in
@@ -109,7 +109,7 @@ class BillTests: XCTestCase {
                     XCTAssertEqual(resultID2, userWithBillsID)
                 }
         })
-        removeTestBill(withID: otherUserBillID)
+        removeTestBill(withID: otherUserID)
     }
     
     func testCanRemoveBillFromFirebase() {

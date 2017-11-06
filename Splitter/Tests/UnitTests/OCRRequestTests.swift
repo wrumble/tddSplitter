@@ -11,20 +11,32 @@ import XCTest
 
 class OCRRequestTests: XCTestCase {
 
-    private var image: UIImage!
-    private var imageData: String!
-    private var ocrRequest: OCRRequest!
+    private var image = UIImage(named: "receipt1.jpg")!
+    private var ocrRequest = OCRRequest()
 
-    override func setUp() {
-        image = UIImage(named: "receipt1")!
-        imageData = image.base64EncodeImage()
-        ocrRequest = OCRRequest()
+    func testRequestReturnsExpectedJson() {
+        var textResponse = String()
+        let base64Image = image.base64EncodeImage()
+        let requestExpectation = expectation(description: "Image text received")
+        ocrRequest.uploadReceiptImage(image: base64Image,
+                                      complete: { receiptText in
+                if let receiptText = receiptText {
+                    textResponse = receiptText
+                }
+                                        
+                requestExpectation.fulfill()
+            })
+        waitForExpectations(timeout: 5) { _ in
+            XCTAssertNotNil(textResponse)
+        }
     }
     
-    func testRequestReturnsExpectedJson() {
-        ocrRequest.uploadReceiptImage(image: imageData,
-                                      complete: { (receiptText) in
-            print(receiptText)
-            })
+    func testRequestReturnsNilWithInvalidBase64Image() {
+        let gobbledigook = "aslkdghasldjgnlsdk"
+        ocrRequest.uploadReceiptImage(image: gobbledigook,
+                                      complete: { receiptText in
+                                        XCTAssertNil(receiptText)
+        })
+        XCTFail()
     }
 }
