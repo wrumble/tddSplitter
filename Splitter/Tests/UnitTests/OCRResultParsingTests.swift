@@ -61,4 +61,14 @@ class OCRResultParsingTests: XCTestCase {
         XCTAssertEqual(result.first?.price,
                        expectation)
     }
+    
+    func testRemovesIndividualItemPrices() {
+        var ocrResult = "2 x 500ml 1664 êcole beer @ £4,000,000.00 £8,000.000,0 1"
+        let expectation = "500ml 1664 êcole beer"
+        let result = ocrResultConverter.convertToItems(&ocrResult,
+                                                       billID: "billID")
+        
+        XCTAssertEqual(result.first?.name,
+                       expectation)
+    }
 }

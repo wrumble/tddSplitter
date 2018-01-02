@@ -99,10 +99,10 @@ class OCRResultConverter {
     
     private func removeExtraCharactersFrom(_ price: inout String,
                                            decimalIndex: Int) {
-        var priceCharacters = Array(price.characters)
+        var priceCharacters = Array(price)
         let index = priceCharacters.count - decimalIndex
         if priceCharacters[index] == "," {
-            price = String(price.characters.filter { "0123456789".characters.contains($0) })
+            price = String(price.characters.filter { Array("0123456789").contains($0) })
             let index = price.index(price.endIndex, offsetBy:  -decimalIndex + 1)
             price.insert(".", at: index)
         }
@@ -116,16 +116,16 @@ class OCRResultConverter {
                                inString: receiptLine) {
              receiptLine = regex.listMatches(wantedCharacters, inString: receiptLine)
                                 .joined()
-                                .trimmingCharacters(in: .whitespacesAndNewlines)
-            removeIndividualPricings(&receiptLine, itemPrice: itemPrice)
+            removeIndividualItemPricings(&receiptLine, itemPrice: itemPrice)
+            receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
         } else {
             receiptLine = "Untitled"
         }
     }
     
-    private func removeIndividualPricings(_ receiptLine: inout String,
+    private func removeIndividualItemPricings(_ receiptLine: inout String,
                                           itemPrice: String) {
-        receiptLine = receiptLine.replacingOccurrences(of: ",", with: ".")
+        receiptLine = receiptLine.replacingOccurrences(of: ",", with: "")
         var nameArray = receiptLine.components(separatedBy: " ")
         let price = String(format: "%.02f", Double(itemPrice)!)
         if let index = nameArray.index(where: { $0 == price }) {
@@ -134,8 +134,8 @@ class OCRResultConverter {
                 stringBeforePrice == "a" ||
                 stringBeforePrice == "8" ||
                 stringBeforePrice == "0" {
-                    nameArray.remove(at: index - 1)
-                    receiptLine = nameArray.joined(separator: " ")
+                nameArray.remove(at: index - 1)
+                receiptLine = nameArray.joined(separator: " ")
             }
         }
 
