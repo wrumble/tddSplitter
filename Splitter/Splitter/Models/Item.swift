@@ -37,3 +37,12 @@ struct Item: JSONable {
         ]
     }
 }
+
+extension Item: Equatable {
+    static func ==(lhs: Item, rhs: Item) -> Bool {
+        return lhs.id == rhs.id &&
+                lhs.name == rhs.name &&
+                lhs.price == rhs.price &&
+                lhs.billID == rhs.billID
+    }
+}

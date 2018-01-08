@@ -15,7 +15,8 @@ class OCRResultConverter {
     
     func convertToItems(_ receiptLine: inout String,
                         billID: String) -> [Item] {
-        if receiptLine == "" || receiptLine == " " { return [] }
+        receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
+        if receiptLine == "" { return [] }
         var itemArray = [Item]()
         let itemQuantity = returnItemQuantity(&receiptLine)
         let totalPrice = returnItemPrice(&receiptLine)
