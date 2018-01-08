@@ -9,16 +9,38 @@
 import XCTest
 @testable import Splitter
 
+enum ItemEnum {
+    case price
+    case name
+    case quantity
+}
+
 class OCRResultParsingTests: XCTestCase {
     
-    let ocrResultConverter = OCRResultConverter()
+    private let ocrResultConverter = OCRResultConverter()
+    private var nameResultsArray: [String] {
+        return createResultsArray(for: .name)
+    }
+    private var priceResultsArray: [String] {
+        return createResultsArray(for: .price)
+    }
+    private var quantityResultsArray: [String] {
+        return createResultsArray(for: .quantity)
+    }
     
-    func testRecognizesTotalAtEndOfLine() {
-        var ocrResult = "500ml 1664 êcole beer £8,000.000,0"
-        let expectation = "8000000.0"
+    fileprivate let possibleReceiptValues = ["2 500ml 1664 êcole beer £8,000,000.0",
+                                             //"2x 500ml 1664 êcole beer", this downt work yet
+                                             "2 500ml 1664 êcole beer £8.000.000,0",
+                                             "2 x 500ml 1664 êcole beer £8,000.000,0 1",
+                                             "2 x 500ml 1664 êcole beer @ £4,000,000.00 £8,000.000,0 1"]
+    
+    func testReturnsUntitledIfNoNameIsFound() {
+        var ocrResult = "2 x £8,000,000.0"
+        let expectation = "Untitled"
         let result = ocrResultConverter.convertToItems(&ocrResult,
                                                        billID: "billID")
-        XCTAssertEqual(result.first?.price,
+        
+        XCTAssertEqual(result.first?.name,
                        expectation)
     }
     
@@ -33,42 +55,51 @@ class OCRResultParsingTests: XCTestCase {
     }
     
     func testReturnsItemNameOnly() {
-        var ocrResult = "2 500ml êcole beer £8.0"
-        let expectation = "500ml êcole beer"
-        let result = ocrResultConverter.convertToItems(&ocrResult,
-                                                       billID: "billID")
+
+        let expectationArray = createExpectationArray(for: "500ml 1664 êcole beer")
         
-        XCTAssertEqual(result.first?.name,
-                       expectation)
+        XCTAssertEqual(nameResultsArray,
+                       expectationArray)
     }
     
-    func testReturnsTwoItemsIfQuantityIsTwo() {
-        var ocrResult = "2 500ml êcole beer £8.0"
-        let expectation = 2
-        let result = ocrResultConverter.convertToItems(&ocrResult,
-                                                       billID: "billID")
+    func testReturnsItemPrice() {
+        let expectationArray = createExpectationArray(for: "4000000.0")
         
-        XCTAssertEqual(result.count,
-                       expectation)
+        XCTAssertEqual(priceResultsArray,
+                       expectationArray)
+    }
+    func testReturnsItemQuantity() {
+        let expectationArray = createExpectationArray(for: "2")
+        
+        XCTAssertEqual(quantityResultsArray,
+                       expectationArray)
+    }
+}
+
+extension OCRResultParsingTests {
+    fileprivate func createExpectationArray(for value: String) -> [String] {
+        var expectationArray = [String]()
+        for _ in 0...possibleReceiptValues.count - 1 {
+            expectationArray.append(value)
+        }
+        return expectationArray
     }
     
-    func testDividesItemPriceByQuantity() {
-        var ocrResult = "2 x 500ml 1664 êcole beer £8,000.000,0 1"
-        let expectation = "4000000.0"
-        let result = ocrResultConverter.convertToItems(&ocrResult,
-                                                       billID: "billID")
-        
-        XCTAssertEqual(result.first?.price,
-                       expectation)
-    }
-    
-    func testRemovesIndividualItemPrices() {
-        var ocrResult = "2 x 500ml 1664 êcole beer @ £4,000,000.00 £8,000.000,0 1"
-        let expectation = "500ml 1664 êcole beer"
-        let result = ocrResultConverter.convertToItems(&ocrResult,
-                                                       billID: "billID")
-        
-        XCTAssertEqual(result.first?.name,
-                       expectation)
+    fileprivate func createResultsArray(for itemValue: ItemEnum) -> [String] {
+        var resultArray = [String]()
+        possibleReceiptValues.forEach { reciptLine in
+            var line = reciptLine
+            let result = ocrResultConverter.convertToItems(&line,
+                                                           billID: "billID")
+            switch itemValue {
+            case .price:
+                resultArray.append(result.first!.price)
+            case .name:
+                resultArray.append(result.first!.name)
+            case .quantity:
+                resultArray.append(String(result.count))
+            }
+        }
+        return resultArray
     }
 }

@@ -89,6 +89,7 @@ class OCRResultConverter {
             }
             normalizePrice(&price)
         }
+        price = price.replacingOccurrences(of: ",", with: "")
         return Double(price)!
     }
     
@@ -118,13 +119,14 @@ class OCRResultConverter {
                                 .joined()
             removeIndividualItemPricings(&receiptLine, itemPrice: itemPrice)
             receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
-        } else {
+        }
+        if receiptLine == "" {
             receiptLine = "Untitled"
         }
     }
     
     private func removeIndividualItemPricings(_ receiptLine: inout String,
-                                          itemPrice: String) {
+                                              itemPrice: String) {
         receiptLine = receiptLine.replacingOccurrences(of: ",", with: "")
         var nameArray = receiptLine.components(separatedBy: " ")
         let price = String(format: "%.02f", Double(itemPrice)!)
