@@ -15,8 +15,7 @@ class OCRResultConverter {
     
     func convertToItems(_ receiptLine: inout String,
                         billID: String) -> [Item] {
-        receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
-        if receiptLine == "" { return [] }
+        if receiptLine.trimmingCharacters(in: .whitespacesAndNewlines) == "" { return [] }
         var itemArray = [Item]()
         let itemQuantity = returnItemQuantity(&receiptLine)
         let totalPrice = returnItemPrice(&receiptLine)
@@ -45,15 +44,15 @@ class OCRResultConverter {
     }
     
     private func returnItemQuantity(_ receiptLine: inout String) -> Int {
-        let numberAndXPattern = "\\d{1,2}(\\s[xX]|[xX])"
+        let numberXDashPattern = "^\\d+(?=\\s*[xX-])"
         let justNumberPattern = "^\\d{1,2}\\s"
         var quantity = "1"
         
-        if regex.containsMatch(numberAndXPattern,
+        if regex.containsMatch(numberXDashPattern,
                                inString: receiptLine) {
             extractAndRemove(&quantity,
                              from: &receiptLine,
-                             with: numberAndXPattern)
+                             with: numberXDashPattern)
         } else if regex.containsMatch(justNumberPattern,
                                       inString: receiptLine) {
             extractAndRemove(&quantity,
@@ -69,12 +68,12 @@ class OCRResultConverter {
                                   with pattern: String) {
         quantity = regex.listMatches(pattern,
                                      inString: string).first!
-        quantity = regex.replaceMatches("[xX\\s]",
-                                        inString: quantity,
-                                        withString: "")!
         string = regex.replaceMatches(pattern,
                                        inString: string,
                                        withString: "")!
+        string = regex.replaceMatches("\\s*[xX-]",
+                                      inString: string,
+                                      withString: "")!
     }
     
     private func returnItemPrice(_ receiptLine: inout String) -> Double {
@@ -90,7 +89,6 @@ class OCRResultConverter {
             }
             normalizePrice(&price)
         }
-        price = price.replacingOccurrences(of: ",", with: "")
         return Double(price)!
     }
     
@@ -103,9 +101,10 @@ class OCRResultConverter {
                                            decimalIndex: Int) {
         var priceCharacters = Array(price)
         let index = priceCharacters.count - decimalIndex
-        if priceCharacters[index] == "," {
-            price = String(price.characters.filter { Array("0123456789").contains($0) })
+        if priceCharacters[index] == "," || priceCharacters[index] == "." {
+            price = String(Array(price).filter { Array("0123456789").contains($0) })
             let index = price.index(price.endIndex, offsetBy:  -decimalIndex + 1)
+            price = price.replacingOccurrences(of: ".", with: "")
             price.insert(".", at: index)
         }
     }

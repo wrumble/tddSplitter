@@ -28,10 +28,20 @@ class OCRResultParsingTests: XCTestCase {
         return createResultsArray(for: .quantity)
     }
     
-    fileprivate let possibleReceiptValues = ["2 500ml 1664 êcole beer £8,000,000.0",
-                                             //"2x 500ml 1664 êcole beer", this doesn't work yet
+    fileprivate let possibleReceiptValues = ["2 500ml 1664 êcole beer £8,000,000.0", //price changes
                                              "2 500ml 1664 êcole beer £8.000.000,0",
-                                             "2 x 500ml 1664 êcole beer £8,000.000,0 1",
+                                             "2 500ml 1664 êcole beer £8.000,000.0",
+                                             "2 500ml 1664 êcole beer £8.000,000.0",
+                                             "2 x 500ml 1664 êcole beer £8,000.000,0", //quantity changes
+                                             "2X 500ml 1664 êcole beer £8,000,000.0",
+                                             "2 X 500ml 1664 êcole beer £8,000,000.0",
+                                             "2- 500ml 1664 êcole beer £8,000,000.0",
+                                             "2 - 500ml 1664 êcole beer £8,000,000.0",
+                                             "2 500ml 1664 êcole beer £8,000,000.0",
+                                             "2 x 500ml 1664 êcole beer £8,000.000,0 1", //name changes
+                                             "2 x 500ml 1664 êcole beer a £4,000,000.00 £8,000.000,0 1",
+                                             "2 x 500ml 1664 êcole beer 8 £4,000,000.00 £8,000.000,0 1",
+                                             "2 x 500ml 1664 êcole beer 0 £4,000,000.00 £8,000.000,0 1",
                                              "2 x 500ml 1664 êcole beer @ £4,000,000.00 £8,000.000,0 1"]
     
     func testReturnsUntitledIfNoNameIsFound() {
@@ -44,15 +54,6 @@ class OCRResultParsingTests: XCTestCase {
                        expectation)
     }
     
-    func testEmptyStringReturnsEmptyArray() {
-        var ocrResult = "                   "//Contains spaces and tabs
-        let expectation = [Item]()
-        let result = ocrResultConverter.convertToItems(&ocrResult,
-                                                       billID: "billID")
-        
-        XCTAssertEqual(result, expectation)
-    }
-    
     func testReturnsZeroPriceIfNoPriceIsFound() {
         var ocrResult = "2 x 500ml 1664 êcole beer"
         let expectation = "0.0"
@@ -61,6 +62,25 @@ class OCRResultParsingTests: XCTestCase {
         
         XCTAssertEqual(result.first?.price,
                        expectation)
+    }
+    
+    func testReturnsOneItemIfNoQuantityFound() {
+        var ocrResult = "500ml 1664 êcole beer"
+        let expectation = 1
+        let result = ocrResultConverter.convertToItems(&ocrResult,
+                                                       billID: "billID")
+        
+        XCTAssertEqual(result.count,
+                       expectation)
+    }
+    
+    func testEmptyStringReturnsEmptyArray() {
+        var ocrResult = "                   "//Contains spaces and tabs
+        let expectation = [Item]()
+        let result = ocrResultConverter.convertToItems(&ocrResult,
+                                                       billID: "billID")
+        
+        XCTAssertEqual(result, expectation)
     }
     
     func testReturnsItemNameOnly() {
