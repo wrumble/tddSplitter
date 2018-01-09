@@ -44,8 +44,7 @@ class OCRResultConverter {
     }
     
     private func returnItemQuantity(_ receiptLine: inout String) -> Int {
-        let numberXDashPattern = "^\\d+(?=\\s*[xX-])"
-        let justNumberPattern = "^\\d{1,2}\\s"
+        let numberXDashPattern = "^\\d+(?=\\s*[xX-]|\\s)"
         var quantity = "1"
         
         if regex.containsMatch(numberXDashPattern,
@@ -53,11 +52,6 @@ class OCRResultConverter {
             extractAndRemove(&quantity,
                              from: &receiptLine,
                              with: numberXDashPattern)
-        } else if regex.containsMatch(justNumberPattern,
-                                      inString: receiptLine) {
-            extractAndRemove(&quantity,
-                             from: &receiptLine,
-                             with: justNumberPattern)
         }
         
         return Int(quantity.trimmingCharacters(in: .whitespacesAndNewlines))!
@@ -127,23 +121,13 @@ class OCRResultConverter {
     
     private func removeIndividualItemPricings(_ receiptLine: inout String,
                                               itemPrice: String) {
-        receiptLine = receiptLine.replacingOccurrences(of: ",", with: "")
-        var nameArray = receiptLine.components(separatedBy: " ")
-        let price = String(format: "%.02f", Double(itemPrice)!)
-        if let index = nameArray.index(where: { $0 == price }) {
-            let stringBeforePrice = nameArray[index - 1]
-            if stringBeforePrice == "@" ||
-                stringBeforePrice == "a" ||
-                stringBeforePrice == "8" ||
-                stringBeforePrice == "0" {
-                nameArray.remove(at: index - 1)
-                receiptLine = nameArray.joined(separator: " ")
-            }
-        }
-
-        if receiptLine.contains(price) {
-            receiptLine = receiptLine.replacingOccurrences(of: price,
-                                                           with: "")
-        }
+        let pricePattern = "\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{1,2})"
+        receiptLine = regex.replaceMatches(pricePattern,
+                             inString: receiptLine,
+                             withString: "")!
+        receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
+        receiptLine  = regex.replaceMatches("\\s*[@a80]$",
+                                   inString: receiptLine,
+                                   withString: "")!
     }
 }

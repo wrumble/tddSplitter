@@ -42,7 +42,9 @@ class OCRResultParsingTests: XCTestCase {
                                              "2 x 500ml 1664 êcole beer a £4,000,000.00 £8,000.000,0 1",
                                              "2 x 500ml 1664 êcole beer 8 £4,000,000.00 £8,000.000,0 1",
                                              "2 x 500ml 1664 êcole beer 0 £4,000,000.00 £8,000.000,0 1",
-                                             "2 x 500ml 1664 êcole beer @ £4,000,000.00 £8,000.000,0 1"]
+                                             "2 x 500ml 1664 êcole beer @ £4.000.000,00 £8,000.000,0 1",
+                                             "2 x 500ml 1664 êcole beer 0 £4.000,000.00 £8,000.000,0 1",
+                                             "2 x 500ml 1664 êcole beer 0 £4,000.000,00 £8,000.000,0 1"]
     
     func testReturnsUntitledIfNoNameIsFound() {
         var ocrResult = "2 x £8,000,000.0"
