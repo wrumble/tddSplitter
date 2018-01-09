@@ -110,6 +110,7 @@ class BillTests: XCTestCase {
                 }
         })
         removeTestBill(withID: otherUserID)
+        removeTestBill(withID: userWithBillsID)
     }
     
     func testCanRemoveBillFromFirebase() {
@@ -133,7 +134,7 @@ class BillTests: XCTestCase {
     
     func addBillToFirebaseWith(userID: String,
                                completion: @escaping (String) -> Void = { _ in }) -> String {
-        let bill = Bill(id: "testBillID",
+        let bill = Bill(id: UUID().uuidString,
                         userID: userID,
                         name: "Bob Ross",
                         location: "MacDonalds",
