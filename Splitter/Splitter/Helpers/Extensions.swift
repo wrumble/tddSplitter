@@ -95,6 +95,10 @@ extension String {
         }
         return formattedPrice
     }
+    
+    func trim() -> String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
 
 extension UIView {
