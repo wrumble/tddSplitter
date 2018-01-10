@@ -17,15 +17,15 @@ enum ItemEnum {
 
 class OCRResultParsingTests: XCTestCase {
     
-    private let ocrResultConverter = OCRResultConverter()
+    private let itemFactory = ItemFactory()
     private var nameResultsArray: [String] {
-        return createResultsArray(for: .name)
+        return resultsArray(for: .name)
     }
     private var priceResultsArray: [String] {
-        return createResultsArray(for: .price)
+        return resultsArray(for: .price)
     }
     private var quantityResultsArray: [String] {
-        return createResultsArray(for: .quantity)
+        return resultsArray(for: .quantity)
     }
     
     fileprivate let possibleReceiptValues = ["2 500ml 1664 êcole beer £8,000,000.0", //price changes
@@ -43,13 +43,13 @@ class OCRResultParsingTests: XCTestCase {
                                              "2 x 500ml 1664 êcole beer 8 £4,000,000.00 £8,000.000,0 1",
                                              "2 x 500ml 1664 êcole beer 0 £4,000,000.00 £8,000.000,0 1",
                                              "2 x 500ml 1664 êcole beer @ £4.000.000,00 £8,000.000,0 1",
-                                             "2 x 500ml 1664 êcole beer 0 £4.000,000.00 £8,000.000,0 1",
-                                             "2 x 500ml 1664 êcole beer 0 £4,000.000,00 £8,000.000,0 1"]
+                                             "2 x 500ml 1664 êcole beer @ £4.000,000.00 £8,000.000,0 1",
+                                             "2 x 500ml 1664 êcole beer @ £4,000.000,00 £8,000.000,0 1"]
     
     func testReturnsUntitledIfNoNameIsFound() {
         var ocrResult = "2 x £8,000,000.0"
         let expectation = "Untitled"
-        let result = ocrResultConverter.convertToItems(&ocrResult,
+        let result = itemFactory.convertToItems(&ocrResult,
                                                        billID: "billID")
         
         XCTAssertEqual(result.first?.name,
@@ -59,7 +59,7 @@ class OCRResultParsingTests: XCTestCase {
     func testReturnsZeroPriceIfNoPriceIsFound() {
         var ocrResult = "2 x 500ml 1664 êcole beer"
         let expectation = "0.0"
-        let result = ocrResultConverter.convertToItems(&ocrResult,
+        let result = itemFactory.convertToItems(&ocrResult,
                                                        billID: "billID")
         
         XCTAssertEqual(result.first?.price,
@@ -69,7 +69,7 @@ class OCRResultParsingTests: XCTestCase {
     func testReturnsOneItemIfNoQuantityFound() {
         var ocrResult = "500ml 1664 êcole beer"
         let expectation = 1
-        let result = ocrResultConverter.convertToItems(&ocrResult,
+        let result = itemFactory.convertToItems(&ocrResult,
                                                        billID: "billID")
         
         XCTAssertEqual(result.count,
@@ -79,7 +79,7 @@ class OCRResultParsingTests: XCTestCase {
     func testEmptyStringReturnsEmptyArray() {
         var ocrResult = "                   "//Contains spaces and tabs
         let expectation = [Item]()
-        let result = ocrResultConverter.convertToItems(&ocrResult,
+        let result = itemFactory.convertToItems(&ocrResult,
                                                        billID: "billID")
         
         XCTAssertEqual(result, expectation)
@@ -115,11 +115,11 @@ extension OCRResultParsingTests {
         return expectationArray
     }
     
-    fileprivate func createResultsArray(for itemValue: ItemEnum) -> [String] {
+    fileprivate func resultsArray(for itemValue: ItemEnum) -> [String] {
         var resultArray = [String]()
         possibleReceiptValues.forEach { reciptLine in
             var line = reciptLine
-            let result = ocrResultConverter.convertToItems(&line,
+            let result = itemFactory.convertToItems(&line,
                                                            billID: "billID")
             switch itemValue {
             case .price:

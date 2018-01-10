@@ -10,8 +10,8 @@ import UIKit
 
 class Regex {
     
-    func listMatches(_ pattern: String,
-                     inString string: String) -> [String] {
+    func listMatches(of pattern: String,
+                     in string: String) -> [String] {
         let regex = regexWith(pattern)!
         let range = rangeOf(string)
         let matches = regex.matches(in: string, range: range)
@@ -22,16 +22,16 @@ class Regex {
         }
     }
     
-    func containsMatch(_ pattern: String,
-                       inString string: String) -> Bool {
+    func contains(pattern: String,
+                  in string: String) -> Bool {
         let regex = regexWith(pattern)!
         let range = rangeOf(string)
         return regex.firstMatch(in: string, range: range) != nil
     }
     
-    func replaceMatches(_ pattern: String,
-                        inString string: String,
-                        withString replacementString: String) -> String? {
+    func replaceMatch(of pattern: String,
+                      in string: String,
+                      with replacementString: String) -> String? {
         let regex = regexWith(pattern)!
         let range = rangeOf(string)
         
