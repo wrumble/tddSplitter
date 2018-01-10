@@ -17,7 +17,7 @@ class RegexTests: XCTestCase {
         let ocrResult = "2 cheese burger £8.0"
         let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
         
-        let result = regex.contains(: pattern,
+        let result = regex.contains(pattern,
                                     in: ocrResult)
             
         XCTAssertTrue(result, "Does not contain a match")
@@ -28,7 +28,7 @@ class RegexTests: XCTestCase {
         let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
         let expectation = ["8.0"]
         
-        let result = regex.listMatches(pattern,
+        let result = regex.listMatches(of: pattern,
                                        in: ocrResult)
             XCTAssertEqual(expectation, result)
 
@@ -39,9 +39,9 @@ class RegexTests: XCTestCase {
         let pattern = "[0-9]+(\\.|,)[0-9]{1,2}"
         let expectation = "2 cheese burger £"
         
-        let result = regex.replaceMatch(pattern,
-                                          inString: ocrResult,
-                                          withString: "")
+        let result = regex.replaceMatch(of: pattern,
+                                        in: ocrResult,
+                                        with: "")
         XCTAssertEqual(expectation, result)
     }
 }
