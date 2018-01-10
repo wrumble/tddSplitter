@@ -11,7 +11,7 @@ class Name {
     private let regex = Regex()
     
     func format(_ receiptLine: inout String) -> String {
-        if regex.contains(: Pattern.nameChars, in: receiptLine) {
+        if regex.contains(Pattern.nameChars, in: receiptLine) {
             receiptLine = regex.listMatches(of: Pattern.nameChars, in: receiptLine).joined()
             removeIndividualItemPricings(&receiptLine)
             

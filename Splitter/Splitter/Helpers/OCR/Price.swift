@@ -12,7 +12,7 @@ class Price {
     private var price = "0.0"
     
     func find(_ receiptLine: inout String, quantity: Int) -> String {
-        if regex.contains(: Pattern.price,
+        if regex.contains(Pattern.price,
                           in: receiptLine) {
             price = regex.listMatches(of: Pattern.price,
                                       in: receiptLine).last!

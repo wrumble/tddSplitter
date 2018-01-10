@@ -22,7 +22,7 @@ class Regex {
         }
     }
     
-    func contains(pattern: String,
+    func contains(_ pattern: String,
                   in string: String) -> Bool {
         let regex = regexWith(pattern)!
         let range = rangeOf(string)

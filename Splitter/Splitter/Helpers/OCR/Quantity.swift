@@ -13,8 +13,8 @@ class Quantity {
     func find(_ receiptLine: inout String) -> Int {
         var quantity = "1"
         
-        if regex.contains(: Pattern.numberOrXOrDash,
-                               in: receiptLine) {
+        if regex.contains(Pattern.numberOrXOrDash,
+                          in: receiptLine) {
             quantity = regex.listMatches(of: Pattern.numberOrXOrDash,
                                          in: receiptLine).first!
             remove(Pattern.numberOrXOrDash,
@@ -29,8 +29,8 @@ class Quantity {
     private func remove(_ pattern: String,
                         from string: inout String) {
         
-        if regex.contains(: pattern,
-                               in: string) {
+        if regex.contains(pattern,
+                          in: string) {
             string = regex.replaceMatch(of: pattern,
                                           in: string,
                                           with: "")!
