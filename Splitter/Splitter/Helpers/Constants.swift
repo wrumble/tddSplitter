@@ -179,3 +179,11 @@ enum Font {
     static let titleLogo = UIFont(name: "WalkwayBold", size: 200)
     static let toastFont = UIFont.systemFont(ofSize: 16)
 }
+
+enum Pattern {
+    static let numberOrXOrDash = "^\\d+(?=\\s*[xX-]|\\s)"
+    static let xOrDash = "\\s*[xX-]"
+    static let price = "\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{1,2})"
+    static let charsBeforeIndividualPrice = "\\s*[@a80]$"
+    static let nameChars = "\\d+|\\d+[A-z]+|[\\u00C0-\\u017E A-z@.,]+"
+}
