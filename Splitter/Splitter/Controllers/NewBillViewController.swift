@@ -240,12 +240,12 @@ class NewBillViewController: UIViewController {
     
     private func createItems(_ textResult: String) -> [Item] {
         var items = [Item]()
-        let ocrResultConverter = OCRResultConverter()
+        let itemFactory = ItemFactory()
         let receiptLines = textResult.components(separatedBy: .newlines)
         receiptLines.forEach { line in
             var receiptLine = line
-            let newItems = ocrResultConverter.convertToItems(&receiptLine,
-                                                             billID: billID)
+            let newItems = itemFactory.convertToItems(&receiptLine,
+                                                      billID: billID)
             newItems.forEach { item in
                 items.append(item)
             }

@@ -46,6 +46,9 @@
 		8760E7071F6C024400529685 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 871B37EE1F2F4573001FE485 /* Localizable.strings */; };
 		8760E70F1F6C072000529685 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
 		8761411B1F4C43ED00107372 /* BillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AC17F1F22457000846851 /* BillTests.swift */; };
+		8762B2FF200633A100CF15A5 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B2FE200633A100CF15A5 /* Quantity.swift */; };
+		8762B3012006349B00CF15A5 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B3002006349B00CF15A5 /* Price.swift */; };
+		8762B303200646A600CF15A5 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B302200646A600CF15A5 /* Name.swift */; };
 		8766D1261FA389720049A7B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */; };
 		8770AD2A1F34D209000A01A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A218E71F25E8A200B4BE74 /* Extensions.swift */; };
 		8773583B1F7BFFDB00EE7C19 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760E70A1F6C064E00529685 /* TestExtensions.swift */; };
@@ -213,6 +216,9 @@
 		8760E6FA1F6C014000529685 /* EarlGreyWelcomeScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyWelcomeScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8760E6FE1F6C014000529685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8760E70A1F6C064E00529685 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		8762B2FE200633A100CF15A5 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		8762B3002006349B00CF15A5 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		8762B302200646A600CF15A5 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		8766D1251FA389720049A7B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877358461F7D01A700EE7C19 /* OCRRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRRequestTests.swift; sourceTree = "<group>"; };
 		877B41831F46EF3300AE9813 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
@@ -543,6 +549,9 @@
 			children = (
 				871E31C51F7D0EE2000354E7 /* OCRRequest.swift */,
 				873218C61F79324800C960F6 /* OCRResultConverter.swift */,
+				8762B2FE200633A100CF15A5 /* Quantity.swift */,
+				8762B3002006349B00CF15A5 /* Price.swift */,
+				8762B302200646A600CF15A5 /* Name.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -1190,7 +1199,9 @@
 				872D3B161F30C5C300F2FEC2 /* TitleLogoLabel.swift in Sources */,
 				874D37EA1F7153DE0092ACB4 /* NewBillViewController.swift in Sources */,
 				87D1D3B91F7516F2008E3C34 /* User.swift in Sources */,
+				8762B3012006349B00CF15A5 /* Price.swift in Sources */,
 				87A218EC1F25EEAA00B4BE74 /* Firebase.swift in Sources */,
+				8762B2FF200633A100CF15A5 /* Quantity.swift in Sources */,
 				877B41841F46EF3300AE9813 /* ToastLabel.swift in Sources */,
 				87344C551F705D8400C0B3FE /* BillCarouselView.swift in Sources */,
 				871E31C61F7D0EE2000354E7 /* OCRRequest.swift in Sources */,
@@ -1202,6 +1213,7 @@
 				870B439C1F9783BB0056ED1E /* CarouselButton.swift in Sources */,
 				873218C71F79324800C960F6 /* OCRResultConverter.swift in Sources */,
 				87B1EE241F97D390005E1674 /* CarouselTableViewCell.swift in Sources */,
+				8762B303200646A600CF15A5 /* Name.swift in Sources */,
 				87EE7B311F3B457C000F7E96 /* WelcomeScreenInformationView.swift in Sources */,
 				87EBAFEB1F851A5700D5B2C0 /* ActivityIndicator.swift in Sources */,
 				87344C511F7058C000C0B3FE /* CarouselDataSource.swift in Sources */,

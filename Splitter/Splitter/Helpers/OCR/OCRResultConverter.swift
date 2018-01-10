@@ -8,126 +8,41 @@
 
 import UIKit
 
-class OCRResultConverter {
+class ItemFactory {
     
-    let regex = Regex()
-    var creationCount = 0
+    private let regex = Regex()
+    private let quantity = Quantity()
+    private let price = Price()
+    private let name = Name()
+    
+    private var creationCount = 0
     
     func convertToItems(_ receiptLine: inout String,
                         billID: String) -> [Item] {
-        if receiptLine.trimmingCharacters(in: .whitespacesAndNewlines) == "" { return [] }
+        if receiptLine.trim() == "" { return [] }
         var itemArray = [Item]()
-        let itemQuantity = returnItemQuantity(&receiptLine)
-        let totalPrice = returnItemPrice(&receiptLine)
-        let itemPrice = String(totalPrice/Double(itemQuantity))
-        formatItemName(&receiptLine, itemPrice: itemPrice)
+        let itemQuantity = quantity.find(&receiptLine)
+        let itemPrice = price.find(&receiptLine, quantity: itemQuantity)
+        let itemName = name.format(&receiptLine)
         
-        if itemQuantity == 0 {
-            let item = Item(name: receiptLine,
+        func createItem() {
+            let item = Item(name: itemName,
                             price: itemPrice,
                             creationID: String(creationCount),
                             billID: billID)
             
             itemArray.append(item)
+        }
+        
+        if itemQuantity == 0 {
+            createItem()
         } else {
             for _ in 0..<itemQuantity {
-                let item = Item(name: receiptLine,
-                                price: itemPrice,
-                                creationID: String(creationCount),
-                                billID: billID)
-                itemArray.append(item)
+                createItem()
             }
         }
         
         creationCount += 1
         return itemArray
-    }
-    
-    private func returnItemQuantity(_ receiptLine: inout String) -> Int {
-        let numberXDashPattern = "^\\d+(?=\\s*[xX-]|\\s)"
-        var quantity = "1"
-        
-        if regex.containsMatch(numberXDashPattern,
-                               inString: receiptLine) {
-            extractAndRemove(&quantity,
-                             from: &receiptLine,
-                             with: numberXDashPattern)
-        }
-        
-        return Int(quantity.trimmingCharacters(in: .whitespacesAndNewlines))!
-    }
-    
-    private func extractAndRemove(_ quantity: inout String,
-                                  from string: inout String,
-                                  with pattern: String) {
-        quantity = regex.listMatches(pattern,
-                                     inString: string).first!
-        string = regex.replaceMatches(pattern,
-                                       inString: string,
-                                       withString: "")!
-        string = regex.replaceMatches("\\s*[xX-]",
-                                      inString: string,
-                                      withString: "")!
-    }
-    
-    private func returnItemPrice(_ receiptLine: inout String) -> Double {
-        let pricePattern = "\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{1,2})"
-        var price = "0.0"
-        if regex.containsMatch(pricePattern,
-                               inString: receiptLine) {
-            price = regex.listMatches(pricePattern,
-                                      inString: receiptLine).last!
-            if let index = receiptLine.range(of: price)?.lowerBound {
-                let substring = receiptLine[..<index]
-                receiptLine = String(substring)
-            }
-            normalizePrice(&price)
-        }
-        return Double(price)!
-    }
-    
-    private func normalizePrice(_ price: inout String) {
-        removeExtraCharactersFrom(&price, decimalIndex: 3)
-        removeExtraCharactersFrom(&price, decimalIndex: 2)
-    }
-    
-    private func removeExtraCharactersFrom(_ price: inout String,
-                                           decimalIndex: Int) {
-        var priceCharacters = Array(price)
-        let index = priceCharacters.count - decimalIndex
-        if priceCharacters[index] == "," || priceCharacters[index] == "." {
-            price = String(Array(price).filter { Array("0123456789").contains($0) })
-            let index = price.index(price.endIndex, offsetBy:  -decimalIndex + 1)
-            price = price.replacingOccurrences(of: ".", with: "")
-            price.insert(".", at: index)
-        }
-    }
-
-    private func formatItemName(_ receiptLine: inout String,
-                                itemPrice: String) {
-        let wantedCharacters = "\\d+|\\d+[A-z]+|[\\u00C0-\\u017E A-z@.,]+"
-        receiptLine = receiptLine.replacingOccurrences(of: "_", with: "")
-        if regex.containsMatch(wantedCharacters,
-                               inString: receiptLine) {
-             receiptLine = regex.listMatches(wantedCharacters, inString: receiptLine)
-                                .joined()
-            removeIndividualItemPricings(&receiptLine, itemPrice: itemPrice)
-            receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        if receiptLine == "" {
-            receiptLine = "Untitled"
-        }
-    }
-    
-    private func removeIndividualItemPricings(_ receiptLine: inout String,
-                                              itemPrice: String) {
-        let pricePattern = "\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{1,2})"
-        receiptLine = regex.replaceMatches(pricePattern,
-                             inString: receiptLine,
-                             withString: "")!
-        receiptLine = receiptLine.trimmingCharacters(in: .whitespacesAndNewlines)
-        receiptLine  = regex.replaceMatches("\\s*[@a80]$",
-                                   inString: receiptLine,
-                                   withString: "")!
     }
 }
