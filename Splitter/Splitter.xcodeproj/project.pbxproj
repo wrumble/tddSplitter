@@ -614,7 +614,6 @@
 				874AC10F1F22045700846851 /* Resources */,
 				877D5A0B1F2745CC006B53DE /* ShellScript */,
 				84DCB13FCAD79943430C6362 /* [CP] Embed Pods Frameworks */,
-				D9EDF5A3EB39D72F2C54ED39 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -634,7 +633,6 @@
 				874AC17A1F22457000846851 /* Frameworks */,
 				874AC17B1F22457000846851 /* Resources */,
 				DD496A81267876B032FDCF3D /* [CP] Embed Pods Frameworks */,
-				1A6F2ECC1AA1A50713BE726A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -656,7 +654,6 @@
 				8760E6F81F6C014000529685 /* Resources */,
 				112A034DFA7FD8FCA0F31942 /* EarlGrey Copy Files */,
 				AEC21768B84941F0CFCBEF89 /* [CP] Embed Pods Frameworks */,
-				CA44FB4650AE434EC6EF6D75 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -678,7 +675,6 @@
 				877F555B1F74204100CABA05 /* Resources */,
 				8B69C3AAE97EAF9E8586B797 /* EarlGrey Copy Files */,
 				4C3DADEBBBF04B5D7507C3E0 /* [CP] Embed Pods Frameworks */,
-				4BBE9FAD183DC60005C10687 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -700,7 +696,6 @@
 				87F9E91C1F6C3829000B6B48 /* Resources */,
 				3B57BC154110A32112EA6372 /* EarlGrey Copy Files */,
 				1020DA59EB14848732AC31ED /* [CP] Embed Pods Frameworks */,
-				46E0EEB92BD9A60C50687E34 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -858,9 +853,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -872,7 +866,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -883,22 +876,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1A6F2ECC1AA1A50713BE726A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3983E1CE524B4D284C43F7F1 /* [CP] Check Pods Manifest.lock */ = {
@@ -937,45 +915,14 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		46E0EEB92BD9A60C50687E34 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyMyBillsTests/Pods-EarlGreyMyBillsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BBE9FAD183DC60005C10687 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4C3DADEBBBF04B5D7507C3E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -987,7 +934,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -998,7 +944,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EarlGreyNewBillTests/Pods-EarlGreyNewBillTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7112C9A99A285C3D7EC23FB8 /* [CP] Check Pods Manifest.lock */ = {
@@ -1025,9 +971,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -1038,7 +983,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1048,7 +992,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Splitter/Pods-Splitter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		877D5A0B1F2745CC006B53DE /* ShellScript */ = {
@@ -1070,9 +1014,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -1084,7 +1027,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1095,37 +1037,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA44FB4650AE434EC6EF6D75 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9EDF5A3EB39D72F2C54ED39 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Splitter/Pods-Splitter-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EarlGreyWelcomeScreenTests/Pods-EarlGreyWelcomeScreenTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD496A81267876B032FDCF3D /* [CP] Embed Pods Frameworks */ = {
@@ -1134,9 +1046,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GKImagePicker/GKImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LifetimeTracker/LifetimeTracker.framework",
@@ -1147,7 +1058,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifetimeTracker.framework",
@@ -1157,7 +1067,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnitTests/Pods-UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE620B5AD57581941DB11E41 /* [CP] Check Pods Manifest.lock */ = {
